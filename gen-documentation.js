@@ -25,6 +25,7 @@ function outputFile(fname, data) {
 
 // Create index file
 
-const htmlIndex = nunjucks.render('./src-docs/templates/content-index.njk', {title: 'Welcome to the OpenA11y Evaluation Library'});
+const htmlIndex = nunjucks.render('./src-docs/templates/content-index.njk',
+  {title: 'Open Web Accessibility Consulting'});
 outputFile('index.html', htmlIndex);
 
