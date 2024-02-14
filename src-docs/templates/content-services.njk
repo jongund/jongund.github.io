@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    {% include "./head.njk" %}
+  </head>
+  <body>
+    {% include "./header.njk" %}
+
+    <!-- Main section-->
+    <div id="main-section" class="container px-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">{{title | safe}}</li>
+        </ol>
+      </nav>
+      <main class="row gx-4 justify-content-center">
+        <div class="col-lg-8">
+          {% block title %}
+          <h1>{{title}}</h1>
+          {% endblock %}
+          <div id="services">
+
+            <h2>Workshops</h2>
+
+            <p>Something about workshops...</p>
+
+            <h2>Consulting</h2>
+
+            <p>Something about consulting...</p>
+
+            <h2>Supporting Accessibility Standards</h2>
+
+            <p>Something about supporting accessibility standards...</p>
+
+
+          </div>
+        </div>
+      </main>
+    </nav>
+    {% include "./footer.njk" %}
+    {% include "./scripts.njk" %}
+
+  </body>
+</html>

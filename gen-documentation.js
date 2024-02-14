@@ -29,3 +29,14 @@ const htmlIndex = nunjucks.render('./src-docs/templates/content-index.njk',
   {title: 'Open Web Accessibility Consulting'});
 outputFile('index.html', htmlIndex);
 
+const htmlAbout = nunjucks.render('./src-docs/templates/content-about.njk',
+  {title: 'About'});
+outputFile('about.html', htmlAbout);
+
+const htmlServices = nunjucks.render('./src-docs/templates/content-services.njk',
+  {title: 'Services'});
+outputFile('services.html', htmlServices);
+
+const htmlProjects = nunjucks.render('./src-docs/templates/content-projects.njk',
+  {title: 'Projects'});
+outputFile('projects.html', htmlProjects);

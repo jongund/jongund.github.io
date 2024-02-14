@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    {% include "./head.njk" %}
+  </head>
+  <body>
+    {% include "./header.njk" %}
+
+    <!-- Main section-->
+    <div id="main-section" class="container px-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">{{title | safe}}</li>
+        </ol>
+      </nav>
+      <main class="row gx-4 justify-content-center">
+        <div class="col-lg-8">
+          {% block title %}
+          <h1>{{title}}</h1>
+          {% endblock %}
+          <div id="projects">
+
+            <h2 id="library">OpenA11y Evaluation Library</h2>
+
+            <p>Something about evaluation library...</p>
+
+            <h2 id="ainspector">AInspector for Firefox</h2>
+
+            <p>Something about AInspector for Firefox...</p>
+
+            <h2 id="skipto">SkipTo.js</h2>
+
+            <p>Something about SkipTo.js ...</p>
+
+
+          </div>
+        </div>
+      </main>
+    </nav>
+    {% include "./footer.njk" %}
+    {% include "./scripts.njk" %}
+
+  </body>
+</html>
