@@ -1,7 +1,8 @@
 {
   "dependencies": {
-    "gulp": "^3.9.1",
-    "nunjucks": "^3.2.4"
+    "gulp": "^4.0",
+    "nunjucks": "^3.2.4",
+    "sass": "^1.71.1"
   },
   "devDependencies": {
     "gulp-sass": "^5.1.0"

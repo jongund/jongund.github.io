@@ -1,4 +1,10 @@
 /* Define standard variables and values for website */
+$iconBlue: #13294B;
+$iconRed: #C5050C;
+$iconBackground: #dddddd;
+$iconWhite: #ffffff;
+$contentBlue: #005797;
+
 .brand {
   display: inline-block;
   font-family: "Fjalla One", sans-serif;
@@ -12,28 +18,28 @@
 
 .brand .open {
   display: inline-block;
-  color: #13294B;
-  background: #dddddd;
+  color: $iconBlue;
+  background: $iconBackground;
 }
 
 .brand .web {
   display: inline-block;
-  color: #ffffff;
-  background: #C5050C;
+  color: $iconWhite;
+  background: $iconRed;
 }
 
 .brand .a11y {
   display: inline-block;
-  color: #ffffff;
-  background: #13294B;
+  color: $iconWhite;
+  background: $iconBlue;
 }
 
 .text-blue {
-  color: #005797;
+  color: $contentBlue;
 }
 
 nav ol.breadcrumb {
-  padding-left: 0;
+  padding-left:  0;
 }
 
 footer {
@@ -47,9 +53,10 @@ a[href]:hover {
 .nav-link,
 .nav-link:hover,
 .nav-link:focus {
-  color: #005797;
+  color: $contentBlue;
 }
 
 .tab-pane {
   margin-top: 1em;
 }
+
