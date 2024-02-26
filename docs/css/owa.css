@@ -7,25 +7,61 @@
 }
 
 .brand span {
+  display: inline-block;
   padding: 0.25em;
 }
 
 .brand .open {
-  display: inline-block;
-  color: #13294B;
-  background: #dddddd;
-}
-
-.brand .web {
-  display: inline-block;
   color: #ffffff;
   background: #C5050C;
 }
 
-.brand .a11y {
-  display: inline-block;
+.brand .web {
   color: #ffffff;
   background: #13294B;
+}
+
+.brand .a11y {
+  color: #13294B;
+  background: #dddddd;
+}
+
+svg .brand text {
+  font-size: 17px;
+}
+
+svg .brand .open rect {
+  fill: #C5050C;
+}
+
+svg .brand .open text {
+  fill: #ffffff;
+}
+
+svg .brand .web rect {
+  fill: #13294B;
+}
+
+svg .brand .web text {
+  fill: #ffffff;
+}
+
+svg .brand .a11y rect {
+  fill: #dddddd;
+}
+
+svg .brand .a11y text {
+  fill: #13294B;
+}
+
+.bg-header {
+  background: #dddddd;
+}
+
+.lead {
+  font-size: 1.1em;
+  color: black;
+  font-style: italic;
 }
 
 .text-blue {
@@ -44,10 +80,18 @@ a[href]:hover {
   text-decoration: underline;
 }
 
-.nav-link,
-.nav-link:hover,
-.nav-link:focus {
+.breadcrumb a,
+.navbar-nav .nav-link,
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
   color: #005797;
+}
+
+.breadcrumb a[aria-current],
+.navbar-nav .nav-link[aria-current],
+.navbar-nav .nav-link:hover[aria-current],
+.navbar-nav .nav-link:focus {
+  color: #000000;
 }
 
 .tab-pane {

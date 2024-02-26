@@ -4,6 +4,7 @@ $iconRed: #C5050C;
 $iconBackground: #dddddd;
 $iconWhite: #ffffff;
 $contentBlue: #005797;
+$linkCurrent: #000000;
 
 .brand {
   display: inline-block;
@@ -13,25 +14,61 @@ $contentBlue: #005797;
 }
 
 .brand span {
+  display: inline-block;
   padding: 0.25em;
 }
 
 .brand .open {
-  display: inline-block;
-  color: $iconBlue;
-  background: $iconBackground;
-}
-
-.brand .web {
-  display: inline-block;
   color: $iconWhite;
   background: $iconRed;
 }
 
-.brand .a11y {
-  display: inline-block;
+.brand .web {
   color: $iconWhite;
   background: $iconBlue;
+}
+
+.brand .a11y {
+  color: $iconBlue;
+  background: $iconBackground;
+}
+
+svg .brand text {
+  font-size: 17px;
+}
+
+svg .brand .open rect {
+  fill: $iconRed;
+}
+
+svg .brand .open text {
+  fill: $iconWhite;
+}
+
+svg .brand .web rect {
+  fill: $iconBlue;
+}
+
+svg .brand .web text {
+  fill: $iconWhite;
+}
+
+svg .brand .a11y rect {
+  fill: $iconBackground;
+}
+
+svg .brand .a11y text {
+  fill: $iconBlue;
+}
+
+.bg-header {
+  background: $iconBackground;
+}
+
+.lead {
+  font-size: 1.1em;
+  color: black;
+  font-style: italic;
 }
 
 .text-blue {
@@ -50,10 +87,18 @@ a[href]:hover {
   text-decoration: underline;
 }
 
-.nav-link,
-.nav-link:hover,
-.nav-link:focus {
+.breadcrumb a,
+.navbar-nav .nav-link,
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
   color: $contentBlue;
+}
+
+.breadcrumb a[aria-current],
+.navbar-nav .nav-link[aria-current],
+.navbar-nav .nav-link:hover[aria-current],
+.navbar-nav .nav-link:focus {
+  color: $linkCurrent;
 }
 
 .tab-pane {

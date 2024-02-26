@@ -22,7 +22,7 @@
             <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand" href="index.html" aril-label="Open Web Accessibility">
+                <a class="navbar-brand" href="index.html" aria-label="Open Web Accessibility">
                     <span class="brand"><span class="open">Open</span><span class="web">Web</span><span class="a11y">A11y</span></span>
                 </a>
 
@@ -38,7 +38,7 @@
                 <div class="collapse navbar-collapse" id="mainNavbar">
                   <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                          <a class="nav-link" href="index.html">Home</a>
                         </li>
 
                         <li class="nav-item">
@@ -77,11 +77,29 @@
             </div>
         </nav>
 
+
     <!-- Header-->
-    <header class="bg-primary bg-gradient text-white">
-        <div class="container px-4 text-center">
-            <h1 class="fw-bolder">Open Web Accessibility Consulting</h1>
-            <p class="lead"></p>
+    <header text-white">
+        <div class="container px-4">
+          <h1 aria-label="Open Web Accessibiliry Consulting">
+            <svg viewBox="0 0 220 55" xmlns="http://www.w3.org/2000/svg" role="none">
+              <g class="brand">
+                <g class="open">
+                  <rect x="0"  y="5" width="28" height="52"/>
+                  <text x="-47" y="18"transform="rotate(-90)">Open</text>
+                </g>
+                <g class="web">
+                  <rect x="27"  y="5" width="210" height="25"/>
+                  <text x="30"  y="24">Web</text>
+                </g>
+                <g class="a11y">
+                  <rect x="27"  y="30" width="210" height="27"/>
+                  <text x="30"  y="50">Accessibility Consulting</text>
+                </g>
+              </g>
+            </svg>
+          </h1>
+          <p class="lead">Improving the experience of people with disabilities using the <em>web</em> through the use of accessibility standards and best practices.</p>
         </div>
     </header>
 
