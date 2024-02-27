@@ -37,7 +37,7 @@ const files = [
     filename: 'projects.html'
   },
   { template: './src-docs/templates/content-resources.njk',
-    title: 'Resources',
+    title: 'Referenence Resources',
     filename: 'resources.html'
   },
   { template: './src-docs/templates/content-services.njk',
