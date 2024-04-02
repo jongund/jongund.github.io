@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="funct.css" type="text/css"?>
+<?xm-well_formed path="funct.dtd"?>
+<slides>
+ <lang>en</lang>
+  <title>html-slides Example Presentation</title>
+
+  <logo>
+    <a href="https://openweba11y.com" aria-label="Open Web Accessibility">
+      <span class="brand"><span class="open">Open</span><span class="web">Web</span><span class="a11y">A11y</span></span>
+    </a>
+  </logo>
+
+  <copyright>
+     Copyright &#169; 2024 Jon Gunderson
+  </copyright>
+
+  <person>
+    <name>John Smith</name>
+    <desc href="http://myuniversity.edu">My University</desc>
+    <desc href="http://college.myuniversity.edu">My College</desc>
+    <desc href="mailto:johnsmith@myuniversity.edu">johnsmith@myuniversity.edu</desc>
+  </person>
+
+  <conference>
+    <name href="https://someconference.org">Some Conference</name>
+    <desc>Online</desc>
+    <desc>Month Day, Year</desc>
+  </conference>
+
+  <desc href="https://github.com/illinois-dres-aitg/html-slides">html-slides Home</desc>
+
+
+  <stylesheet media="screen">../../css/bootstrap.min.css</stylesheet>
+  <stylesheet media="screen">../../css/html-slides.css</stylesheet>
+
+  <script>../../js/bootstrap.bundle.min.js</script>
+  <script>../../js/html-slides-2.js</script>
+
+  <slide>
+    <title>Goals</title>
+    <contents>
+      <ul>
+        <li>Goal 1</li>
+        <li>Goal 2</li>
+        <li>Goal 3</li>
+        <li>Goal 4</li>
+      </ul>
+      <div id="show-slide-url"></div>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Topic Slide</title>
+    <contents>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Topic Slide with Progressive Disclosure</title>
+    <contents>
+      <p>Use the SPACE key to show the items in the following list progressively.</p>
+      <ul>
+        <li>Item 1</li>
+        <li class="more">Item 2</li>
+        <li class="more">Item 3</li>
+        <li class="more">Item 4</li>
+      </ul>
+    </contents>
+  </slide>
+
+
+  <slide>
+    <title>Data Table</title>
+    <contents>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+    </contents>
+  </slide>
+
+
+
+</slides>
+
+
