@@ -26,6 +26,24 @@
   background: #dddddd;
 }
 
+.service-icon svg {
+  display: block;
+  margin: auto;
+  height: 160px;
+  width: 160px;
+  fill: #13294B;
+}
+
+.service-icon {
+  text-align: center;
+}
+
+.service-icon a {
+  text-decoration: none;
+  font-size: 150%;
+  color: #13294B;
+}
+
 svg .brand text {
   font-size: 17px;
 }
