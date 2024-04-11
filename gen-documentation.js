@@ -24,25 +24,29 @@ function outputFile(fname, data) {
 }
 
 const files = [
-  { template: './src-docs/templates/content-index.njk',
-    title: 'Open Web Accessibility Consulting',
-    filename: 'index.html'
-  },
   { template: './src-docs/templates/content-about.njk',
     title: 'About',
     filename: 'about.html'
   },
-  { template: './src-docs/templates/content-projects.njk',
-    title: 'Projects',
-    filename: 'projects.html'
+  { template: './src-docs/templates/content-index.njk',
+    title: 'Open Web Accessibility Consulting',
+    filename: 'index.html'
   },
   { template: './src-docs/templates/content-resources.njk',
-    title: 'Reference Resources',
+    title: 'Resources',
     filename: 'resources.html'
   },
   { template: './src-docs/templates/content-services.njk',
     title: 'Services',
     filename: 'services.html'
+  },
+  { template: './src-docs/templates/content-standards.njk',
+    title: 'Standards',
+    filename: 'standards.html'
+  },
+  { template: './src-docs/templates/content-tools.njk',
+    title: 'Tools',
+    filename: 'tools.html'
   }
   ];
 

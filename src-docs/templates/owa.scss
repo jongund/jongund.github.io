@@ -5,6 +5,7 @@ $iconBackground: #dddddd;
 $iconWhite: #ffffff;
 $contentBlue: #005797;
 $linkCurrent: #000000;
+$linkIcon: #000000;
 
 .brand {
   display: inline-block;
@@ -32,6 +33,26 @@ $linkCurrent: #000000;
   color: $iconBlue;
   background: $iconBackground;
 }
+
+.service-icon svg {
+  display: block;
+  margin: auto;
+  height: 160px;
+  width: 160px;
+  fill: $iconBlue;
+}
+
+.service-icon {
+  text-align: center;
+}
+
+
+.service-icon a {
+  text-decoration: none;
+  font-size: 150%;
+  color: $iconBlue;
+}
+
 
 svg .brand text {
   font-size: 17px;
