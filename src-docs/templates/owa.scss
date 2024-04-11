@@ -108,6 +108,10 @@ footer {
   margin-top: 40px;
 }
 
+a[href] {
+  color: $contentBlue;
+}
+
 a[href]:hover {
   text-decoration: underline;
 }

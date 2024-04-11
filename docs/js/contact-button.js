@@ -51,20 +51,20 @@ template.innerHTML = `
               Interest
               <span class="required" aria-hidden="true">(required)</span>
             </legend>
-            <label class="radio">
+            <label class="radio" for="interest-radio-workshop">
               <input required type="radio" name="interest" value="Workshop" id="interest-radio-workshop"/>
               Workshop
             </label>
-            <label class="radio">
+            <label class="radio" for="interest-radio-consulting">
               <input type="radio" name="interest" value="Consulting" id="interest-radio-consulting"/>
               Consulting
             </label>
-            <label class="radio">
+            <label class="radio" for="interest-radio-skipto">
               <input type="radio" name="interest" value="Open Soure Tools" id="interest-radio-skipto"/>
               Open Source Tools
             </label>
-            <label class="radio">
-              <input type="radio" name="interest" value="Other" id="interest-radio-skipto"/>
+            <label class="radio" for="interest-radio-other">
+              <input type="radio" name="interest" value="Other" id="interest-radio-other"/>
               Other
             </label>
           </fieldset>

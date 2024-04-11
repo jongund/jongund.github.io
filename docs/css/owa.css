@@ -98,6 +98,10 @@ footer {
   margin-top: 40px;
 }
 
+a[href] {
+  color: #005797;
+}
+
 a[href]:hover {
   text-decoration: underline;
 }
