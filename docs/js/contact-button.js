@@ -5,7 +5,7 @@ template.innerHTML = `
     <div class="contact-dialog">
 
       <button id="contact-button"
-        aria-haspop="true"
+        aria-haspopup="true"
         aria-expanded="false"
         aria-controls="dialog"
         aria-live="off">
