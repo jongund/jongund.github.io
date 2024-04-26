@@ -121,6 +121,10 @@ a[href]:hover {
   color: #000000;
 }
 
-.tab-pane {
+.tab-panel {
   margin-top: 1em;
+}
+
+main h3 {
+  font-size: 125%;
 }

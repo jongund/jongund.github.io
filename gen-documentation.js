@@ -29,7 +29,7 @@ const files = [
     filename: 'about.html'
   },
   { template: './src-docs/templates/content-index.njk',
-    title: 'Open Web Accessibility Consulting',
+    title: 'Home',
     filename: 'index.html'
   },
   { template: './src-docs/templates/content-resources.njk',
