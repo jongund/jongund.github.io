@@ -28,6 +28,10 @@ const files = [
     title: 'About',
     filename: 'about.html'
   },
+  { template: './src-docs/templates/content-consulting.njk',
+    title: 'Consulting',
+    filename: 'consulting.html'
+  },
   { template: './src-docs/templates/content-index.njk',
     title: 'Home',
     filename: 'index.html'
@@ -36,10 +40,6 @@ const files = [
     title: 'Resources',
     filename: 'resources.html'
   },
-  { template: './src-docs/templates/content-services.njk',
-    title: 'Services',
-    filename: 'services.html'
-  },
   { template: './src-docs/templates/content-standards.njk',
     title: 'Standards',
     filename: 'standards.html'
@@ -47,6 +47,10 @@ const files = [
   { template: './src-docs/templates/content-tools.njk',
     title: 'Tools',
     filename: 'tools.html'
+  },
+  { template: './src-docs/templates/content-workshops.njk',
+    title: 'Workshops',
+    filename: 'workshops.html'
   }
   ];
 
