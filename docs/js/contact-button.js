@@ -145,11 +145,25 @@ class ContactButton extends HTMLElement {
   connectedCallback() {
 
     const buttonClass = this.getAttribute('data-button-class');
-    console.log(`buttonClass: ${this.getAttribute}`);
     if (buttonClass) {
       this.contactButton.classList.add(buttonClass);
     }
 
+    const interest = this.getAttribute('data-interest');
+    if ((typeof interest === 'string') && (interest.length)) {
+      this.setInterest(interest);
+    }
+
+  }
+
+  setInterest(interest) {
+    for (let i = 0; i < this.interestRadios.length; i += 1) {
+      const radioElem = this.interestRadios[i];
+      if (radioElem.value.toLowerCase() === interest.trim().toLowerCase()) {
+        radioElem.setAttribute('checked', '');
+        return
+      }
+    }
   }
 
   getInterest() {
@@ -261,7 +275,6 @@ class ContactButton extends HTMLElement {
       this.mailtoLink.href += `Phone: ${this.getPhone()}%0D%0A%0D%0A`;
       this.mailtoLink.href += `Interest: ${this.getInterest()}%0D%0A%0D%0A`;
       this.mailtoLink.href += `Additional Information:%0D%0A${this.getAdditional()}%0D%0A`;
-      console.log(`mailto: ${this.mailtoLink.href}`)
       this.closeDialog();
       this.mailtoLink.click();
     }
