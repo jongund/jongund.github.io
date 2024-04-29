@@ -18,38 +18,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="mainNavbar">
                   <ul class="navbar-nav ms-auto">
+                    {% for f in files | sort('menuPos')%}
                         <li class="nav-item">
-                          <a class="nav-link" href="index.html">Home</a>
+                          <a class="nav-link" href="{{f.filename}}">{{f.menuName}}</a>
                         </li>
-
-                        <li class="nav-item">
-                          <a class="nav-link" href="workshops.html">Workshops</a>
-                        </li>
-
-                        <li class="nav-item">
-                          <a class="nav-link" href="consulting.html">Consulting</a>
-                        </li>
-
-                        <li class="nav-item">
-                          <a class="nav-link" href="tools.html">Tools</a>
-                        </li>
-
-                        <li class="nav-item">
-                          <a class="nav-link" href="standards.html">Standards</a>
-                        </li>
-
-                        <!--
-
-                        <li class="nav-item">
-                          <a class="nav-link" href="resources.html">Resources</a>
-                        </li>
-
-                        -->
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-
+                    {% endfor %}
 
                     </ul>
 

@@ -24,40 +24,42 @@ function outputFile(fname, data) {
 }
 
 const files = [
-  { template: './src-docs/templates/content-about.njk',
-    title: 'About',
-    filename: 'about.html'
-  },
-  { template: './src-docs/templates/content-consulting.njk',
-    title: 'Consulting',
-    filename: 'consulting.html'
-  },
   { template: './src-docs/templates/content-index.njk',
     title: 'Home',
+    menuName: 'Home',
     filename: 'index.html'
-  },
-  { template: './src-docs/templates/content-resources.njk',
-    title: 'Resources',
-    filename: 'resources.html'
-  },
-  { template: './src-docs/templates/content-standards.njk',
-    title: 'Standards',
-    filename: 'standards.html'
-  },
-  { template: './src-docs/templates/content-tools.njk',
-    title: 'Tools',
-    filename: 'tools.html'
   },
   { template: './src-docs/templates/content-workshops.njk',
     title: 'Workshops',
+    menuName: 'Workshops',
     filename: 'workshops.html'
+  },
+  { template: './src-docs/templates/content-consulting.njk',
+    title: 'Consulting and Mentoring',
+    menuName: 'Consulting',
+    filename: 'consulting.html'
+  },
+  { template: './src-docs/templates/content-tools.njk',
+    title: 'Open-Source Tools',
+    menuName: 'Tools',
+    filename: 'tools.html'
+  },
+  { template: './src-docs/templates/content-standards.njk',
+    title: 'Standards',
+    menuName: 'Standards',
+    filename: 'standards.html'
+  },
+  { template: './src-docs/templates/content-about.njk',
+    title: 'About',
+    menuName: 'About',
+    filename: 'about.html'
   }
   ];
 
 // Create files
 
 files.forEach( f => {
-  outputFile(f.filename, nunjucks.render(f.template, {title: f.title}));
+  outputFile(f.filename, nunjucks.render(f.template, {title: f.title, files: files}));
 })
 
 /*
