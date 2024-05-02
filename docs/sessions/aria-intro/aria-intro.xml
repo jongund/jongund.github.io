@@ -1,0 +1,4427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="funct.css" type="text/css"?>
+<?xm-well_formed path="funct.dtd"?>
+<slides>
+  <lang>en</lang>
+  <title>Introduction to ARIA Specification and Practices</title>
+  <logo>
+    <a href="https://openweba11y.com" aria-label="Open Web Accessibility">
+      <span class="brand"><span class="open">Open</span><span class="web">Web</span><span class="a11y">A11y</span></span>
+    </a>
+  </logo>
+
+  <copyright>
+     Copyright &#169; 2024 Jon Gunderson
+  </copyright>
+
+  <person>
+    <name>Jon Gunderson, Ph.D.</name>
+    <desc href="http://openweba11y.com">Open Web Accessibility Services</desc>
+    <desc href="mailto:jongund@openweba11y.com">jongund@openweba11y.com</desc>
+  </person>
+
+  <home href="../index.html">Sessions</home>
+
+  <stylesheet media="screen">http://openweba11y.com/css/bootstrap.min.css</stylesheet>
+  <stylesheet media="screen">http://openweba11y.com/css/html-slides.css</stylesheet>
+
+  <script>http://openweba11y.com/js/bootstrap.bundle.min.js</script>
+  <script>http://openweba11y.com/js/html-slides-2.js</script>
+
+  <slide>
+    <title>Goals</title>
+    <contents>
+      <ul>
+        <li>Brief History of ARIA and HTML</li>
+        <li>W3C specifications and resources</li>
+        <li>ARIA basics</li>
+        <li>Checkbox example</li>
+        <li>Menu Button design pattern and example</li>
+      </ul>
+      <script type="text/javascript">
+        slideShowURL()
+      </script>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>The Problem of Custom Widgets</title>
+    <contents>
+      <h2>Problem</h2>
+      <ul>
+        <li>Starting around the year 2000 developers and designers began using HTML + CSS + Javascript to create <em>custom user interface widgets</em> (e.g. interactive controls) for web pages that were not available from the standard set of HTML form controls.</li>
+        <li>There was no standard and inter-operable way to make these <em>custom widgets</em> accessible.</li>
+      </ul>
+
+      <h2>Issues</h2>
+      <ul>
+        <li>Keyboard support.</li>
+        <li>Describing the widget behavior (e.g. role).</li>
+        <li>Labeling the features of the widget (e.g. accessible name).</li>
+        <li>Identifying properties and states. (e.g. checked, expanded, has popup)</li>
+        <li>Communicating information through platform specific accessibility APIs.</li>
+        <li>Interoperability between browser and accessibility APIs.</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>ARIA Contract with Browsers and Assistive Technologies</title>
+    <contents>
+      <h2>Browsers</h2>
+      <ul>
+        <li>The use of ARIA markup does not affect browser behavior or rendering.</li>
+        <li>ARIA only affects how information is represented in accessibility APIs (e.g. MSAA+IAccessible2, ATK+SPI, UIAutomate, MacOS).</li>
+      </ul>
+
+      <h2>Assistive Technologies</h2>
+      <ul>
+        <li>Do not specify what assistive technologies will do with the information.</li>
+      </ul>
+    </contents>
+    <transcript>
+        Slide 3 talks about the contract that ARIA working group made with browser developers and assistive technology developers.
+        First, for browser developers ARIA does not change the behavior of the web page.  So if I use a “menu” role or “aria-haspopup” on a web page, nothing changes about the web page in the standard graphical rendering.
+        This was important, because ARIA was originally designed to “repair” in accessible web pages, and add if adding ARIA “broke” changed the behavior of the web page is some way, it could break the page for people using the graphical rendering, it would not have been accepted by either the browser or developer community.
+        ARIA only changes what information is communicated to assistive technologies through accessibility APIs.
+        So if your page includes a “menu” role you as the author need to make sure it has the keyboard interaction for the menu role, and that keyboard interaction is available to all users of our web page.
+        ARIA if nothing else was a huge first step in standardizing how browsers map web page information to assistive technologies, which is fundamental for interoperability.
+        Before ARIA, browser developers had to make their own decisions about how to represent web content in accessibility APIS.
+        While some mapping like for headings (H1-H6) are pretty clear other content was open to interpretation, meaning which browser a screen reader was using could have a big impact on their experience.
+        The second promise was to developers of screen readers.
+        The promise to screen reader developers was not to tell them what to do with this information.
+        They said they know their users and would make use of the new information if it was reliable and important to their users.
+        This means it is not entirely predictable what adding ARIA to a web page will mean for users of different types of assistive technologies.
+        A new W3C working group called ARIA AT working group is developing test cases to see how different types of assistive technologies are rendering ARIA information.
+        This information is important to developers so they can understand how adding an ARIA feature will affect the user experience in different contexts, and also assistive technology companies for them to see where they may not be using all the ARIA information available to them.
+      </transcript>
+  </slide>
+
+  <slide>
+    <title>Purpose of ARIA is Describe Semantics and Behavior</title>
+    <contents>
+       <ul>
+         <li>Provide an inter-operable way to describe the features of <em>custom widgets</em>:
+           <ul>
+             <li><strong>Role:</strong> Describes the type of widget, which implies the <em>keyboard interaction</em>.</li>
+             <li><strong>Properties and States:</strong> Describing features like "expandable", "checked" or "selected".</li>
+             <li><strong>Language independence:</strong> Roles, properties and states can be translated by the operating systems and assistive technologies to local languages.</li>
+             <li><strong>Labeling:</strong> How to label the features of the widget and its components (e.g. accessible name).</li>
+             <li><strong>Relationships:</strong> How different components relate to each other (e.g. descriptions, controls, owns).</li>
+             <li><strong>Grouping:</strong> Groups of related components (e.g. lists, menus, trees, tab panels).</li>
+           </ul>
+        </li>
+        <li>Define markup mappings to accessibility APIs:
+          <ul>
+            <li>ATK/AT-SPI (Linux/Unix)</li>
+            <li>Microsoft Active Accessibility (MSAA) + IAccessible2</li>
+            <li>Microsoft UI Automate</li>
+            <li>MacOS Accessibility API</li>
+          </ul>
+         </li>
+      </ul>
+    </contents>
+    <transcript>
+      The basic purpose of aria which is to describe the semantics and behavior of webpages that does this in several ways.
+      Some of the important terms you will learn about today include:
+      The most basic feature of ARIA is the role attribute which describes to users of screen readers the type of keyboard interaction and the potential properties and states of a custom widget.
+      When people first look at the aria specification, they see all of these familiar roles like “menu”, “tab panel”, “dialog” and “navigation”.
+      They start looking around their webpage and feel that I have these things in my webpage and they start sprinkling the roles throughout their webpage thinking that’ll be more accessible.
+      Actually the page will be less accessible, since the keyboard interaction associated with these roles most likely is not supported.
+      Using roles that do not actually describe the behavior of a widget is analogous to someone opening up a door to what they think is a bathroom, stepping in and falling into a swimming pool.
+      The screen reader user will be disoriented.
+      For example, you use a “menu” role, but it is just a list of tab-able links, the cursor keys don’t work you just pushed the user into the pool.
+      Properties and states attributes communicate information about a widget being expanded, or if can open a pop-up menu, or a checkbox being checked or unchecked, more on that later.
+      An important feature that is often not understood about using ARIA roles, properties and states is that the translation of this information to local languages is handled by the browser and operating system.  This is an important feature when websites are used by people from all around the world.
+      Widgets and many structural roles need a label or accessible name.   ARIA defines how the accessible name is calculated.  For example, a role of “textbox” tells the user they can enter text, but the label “name” tells them this textbox is for entering your name.
+      There are other features for describing relationships between widgets and to identify groups of related content or controls.  When relationships and grouping are properly used screen readers can provide navigation features to allow users to more efficiently ignore and find content of interest to them.  When not properly used pages become more confusing and difficult to navigate.
+      The primary adage for people to developers not familiar with ARIA is “No ARIA is better than bad ARIA”.
+      ARIA does not directly interact with assistive technologies like screen readers.
+      ARIA only controls how information about a web page is communicate to screen readers through operating system accessibility APIs.
+      The current ARIA specification provides accessibility API mappings for ATK/AT-SPI (Linux/Unix), Microsoft Active Accessibility (MSAA) + IAccessible2 for Windows 10, Microsoft UI Automate for Windows 10 and the MacOS Accessibility API.
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Accessibility APIs and Browsers</title>
+    <contents>
+      <ul>
+        <li>HTML + CSS + Javascript combine to create a graphical rendering.</li>
+        <li>Information in accessibility APIs for browsers are based primarily off the graphical rendering.</li>
+        <li>Accessibility APIs have a tree structure similar concepts used in the HTML DOM.</li>
+        <li>ARIA markup is the vocabulary used in the accessibility tree to communicate information about the page to assistive technologies.</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Accessible Rich Internet Applications (ARIA) 1.1</title>
+    <contents>
+      <p class="center">
+        <a href="https://www.w3.org/TR/wai-aria" target="_specification">Accessible Rich Internet Applications 1.0</a>
+      </p>
+      <iframe src="https://www.w3.org/TR/wai-aria/" title="ARIA 1.1 specfication" width="90%" height="600px"/>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>HTML Living Standard</title>
+    <contents>
+      <p class="center">
+        <a href="https://html.spec.whatwg.org/" target="_specification">HTML living standard</a>
+      </p>
+      <iframe src="https://html.spec.whatwg.org/" title="HTML living standard" width="90%" height="600px"/>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>HTML: main element</title>
+    <contents>
+      <p class="center">
+        <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-main-element" target="_specification">HTML: main element</a>
+      </p>
+      <iframe src="https://www.w3.org/TR/html5/grouping-content.html#the-main-element" title="HTML5 MAIN element specfication" width="90%" height="600px"/>
+    </contents>
+  </slide>
+
+
+  <slide>
+    <title>HTML Accessibility API Mappings: roles and role restrictions</title>
+    <contents>
+      <p class="center">
+        <a href="https://www.w3.org/TR/html-aria/#el-li" target="_specification">HTML Accessibility API Mappings 1.0: roles and role restrictions</a>
+      </p>
+      <iframe src="https://www.w3.org/TR/html-aria/#el-li" title="HTML Accessibility API Mappings 1.0" width="90%" height="600px"/>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Core Accessibility API Mappings for ARIA</title>
+    <contents>
+      <p class="center">
+        <a href="https://w3c.github.io/core-aam/#mapping_role" target="_specification">Core Accessibility API Mappings for ARIA</a> (Editor's Draft)
+      </p>
+
+      <h2>Define markup mappings to accessibility APIs:</h2>
+      <ul>
+        <li>ATK/AT-SPI (Linux/Unix)</li>
+        <li>Microsoft Active Accessibility (MSAA) + IAccessible2</li>
+        <li>Microsoft UI Automate</li>
+        <li>MacOS Accessibility API</li>
+      </ul>
+      <iframe src="https://w3c.github.io/core-aam/#mapping_role" title="Core Accessibility API Mappings for ARIA 1.1 Editors Draft" width="90%" height="600px"/>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Accessible Name and Description Computation</title>
+    <contents>
+      <p class="center">
+        <a href="https://www.w3.org/TR/accname-1.1/" target="_specification">Accessible Name and Description Computation 1.1</a>
+      </p>
+
+      <ul>
+        <li>Defines the priority and the algorithms for computing:
+          <ul>
+            <li>Accessible name</li>
+            <li>Accessible description</li>
+          </ul>
+        </li>
+        <li>Complexity of algorithm due to <code>aria-labelledby</code> and <code>aria-describedby</code> computation:
+          <ul>
+            <li>Using "value" for referenced controls and widgets, instead of just text content.</li>
+           <li>The preservation of spacing for referenced elements.</li>
+          </ul>
+        </li>
+        <li>Simpler explanation of the <a href="https://w3c.github.io/aria-practices/#names_and_descriptions">basics of naming and describing</a> in ARIA Authoring Practices.</li>
+      </ul>
+
+      <iframe src="https://www.w3.org/TR/accname-1.1/" title="Accessible Name and Description Computation 1.1" width="90%" height="600px"/>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Summary of W3C Documents</title>
+    <contents>
+      <table class="table table-striped table-hover" aria-label="tabindex_values">
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://www.w3.org/TR/wai-aria" target="_specification">Accessible Rich Internet Applications Specification</a></td>
+            <td>
+              <ul>
+                <li>Defines the vocabulary for the roles, properties and states to describe the features of a website.</li>
+                <li>Adding aria markup does not effect web bowser behavior or rendering, only what is communicated through accessibility APIs to screen readers.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://html.spec.whatwg.org/" target="_specification">HTML living standard</a></td>
+            <td>
+              <ul>
+                <li>Defines the semantics and behaviors of HTML markup.</li>
+                <li>Native HTML markup should be used instead of ARIA markup.</li>
+                <li>This document is a living standard, so it has no version number and reflects the current state of interoperability of HTML on the web.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.w3.org/TR/html-aria/#el-li" target="_specification">HTML Accessibility API Mappings 1.0</a></td>
+            <td>
+              <ul>
+                <li>Defines default ARIA roles for HTML elements.</li>
+                <li>Restricts ARIA roles that can override the default role, based on the semantics of the element.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.w3.org/TR/accname-1.1/" target="_specification">Accessible Name and Description Computation 1.1</a>
+            </td>
+            <td>
+            <ul>
+              <li>Defines the priority and the algorithms for computing accessible name and accessible description.</li>
+              <li>Complexity of algorithm due to <code>aria-labelledby</code> and <code>aria-describedby</code> computation.</li>
+              <li>Simpler explanation of the <a href="https://w3c.github.io/aria-practices/#names_and_descriptions">basics of naming and describing</a> in ARIA Authoring Practices.</li>
+            </ul>
+           </td>
+          </tr>
+          <tr>
+            <td><a href="https://w3c.github.io/core-aam/#mapping_role" target="_specification">Core Accessibility API Mappings for ARIA</a></td>
+            <td>
+              <ul>
+                <li>Defines how ARIA roles, properties and states are mapped to specific accessibility APIs.</li>
+                <li>Currently supported APIs:
+                  <ul>
+                    <li>ATK/AT-SPI (Linux/Unix)</li>
+                    <li>Microsoft Active Accessibility (MSAA) + IAccessible2</li>
+                    <li>Microsoft UI Automate</li>
+                    <li>MacOS Accessibility API</li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </contents>
+  </slide>
+
+
+  <slide>
+    <title>Tabindex and Keyboard Focus</title>
+    <contents>
+      <ul>
+        <li>
+          <a href="https://www.w3.org/TR/html4/interact/forms.html#adef-tabindex"  target="_specification">
+            HTM4 tabindex requirements
+          </a>
+        </li>
+        <li>
+          <a href="https://www.w3.org/TR/html5/editing.html#focus"  target="_specification">HTML focus</a>
+          and
+          <a href="https://html.spec.whatwg.org/multipage/interaction.html#the-tabindex-attribute"  target="_specification">tabindex</a> requirements.
+        </li>
+       <li>Actively define visual focus style, since the default browser visual focus styling of focus is typically hard to discern and varies between browsers.</li>
+      </ul>
+
+      <h2 id="tabindex_values">Tabindex Values</h2>
+      <table class="table table-striped table-hover" aria-label="tabindex_values">
+        <thead>
+          <tr>
+            <th>Value</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>-1</td>
+            <td>
+              <ul>
+                <li>Support keyboard focus/blur events.</li>
+                <li>Not included in the tab order of the page.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>
+              <ul>
+                <li>Support keyboard focus/blur events.</li>
+                <li>Included in the tab order of the page.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>&gt; 0</td>
+            <td>
+              <ul>
+                <li>Support keyboard focus/blur events.</li>
+                <li>Defines the tab order of the page.</li>
+                <li><strong>Note:</strong> This technique is not recommended due to browser incompatibilities and unpredictable focus behaviors.</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </contents>
+    <transcript>
+      Tabindex is an important feature for identifying which element on the page can receive keyboiard focus and keyboard events.
+      For example if I am building a web application and using DIV element to build a interactive menu with Javascript and CSS, I need to use tabindex to make the menu part of the tab sequence of the page and to allow keyboard events to change the menu selection.
+      Tabindex values of 0 are used to make elements part of the tab sequence of the page.
+      Tabindex values of -1 allow an element to receive keyboard focus and to process keyboard events, but the element is not included in the tabindex of a page.
+      Sometimes an element, like an Anchor or link element, which Is normally part of the tab sequence of the page will be used in a more complex tree or menu widget.
+      In this case we want to make sure the the link is not part of the tabindex of the web page by we setting its tabindex value to -1.
+      The only think I have to say about tabindex values besides 0 and -1 is one is don’t’ do it!
+      There are many bad things that can happen and not very much potential benefit to using tabindex values greater than 0.
+      I have never used a tabindex value greater than 0 in my 20 years of web development and we don’t have time in this presentation to do a deeper dive.
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Accessible Name Calculation</title>
+    <contents>
+        <ul>
+          <li><a href="https://www.w3.org/TR/accname-aam/">W3C Accessible Name and Description Computation Specification</a></li>
+          <li>In general only <strong>one</strong> technique should be used to define an accessible name, if more than on technique is used the following priortiy is used for the calculation.</li>
+        </ul>
+        <h2 id="heading_ant">Accessible Name Techniques</h2>
+        <table class="table table-striped table-hover" aria-labelledby="heading_ant">
+          <thead>
+            <tr>
+              <th>Priority</th>
+              <th>Technique</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><code>aria-labelledby</code></td>
+              <td>
+                <ul>
+                  <li>The <code>aria-labelledby</code> attribute contains a list of <code>IDREF</code>s to elements on the page.</li>
+                  <li>Text content of referenced elements are concatenated to compute the accessible name.</li>
+                  <li>References typically identify visible text on the screen in visual proximity to the control.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><code>aria-label</code></td>
+              <td>
+                <ul>
+                  <li>The <code>aria-label</code> attribute text content defines the accessible name.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>text content</td>
+              <td>
+                <ul>
+                  <li>Some ARIA widget roles allow the text content of the container element to define an accessible name (e.g. <code>role="checkbox"</code>).</li>
+                  <li>Text content includes text alternatives, for example <code>alt</code> attribute content of an <code>img</code> element.</li>
+                  <li>Text content includes text from generated CSS, for example when the <code>content</code> property is used.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><code>title</code></td>
+              <td>
+                <ul>
+                  <li>If no other source of an accessible name is found and the element has a <code>title</code> attribute, the content of the <code>title</code> attribute will used to define the accessible name.</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </contents>
+    <transcript>
+      Most ARIA roles need an accessible name or sometimes referred to as a label in HTML.
+
+      Using text on the screen are typically the best sources for the accessible name for controls and widgets, since the text will be the same for both the person using the graphical rendering and the person using a screen reader.
+
+      For example, in the checkbox example we will be going through shortly we will be use the text content of the DIV element for the accessible name.
+
+      This slide provides an overview of the different techniques that can use used to define an accessible name.
+
+      Browsers will first look for an aria-labelledby attribute.
+
+      Aria-labelledby attribute uses ID references to point to text on the web page to create the accessible name.
+
+      If more than one ID is provided the text is concatenated to compute the accessible name.
+
+      This is the most complex way to generate the accessible name and can also be used to include values of other controls and widgets on the page.
+
+      If aria-labelledby is not found the next item the browser will look for is the aria-label attribute.
+
+      In this case the text content of the aria-label attribute is used as a the accessible name.
+
+      If the aria-label attribute is not found and starting with the release of ARIA 1.2 the browser will look for a label role for a small subset of widget roles that can be labeled using encapsulation.
+
+      The label role will typically be defined using the standard HTML LABEL element.
+
+      For the group and radiogroup roles, the LEGEND element can be used to define an accessible name starting in ARIA 1.2.
+
+      Some widget roles like checkbox in our example today, can be labeled use the child text content.
+
+      If no other accessible name has been found for a widget and the element has a title attribute, the content of the title attribute will be used for the accessible name.
+
+      The title attribute is usually not considered a good source for the accessible name, since it is used by many browser to render a tooltip.  Tooltips are generally used more to provide help than a label, so therefore usually not too good as a label.
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Accessible Description Calculation</title>
+    <contents>
+        <ul>
+          <li><a href="https://www.w3.org/TR/accname-aam/">W3C Accessible Name and Description Computation Specification</a></li>
+          <li>Accessible description provides more information about a form control, link or aria widget.</li>
+          <li>Screen readers can be configured by users to ignore <em>description information</em> to reduce the amount of information spoken.</li>
+        </ul>
+        <h2 id="heading_ant">Accessible Description Techniques</h2>
+        <table class="table table-striped table-hover" aria-labelledby="heading_ant">
+          <thead>
+            <tr>
+              <th>Priority</th>
+              <th>Technique</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><code>aria-describedby</code></td>
+              <td>
+                <ul>
+                  <li>The <code>aria-describedby</code> attribute contains a list of <code>IDREF</code>s to elements on the page.</li>
+                  <li>Text content of referenced elements are concatenated to compute the <em>accessible description</em>.</li>
+                  <li>Designed to reference visible text on the screen, like instructions and error feedback.</li>
+                  <li>Screen readers can be configured not to rendered accessible descriptions to reduce the amount of information spoken.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><code>title</code></td>
+              <td>
+                <ul>
+                  <li>If no other source of an <em>accessible description</em> is found and the element has a <code>title</code> attribute that is <strong>not</strong> being used to define an accessible name, the content of the <code>title</code> attribute is used to define the <em>accessible description</em>.</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </contents>
+    <transcript>
+      The accessible description calculation is similar to accessible name, but there are fewer options.
+
+      The description of a widget is typically spoken by a screen reader last after role, accessible name, and any properties and state information.
+
+      Screen reader also can configure their screen reader to not render most descriptions if they find they are a distraction or not very helpful on a web page.
+
+      Similar to aria-labelledby there is an aria-describedby that uses the same algorithm as aria-labelledby, but used to to identify a description.
+
+      Browsers will look for the aria-describedby attribute first.
+
+      If there is not aria-describedby attribute, in the release of ARIA 1.2 there is a new aria-description attribute that can be used, similar to aria-label.
+
+      Last the browser will use the title attribute to define a description, if it is not being used for the accessible name.
+
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Other Descriptions: aria-details property</title>
+    <style>
+      table tbody th {
+        font-weight: normal;
+      }
+    </style>
+    <contents>
+      <p>
+        <code><a href="https://www.w3.org/TR/wai-aria-1.1/#aria-details">aria-details</a></code> provides a reference to additional visible information on the page. The screen reader would announce the availability of additional information and provide a means to navigate to the descriptive content.
+      </p>
+      <p><strong>NOTE:</strong> This feature was added at the request of DPUB working group, so may have better support in digital book readers.</p>
+
+      <h2>Screen Reader Expectations</h2>
+      <ul>
+        <li>Announces additional information is available.</li>
+        <li>Announces when entering or leaving a details container, similar to landmarks.</li>
+        <li>Provides a means to navigate from the reference to the details content.</li>
+        <li>Provides a means to navigate from the details content to the reference.</li>
+      </ul>
+
+      <h2 id="exp_impl">Implementation</h2>
+      <table class="table table-striped table-hover" aria-labelledby="exp_impl">
+        <thead>
+          <tr>
+            <th>Expectation</th>
+            <th>NVDA for Windows</th>
+            <th>JAWS for Windows</th>
+            <th>VoiceOver for macOS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Announces additional information available.</th>
+            <td>no</td>
+            <td>Yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <th>Announces when entering or leaving a details container.</th>
+            <td>no</td>
+            <td>Yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <th>Navigation from reference to details content.</th>
+            <td>no</td>
+            <td>no</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <th>Navigate from details content to reference.</th>
+            <td>no</td>
+            <td>no</td>
+            <td>no</td>
+          </tr>
+        </tbody>
+      </table>
+    </contents>
+    <transcript>
+
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Other Description: aria-invalid and aria-errormessage properties</title>
+    <contents>
+      <p><code>aria-errormessage</code> must be used in conjunction with <code>aria-invalid</code> or the <code>invalid</code> state of standard HTML form controls.  When a control is identified as invalid the content referenced will be spoken by the screen reader.</p>
+
+      <p>The coding is similar to <code>aria-describedby</code> property.  The difference is the accessible description can be configured by the user not to be spoken, the use of <code>aria-errormessage</code> is intended to always be spoken by a screen reader when the invalid state is set.</p>
+
+      <h2>Screen Reader Expectations</h2>
+      <ul>
+        <li>When form control or widget has valid value, screen reader announces nothing.</li>
+        <li>When form control or widget has invalid value, screen reader announces control has invalid value.</li>
+        <li>When form control or widget has invalid value, screen reader announces referenced message.</li>
+      </ul>
+
+      <h2 id="exp_impl">Implementation</h2>
+      <table class="table table-striped table-hover" aria-labelledby="exp_impl">
+        <thead>
+          <tr>
+            <th>Expectation</th>
+            <th>NVDA for Windows</th>
+            <th>JAWS for Windows</th>
+            <th>VoiceOver for macOS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>No announcement when valid.</th>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <th>Announcement when invalid.</th>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <th>Referenced message announced when invalid.</th>
+            <td>no</td>
+            <td>Yes</td>
+            <td>no</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </contents>
+    <transcript>
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Checkbox Example: Overview</title>
+    <contents>
+      <ul>
+        <li>Learn what ARIA markup does and doesn't do.</li>
+        <li>Demonstrate accessibility issues of custom widgets.</li>
+        <li>Incrementally add accessibility features.</li>
+        <li>Observe changes in user experience as features are added.</li>
+        <li>Focus and hover styling.</li>
+        <li>High contrast testing.</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Checkbox Example: Inaccessible</title>
+    <style id="style">
+      fieldset {
+           border-color: #EEE;
+           width: 10em;
+      }
+
+      fieldset legend {
+           font-size: 100%;
+      }
+
+      label,
+      div.checkbox {
+           padding: 2px;
+           width: 10em;
+           display: block;
+           margin-top: 0.25em;
+           margin-bottom: 0.25em;
+      }
+
+      label input {
+           margin-right: 0.5em;
+      }
+
+      div.checkbox span {
+           padding: 0.25em;
+           margin-right: 0.25em;
+      }
+       div.checkbox span:before {
+           content: '✗';
+           color: red;
+      }
+
+      div.checkbox.checked span {
+        margin-right: 0.375em;
+      }
+
+      div.checkbox.checked span:before {
+           content: '✓';
+           color: green;
+           font-size: 90%;
+      }
+    </style>
+    <contents>
+     <h2>Accessibility Issues</h2>
+     <ul>
+      <li>Keyboard support</li>
+      <li>Keyboard focus styling</li>
+      <li>Role information</li>
+      <li>Accessible name</li>
+      <li>State of checkbox</li>
+     </ul>
+
+     <h2>Example</h2>
+
+     <p><a href="https://webedit.disability.illinois.edu/user/jongund/checkbox-inaccessible/output/" target="_webedit">Checkbox example on WebEdit</a></p>
+
+     <script id="script">
+        function toggleCheckbox(node) {
+         if (node.classList.contains('checked')) {
+          node.classList.remove('checked');
+         } else {
+          node.classList.add('checked');
+         }
+        }
+
+        function clickCheckbox(event) {
+         var cb = event.currentTarget;
+         toggleCheckbox(cb);
+         event.stopPropagation();
+         event.preventDefault();
+        }
+     </script>
+
+     <div id="example">
+      <fieldset>
+        <legend>
+            Pizza Toppings
+        </legend>
+        <label>
+          <input type="checkbox"/>
+            Green pepper
+         </label>
+        <label>
+          <input type="checkbox"/>
+            Onion
+        </label>
+        <div class="checkbox"
+             onclick="clickCheckbox(event)">
+          <span></span>
+            Mushrooms
+        </div>
+        <div class="checkbox"
+            onclick="clickCheckbox(event)">
+          <span></span>
+            Spinach
+        </div>
+      </fieldset>
+     </div>
+
+      <h2>HTML Source Code</h2>
+
+      <pre><code id="sc1"></code></pre>
+
+      <h2>CSS Source Code</h2>
+
+      <pre><code id="sc2"></code></pre>
+
+      <h2>Javascript Source Code</h2>
+
+      <pre><code id="sc3"></code></pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'example');
+        sourceCode.add('sc2', 'style');
+        sourceCode.add('sc3', 'script');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script>
+    </contents>
+    <transcript>
+      This slide shows a set of 4 checkboxes.
+      The first 2 are standard HTML checkboxes and the next two are custom checkboxes made out of DIV elements, Javascript and CSS.
+      The accessibility issues for these custom checkboxes include:
+      Keyboard support so that screen reader and keyboard only users can interact with the checkbox.
+      Keyboard focus styling so that keyboard only users can see that they are interacting with the checkbox.
+      Role information on the custom widget being a checkbox.
+      Accessible name identifying what the checkbox is about.
+      Communicating the state of checkbox.
+
+      As we view the source code you can see that the first two checkboxes are defined using the standard HTML input type checkbox.
+
+      The last two checkbox are defined using DIV elements with event handlers and CSS to define the checked state using the psuedo technique of ::before based on the class name of "checked".
+
+      The Javascript shows a only a click event handler for operation with only the mouse.
+    </transcript>
+  </slide>
+
+ <slide>
+    <title>Basic Screen Reader Commands</title>
+    <contents>
+      <table class="table table-striped table-hover" aria-label="Basic Screen Reader Commands">
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>JAWS (Windows)</th>
+            <th>NVDA (Windows)</th>
+            <th>Voice Over (OS X)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Next link, form control or widget</td>
+            <td>Tab</td>
+            <td>Tab</td>
+            <td>Tab</td>
+          </tr>
+          <tr>
+            <td>Previous link, form control or widget</td>
+            <td>Shift+Tab</td>
+            <td>Shift+Tab</td>
+            <td>Shift+Tab</td>
+          </tr>
+          <tr>
+            <td>Re-read current item</td>
+            <td>Insert+Numpad 5</td>
+            <td>NVDA+Numpad 5 or NVDA+Shift+O</td>
+            <td>Command+Option+Space</td>
+          </tr>
+          <tr>
+            <td>More information on item</td>
+            <td>Insert+SHIFT+F1 and Insert+Control+Shift+F1</td>
+            <td>NVDA+D</td>
+            <td>Control+Option+F4</td>
+          </tr>
+          <tr>
+            <td>List of Links</td>
+            <td>Insert+F7</td>
+            <td>NVDA+F7</td>
+            <td>Command+Option+U, then left/right arrow to list of links</td>
+          </tr>
+          <tr>
+            <td>Detailed Keyboard Information</td>
+            <td><a href="http://doccenter.freedomscientific.com/doccenter/archives/training/jawskeystrokes.htm">JAWS Keyboard Documentation</a></td>
+            <td><a href="http://www.nvaccess.org/files/nvda/documentation/userGuide.html">NVDA Documentation</a></td>
+            <td><a href="https://www.apple.com/voiceover/info/guide/">Voice Over Guide</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </contents>
+    <transcript>
+      This slide shows some basic keyboard commands for using screen readers.
+
+      I encourage you to try these examples with a screen reader so you can begin to understand the experience of using a screen reader and see how adding ARIA changes the user experience.
+
+      The examples I am showing today mostly just requires using the TAB key and listening to the information the screen reader is speaking.
+
+      Some screen reader like NVDA and VoiceOver have a optional panel to visually show what they are speaking if it is difficult for you to understand what is being spoken.
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Checkbox Example: Responding to the keyboard</title>
+    <style id="style">
+fieldset {
+     border-color: #EEE;
+     width: 10em;
+}
+
+fieldset legend {
+     font-size: 100%;
+}
+
+label,
+div.checkbox {
+     padding: 2px;
+     width: 10em;
+     display: block;
+     margin-top: 0.25em;
+     margin-bottom: 0.25em;
+}
+
+label input {
+     margin-right: 0.5em;
+}
+
+div.checkbox span {
+     padding: 0.25em;
+}
+
+div.checkbox span:before {
+    content: '✗';
+    color: red;
+    padding-right: 0.125em;
+}
+
+div.checkbox.checked span:before {
+    content: '✓';
+    color: green;
+    padding-right: 0.190em;
+}
+    </style>
+    <contents>
+      <ul>
+        <li>Adding <code>tabindex="0"</code> to make part of tab order of the page.</li>
+        <li>Add <code>onKeyDown</code> event handler to toggle checkbox when <kbd>space</kbd> key is pressed.</li>
+      </ul>
+
+      <script id="script" type="text/javascript">
+function toggleCheckbox(node) {
+ if (node.classList.contains('checked')) {
+  node.classList.remove('checked');
+ } else {
+  node.classList.add('checked');
+ }
+}
+
+function clickCheckbox(event) {
+ var cb = event.currentTarget;
+ toggleCheckbox(cb);
+ event.stopPropagation();
+ event.preventDefault();
+}
+
+function keydownCheckbox(event) {
+  var cb = event.currentTarget;
+  if (event.key === ' ') {
+    toggleCheckbox(cb);
+
+    event.stopPropagation();
+    event.preventDefault();
+  }
+}      </script>
+
+     <h2>Example</h2>
+
+     <p><a href="https://webedit.disability.illinois.edu/user/jongund/checkbox-part-1/output/" target="_webedit">Part 1 on WebEdit</a></p>
+
+     <div id="example">
+<fieldset>
+    <legend>
+        Pizza Toppings
+    </legend>
+    <label>
+      <input type="checkbox"/>
+        Green pepper
+     </label>
+    <label>
+      <input type="checkbox"/>
+        Onion
+    </label>
+    <div class="checkbox"
+         tabindex="0"
+         onclick="clickCheckbox(event)"
+         onkeydown="keydownCheckbox(event)">
+      <span></span>
+        Mushrooms
+    </div>
+    <div class="checkbox"
+        tabindex="0"
+        onclick="clickCheckbox(event)"
+        onkeydown="keydownCheckbox(event)">
+      <span></span>
+          Spinach
+    </div>
+  </fieldset>
+     </div>
+
+      <h2>HTML Source Code</h2>
+
+      <pre><code id="sc1"></code></pre>
+
+      <h2>CSS Source Code</h2>
+
+      <pre><code id="sc2"></code></pre>
+
+      <h2>Javascript Source Code</h2>
+
+      <pre><code id="sc3"></code></pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'example');
+        sourceCode.add('sc2', 'style');
+        sourceCode.add('sc3', 'script');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script>
+
+    </contents>
+    <transcript>
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Checkbox Example: Adding ARIA role, checked state and accessible name</title>
+    <style id="style">
+      fieldset {
+           border-color: #EEE;
+           width: 10em;
+      }
+
+      fieldset legend {
+           font-size: 100%;
+      }
+
+      label,
+      div.checkbox {
+           padding: 2px;
+           width: 10em;
+           display: block;
+           margin-top: 0.25em;
+           margin-bottom: 0.25em;
+      }
+
+      label input {
+           margin-right: 0.5em;
+      }
+
+      div.checkbox span {
+           padding: 0.25em;
+      }
+
+      div.checkbox span:before {
+          content: '✗';
+          color: red;
+          padding-right: 0.125em;
+      }
+
+      div.checkbox.checked span:before {
+          content: '✓';
+          color: green;
+          padding-right: 0.190em;
+      }
+    </style>
+    <contents>
+      <ul>
+        <li>Adding <code>role="checkbox"</code> to make part of tab order of the page.</li>
+        <li>Adding <code>aria-checked</code> attribute.</li>
+        <li>Accessible name from text content.</li>
+        <li>Removing state character (e.g. <span style="color: red">✗</span>) from accessible name using <code>aria-hidden</code>.</li>
+      </ul>
+
+      <script id="script" type="text/javascript">
+        function toggleCheckbox(node) {
+         if (node.classList.contains('checked')) {
+          node.classList.remove('checked');
+          node.setAttribute('aria-checked', 'false');
+         } else {
+          node.classList.add('checked');
+          node.setAttribute('aria-checked', 'true');
+         }
+        }
+
+        function clickCheckbox(event) {
+         var cb = event.currentTarget;
+         toggleCheckbox(cb);
+         event.stopPropagation();
+         event.preventDefault();
+        }
+
+        function keydownCheckbox(event) {
+          var cb = event.currentTarget;
+          if (event.key === ' ') {
+            toggleCheckbox(cb);
+
+            event.stopPropagation();
+            event.preventDefault();
+          }
+        }
+      </script>
+
+     <h2>Example</h2>
+
+     <p><a href="https://webedit.disability.illinois.edu/user/jongund/checkbox-part-2/output/" target="_webedit">Part 2 on WebEdit</a></p>
+
+     <div id="example">
+<fieldset>
+    <legend>
+        Pizza Toppings
+    </legend>
+    <label>
+      <input type="checkbox"/>
+        Green pepper
+     </label>
+    <label>
+      <input type="checkbox"/>
+        Onion
+    </label>
+    <div class="checkbox"
+         role="checkbox"
+         aria-checked="false"
+         tabindex="0"
+         onclick="clickCheckbox(event)"
+         onkeydown="keydownCheckbox(event)">
+      <span aria-hidden="true"></span>
+        Mushrooms
+    </div>
+    <div class="checkbox"
+         role="checkbox"
+         aria-checked="false"
+        tabindex="0"
+        onclick="clickCheckbox(event)"
+        onkeydown="keydownCheckbox(event)">
+      <span aria-hidden="true"></span>
+          Spinach
+    </div>
+  </fieldset>
+     </div>
+
+      <h2>HTML Source Code</h2>
+
+      <pre><code id="sc1"></code></pre>
+
+      <h2>CSS Source Code</h2>
+
+      <pre><code id="sc2"></code></pre>
+
+      <h2>Javascript Source Code</h2>
+
+      <pre><code id="sc3"></code></pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'example');
+        sourceCode.add('sc2', 'style');
+        sourceCode.add('sc3', 'script');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script>
+
+    </contents>
+  </slide>
+
+ <slide>
+    <title>Checkbox Example: Keyboard Focus and hover styling</title>
+    <style id="style">
+fieldset {
+     border-color: #EEE;
+     width: 10em;
+}
+
+fieldset legend {
+     font-size: 100%;
+}
+
+label,
+div.checkbox {
+     padding: 4px;
+     width: 10em;
+     display: block;
+     margin-top: 0.25em;
+     margin-bottom: 0.25em;
+}
+
+label input {
+     margin-right: 0.5em;
+}
+
+div.checkbox span {
+     padding: 0.25em;
+}
+
+div.checkbox span:before {
+    content: '✗';
+    color: red;
+    padding-right: 0.125em;
+}
+
+div.checkbox.checked span:before {
+    content: '✓';
+    color: green;
+    padding-right: 0.190em;
+}
+
+label.focus,
+div.checkbox:focus {
+  padding: 2px;
+  border: 2px solid #999;
+  background-color: #DDE;
+}
+
+label:hover,
+div.checkbox:hover {
+  background-color: #CCD;
+}
+    </style>
+    <contents>
+      <ul>
+        <li>Keyboard <code>focus</code> and <code>hover</code> styling should be similar to to harmonize the look and feel of styling between interaction techniques.</li>
+        <li>Recommend <code>focus</code> styling has a border and <code>hover</code> does not.</li>
+        <li><code>focus</code> styling should use a 2 pixel<code>border</code> or <code>outline</code> width to make the control with focus easy for users to see and track.</li>
+        <li>If the <code>border</code> technique is used the <code>border</code> must be removed when the widget does not have focus to support focus styling to change when users select operating system high contrast modes.</li>
+        <li>Need to use <code>onfocus</code> and <code>onblur</code> events to create focus styling of standard radio buttons and checkboxes by styling their labels.</li>
+        <li>Styling background color makes the focus change much easier to detect visually.</li>
+      </ul>
+
+      <script id="script" type="text/javascript">
+function toggleCheckbox(node) {
+ if (node.classList.contains('checked')) {
+  node.classList.remove('checked');
+  node.setAttribute('aria-checked', 'false');
+ } else {
+  node.classList.add('checked');
+  node.setAttribute('aria-checked', 'true');
+ }
+}
+
+function clickCheckbox(event) {
+ var cb = event.currentTarget;
+ toggleCheckbox(cb);
+ event.stopPropagation();
+ event.preventDefault();
+}
+
+function keydownCheckbox(event) {
+  var cb = event.currentTarget;
+  if (event.key === ' ') {
+    toggleCheckbox(cb);
+
+    event.stopPropagation();
+    event.preventDefault();
+  }
+}
+
+function checkboxFocus(event) {
+  event.currentTarget.parentElement.classList.add('focus');
+}
+
+function checkboxBlur(event) {
+  event.currentTarget.parentElement.classList.remove('focus');
+}
+      </script>
+
+     <h2>Example</h2>
+
+     <p><a href="https://webedit.disability.illinois.edu/user/jongund/checkbox-part-3/output/" target="_webedit">Part 3 on WebEdit</a></p>
+
+     <div id="example">
+<fieldset>
+    <legend>
+        Pizza Toppings
+    </legend>
+    <label>
+      <input type="checkbox"
+             onfocus="checkboxFocus(event)"
+             onblur="checkboxBlur(event)"/>
+        Green pepper
+     </label>
+    <label>
+      <input type="checkbox"
+             onfocus="checkboxFocus(event)"
+             onblur="checkboxBlur(event)"/>
+        Onion
+    </label>
+    <div class="checkbox"
+         role="checkbox"
+         aria-checked="false"
+         tabindex="0"
+         onclick="clickCheckbox(event)"
+         onkeydown="keydownCheckbox(event)">
+      <span aria-hidden="true"></span>
+        Mushrooms
+    </div>
+    <div class="checkbox"
+         role="checkbox"
+         aria-checked="false"
+        tabindex="0"
+        onclick="clickCheckbox(event)"
+        onkeydown="keydownCheckbox(event)">
+      <span aria-hidden="true"></span>
+          Spinach
+    </div>
+  </fieldset>
+     </div>
+
+      <h2>HTML Source Code</h2>
+
+      <pre><code id="sc1"></code></pre>
+
+      <h2>CSS Source Code</h2>
+
+      <pre><code id="sc2"></code></pre>
+
+      <h2>Javascript Source Code</h2>
+
+      <pre><code id="sc3"></code></pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'example');
+        sourceCode.add('sc2', 'style');
+        sourceCode.add('sc3', 'script');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script>
+    </contents>
+  </slide>
+
+ <slide>
+    <title>Checkbox Example: Synchronization of ARIA and visual states</title>
+    <style id="style">
+fieldset {
+     border-color: #EEE;
+     width: 10em;
+}
+
+fieldset legend {
+     font-size: 100%;
+}
+
+label,
+[role="checkbox"] {
+     padding: 4px;
+     width: 10em;
+     display: block;
+     margin-top: 0.25em;
+     margin-bottom: 0.25em;
+}
+
+label input {
+     margin-right: 0.5em;
+}
+
+[role="checkbox"] span {
+     padding: 0.25em;
+}
+
+[role="checkbox"] span:before {
+    content: '✗';
+    color: red;
+    padding-right: 0.125em;
+}
+
+[role="checkbox"][aria-checked="true"] span:before {
+    content: '✓';
+    color: green;
+    padding-right: 0.190em;
+}
+
+label.focus,
+[role="checkbox"]:focus {
+  padding: 2px;
+  border: 2px solid #999;
+  background-color: #DDE;
+}
+
+label:hover,
+[role="checkbox"]:hover {
+  background-color: #CCD;
+}
+    </style>
+    <contents>
+      <ul>
+        <li>Using CSS attribute selectors and CSS <code>content</code> property to synchronize visual and aria states.</li>
+        <li>Use of CSS <code>content</code> property supports high contrast browser settings, unike the use of CSS <code>background-image</code>.</li>
+      </ul>
+
+      <script id="script" type="text/javascript">
+function toggleCheckbox(node) {
+ if (node.getAttribute('aria-checked') === 'true') {
+  node.setAttribute('aria-checked', 'false');
+ } else {
+  node.setAttribute('aria-checked', 'true');
+ }
+}
+
+function clickCheckbox(event) {
+ var cb = event.currentTarget;
+ toggleCheckbox(cb);
+ event.stopPropagation();
+ event.preventDefault();
+}
+
+function keydownCheckbox(event) {
+  var cb = event.currentTarget;
+  if (event.key === ' ') {
+    toggleCheckbox(cb);
+
+    event.stopPropagation();
+    event.preventDefault();
+  }
+}
+
+function checkboxFocus(event) {
+  event.currentTarget.parentElement.classList.add('focus');
+}
+
+function checkboxBlur(event) {
+  event.currentTarget.parentElement.classList.remove('focus');
+}
+      </script>
+
+     <h2>Example</h2>
+
+     <p><a href="https://webedit.disability.illinois.edu/user/jongund/checkbox-part-4/output/" target="_webedit">Part 4 on WebEdit</a></p>
+
+     <div id="example">
+<h1>Part 4: Custom Checkbox Widget with synchronization of ARIA and visual states</h1>
+<fieldset>
+    <legend>
+        Pizza Toppings
+    </legend>
+    <label>
+      <input type="checkbox"
+             onfocus="checkboxFocus(event)"
+             onblur="checkboxBlur(event)"/>
+        Green pepper
+     </label>
+    <label>
+      <input type="checkbox"
+             onfocus="checkboxFocus(event)"
+             onblur="checkboxBlur(event)"/>
+        Onion
+    </label>
+    <div class="checkbox"
+         role="checkbox"
+         aria-checked="false"
+         tabindex="0"
+         onclick="clickCheckbox(event)"
+         onkeydown="keydownCheckbox(event)">
+      <span aria-hidden="true"></span>
+        Mushrooms
+    </div>
+    <div class="checkbox"
+         role="checkbox"
+         aria-checked="false"
+        tabindex="0"
+        onclick="clickCheckbox(event)"
+        onkeydown="keydownCheckbox(event)">
+      <span aria-hidden="true"></span>
+          Spinach
+    </div>
+  </fieldset>
+     </div>
+
+      <h2>HTML Source Code</h2>
+
+      <pre><code id="sc1"></code></pre>
+
+      <h2>CSS Source Code</h2>
+
+      <pre><code id="sc2"></code></pre>
+
+      <h2>Javascript Source Code</h2>
+
+      <pre><code id="sc3"></code></pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'example');
+        sourceCode.add('sc2', 'style');
+        sourceCode.add('sc3', 'script');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Checkbox Example: Summary of Accessibility Features</title>
+    <style id="style">
+      fieldset {
+        border-color: #EEE;
+        width: 10em;
+      }
+
+      fieldset legend {
+        font-size: 100%;
+      }
+
+      label,
+      [role="checkbox"] {
+        display: block;
+        margin: 0.25em;
+        font-weight: normal;
+        padding: 4px;
+        border: none;
+        width: 10em;
+      }
+
+      label input[type=checkbox] {
+        padding-left: 1em;
+      }
+
+      div[role="checkbox"] span:before {
+        content: '✗';
+        color: red;
+        padding-left: 0.125em;
+        padding-right: 0.25em;
+      }
+
+      div[role="checkbox"][aria-checked="true"] span:before {
+        content: '✓';
+        color: green;
+        padding-left: 0.125em;
+        padding-right: 0.315em;
+      }
+
+      label.focus,
+      [role="checkbox"]:focus {
+        padding: 2px;
+        border: 2px solid #999;
+        background-color: #DDE;
+      }
+
+      label:hover,
+      [role="checkbox"]:hover {
+        background-color: #CCD;
+      }
+    </style>
+    <contents>
+
+
+      <script id="script" type="text/javascript">
+        function toggleCheckbox(node) {
+          if (node.getAttribute('aria-checked') === 'true') {
+            node.setAttribute('aria-checked', 'false');
+          }
+          else {
+            node.setAttribute('aria-checked', 'true');
+          }
+        }
+
+        function keydownCheckbox(event) {
+          var cb = event.currentTarget;
+          if (event.key === ' ') {
+            toggleCheckbox(cb);
+
+            event.stopPropagation();
+            event.preventDefault();
+          }
+        }
+
+        function clickCheckbox(event) {
+          var cb = event.currentTarget;
+          toggleCheckbox(cb);
+          event.stopPropagation();
+          event.preventDefault();
+        }
+
+        function checkboxFocus(event) {
+          event.currentTarget.parentNode.classList.add('focus');
+        }
+
+        function checkboxBlur(event) {
+          event.currentTarget.parentNode.classList.remove('focus');
+        }
+      </script>
+
+     <h2>Features</h2>
+     <ul>
+       <li>Responds to mouse events using <code>onClick</code> event.</li>
+       <li>Responds to <kbd>space</kbd> keyboard event using <code>onKeyDown</code> event.</li>
+       <li><code>tabindex=0</code> makes widget keyboard focusable and include in tab order of page.</li>
+       <li><code>role="checkbox"</code> identifies widget to assistive technologies as a "checkbox".</li>
+       <li><code>aria-checked</code> attribute identifies the state as being "checked" or "unchecked".</li>
+       <li>Accessible name comes from child text content of the <code>div[role="checkbox"]</code> element.</li>
+       <li><code>aria-hidden</code> attribute hides the characters used for indicating state (i.e. <span style="color: red">✗</span> and <span style="color: green">✓</span>) from being included in the accessible name calculation.</li>
+       <li>CSS attribute selectors are used to keep the visual indication of checked state snychronized with accessibility API.</li>
+       <li><code>onFocus</code> and <code>onBlur</code> event handlers are used on standard checkboxes to provide visual indication of keyboard focus.</li>
+     </ul>
+
+     <h2>Example</h2>
+
+     <p><a href="https://webedit.disability.illinois.edu/user/jongund/checkbox-accessible/output/" target="_webedit">Checkbox example on WebEdit</a></p>
+
+     <div id="example">
+    <fieldset>
+        <legend>
+
+            Pizza Toppings
+
+        </legend>
+        <label>
+          <input type="checkbox"
+               onfocus="checkboxFocus(event)"
+               onblur="checkboxBlur(event)"/>
+
+
+              Green pepper
+
+        </label>
+        <label>
+          <input type="checkbox"
+               onfocus="checkboxFocus(event)"
+               onblur="checkboxBlur(event)"/>
+
+              Onion
+
+        </label>
+        <div role="checkbox"
+           tabindex="0"
+           aria-checked="false"
+           onkeydown="keydownCheckbox(event)"
+           onclick="clickCheckbox(event)">
+          <span aria-hidden="true"></span>
+
+              Mushrooms
+
+        </div>
+        <div role="checkbox"
+           tabindex="0"
+           aria-checked="false"
+           onkeydown="keydownCheckbox(event)"
+           onclick="clickCheckbox(event)">
+          <span aria-hidden="true"></span>
+
+              Spinach
+
+        </div>
+      </fieldset>
+     </div>
+
+      <h2>HTML Source Code</h2>
+
+      <pre><code id="sc1"></code></pre>
+
+      <h2>CSS Source Code</h2>
+
+      <pre><code id="sc2"></code></pre>
+
+      <h2>Javascript Source Code</h2>
+
+      <pre><code id="sc3"></code></pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'example');
+        sourceCode.add('sc2', 'style');
+        sourceCode.add('sc3', 'script');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script>
+   </contents>
+  </slide>
+
+  <slide>
+    <title>Menu Button: ARIA Design Pattern</title>
+    <contents>
+    <ul>
+      <li><a href="https://www.w3.org/TR/wai-aria-practices/#menubutton" target="_specification">ARIA Authoring Practices: Menu Button</a></li>
+      <li><a href="https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-actions.html">Example 1: Action Menu</a></li>
+      <li><a href="https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html">Example 2: Navigation Menu</a></li>
+      <li><a href="https://www.w3.org/TR/wai-aria-practices/examples/menu-button//menu-button-actions-active-descendant.html">Example 3: Action Menu (<code>aria-activedescendant</code>)</a></li>
+    </ul>
+    <iframe src="https://www.w3.org/TR/wai-aria-practices/#menubutton"
+            title="ARIA Menubutton Example"
+            width="98%"
+            height="600px"/>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Menu Button: Overview</title>
+    <contents>
+      <ul>
+        <li>Demonstrate accessibility issues of custom widgets.</li>
+        <li>Incrementally add accessibility features.</li>
+        <li>Observe changes in user experience as features are added.</li>
+        <li>Learn what ARIA markup does and doesn't do.</li>
+        <li>Focus and hover styling.</li>
+        <li>High contrast testing.</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Menu Button: Inaccessible</title>
+    <style id="style">
+      .menu-button-links {
+        margin: 0;
+        font-size: 110%;
+      }
+
+      .menu-button-links button {
+        margin: 0;
+        padding: 6px;
+        display: inline-block;
+        position: relative;
+        background-color: #034575;
+        border: 1px solid #034575;
+        font-size: 0.9em;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .menu-button-links .menu {
+        margin: 0;
+        padding: 7px 4px;
+        list-style: none;
+        display: none;
+        position: absolute;
+        border: 2px solid #034575;
+        border-radius: 5px;
+        background-color: #eee;
+      }
+
+      .menu-button-links .menu a {
+        margin: 0;
+        padding: 6px;
+        display: block;
+        width: 24em;
+        background-color: #eee;
+        border: none;
+        color: black;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+
+      .menu-button-links .menu a:hover {
+        background-color: #034575;
+        color: white;
+       }
+
+      .menu-button-links button svg.down {
+        padding-left: 0.125em;
+        fill: currentColor;
+        stroke: currentColor;
+      }
+
+      .menu-button-links button.open svg.down {
+        transform: rotate(180deg);
+      }
+
+    </style>
+    <contents>
+     <h2>Accessibility Issues</h2>
+     <ul>
+      <li>Keyboard support</li>
+      <li>Role information</li>
+      <li>Identification of a menu button</li>
+      <li>Accessible names</li>
+      <li>State of menu open/closed</li>
+      <li>Keyboard focus styling</li>
+     </ul>
+
+     <h2>Example</h2>
+
+     <p><a href="https://webedit.disability.illinois.edu/user/jongund/nav-menu-button-inaccessible/output/" target="_webedit">Menu Button: Inaccessible (on WebEdit)</a></p>
+
+     <script id="script">
+        class MenuButtonLinks {
+
+          constructor(domNode) {
+
+            this.domNode       = domNode;
+            this.buttonNode    = domNode.querySelector('button');
+            this.menuNode      = domNode.querySelector('ul');
+
+            this.buttonNode.addEventListener('click', this.onButtonClick.bind(this));
+            this.buttonNode.addEventListener('blur', this.onBlur.bind(this));
+
+            const links = domNode.querySelectorAll('a');
+            for (let i = 0; i &lt; links.length; i += 1) {
+              links[i].addEventListener('blur', this.onBlur.bind(this));
+            }
+            window.addEventListener('mousedown', this.onBackgroundMousedown.bind(this), true);
+          }
+
+          // Popup menu methods
+
+          openPopup() {
+            var rect = this.menuNode.getBoundingClientRect();
+            this.menuNode.style.display = 'block';
+            this.buttonNode.classList.add('open');
+          }
+
+          closePopup() {
+            if (this.isOpen()) {
+              this.buttonNode.classList.remove('open');
+              this.menuNode.style.display = 'none';
+            }
+          }
+
+          isOpen() {
+            return this.buttonNode.classList.contains('open');
+          }
+
+          onButtonClick(event) {
+            if (this.isOpen()) {
+              this.closePopup();
+            }
+            else {
+              this.openPopup();
+            }
+
+            event.stopPropagation();
+            event.preventDefault();
+          }
+
+          onBlur(event) {
+            if (!this.domNode.contains(event.relatedTarget)) {
+              if (this.isOpen()) {
+                this.closePopup();
+              }
+            }
+          }
+
+          onBackgroundMousedown(event) {
+            if (!this.domNode.contains(event.target)) {
+              if (this.isOpen()) {
+                this.closePopup();
+                this.buttonNode.focus();
+              }
+            }
+          }
+        }
+
+        // Initialize navigation menu buttons
+
+        window.addEventListener('load', function () {
+          var menuButtons = document.querySelectorAll('.menu-button-links');
+          for(var i=0; i &lt; menuButtons.length; i++) {
+            var menuButton = new MenuButtonLinks(menuButtons[i]);
+          }
+        });
+     </script>
+
+     <div id="example">
+        <div class="menu-button-links">
+          <button type="button">
+            WAI-ARIA Quick Links
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="down"
+                 width="12"
+                 height="9"
+                 viewBox="0 0 12 9">
+              <polygon points="1 0, 11 0, 6 8"></polygon>
+            </svg>
+          </button>
+          <ul class="menu">
+            <li>
+              <a href="https://www.w3.org/">
+                W3C Home Page
+              </a>
+            </li>
+            <li>
+              <a href="https://www.w3.org/standards/webdesign/accessibility">
+                W3C Web Accessibility Initiative
+              </a>
+            </li>
+            <li>
+              <a href="https://www.w3.org/TR/wai-aria/">
+                ARIA Specification
+              </a>
+            </li>
+            <li>
+              <a href="https://w3c.github.io/aria-practices/">
+                Authoring Practices
+              </a>
+            </li>
+            <li>
+              <a href="https://www.w3.org/TR/html-aria/#el-li">
+                HTML Accessibility API Mappings
+              </a>
+            </li>
+            <li>
+              <a href="https://w3c.github.io/core-aam/#mapping_role">
+                Core ARIA Accessibility API Mappings
+              </a>
+            </li>
+            <li>
+              <a href="https://www.w3.org/TR/accname-aam-1.1/">
+                Accessible Name and Description
+              </a>
+            </li>
+          </ul>
+        </div>
+
+     </div>
+
+      <h2>HTML Source Code</h2>
+
+      <pre><code id="sc1"></code></pre>
+
+      <h2>CSS Source Code</h2>
+
+      <pre><code id="sc2"></code></pre>
+
+      <h2>Javascript Source Code</h2>
+
+      <pre><code id="sc3"></code></pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'example');
+        sourceCode.add('sc2', 'style');
+        sourceCode.add('sc3', 'script');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script>
+    </contents>
+    <transcript>
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Menu Button: Keyboard Support</title>
+    <style id="style">
+      .menu-button-links {
+        margin: 0;
+        font-size: 110%;
+      }
+
+      .menu-button-links button {
+        margin: 0;
+        padding: 6px;
+        display: inline-block;
+        position: relative;
+        background-color: #034575;
+        border: 1px solid #034575;
+        font-size: 0.9em;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .menu-button-links .menu {
+        margin: 0;
+        padding: 7px 4px;
+        list-style: none;
+        display: none;
+        position: absolute;
+        border: 2px solid #034575;
+        border-radius: 5px;
+        background-color: #eee;
+      }
+
+      .menu-button-links .menu a {
+        margin: 0;
+        padding: 6px;
+        display: block;
+        width: 24em;
+        background-color: #eee;
+        border: none;
+        color: black;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+
+      .menu-button-links .menu a:hover {
+        background-color: #034575;
+        color: white;
+       }
+
+      .menu-button-links button svg.down {
+        padding-left: 0.125em;
+        fill: currentColor;
+        stroke: currentColor;
+      }
+
+      .menu-button-links button.open svg.down {
+        transform: rotate(180deg);
+      }
+    </style>
+    <contents>
+
+     <h2>Example</h2>
+
+     <p><a href="https://webedit.disability.illinois.edu/user/jongund/nav-menu-button-add-keyboard/output/" target="_webedit">Menu Button example with keyboard support on WebEdit</a></p>
+
+     <script id="script">
+        class MenuButtonLinks {
+
+          constructor(domNode) {
+
+            this.domNode       = domNode;
+            this.buttonNode    = domNode.querySelector('button');
+            this.menuNode      = domNode.querySelector('.menu');
+            this.menuitemNodes = []
+            this.firstMenuitem = false;
+            this.lastMenuitem  = false;
+            this.firstChars = [];
+
+            this.buttonNode.addEventListener('keydown', this.onButtonKeydown.bind(this));
+            this.buttonNode.addEventListener('click', this.onButtonClick.bind(this));
+
+            var nodes = this.menuNode.querySelectorAll('a');
+
+            for (var i = 0; i &lt; nodes.length; i++) {
+              var menuitem = nodes[i];
+              this.menuitemNodes.push(menuitem);
+              menuitem.tabIndex = -1;
+              this.firstChars.push(menuitem.textContent.trim()[0].toLowerCase());
+
+              menuitem.addEventListener('keydown', this.onMenuitemKeydown.bind(this));
+
+              menuitem.addEventListener('mouseover', this.onMenuitemMouseover.bind(this));
+
+              if( !this.firstMenuitem) {
+                this.firstMenuitem = menuitem;
+              }
+              this.lastMenuitem = menuitem;
+            }
+
+            domNode.addEventListener('focusin', this.onFocusin.bind(this));
+            domNode.addEventListener('focusout', this.onFocusout.bind(this));
+
+            window.addEventListener('mousedown', this.onBackgroundMousedown.bind(this), true);
+          }
+
+          // Popup menu methods
+
+          openPopup() {
+            var rect = this.menuNode.getBoundingClientRect();
+            this.menuNode.style.display = 'block';
+            this.buttonNode.classList.add('open');
+          }
+
+          closePopup() {
+            if (this.isOpen()) {
+              this.buttonNode.classList.remove('open');
+              this.menuNode.style.display = 'none';
+            }
+          }
+
+          isOpen() {
+            return this.buttonNode.classList.contains('open');
+          }
+
+          // Focus management methods
+
+          setFocusToMenuitem(newMenuitem) {
+            this.menuitemNodes.forEach(function(item) {
+              if (item === newMenuitem) {
+                item.tabIndex = 0;
+                newMenuitem.focus();
+              }
+              else {
+                item.tabIndex = -1;
+              }
+            });
+          }
+
+          setFocusToFirstMenuitem(currentMenuitem) {
+            this.setFocusToMenuitem(this.firstMenuitem);
+          }
+
+          setFocusToLastMenuitem(currentMenuitem) {
+            this.setFocusToMenuitem(this.lastMenuitem);
+          }
+
+          setFocusToPreviousMenuitem(currentMenuitem) {
+            var newMenuitem, index;
+
+            if (currentMenuitem === this.firstMenuitem) {
+              newMenuitem = this.lastMenuitem;
+            }
+            else {
+              index = this.menuitemNodes.indexOf(currentMenuitem);
+              newMenuitem = this.menuitemNodes[ index - 1 ];
+            }
+
+            this.setFocusToMenuitem(newMenuitem);
+
+            return newMenuitem;
+          }
+
+          setFocusToNextMenuitem(currentMenuitem) {
+            var newMenuitem, index;
+
+            if (currentMenuitem === this.lastMenuitem) {
+              newMenuitem = this.firstMenuitem;
+            }
+            else {
+              index = this.menuitemNodes.indexOf(currentMenuitem);
+              newMenuitem = this.menuitemNodes[ index + 1 ];
+            }
+            this.setFocusToMenuitem(newMenuitem);
+
+            return newMenuitem;
+          }
+
+          setFocusByFirstCharacter(currentMenuitem, char) {
+            var start, index;
+
+            if (char.length > 1) {
+              return;
+            }
+
+            char = char.toLowerCase();
+
+            // Get start index for search based on position of currentItem
+            start = this.menuitemNodes.indexOf(currentMenuitem) + 1;
+            if (start >=  this.menuitemNodes.length) {
+              start = 0;
+            }
+
+            // Check remaining slots in the menu
+            index = this.firstChars.indexOf(char, start);
+
+            // If not found in remaining slots, check from beginning
+            if (index === -1) {
+              index = this.firstChars.indexOf(char, 0);
+            }
+
+            // If match was found...
+            if (index > -1) {
+              this.setFocusToMenuitem(this.menuitemNodes[index]);
+            }
+          }
+
+          // Utilities
+
+          getIndexFirstChars(startIndex, char) {
+            for (var i = startIndex; i &lt; this.firstChars.length; i++) {
+              if (char === this.firstChars[i]) {
+                return i;
+              }
+            }
+            return -1;
+          }
+
+
+          // Menu event handlers
+
+          onFocusin(event) {
+            this.domNode.classList.add('focus');
+          }
+
+          onFocusout(event) {
+            this.domNode.classList.remove('focus');
+          }
+
+          onButtonKeydown(event) {
+            var tgt = event.currentTarget,
+              key = event.key,
+              flag = false;
+
+            switch (key) {
+              case ' ':
+              case 'Enter':
+              case 'ArrowDown':
+              case 'Down':
+                this.openPopup();
+                this.setFocusToFirstMenuitem();
+                flag = true;
+               break;
+
+              case 'Esc':
+              case 'Escape':
+                  this.closePopup();
+                  this.buttonNode.focus();
+                  flag = true;
+                break;
+
+              case 'Up':
+              case 'ArrowUp':
+                this.openPopup();
+                this.setFocusToLastMenuitem();
+                flag = true;
+                break;
+
+              default:
+                break;
+            }
+
+            if (flag) {
+              event.stopPropagation();
+              event.preventDefault();
+            }
+          }
+
+          onButtonClick(event) {
+            if (this.isOpen()) {
+              this.closePopup();
+              this.buttonNode.focus();
+            }
+            else {
+              this.openPopup();
+              this.setFocusToFirstMenuitem();
+            }
+
+            event.stopPropagation();
+            event.preventDefault();
+          }
+
+          onMenuitemKeydown(event) {
+            var tgt = event.currentTarget,
+              key = event.key,
+              flag = false;
+
+            function isPrintableCharacter (str) {
+              return str.length === 1 &amp;&amp; str.match(/\S/);
+            }
+
+            if (event.ctrlKey || event.altKey  || event.metaKey) {
+              return;
+            }
+
+            if (event.shiftKey) {
+              if (isPrintableCharacter(key)) {
+                this.setFocusByFirstCharacter(tgt, key);
+                flag = true;
+              }
+
+              if (event.key === 'Tab') {
+                this.buttonNode.focus();
+                this.closePopup();
+                flag = true;
+              }
+            }
+            else {
+
+              switch (key) {
+                case ' ':
+                 window.location.href=tgt.href;
+                 break;
+
+                case 'Esc':
+                case 'Escape':
+                  this.closePopup();
+                  this.buttonNode.focus();
+                  flag = true;
+                  break;
+
+                case 'Up':
+                case 'ArrowUp':
+                  this.setFocusToPreviousMenuitem(tgt);
+                  flag = true;
+                  break;
+
+                case 'ArrowDown':
+                case 'Down':
+                  this.setFocusToNextMenuitem(tgt);
+                  flag = true;
+                  break;
+
+                case 'Home':
+                case 'PageUp':
+                  this.setFocusToFirstMenuitem();
+                  flag = true;
+                  break;
+
+                case 'End':
+                case 'PageDown':
+                  this.setFocusToLastMenuitem();
+                  flag = true;
+                  break;
+
+                case 'Tab':
+                  this.closePopup();
+                  break;
+
+                default:
+                  if (isPrintableCharacter(key)) {
+                    this.setFocusByFirstCharacter(tgt, key);
+                    flag = true;
+                  }
+                  break;
+              }
+
+            }
+
+            if (flag) {
+              event.stopPropagation();
+              event.preventDefault();
+            }
+          }
+
+          onMenuitemMouseover(event) {
+            var tgt = event.currentTarget;
+            tgt.focus();
+          }
+
+          onBackgroundMousedown(event) {
+            if (!this.domNode.contains(event.target)) {
+              if (this.isOpen()) {
+                this.closePopup();
+                this.buttonNode.focus();
+              }
+            }
+          }
+        }
+
+        // Initialize navigation menu buttons
+
+        window.addEventListener('load', function () {
+          var menuButtons = document.querySelectorAll('.menu-button-links');
+          for(var i=0; i &lt; menuButtons.length; i++) {
+            var menuButton = new MenuButtonLinks(menuButtons[i]);
+          }
+        });
+
+     </script>
+
+     <div id="example">
+      <div class="menu-button-links">
+        <button type="button">
+          WAI-ARIA Quick Links
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="down"
+               width="12"
+               height="9"
+               viewBox="0 0 12 9">
+            <polygon points="1 0, 11 0, 6 8"></polygon>
+          </svg>
+        </button>
+        <ul class="menu">
+          <li>
+            <a href="https://www.w3.org/">
+              W3C Home Page
+            </a>
+          </li>
+          <li>
+            <a href="https://www.w3.org/standards/webdesign/accessibility">
+              W3C Web Accessibility Initiative
+            </a>
+          </li>
+          <li>
+            <a href="https://www.w3.org/TR/wai-aria/">
+              ARIA Specification
+            </a>
+          </li>
+          <li>
+            <a href="https://w3c.github.io/aria-practices/">
+              Authoring Practices
+            </a>
+          </li>
+          <li>
+            <a href="https://www.w3.org/TR/html-aria/#el-li">
+              HTML Accessibility API Mappings
+            </a>
+          </li>
+          <li>
+            <a href="https://w3c.github.io/core-aam/#mapping_role">
+              Core ARIA Accessibility API Mappings
+            </a>
+          </li>
+          <li>
+            <a href="https://www.w3.org/TR/accname-aam-1.1/">
+              Accessible Name and Description
+            </a>
+          </li>
+        </ul>
+      </div>
+     </div>
+
+     <h2>New Keyboard Support</h2>
+
+     <ul>
+      <li>Button opens menu moves keyboard focus to a menu option.
+        <ul>
+          <li><kbd>Space</kbd></li>
+          <li><kbd>Enter</kbd></li>
+          <li><kbd>Up arrow</kbd></li>
+          <li><kbd>Down arrow</kbd></li>
+        </ul>
+      </li>
+      <li>Move through menu options with cursor keys.
+        <ul>
+          <li><kbd>Up arrow</kbd></li>
+          <li><kbd>Down arrow</kbd></li>
+          <li><kbd>Home</kbd></li>
+          <li><kbd>End</kbd></li>
+        </ul>
+      </li>
+      <li>Move through menu options with first letter keys.</li>
+        <ul>
+          <li><kbd>A-Z</kbd></li>
+          <li><kbd>a-z</kbd></li>
+        </ul>
+      <li>Close menu and move focus back to button.
+        <ul>
+          <li><kbd>Escape</kbd></li>
+        </ul>
+      </li>
+     </ul>
+
+
+      <h2>HTML Source Code</h2>
+
+      <pre><code id="sc1"></code></pre>
+
+      <h2>CSS Source Code</h2>
+
+      <pre><code id="sc2"></code></pre>
+
+      <h2>Javascript Source Code</h2>
+
+      <pre><code id="sc3"></code></pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'example');
+        sourceCode.add('sc2', 'style');
+        sourceCode.add('sc3', 'script');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script>
+    </contents>
+    <transcript>
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Menu Button: Add ARIA roles, properties and states</title>
+    <style id="style">
+      .menu-button-links {
+        margin: 0;
+        font-size: 110%;
+      }
+
+      .menu-button-links button {
+        margin: 0;
+        padding: 6px;
+        display: inline-block;
+        position: relative;
+        background-color: #034575;
+        border: 1px solid #034575;
+        font-size: 0.9em;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .menu-button-links [role="menu"] {
+        margin: 0;
+        padding: 7px 4px;
+        list-style: none;
+        display: none;
+        position: absolute;
+        border: 2px solid #034575;
+        border-radius: 5px;
+        background-color: #eee;
+      }
+
+      .menu-button-links [role="menu"] a {
+        margin: 0;
+        padding: 6px;
+        display: block;
+        width: 24em;
+        background-color: #eee;
+        border: none;
+        color: black;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+
+      .menu-button-links [role="menu"] a:hover {
+        background-color: #034575;
+        color: white;
+       }
+
+      .menu-button-links button svg.down {
+        padding-left: 0.125em;
+        fill: currentColor;
+        stroke: currentColor;
+      }
+
+      .menu-button-links button[aria-expanded] svg.down {
+        transform: rotate(180deg);
+      }
+    </style>
+    <contents>
+
+
+     <h2>Example</h2>
+
+     <p><a href="https://webedit.disability.illinois.edu/user/jongund/nav-menu-button-add-aria-markup/output/" target="_webedit">Menu Button example with ARIA markup support on WebEdit</a></p>
+
+     <script id="script">
+        class MenuButtonLinks {
+
+          constructor(domNode) {
+
+            this.domNode       = domNode;
+            this.buttonNode    = domNode.querySelector('button');
+            this.menuNode      = domNode.querySelector('[role="menu"]');
+            this.menuitemNodes = []
+            this.firstMenuitem = false;
+            this.lastMenuitem  = false;
+            this.firstChars = [];
+
+            this.buttonNode.addEventListener('keydown', this.onButtonKeydown.bind(this));
+            this.buttonNode.addEventListener('click', this.onButtonClick.bind(this));
+
+            var nodes = this.menuNode.querySelectorAll('a');
+
+            for (var i = 0; i &lt; nodes.length; i++) {
+              var menuitem = nodes[i];
+              this.menuitemNodes.push(menuitem);
+              menuitem.tabIndex = -1;
+              this.firstChars.push(menuitem.textContent.trim()[0].toLowerCase());
+
+              menuitem.addEventListener('keydown', this.onMenuitemKeydown.bind(this));
+
+              menuitem.addEventListener('mouseover', this.onMenuitemMouseover.bind(this));
+
+              if( !this.firstMenuitem) {
+                this.firstMenuitem = menuitem;
+              }
+              this.lastMenuitem = menuitem;
+            }
+
+            domNode.addEventListener('focusin', this.onFocusin.bind(this));
+            domNode.addEventListener('focusout', this.onFocusout.bind(this));
+
+            window.addEventListener('mousedown', this.onBackgroundMousedown.bind(this), true);
+          }
+
+          // Popup menu methods
+
+          openPopup() {
+            var rect = this.menuNode.getBoundingClientRect();
+            this.menuNode.style.display = 'block';
+            this.buttonNode.setAttribute('aria-expanded', 'true');
+          }
+
+          closePopup() {
+            if (this.isOpen()) {
+              this.buttonNode.removeAttribute('aria-expanded');
+              this.menuNode.style.display = 'none';
+            }
+          }
+
+          isOpen() {
+            return this.buttonNode.getAttribute('aria-expanded') === 'true';
+          }
+
+          // Focus management methods
+
+          setFocusToMenuitem(newMenuitem) {
+            this.menuitemNodes.forEach(function(item) {
+              if (item === newMenuitem) {
+                item.tabIndex = 0;
+                newMenuitem.focus();
+              }
+              else {
+                item.tabIndex = -1;
+              }
+            });
+          }
+
+          setFocusToFirstMenuitem(currentMenuitem) {
+            this.setFocusToMenuitem(this.firstMenuitem);
+          }
+
+          setFocusToLastMenuitem(currentMenuitem) {
+            this.setFocusToMenuitem(this.lastMenuitem);
+          }
+
+          setFocusToPreviousMenuitem(currentMenuitem) {
+            var newMenuitem, index;
+
+            if (currentMenuitem === this.firstMenuitem) {
+              newMenuitem = this.lastMenuitem;
+            }
+            else {
+              index = this.menuitemNodes.indexOf(currentMenuitem);
+              newMenuitem = this.menuitemNodes[ index - 1 ];
+            }
+
+            this.setFocusToMenuitem(newMenuitem);
+
+            return newMenuitem;
+          }
+
+          setFocusToNextMenuitem(currentMenuitem) {
+            var newMenuitem, index;
+
+            if (currentMenuitem === this.lastMenuitem) {
+              newMenuitem = this.firstMenuitem;
+            }
+            else {
+              index = this.menuitemNodes.indexOf(currentMenuitem);
+              newMenuitem = this.menuitemNodes[ index + 1 ];
+            }
+            this.setFocusToMenuitem(newMenuitem);
+
+            return newMenuitem;
+          }
+
+          setFocusByFirstCharacter(currentMenuitem, char) {
+            var start, index;
+
+            if (char.length > 1) {
+              return;
+            }
+
+            char = char.toLowerCase();
+
+            // Get start index for search based on position of currentItem
+            start = this.menuitemNodes.indexOf(currentMenuitem) + 1;
+            if (start >=  this.menuitemNodes.length) {
+              start = 0;
+            }
+
+            // Check remaining slots in the menu
+            index = this.firstChars.indexOf(char, start);
+
+            // If not found in remaining slots, check from beginning
+            if (index === -1) {
+              index = this.firstChars.indexOf(char, 0);
+            }
+
+            // If match was found...
+            if (index > -1) {
+              this.setFocusToMenuitem(this.menuitemNodes[index]);
+            }
+          }
+
+          // Utilities
+
+          getIndexFirstChars(startIndex, char) {
+            for (var i = startIndex; i &lt; this.firstChars.length; i++) {
+              if (char === this.firstChars[i]) {
+                return i;
+              }
+            }
+            return -1;
+          }
+
+
+          // Menu event handlers
+
+          onFocusin(event) {
+            this.domNode.classList.add('focus');
+          }
+
+          onFocusout(event) {
+            this.domNode.classList.remove('focus');
+          }
+
+          onButtonKeydown(event) {
+            var tgt = event.currentTarget,
+              key = event.key,
+              flag = false;
+
+            switch (key) {
+              case ' ':
+              case 'Enter':
+              case 'ArrowDown':
+              case 'Down':
+                this.openPopup();
+                this.setFocusToFirstMenuitem();
+                flag = true;
+               break;
+
+              case 'Esc':
+              case 'Escape':
+                  this.closePopup();
+                  this.buttonNode.focus();
+                  flag = true;
+                break;
+
+              case 'Up':
+              case 'ArrowUp':
+                this.openPopup();
+                this.setFocusToLastMenuitem();
+                flag = true;
+                break;
+
+              default:
+                break;
+            }
+
+            if (flag) {
+              event.stopPropagation();
+              event.preventDefault();
+            }
+          }
+
+          onButtonClick(event) {
+            if (this.isOpen()) {
+              this.closePopup();
+              this.buttonNode.focus();
+            }
+            else {
+              this.openPopup();
+              this.setFocusToFirstMenuitem();
+            }
+
+            event.stopPropagation();
+            event.preventDefault();
+          }
+
+          onMenuitemKeydown(event) {
+            var tgt = event.currentTarget,
+              key = event.key,
+              flag = false;
+
+            function isPrintableCharacter (str) {
+              return str.length === 1 &amp;&amp; str.match(/\S/);
+            }
+
+            if (event.ctrlKey || event.altKey  || event.metaKey) {
+              return;
+            }
+
+            if (event.shiftKey) {
+              if (isPrintableCharacter(key)) {
+                this.setFocusByFirstCharacter(tgt, key);
+                flag = true;
+              }
+
+              if (event.key === 'Tab') {
+                this.buttonNode.focus();
+                this.closePopup();
+                flag = true;
+              }
+            }
+            else {
+
+              switch (key) {
+                case ' ':
+                 window.location.href=tgt.href;
+                 break;
+
+                case 'Esc':
+                case 'Escape':
+                  this.closePopup();
+                  this.buttonNode.focus();
+                  flag = true;
+                  break;
+
+                case 'Up':
+                case 'ArrowUp':
+                  this.setFocusToPreviousMenuitem(tgt);
+                  flag = true;
+                  break;
+
+                case 'ArrowDown':
+                case 'Down':
+                  this.setFocusToNextMenuitem(tgt);
+                  flag = true;
+                  break;
+
+                case 'Home':
+                case 'PageUp':
+                  this.setFocusToFirstMenuitem();
+                  flag = true;
+                  break;
+
+                case 'End':
+                case 'PageDown':
+                  this.setFocusToLastMenuitem();
+                  flag = true;
+                  break;
+
+                case 'Tab':
+                  this.closePopup();
+                  break;
+
+                default:
+                  if (isPrintableCharacter(key)) {
+                    this.setFocusByFirstCharacter(tgt, key);
+                    flag = true;
+                  }
+                  break;
+              }
+
+            }
+
+            if (flag) {
+              event.stopPropagation();
+              event.preventDefault();
+            }
+          }
+
+          onMenuitemMouseover(event) {
+            var tgt = event.currentTarget;
+            tgt.focus();
+          }
+
+          onBackgroundMousedown(event) {
+            if (!this.domNode.contains(event.target)) {
+              if (this.isOpen()) {
+                this.closePopup();
+                this.buttonNode.focus();
+              }
+            }
+          }
+        }
+
+        // Initialize navigation menu buttons
+
+        window.addEventListener('load', function () {
+          var menuButtons = document.querySelectorAll('.menu-button-links');
+          for(var i=0; i &lt; menuButtons.length; i++) {
+            var menuButton = new MenuButtonLinks(menuButtons[i]);
+          }
+        });
+
+     </script>
+
+     <div id="example">
+        <div class="menu-button-links">
+          <button type="button"
+            id="id-button"
+            aria-haspopup="true"
+            aria-controls="id-menu">
+            WAI-ARIA Quick Links
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="down"
+                 width="12"
+                 height="9"
+                 viewBox="0 0 12 9">
+              <polygon points="1 0, 11 0, 6 8"></polygon>
+            </svg>
+          </button>
+          <ul id="id-menu" role="menu" aria-labelledby="id-button">
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/">
+                W3C Home Page
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/standards/webdesign/accessibility">
+                W3C Web Accessibility Initiative
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/TR/wai-aria/">
+                ARIA Specification
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://w3c.github.io/aria-practices/">
+                Authoring Practices
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/TR/html-aria/#el-li">
+                HTML Accessibility API Mappings
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://w3c.github.io/core-aam/#mapping_role">
+                Core ARIA Accessibility API Mappings
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/TR/accname-aam-1.1/">
+                Accessible Name and Description
+              </a>
+            </li>
+          </ul>
+        </div>
+     </div>
+
+      <h2>ARIA Markup</h2>
+
+      <h3>Button Element</h3>
+      <ul>
+        <li>Button element has the default role of <code>button</code>.</li>
+        <li><code>aria-haspopup="true"</code> attribute.</li>
+        <li><code>aria-controls</code> attribute references the <code>id</code> of the element with the <code>menu</code> role.</li>
+        <li><code>aria-expanded="true"</code> when menu is open, otherwise attribute is not present.</li>
+        <li>Accessible name for the button comes from the text content of the button element.</li>
+      </ul>
+
+      <h3>Menu and Menuitem Elements</h3>
+      <ul>
+        <li>Container <code>ul</code> element has the <code>role="menu"</code>.</li>
+        <li>Container <code>ul</code> element has the <code>aria-labelledby="id-mb"</code> to provide an accessible name for the menu.</li>
+        <li><code>a</code> elements have the <code>role="menuitem"</code>.</li>
+        <li><code>li</code> elements have the <code>role="none"</code>, since the list item semantics are not needed due to the <code>menuitem</code> roles being on the <code>a</code> elements.</li>
+        <li>Accessible name for the menu items comes from the text content of the anchor elements.</li>
+      </ul>
+
+
+
+      <h2>HTML Source Code</h2>
+
+      <pre><code id="sc1"></code></pre>
+
+      <h2>CSS Source Code</h2>
+
+      <pre><code id="sc2"></code></pre>
+
+      <h2>Javascript Source Code</h2>
+
+      <pre><code id="sc3"></code></pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'example');
+        sourceCode.add('sc2', 'style');
+        sourceCode.add('sc3', 'script');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script>
+    </contents>
+    <transcript>
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Menu Button: Keyboard Focus Styling</title>
+    <style id="style">
+      .menu-button-links {
+        margin: 0;
+        font-size: 110%;
+      }
+
+      .menu-button-links button {
+        margin: 0;
+        padding: 5px;
+        display: inline-block;
+        position: relative;
+        background-color: #034575;
+        border: 2px solid white;
+        font-size: 0.9em;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .menu-button-links [role="menu"] {
+        margin: 0;
+        padding: 7px 4px;
+        list-style: none;
+        display: none;
+        position: absolute;
+        border: 2px solid #034575;
+        border-radius: 5px;
+        background-color: #eee;
+      }
+
+      .menu-button-links [role="menu"] a {
+        margin: 0;
+        padding: 4px;
+        display: block;
+        width: 24em;
+        background-color: #eee;
+        border: 2px solid #eee;
+        color: black;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+
+      .menu-button-links [role="menu"] a:hover {
+        background-color: #034575;
+        color: white;
+       }
+
+      .menu-button-links button svg.down {
+        padding-left: 0.125em;
+        fill: currentColor;
+        stroke: currentColor;
+      }
+
+      .menu-button-links button[aria-expanded] svg.down {
+        transform: rotate(180deg);
+      }
+
+      /* Focus and hover styling */
+
+      .menu-button-links button:focus,
+      .menu-button-links button:hover {
+        background-color: white;
+        border-color: #034575;
+        color: #222222;
+      }
+
+      .menu-button-links [role="menu"] a:focus,
+      .menu-button-links [role="menu"] a:hover {
+        background-color: white;
+        border-color: #034575;
+        color: #222222;
+      }
+
+    </style>
+    <contents>
+
+     <h2>Example</h2>
+
+     <p><a href="https://webedit.disability.illinois.edu/user/jongund/nav-menu-button-add-focus-style/output/" target="_webedit">Menu Button: Keyboard, ARIA and focus styling on WebEdit</a></p>
+
+     <script id="script">
+        class MenuButtonLinks {
+
+          constructor(domNode) {
+
+            this.domNode       = domNode;
+            this.buttonNode    = domNode.querySelector('button');
+            this.menuNode      = domNode.querySelector('[role="menu"]');
+            this.menuitemNodes = []
+            this.firstMenuitem = false;
+            this.lastMenuitem  = false;
+            this.firstChars = [];
+
+            this.buttonNode.addEventListener('keydown', this.onButtonKeydown.bind(this));
+            this.buttonNode.addEventListener('click', this.onButtonClick.bind(this));
+
+            var nodes = this.menuNode.querySelectorAll('a');
+
+            for (var i = 0; i &lt; nodes.length; i++) {
+              var menuitem = nodes[i];
+              this.menuitemNodes.push(menuitem);
+              menuitem.tabIndex = -1;
+              this.firstChars.push(menuitem.textContent.trim()[0].toLowerCase());
+
+              menuitem.addEventListener('keydown', this.onMenuitemKeydown.bind(this));
+
+              menuitem.addEventListener('mouseover', this.onMenuitemMouseover.bind(this));
+
+              if( !this.firstMenuitem) {
+                this.firstMenuitem = menuitem;
+              }
+              this.lastMenuitem = menuitem;
+            }
+
+            domNode.addEventListener('focusin', this.onFocusin.bind(this));
+            domNode.addEventListener('focusout', this.onFocusout.bind(this));
+
+            window.addEventListener('mousedown', this.onBackgroundMousedown.bind(this), true);
+          }
+
+          // Popup menu methods
+
+          openPopup() {
+            var rect = this.menuNode.getBoundingClientRect();
+            this.menuNode.style.display = 'block';
+            this.buttonNode.setAttribute('aria-expanded', 'true');
+          }
+
+          closePopup() {
+            if (this.isOpen()) {
+              this.buttonNode.removeAttribute('aria-expanded');
+              this.menuNode.style.display = 'none';
+            }
+          }
+
+          isOpen() {
+            return this.buttonNode.getAttribute('aria-expanded') === 'true';
+          }
+
+          // Focus management methods
+
+          setFocusToMenuitem(newMenuitem) {
+            this.menuitemNodes.forEach(function(item) {
+              if (item === newMenuitem) {
+                item.tabIndex = 0;
+                newMenuitem.focus();
+              }
+              else {
+                item.tabIndex = -1;
+              }
+            });
+          }
+
+          setFocusToFirstMenuitem(currentMenuitem) {
+            this.setFocusToMenuitem(this.firstMenuitem);
+          }
+
+          setFocusToLastMenuitem(currentMenuitem) {
+            this.setFocusToMenuitem(this.lastMenuitem);
+          }
+
+          setFocusToPreviousMenuitem(currentMenuitem) {
+            var newMenuitem, index;
+
+            if (currentMenuitem === this.firstMenuitem) {
+              newMenuitem = this.lastMenuitem;
+            }
+            else {
+              index = this.menuitemNodes.indexOf(currentMenuitem);
+              newMenuitem = this.menuitemNodes[ index - 1 ];
+            }
+
+            this.setFocusToMenuitem(newMenuitem);
+
+            return newMenuitem;
+          }
+
+          setFocusToNextMenuitem(currentMenuitem) {
+            var newMenuitem, index;
+
+            if (currentMenuitem === this.lastMenuitem) {
+              newMenuitem = this.firstMenuitem;
+            }
+            else {
+              index = this.menuitemNodes.indexOf(currentMenuitem);
+              newMenuitem = this.menuitemNodes[ index + 1 ];
+            }
+            this.setFocusToMenuitem(newMenuitem);
+
+            return newMenuitem;
+          }
+
+          setFocusByFirstCharacter(currentMenuitem, char) {
+            var start, index;
+
+            if (char.length > 1) {
+              return;
+            }
+
+            char = char.toLowerCase();
+
+            // Get start index for search based on position of currentItem
+            start = this.menuitemNodes.indexOf(currentMenuitem) + 1;
+            if (start >=  this.menuitemNodes.length) {
+              start = 0;
+            }
+
+            // Check remaining slots in the menu
+            index = this.firstChars.indexOf(char, start);
+
+            // If not found in remaining slots, check from beginning
+            if (index === -1) {
+              index = this.firstChars.indexOf(char, 0);
+            }
+
+            // If match was found...
+            if (index > -1) {
+              this.setFocusToMenuitem(this.menuitemNodes[index]);
+            }
+          }
+
+          // Utilities
+
+          getIndexFirstChars(startIndex, char) {
+            for (var i = startIndex; i &lt; this.firstChars.length; i++) {
+              if (char === this.firstChars[i]) {
+                return i;
+              }
+            }
+            return -1;
+          }
+
+
+          // Menu event handlers
+
+          onFocusin(event) {
+            this.domNode.classList.add('focus');
+          }
+
+          onFocusout(event) {
+            this.domNode.classList.remove('focus');
+          }
+
+          onButtonKeydown(event) {
+            var tgt = event.currentTarget,
+              key = event.key,
+              flag = false;
+
+            switch (key) {
+              case ' ':
+              case 'Enter':
+              case 'ArrowDown':
+              case 'Down':
+                this.openPopup();
+                this.setFocusToFirstMenuitem();
+                flag = true;
+               break;
+
+              case 'Esc':
+              case 'Escape':
+                  this.closePopup();
+                  this.buttonNode.focus();
+                  flag = true;
+                break;
+
+              case 'Up':
+              case 'ArrowUp':
+                this.openPopup();
+                this.setFocusToLastMenuitem();
+                flag = true;
+                break;
+
+              default:
+                break;
+            }
+
+            if (flag) {
+              event.stopPropagation();
+              event.preventDefault();
+            }
+          }
+
+          onButtonClick(event) {
+            if (this.isOpen()) {
+              this.closePopup();
+              this.buttonNode.focus();
+            }
+            else {
+              this.openPopup();
+              this.setFocusToFirstMenuitem();
+            }
+
+            event.stopPropagation();
+            event.preventDefault();
+          }
+
+          onMenuitemKeydown(event) {
+            var tgt = event.currentTarget,
+              key = event.key,
+              flag = false;
+
+            function isPrintableCharacter (str) {
+              return str.length === 1 &amp;&amp; str.match(/\S/);
+            }
+
+            if (event.ctrlKey || event.altKey  || event.metaKey) {
+              return;
+            }
+
+            if (event.shiftKey) {
+              if (isPrintableCharacter(key)) {
+                this.setFocusByFirstCharacter(tgt, key);
+                flag = true;
+              }
+
+              if (event.key === 'Tab') {
+                this.buttonNode.focus();
+                this.closePopup();
+                flag = true;
+              }
+            }
+            else {
+
+              switch (key) {
+                case ' ':
+                 window.location.href=tgt.href;
+                 break;
+
+                case 'Esc':
+                case 'Escape':
+                  this.closePopup();
+                  this.buttonNode.focus();
+                  flag = true;
+                  break;
+
+                case 'Up':
+                case 'ArrowUp':
+                  this.setFocusToPreviousMenuitem(tgt);
+                  flag = true;
+                  break;
+
+                case 'ArrowDown':
+                case 'Down':
+                  this.setFocusToNextMenuitem(tgt);
+                  flag = true;
+                  break;
+
+                case 'Home':
+                case 'PageUp':
+                  this.setFocusToFirstMenuitem();
+                  flag = true;
+                  break;
+
+                case 'End':
+                case 'PageDown':
+                  this.setFocusToLastMenuitem();
+                  flag = true;
+                  break;
+
+                case 'Tab':
+                  this.closePopup();
+                  break;
+
+                default:
+                  if (isPrintableCharacter(key)) {
+                    this.setFocusByFirstCharacter(tgt, key);
+                    flag = true;
+                  }
+                  break;
+              }
+
+            }
+
+            if (flag) {
+              event.stopPropagation();
+              event.preventDefault();
+            }
+          }
+
+          onMenuitemMouseover(event) {
+            var tgt = event.currentTarget;
+            tgt.focus();
+          }
+
+          onBackgroundMousedown(event) {
+            if (!this.domNode.contains(event.target)) {
+              if (this.isOpen()) {
+                this.closePopup();
+                this.buttonNode.focus();
+              }
+            }
+          }
+        }
+
+        // Initialize navigation menu buttons
+
+        window.addEventListener('load', function () {
+          var menuButtons = document.querySelectorAll('.menu-button-links');
+          for(var i=0; i &lt; menuButtons.length; i++) {
+            var menuButton = new MenuButtonLinks(menuButtons[i]);
+          }
+        });
+
+     </script>
+
+     <div id="example">
+        <div class="menu-button-links">
+          <button type="button"
+            id="id-button"
+            aria-haspopup="true"
+            aria-controls="id-menu">
+            WAI-ARIA Quick Links
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="down"
+                 width="12"
+                 height="9"
+                 viewBox="0 0 12 9">
+              <polygon points="1 0, 11 0, 6 8"></polygon>
+            </svg>
+          </button>
+          <ul id="id-menu" role="menu" aria-labelledby="id-button">
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/">
+                W3C Home Page
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/standards/webdesign/accessibility">
+                W3C Web Accessibility Initiative
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/TR/wai-aria/">
+                ARIA Specification
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://w3c.github.io/aria-practices/">
+                Authoring Practices
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/TR/html-aria/#el-li">
+                HTML Accessibility API Mappings
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://w3c.github.io/core-aam/#mapping_role">
+                Core ARIA Accessibility API Mappings
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/TR/accname-aam-1.1/">
+                Accessible Name and Description
+              </a>
+            </li>
+          </ul>
+        </div>
+     </div>
+
+      <h2>Focus Styling</h2>
+
+      <ul>
+        <li>Focus and hover provide a visual border using CSS <code>border</code> property and background color change.</li>
+      </ul>
+
+      <h2>ARIA Markup</h2>
+
+      <h3>Button Element</h3>
+      <ul>
+        <li>Button element has the default role of <code>button</code>.</li>
+        <li><code>aria-haspopup="true"</code> attribute.</li>
+        <li><code>aria-controls</code> attribute references the <code>id</code> of the element with the <code>menu</code> role.</li>
+        <li><code>aria-expanded="true"</code> when menu is open, otherwise attribute is not present.</li>
+        <li>Accessible name for the button comes from the text content of the button element.</li>
+      </ul>
+
+      <h3>Menu and Menuitem Elements</h3>
+      <ul>
+        <li>Container <code>ul</code> element has the <code>role="menu"</code>.</li>
+        <li>Container <code>ul</code> element has the <code>aria-labelledby="id-mb"</code> to provide an accessible name for the menu.</li>
+        <li><code>a</code> elements have the <code>role="menuitem"</code>.</li>
+        <li><code>li</code> elements have the <code>role="none"</code>, since the list item semantics are not needed due to the <code>menuitem</code> roles being on the <code>a</code> elements.</li>
+        <li>Accessible name for the menu items comes from the text content of the anchor elements.</li>
+      </ul>
+
+      <h2>HTML Source Code</h2>
+
+      <pre><code id="sc1"></code></pre>
+
+      <h2>CSS Source Code</h2>
+
+      <pre><code id="sc2"></code></pre>
+
+      <h2>Javascript Source Code</h2>
+
+      <pre><code id="sc3"></code></pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'example');
+        sourceCode.add('sc2', 'style');
+        sourceCode.add('sc3', 'script');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script>
+    </contents>
+    <transcript>
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Menu Button: High Contrast Support</title>
+    <style id="style">
+      .menu-button-links {
+        margin: 0;
+        font-size: 110%;
+      }
+
+      .menu-button-links button {
+        margin: 0;
+        padding: 6px;
+        display: inline-block;
+        position: relative;
+        background-color: #034575;
+        border: 1px solid white;
+        font-size: 0.9em;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .menu-button-links [role="menu"] {
+        margin: 0;
+        padding: 7px 4px;
+        list-style: none;
+        display: none;
+        position: absolute;
+        border: 2px solid #034575;
+        border-radius: 5px;
+        background-color: #eee;
+      }
+
+      .menu-button-links [role="menu"] a {
+        margin: 0;
+        padding: 6px;
+        display: block;
+        width: 24em;
+        background-color: #eee;
+        border: none;
+        color: black;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+
+      .menu-button-links button svg.down {
+        padding-left: 0.125em;
+        fill: currentColor;
+        stroke: currentColor;
+      }
+
+      .menu-button-links button[aria-expanded] svg.down {
+        transform: rotate(180deg);
+      }
+
+      /* Focus and hover styling */
+
+      .menu-button-links button:focus,
+      .menu-button-links button:hover {
+        padding: 4px;
+        background-color: white;
+        border: 3px solid #034575;
+        color: #222222;
+      }
+
+      .menu-button-links [role="menu"] a:focus,
+      .menu-button-links [role="menu"] a:hover {
+        padding: 4px;
+        background-color: white;
+        border: 2px solid #034575;
+        color: #222222;
+      }
+
+    </style>
+    <contents>
+
+     <h2>Example</h2>
+
+     <p><a href="https://webedit.disability.illinois.edu/user/jongund/nav-menu-button-accessible/output/" target="_webedit">Menu Button: Keyboard, ARIA and high contrast on WebEdit</a></p>
+
+     <script id="script">
+        class MenuButtonLinks {
+
+          constructor(domNode) {
+
+            this.domNode       = domNode;
+            this.buttonNode    = domNode.querySelector('button');
+            this.menuNode      = domNode.querySelector('[role="menu"]');
+            this.menuitemNodes = []
+            this.firstMenuitem = false;
+            this.lastMenuitem  = false;
+            this.firstChars = [];
+
+            this.buttonNode.addEventListener('keydown', this.onButtonKeydown.bind(this));
+            this.buttonNode.addEventListener('click', this.onButtonClick.bind(this));
+
+            var nodes = this.menuNode.querySelectorAll('a');
+
+            for (var i = 0; i &lt; nodes.length; i++) {
+              var menuitem = nodes[i];
+              this.menuitemNodes.push(menuitem);
+              menuitem.tabIndex = -1;
+              this.firstChars.push(menuitem.textContent.trim()[0].toLowerCase());
+
+              menuitem.addEventListener('keydown', this.onMenuitemKeydown.bind(this));
+
+              menuitem.addEventListener('mouseover', this.onMenuitemMouseover.bind(this));
+
+              if( !this.firstMenuitem) {
+                this.firstMenuitem = menuitem;
+              }
+              this.lastMenuitem = menuitem;
+            }
+
+            domNode.addEventListener('focusin', this.onFocusin.bind(this));
+            domNode.addEventListener('focusout', this.onFocusout.bind(this));
+
+            window.addEventListener('mousedown', this.onBackgroundMousedown.bind(this), true);
+          }
+
+          // Popup menu methods
+
+          openPopup() {
+            var rect = this.menuNode.getBoundingClientRect();
+            this.menuNode.style.display = 'block';
+            this.buttonNode.setAttribute('aria-expanded', 'true');
+          }
+
+          closePopup() {
+            if (this.isOpen()) {
+              this.buttonNode.removeAttribute('aria-expanded');
+              this.menuNode.style.display = 'none';
+            }
+          }
+
+          isOpen() {
+            return this.buttonNode.getAttribute('aria-expanded') === 'true';
+          }
+
+          // Focus management methods
+
+          setFocusToMenuitem(newMenuitem) {
+            this.menuitemNodes.forEach(function(item) {
+              if (item === newMenuitem) {
+                item.tabIndex = 0;
+                newMenuitem.focus();
+              }
+              else {
+                item.tabIndex = -1;
+              }
+            });
+          }
+
+          setFocusToFirstMenuitem(currentMenuitem) {
+            this.setFocusToMenuitem(this.firstMenuitem);
+          }
+
+          setFocusToLastMenuitem(currentMenuitem) {
+            this.setFocusToMenuitem(this.lastMenuitem);
+          }
+
+          setFocusToPreviousMenuitem(currentMenuitem) {
+            var newMenuitem, index;
+
+            if (currentMenuitem === this.firstMenuitem) {
+              newMenuitem = this.lastMenuitem;
+            }
+            else {
+              index = this.menuitemNodes.indexOf(currentMenuitem);
+              newMenuitem = this.menuitemNodes[ index - 1 ];
+            }
+
+            this.setFocusToMenuitem(newMenuitem);
+
+            return newMenuitem;
+          }
+
+          setFocusToNextMenuitem(currentMenuitem) {
+            var newMenuitem, index;
+
+            if (currentMenuitem === this.lastMenuitem) {
+              newMenuitem = this.firstMenuitem;
+            }
+            else {
+              index = this.menuitemNodes.indexOf(currentMenuitem);
+              newMenuitem = this.menuitemNodes[ index + 1 ];
+            }
+            this.setFocusToMenuitem(newMenuitem);
+
+            return newMenuitem;
+          }
+
+          setFocusByFirstCharacter(currentMenuitem, char) {
+            var start, index;
+
+            if (char.length > 1) {
+              return;
+            }
+
+            char = char.toLowerCase();
+
+            // Get start index for search based on position of currentItem
+            start = this.menuitemNodes.indexOf(currentMenuitem) + 1;
+            if (start >=  this.menuitemNodes.length) {
+              start = 0;
+            }
+
+            // Check remaining slots in the menu
+            index = this.firstChars.indexOf(char, start);
+
+            // If not found in remaining slots, check from beginning
+            if (index === -1) {
+              index = this.firstChars.indexOf(char, 0);
+            }
+
+            // If match was found...
+            if (index > -1) {
+              this.setFocusToMenuitem(this.menuitemNodes[index]);
+            }
+          }
+
+          // Utilities
+
+          getIndexFirstChars(startIndex, char) {
+            for (var i = startIndex; i &lt; this.firstChars.length; i++) {
+              if (char === this.firstChars[i]) {
+                return i;
+              }
+            }
+            return -1;
+          }
+
+
+          // Menu event handlers
+
+          onFocusin(event) {
+            this.domNode.classList.add('focus');
+          }
+
+          onFocusout(event) {
+            this.domNode.classList.remove('focus');
+          }
+
+          onButtonKeydown(event) {
+            var tgt = event.currentTarget,
+              key = event.key,
+              flag = false;
+
+            switch (key) {
+              case ' ':
+              case 'Enter':
+              case 'ArrowDown':
+              case 'Down':
+                this.openPopup();
+                this.setFocusToFirstMenuitem();
+                flag = true;
+               break;
+
+              case 'Esc':
+              case 'Escape':
+                  this.closePopup();
+                  this.buttonNode.focus();
+                  flag = true;
+                break;
+
+              case 'Up':
+              case 'ArrowUp':
+                this.openPopup();
+                this.setFocusToLastMenuitem();
+                flag = true;
+                break;
+
+              default:
+                break;
+            }
+
+            if (flag) {
+              event.stopPropagation();
+              event.preventDefault();
+            }
+          }
+
+          onButtonClick(event) {
+            if (this.isOpen()) {
+              this.closePopup();
+              this.buttonNode.focus();
+            }
+            else {
+              this.openPopup();
+              this.setFocusToFirstMenuitem();
+            }
+
+            event.stopPropagation();
+            event.preventDefault();
+          }
+
+          onMenuitemKeydown(event) {
+            var tgt = event.currentTarget,
+              key = event.key,
+              flag = false;
+
+            function isPrintableCharacter (str) {
+              return str.length === 1 &amp;&amp; str.match(/\S/);
+            }
+
+            if (event.ctrlKey || event.altKey  || event.metaKey) {
+              return;
+            }
+
+            if (event.shiftKey) {
+              if (isPrintableCharacter(key)) {
+                this.setFocusByFirstCharacter(tgt, key);
+                flag = true;
+              }
+
+              if (event.key === 'Tab') {
+                this.buttonNode.focus();
+                this.closePopup();
+                flag = true;
+              }
+            }
+            else {
+
+              switch (key) {
+                case ' ':
+                 window.location.href=tgt.href;
+                 break;
+
+                case 'Esc':
+                case 'Escape':
+                  this.closePopup();
+                  this.buttonNode.focus();
+                  flag = true;
+                  break;
+
+                case 'Up':
+                case 'ArrowUp':
+                  this.setFocusToPreviousMenuitem(tgt);
+                  flag = true;
+                  break;
+
+                case 'ArrowDown':
+                case 'Down':
+                  this.setFocusToNextMenuitem(tgt);
+                  flag = true;
+                  break;
+
+                case 'Home':
+                case 'PageUp':
+                  this.setFocusToFirstMenuitem();
+                  flag = true;
+                  break;
+
+                case 'End':
+                case 'PageDown':
+                  this.setFocusToLastMenuitem();
+                  flag = true;
+                  break;
+
+                case 'Tab':
+                  this.closePopup();
+                  break;
+
+                default:
+                  if (isPrintableCharacter(key)) {
+                    this.setFocusByFirstCharacter(tgt, key);
+                    flag = true;
+                  }
+                  break;
+              }
+
+            }
+
+            if (flag) {
+              event.stopPropagation();
+              event.preventDefault();
+            }
+          }
+
+          onMenuitemMouseover(event) {
+            var tgt = event.currentTarget;
+            tgt.focus();
+          }
+
+          onBackgroundMousedown(event) {
+            if (!this.domNode.contains(event.target)) {
+              if (this.isOpen()) {
+                this.closePopup();
+                this.buttonNode.focus();
+              }
+            }
+          }
+        }
+
+        // Initialize navigation menu buttons
+
+        window.addEventListener('load', function () {
+          var menuButtons = document.querySelectorAll('.menu-button-links');
+          for(var i=0; i &lt; menuButtons.length; i++) {
+            var menuButton = new MenuButtonLinks(menuButtons[i]);
+          }
+        });
+
+     </script>
+
+     <div id="example">
+        <div class="menu-button-links">
+          <button type="button"
+            id="id-button"
+            aria-haspopup="true"
+            aria-controls="id-menu">
+            WAI-ARIA Quick Links
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="down"
+                 width="12"
+                 height="9"
+                 viewBox="0 0 12 9">
+              <polygon points="1 0, 11 0, 6 8"></polygon>
+            </svg>
+          </button>
+          <ul id="id-menu" role="menu" aria-labelledby="id-button">
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/">
+                W3C Home Page
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/standards/webdesign/accessibility">
+                W3C Web Accessibility Initiative
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/TR/wai-aria/">
+                ARIA Specification
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://w3c.github.io/aria-practices/">
+                Authoring Practices
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/TR/html-aria/#el-li">
+                HTML Accessibility API Mappings
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://w3c.github.io/core-aam/#mapping_role">
+                Core ARIA Accessibility API Mappings
+              </a>
+            </li>
+            <li role="none">
+              <a role="menuitem" href="https://www.w3.org/TR/accname-aam-1.1/">
+                Accessible Name and Description
+              </a>
+            </li>
+          </ul>
+        </div>
+     </div>
+
+      <h2>High Contrast Support</h2>
+
+      <ul>
+        <li>When <code>button</code> does <em>not</em> have focus, CSS <code>border</code> property is set to <code>1px</code>.</li>
+        <li>When <code>button</code> does have focus, CSS <code>border</code> property is set to <code>3px</code> and padding is reduced by <code>2px</code>.</li>
+        <li>When <code>menuitem</code> does <em>not</em> have focus, CSS <code>border</code> property is set to <code>none</code>.</li>
+        <li>When <code>menuitem</code> does have focus, CSS <code>border</code> property is set to <code>2px</code> and padding is reduced by <code>2px</code>.</li>
+      </ul>
+
+      <h2>ARIA Markup</h2>
+
+      <h3>Button Element</h3>
+      <ul>
+        <li>Button element has the default role of <code>button</code>.</li>
+        <li><code>aria-haspopup="true"</code> attribute.</li>
+        <li><code>aria-controls</code> attribute references the <code>id</code> of the element with the <code>menu</code> role.</li>
+        <li><code>aria-expanded="true"</code> when menu is open, otherwise attribute is not present.</li>
+        <li>Accessible name for the button comes from the text content of the button element.</li>
+      </ul>
+
+      <h3>Menu and Menuitem Elements</h3>
+      <ul>
+        <li>Container <code>ul</code> element has the <code>role="menu"</code>.</li>
+        <li>Container <code>ul</code> element has the <code>aria-labelledby="id-mb"</code> to provide an accessible name for the menu.</li>
+        <li><code>a</code> elements have the <code>role="menuitem"</code>.</li>
+        <li><code>li</code> elements have the <code>role="none"</code>, since the list item semantics are not needed due to the <code>menuitem</code> roles being on the <code>a</code> elements.</li>
+        <li>Accessible name for the menu items comes from the text content of the anchor elements.</li>
+      </ul>
+
+      <h2>HTML Source Code</h2>
+
+      <pre><code id="sc1"></code></pre>
+
+      <h2>CSS Source Code</h2>
+
+      <pre><code id="sc2"></code></pre>
+
+      <h2>Javascript Source Code</h2>
+
+      <pre><code id="sc3"></code></pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'example');
+        sourceCode.add('sc2', 'style');
+        sourceCode.add('sc3', 'script');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script>
+    </contents>
+    <transcript>
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Navigation Links: Disclosure Pattern</title>
+    <style id="style">
+      .disclosure-button-links {
+        margin: 0;
+        font-size: 110%;
+      }
+
+      .disclosure-button-links button {
+        margin: 0;
+        padding: 6px;
+        display: inline-block;
+        position: relative;
+        background-color: #034575;
+        border: 1px solid #034575;
+        font-size: 0.9em;
+        color: white;
+        border-radius: 5px;
+      }
+
+      .disclosure-button-links .menu {
+        margin: 0;
+        padding: 7px 4px;
+        list-style: none;
+        display: none;
+        position: absolute;
+        border: 2px solid #034575;
+        border-radius: 5px;
+        background-color: #eee;
+      }
+
+      .disclosure-button-links .menu a {
+        margin: 0;
+        padding: 6px;
+        display: block;
+        width: 24em;
+        background-color: #eee;
+        border: none;
+        color: black;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+
+      .disclosure-button-links .menu a:hover {
+        background-color: #034575;
+        color: white;
+       }
+
+      .disclosure-button-links button svg.down {
+        padding-left: 0.125em;
+        fill: currentColor;
+        stroke: currentColor;
+      }
+
+      .disclosure-button-links button.open svg.down {
+        transform: rotate(180deg);
+      }
+
+      /* Focus and hover styling */
+
+      .disclosure-button-links button:focus,
+      .disclosure-button-links button:hover {
+        padding: 4px;
+        background-color: #dddddd;
+        border: 3px solid #034575;
+        color: #222222;
+
+      }
+
+      .disclosure-button-links a:focus,
+      .disclosure-button-links a:hover {
+        padding: 4px;
+        background-color: #dddddd;
+        border: 2px solid #034575;
+        color: #222222;
+      }
+    </style>
+    <contents>
+
+     <h2>Example</h2>
+
+     <p><a href="https://webedit.disability.illinois.edu/user/jongund/nav-disclosure/output/" target="_webedit">Navigation Links: Disclosure Pattern on WebEdit</a></p>
+
+     <script id="script">
+        class DisclosureButtonLinks {
+
+          constructor(domNode) {
+
+            this.domNode       = domNode;
+            this.buttonNode    = domNode.querySelector('button');
+            this.containerNode = domNode.querySelector('ul');
+
+            this.buttonNode.addEventListener('click', this.onButtonClick.bind(this));
+            this.buttonNode.addEventListener('blur', this.onBlur.bind(this));
+
+            const links = this.containerNode.querySelectorAll('a');
+            for (let i = 0; i &lt; links.length; i += 1) {
+              links[i].addEventListener('keydown', this.onLinkKeyDown.bind(this));
+              links[i].addEventListener('blur', this.onBlur.bind(this));
+            }
+            window.addEventListener('mousedown', this.onBackgroundMousedown.bind(this), true);
+          }
+
+          // Container methods
+
+          openContainer() {
+            this.containerNode.style.display = 'block';
+            this.buttonNode.setAttribute('aria-expanded', 'true');
+          }
+
+          closeContainer() {
+            if (this.isOpen()) {
+              this.buttonNode.setAttribute('aria-expanded', 'false');
+              this.containerNode.style.display = 'none';
+            }
+          }
+
+          isOpen() {
+            return this.buttonNode.getAttribute('aria-expanded') === 'true';
+          }
+
+          onButtonClick(event) {
+            if (this.isOpen()) {
+              this.closeContainer();
+            }
+            else {
+              this.openContainer();
+            }
+
+            event.stopPropagation();
+            event.preventDefault();
+          }
+
+          onLinkKeyDown(event) {
+            if (event.key === 'Esc' || event.key === 'Escape') {
+              this.closeContainer();
+              this.buttonNode.focus();
+              event.stopPropagation();
+              event.preventDefault();
+            }
+          }
+
+          onBlur(event) {
+            if (!this.domNode.contains(event.relatedTarget)) {
+              if (this.isOpen()) {
+                this.closeContainer();
+              }
+            }
+          }
+
+          onBackgroundMousedown(event) {
+            if (!this.domNode.contains(event.target)) {
+              if (this.isOpen()) {
+                this.closeContainer();
+                this.buttonNode.focus();
+              }
+            }
+          }
+        }
+
+        // Initialize navigation disclosure buttons
+
+        window.addEventListener('load', function () {
+          const disclosureButtons = document.querySelectorAll('.disclosure-button-links');
+          for(let i = 0; i &lt; disclosureButtons.length; i += 1) {
+            new DisclosureButtonLinks(disclosureButtons[i]);
+          }
+        });
+     </script>
+
+     <div id="example">
+        <div class="disclosure-button-links">
+          <button type="button"
+            aria-expanded="false"
+            aria-controls="id-container">
+            WAI-ARIA Quick Links
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="down"
+                 width="12"
+                 height="9"
+                 viewBox="0 0 12 9">
+              <polygon points="1 0, 11 0, 6 8"></polygon>
+            </svg>
+          </button>
+          <ul id="id-container" class="menu">
+            <li>
+              <a href="https://www.w3.org/">
+                W3C Home Page
+              </a>
+            </li>
+            <li>
+              <a href="https://www.w3.org/standards/webdesign/accessibility">
+                W3C Web Accessibility Initiative
+              </a>
+            </li>
+            <li>
+              <a href="https://www.w3.org/TR/wai-aria/">
+                ARIA Specification
+              </a>
+            </li>
+            <li>
+              <a href="https://w3c.github.io/aria-practices/">
+                Authoring Practices
+              </a>
+            </li>
+            <li>
+              <a href="https://www.w3.org/TR/html-aria/#el-li">
+                HTML Accessibility API Mappings
+              </a>
+            </li>
+            <li>
+              <a href="https://w3c.github.io/core-aam/#mapping_role">
+                Core ARIA Accessibility API Mappings
+              </a>
+            </li>
+            <li>
+              <a href="https://www.w3.org/TR/accname-aam-1.1/">
+                Accessible Name and Description
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p>More information on the <a href="https://w3c.github.io/aria-practices/#disclosure">ARIA disclosure pattern</a>.</p>
+
+      <h2>Keyboard Features</h2>
+      <ul>
+        <li>Button open and closes the list of links using <kbd>space</kbd> or <kbd>enter</kbd> key.</li>
+        <li>Pressing the <kbd>esc</kbd> key when focus is on a link closes the container element and moves focus back to the button..</li>
+      </ul>
+
+      <h2>ARIA Markup</h2>
+      <ul>
+        <li><code>aria-expanded="true"</code> on the button when the container is open.</li>
+        <li><code>aria-expanded="false"</code> on the button when the container is closed.</li>
+        <li><code>aria-controls="id-container"</code> on the button to reference the <code>id</code> of container element that opens and closes.</li>
+      </ul>
+
+      <h2>High Contrast Support</h2>
+      <ul>
+        <li>When <code>button</code> does <em>not</em> have focus, CSS <code>border</code> property is set to <code>1px</code>.</li>
+        <li>When <code>button</code> does have focus, CSS <code>border</code> property is set to <code>3px</code> and padding is reduced by <code>2px</code>.</li>
+        <li>When <code>a</code> element does <em>not</em> have focus, CSS <code>border</code> property is set to <code>none</code>.</li>
+        <li>When <code>a</code> element does have focus, CSS <code>border</code> property is set to <code>2px</code> and padding is reduced by <code>2px</code>.</li>
+      </ul>
+
+      <h2>HTML Source Code</h2>
+
+      <pre><code id="sc1"></code></pre>
+
+      <h2>CSS Source Code</h2>
+
+      <pre><code id="sc2"></code></pre>
+
+      <h2>Javascript Source Code</h2>
+
+      <pre><code id="sc3"></code></pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'example');
+        sourceCode.add('sc2', 'style');
+        sourceCode.add('sc3', 'script');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script>
+    </contents>
+    <transcript>
+    </transcript>
+  </slide>
+
+  <slide>
+    <title>Using ARIA in HTML (Best Practices)</title>
+    <contents>
+      <p><a href="https://w3c.github.io/using-aria/">Using ARIA in HTML (Best Practices)</a></p>
+      <ul>
+        <li>Use native semantics of HTML (e.g. <code>input[type=checkbox]</code> rather than div[role=checkbox]).</li>
+        <li>Don't override native semantics of elements (e.g. <code>h2[role="banner]</code>).</li>
+        <li>Don't redefine the native semantics of an element (e.g. <code>main[role=main]</code>).</li>
+        <li>All interactive ARIA widgets must be operable with the keyboard.</li>
+        <li>Do not use role="presentation" or aria-hidden="true" on a visible focusable elements.</li>
+        <li>All interactive elements must have an accessible name.</li>
+        <li>Live regions (e.g. <code>aria-live</code> attribute and <code>log</code>, <code>status</code>, and <code>alert</code> roles) should be used with extreme caution, only for asynchronous content changes important for the users attention.</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>None/Presentation Role</title>
+    <contents>
+      <h2>ARIA AUthoring Practices</h2>
+      <p><a href="https://w3c.github.io/aria-practices/#children_presentational">Section 6: Intentionally Hiding Semantics with the presentation Role </a></p>
+      <iframe src="https://w3c.github.io/aria-practices/#children_presentational" width="98%" height="600px"></iframe>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Hiding Content Techniques</title>
+    <contents>
+
+      <table class="table table-striped table-hover" aria-label="tabindex_values">
+        <thead>
+          <tr>
+            <th>Technique</th>
+            <th>Technology</th>
+            <th>Visual Rendering</th>
+            <th>Accessibility Tree (used by screen readers)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><code>display: none;</code></th>
+            <td>CSS</td>
+            <td>Not rendered</td>
+            <td>Not included</td>
+          </tr>
+          <tr>
+            <th><code>visibility: hidden;</code></th>
+            <td>CSS</td>
+            <td>Not rendered, but visual dimension is preserved</td>
+            <td>Not included</td>
+          </tr>
+          <tr>
+            <th>
+              <pre>
+                <code>
+                  position: absolute;
+                  top: -300em;
+                  left: -3000em;
+                </code>
+              </pre>
+            </th>
+            <td>CSS</td>
+            <td>Not rendered</td>
+            <td>Included</td>
+          </tr>
+          <tr>
+            <th><code>aria-hidden="true"</code></th>
+            <td>ARIA</td>
+            <td>Rendered</td>
+            <td>Not included</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Live Region Roles</title>
+    <contents>
+      <p><a href="https://www.w3.org/TR/wai-aria/#live_region_roles">ARIA live region roles</a></p>
+      <iframe src="https://www.w3.org/TR/wai-aria/#live_region_roles" width="98%" height="600px" title="ARIA Live Region Roles"></iframe>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Live Region Attributes</title>
+    <contents>
+      <p><a href="https://www.w3.org/TR/wai-aria/#attrs_liveregions">ARIA live region attributes</a></p>
+      <iframe src="https://www.w3.org/TR/wai-aria/#attrs_liveregions" width="98%" height="600px" title="ARIA Live Region Atttributes"></iframe>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>ARIA Authoring Practices 1.2</title>
+    <contents>
+      <p><a href="https://w3c.github.io/aria-practices/">ARIA Authoring Practices 1.2</a></p>
+      <ul>
+        <li>Combobox design pattern 1.2 that works with assistive technologies.</li>
+        <li>New section on communicating value and limits for range widgets.</li>
+        <li>New section on navigational links using disclosure, menubar and tree widgets.</li>
+        <li>Unit testing of examples for:
+          <ul>
+            <li>Keyboard interaction.</li>
+            <li>Proper use of ARIA roles.</li>
+            <li>Proper use of ARIA properties and states.</li>
+          </ul>
+        </li>
+        <li>Linting code quality:
+          <ul>
+            <li>HTML code</li>
+            <li>CSS code</li>
+            <li>Javascript code</li>
+          </ul>
+        </li>
+        <li>High contrast support in new and some updated examples:
+          <ul>
+            <li>Carousel</li>
+            <li>Combobox</li>
+            <li>Date Pickers</li>
+            <li>Menubar</li>
+            <li>Menu Button</li>
+            <li>Single-Thumb Slider</li>
+            <li>Toolbar</li>
+            <li>Treeview Navigation</li>
+          </ul>
+        </li>
+      </ul>
+    </contents>
+  </slide>
+
+   <slide>
+    <title>ARIA Assistive Technology (AT) Community Group</title>
+    <contents>
+      <p><a href="https://www.w3.org/community/aria-at/">ARIA and Assistive Technology Community Group</a></p>
+      <ul>
+        <li>Document how ARIA information is used by screen readers:
+          <ul>
+            <li>Help developers understand how ARIA features change user experience.</li>
+            <li>Help screen reader companies understand their use of ARIA.</li>
+          </ul>
+        </li>
+        <li>Develop test cases for testing ARIA features based on ARIA Authoring practice examples.</li>
+        <li>Coordinate testing of screen readers.</li>
+        <li>Develop reports of test results.</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Open Source Tools</title>
+    <contents>
+      <ul>
+        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/ainspector-sidebar/">AInspector Sidebar for Firefox</a></li>
+        <li><a href="https://fae.disability.illinois.edu">Functional Accessibility Evaluator 2.0</a></li>
+        <li><a href="https://accessibility-bookmarklets.org/">Public Bookmarklets Website</a></li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Functional Accessibility Evaluator (FAE) 2.0</title>
+    <contents>
+      <ul>
+        <li>Two versions of Functional Accessibility Evaluator 2.0
+          <ul>
+            <li><a href="https://fae.disability.illinois.edu">FAE 2.0 Indidvidual License Version</a></li>
+            <li><a href="https://fae.illinois.edu">FAE 2.0 Institutional License Version</a> using <a href="https://www.incommon.org/">InCommon</a></li>
+          </ul>
+        </li>
+        <li>Designed for:
+          <ul>
+            <li>Managers</li>
+            <li>Web designers</li>
+            <li>Software developers</li>
+            <li>Quality assurance testers</li>
+            <li>IT Auditors</li>
+          </ul>
+        </li>
+        <li>Website rule result summaries and implementation status</li>
+        <li>Page rule result summaries</li>
+        <li>Organizes rules by Rule Categories, Rule Scope and WCAG Guidelines</li>
+        <li>Archive and share reports</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>AInspector Sidebar for Firefox</title>
+    <contents>
+      <ul>
+        <li><a href="http://ainspector.github.io">http://ainspector.github.io</a></li>
+        <li>Designed for:
+          <ul>
+            <li>Web designers</li>
+            <li>Software developers</li>
+            <li>Quality assurance testers</li>
+          </ul>
+        </li>
+        <li>Summary Rule Results
+          <ul>
+            <li>Rule Categories</li>
+            <li>WCAG 2.0 Guideline Summary</li>
+          </ul>
+        </li>
+        <li>Analyzes the browser DOM content</li>
+        <li>Highlighting elements</li>
+        <li>DOM inspector</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Bookmarklets for Visualizing Accessibility Features</title>
+    <contents>
+      <ul>
+        <li><a href="https://accessibility-bookmarklets.org/">Public Bookmarklets Website</a></li>
+        <li>Features:
+          <ul>
+            <li>Highlight Regions and Elements on page</li>
+            <li>Element information</li>
+            <li>Default or defined <code>role</code></li>
+            <li>Accessible name</li>
+            <li>Accessible description</li>
+            <li>Important prorperties (e.g the number of items in a list)</li>
+          </ul>
+        </li>
+      </ul>
+    </contents>
+  </slide>
+
+
+  <slide>
+    <title>Questions and Discussion</title>
+    <contents>
+    </contents>
+  </slide>
+
+</slides>
+
+
