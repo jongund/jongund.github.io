@@ -417,28 +417,28 @@
             <xsl:attribute name="class">show hide</xsl:attribute>
             <xsl:attribute name="id">ID_SHOW_MORE</xsl:attribute>
             <xsl:attribute name="aria-label">Show more</xsl:attribute>
-             ▽
+            ⊕
           </xsl:element>
 
           <xsl:element name="button">
             <xsl:attribute name="class">show hide </xsl:attribute>
             <xsl:attribute name="id">ID_SHOW_LESS</xsl:attribute>
             <xsl:attribute name="aria-label">Show less</xsl:attribute>
-            △
+            ⊖
           </xsl:element>
 
           <xsl:element name="button">
             <xsl:attribute name="class">show hide</xsl:attribute>
             <xsl:attribute name="id">ID_SHOW_ALL</xsl:attribute>
             <xsl:attribute name="aria-label">Show all</xsl:attribute>
-              ⧫
+              All+
           </xsl:element>
 
           <xsl:element name="button">
             <xsl:attribute name="class">show hide</xsl:attribute>
             <xsl:attribute name="id">ID_HIDE_ALL</xsl:attribute>
             <xsl:attribute name="aria-label">Hide all</xsl:attribute>
-              ♦
+              All-
           </xsl:element>
         </xsl:element>
       </xsl:element>

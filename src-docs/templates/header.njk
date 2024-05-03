@@ -18,10 +18,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="mainNavbar">
                   <ul class="navbar-nav ms-auto">
-                    {% for f in files | sort('menuPos')%}
+                    {% for f in files %}
+                      {% if f.menuName %}
                         <li class="nav-item">
-                          <a class="nav-link" href="{{f.filename}}">{{f.menuName}}</a>
+                          <a class="nav-link" href="{{path}}{{f.filename}}">{{f.menuName}}</a>
                         </li>
+                      {% endif %}
                     {% endfor %}
 
                     </ul>

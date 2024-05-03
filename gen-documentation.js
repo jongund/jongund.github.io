@@ -53,13 +53,19 @@ const files = [
     title: 'About',
     menuName: 'About',
     filename: 'about.html'
+  },
+  { template: './src-docs/templates/content-sessions.njk',
+    title: 'Sessions',
+    menuName: '',
+    filename: 'sessions/index.html'
   }
   ];
 
 // Create files
-
 files.forEach( f => {
-  outputFile(f.filename, nunjucks.render(f.template, {title: f.title, files: files}));
+  const p = f.filename.includes('/') ? '../' : './';
+  outputFile(f.filename, nunjucks.render(f.template, {title: f.title, files: files, path: p}));
+  console.log(`${f.filename} ${p}`);
 })
 
 /*

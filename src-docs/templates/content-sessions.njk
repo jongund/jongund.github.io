@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    {% include "./head.njk" %}
+  </head>
+  <body>
+    {% include "./header.njk" %}
+
+    <!-- Main section-->
+    <div id="main-section" class="container px-4">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">{{title | safe}}</li>
+        </ol>
+      </nav>
+      <main class="row gx-4 justify-content-center">
+        <div class="col-lg-8">
+          {% block title %}
+          <h1>{{title}}</h1>
+          {% endblock %}
+
+          <div id="sessions">
+
+            <h2>Session 1: Experience of Disability</h2>
+            <ul>
+              <li><a href="./experience/">Experience of Disability</a></li>
+            </ul>
+
+            <h2>Session 2: Structure, Links, Images, Media and Web Editors</h2>
+
+            <ul>
+              <li><a href="./landmarks/">Landmarks</a></li>
+              <li><a href="./headers/">Hearings</a></li>
+              <li><a href="./links/">Links</a></li>
+              <li><a href="./color/">Color</a></li>
+              <li><a href="./media/">Images and Media</a></li>
+              <li><a href="./skip-links/">By Pass Blocks</a></li>
+              <li><a href="./tables/">Data and Layout Tables</a></li>
+            </ul>
+
+            <h2>Session 3:  Introduction to ARIA</h2>
+
+            <ul>
+              <li><a href="./aria-intro/">Introduction to ARIA</a></li>
+            </ul>
+
+            <h2>Session 4: Understanding ARIA and Keyboard Support</h2>
+
+            <ul>
+              <li><a href="./"></a></li>
+            </ul>
+
+
+          </div>
+        </div>
+      </main>
+    </nav>
+    {% include "./footer.njk" %}
+    {% include "./scripts.njk" %}
+
+  </body>
+</html>
