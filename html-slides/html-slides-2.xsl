@@ -13,7 +13,7 @@
 
       <xsl:element name="head">
 
-        <xsl:element name="title"><xsl:value-of select="/slides/title/."/></xsl:element>
+        <xsl:element name="title">Index: <xsl:value-of select="/slides/title/."/></xsl:element>
 
         <xsl:element name="meta">
           <xsl:attribute name="name">viewport</xsl:attribute>
@@ -49,7 +49,7 @@
           </xsl:if>
 
           <xsl:element name="h1">
-            <xsl:value-of select="slides/title"/>
+            Index: <xsl:value-of select="slides/title"/>
           </xsl:element>
 
           <xsl:element name="p">

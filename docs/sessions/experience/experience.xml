@@ -277,7 +277,7 @@
 
       <script type="text/javascript">
 
-        $('#container').highcharts({
+        Highcharts.chart('container', {
           chart: {
             type: 'column'
           },
@@ -392,7 +392,7 @@
   </slide>
 
   <slide>
-    <title>Age Related Macular Degneration</title>
+    <title>Age Related Macular Degeneration</title>
     <contents>
 
       <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
@@ -401,7 +401,7 @@
 
       <script type="text/javascript">
 
-        $('#container').highcharts({
+        Highcharts.chart('container', {
           chart: {
             type: 'column'
           },
@@ -574,13 +574,68 @@
   </slide>
 
   <slide>
+    <title>Principles in Universal Design in Learning 2.0</title>
+    <contents>
+      <p><a href="https://udlguidelines.cast.org/engagement">Universal Design in Learning 2.0</a></p>
+      <h2>Engagement</h2>
+      <ul>
+        <li>Recruiting Interest</li>
+        <li>Sustaining Effort and Persistence</li>
+        <li>Self Regulation</li>
+      </ul>
+
+      <h2>Representation</h2>
+      <ul>
+        <li>Perception</li>
+        <li>Language and Symbols</li>
+        <li>Comprehension</li>
+      </ul>
+
+      <h2>Action and Expression</h2>
+      <ul>
+        <li>Physical Action</li>
+        <li>Expression and Communication</li>
+        <li>Executive Functions</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>One Plus Teaching Strategy</title>
+    <contents>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <p class="center">
+        <a href="https://www.youtube.com/embed/FDt1r3FcCQU?si=oP8Lo-Y_0SNtM1Ef" target="_video">UDL plus-one - Thomas Tobin</a>
+      </p>
+
+      <p class="center">
+        <iframe width="560"
+          height="315"
+          src="https://www.youtube.com/embed/FDt1r3FcCQU?si=oP8Lo-Y_0SNtM1Ef"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen="">
+        </iframe>
+      </p>
+
+    </contents>
+  </slide>
+
+  <slide>
     <title>Summary</title>
     <contents>
       <ul>
         <li>Providing opportunities instead of barriers for people with disabilities</li>
         <li>Everyone will have functional limitations (e.g. disability) as we age</li>
         <li>Designing a better web for everyone, including ourselves</li>
-        <li>Innovation in learning technologies is accessibility!</li>
+        <li>Universal Design in Learning helps everyone including people with disabilities!</li>
       </ul>
     </contents>
   </slide>
