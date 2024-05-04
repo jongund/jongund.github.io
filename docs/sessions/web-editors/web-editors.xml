@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="funct.css" type="text/css"?>
+<?xm-well_formed path="funct.dtd"?>
+<slides>
+ <lang>en</lang>
+  <title>Web Editors</title>
+  <logo>
+    <a href="https://openweba11y.com" aria-label="Open Web Accessibility">
+      <span class="brand"><span class="open">Open</span><span class="web">Web</span><span class="a11y">A11y</span></span>
+    </a>
+  </logo>
+
+  <copyright>
+     Copyright &#169; 2024 Jon Gunderson
+  </copyright>
+
+  <person>
+    <name>Jon Gunderson, Ph.D.</name>
+    <desc href="https://openweba11y.com">Open Web Accessibility Services</desc>
+    <desc href="mailto:jongund@openweba11y.com">jongund@openweba11y.com</desc>
+  </person>
+
+  <home href="../index.html">All Sessions</home>
+
+  <stylesheet media="screen">https://openweba11y.com/css/bootstrap.min.css</stylesheet>
+  <stylesheet media="screen">https://openweba11y.com/css/html-slides.css</stylesheet>
+
+  <script>https://openweba11y.com/js/bootstrap.bundle.min.js</script>
+  <script>https://openweba11y.com/js/html-slides-2.js</script>
+
+  <slide>
+    <title>Web Editors Overview</title>
+    <contents>
+      <ul>
+        <li>Item #1</li>
+        <li>Item #2</li>
+        <li>Item #3</li>
+      </ul>
+      <script type="text/javascript">
+        slideShowURL()
+      </script>
+    </contents>
+  </slide>
+
+</slides>
+
+
