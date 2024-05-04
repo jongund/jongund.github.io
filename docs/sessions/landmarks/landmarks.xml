@@ -16,17 +16,17 @@
 
   <person>
     <name>Jon Gunderson, Ph.D.</name>
-    <desc href="http://openweba11y.com">Open Web Accessibility Services</desc>
+    <desc href="https://openweba11y.com">Open Web Accessibility Services</desc>
     <desc href="mailto:jongund@openweba11y.com">jongund@openweba11y.com</desc>
   </person>
 
   <home href="../index.html">Sessions</home>
 
-  <stylesheet media="screen">http://openweba11y.com/css/bootstrap.min.css</stylesheet>
-  <stylesheet media="screen">http://openweba11y.com/css/html-slides.css</stylesheet>
+  <stylesheet media="screen">https://openweba11y.com/css/bootstrap.min.css</stylesheet>
+  <stylesheet media="screen">https://openweba11y.com/css/html-slides.css</stylesheet>
 
-  <script>http://openweba11y.com/js/bootstrap.bundle.min.js</script>
-  <script>http://openweba11y.com/js/html-slides-2.js</script>
+  <script>https://openweba11y.com/js/bootstrap.bundle.min.js</script>
+  <script>https://openweba11y.com/js/html-slides-2.js</script>
 
   <slide>
     <title>Goals</title>
@@ -151,7 +151,7 @@
   <slide>
     <title>Landmark Design Example: Disability Resources and Educational Services (DRES) Website</title>
     <contents>
-      <p class="center"><a href="http://disability.illinois.edu" target="_example">Landmark Example: DRES Website</a></p>
+      <p class="center"><a href="https://disability.illinois.edu" target="_example">Landmark Example: DRES Website</a></p>
       <img src="images/disability-home.png" width="99%" alt="Graphical browser rendering of University of Illinois Disability Services Home Page"/>
     </contents>
   </slide>
@@ -1085,9 +1085,9 @@
 
       <h2>Other Jaws Command Resources</h2>
       <ul>
-        <li><a href="http://accessibility.psu.edu/jawscommands" target="_specification">Penn State: JAWS commands for web</a></li>
-        <li><a href="http://webaim.org/resources/shortcuts/jaws" target="_specification">WebAIM: JAWS commands for web</a></li>
-        <li><a href="http://www.freedomscientific.com/Training/Surfs-up/Quick_Keys.htm" target="_specification">Freedom Scientific: JAWS commands for web</a></li>
+        <li><a href="https://accessibility.psu.edu/jawscommands" target="_specification">Penn State: JAWS commands for web</a></li>
+        <li><a href="https://webaim.org/resources/shortcuts/jaws" target="_specification">WebAIM: JAWS commands for web</a></li>
+        <li><a href="https://www.freedomscientific.com/Training/Surfs-up/Quick_Keys.htm" target="_specification">Freedom Scientific: JAWS commands for web</a></li>
         <li><a href="https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts" target="_specification">Deque University: JAWS commands</a></li>
       </ul>
 
@@ -1138,9 +1138,9 @@
 
       <h2>Other NVDA Command Resources</h2>
       <ul>
-        <li><a href="http://accessibility.psu.edu/nvda" target="_specification">Penn State: NVDA Keyboard Commands</a></li>
-        <li><a href="http://webaim.org/resources/shortcuts/nvda" target="_specification">Webaim: NVDA Keyboard Commands</a></li>
-        <li><a href="http://community.nvda-project.org/documentation/userGuide.html#toc40" target="_specification">NVDA: Web Browse Keyboard Commands</a></li>
+        <li><a href="https://accessibility.psu.edu/nvda" target="_specification">Penn State: NVDA Keyboard Commands</a></li>
+        <li><a href="https://webaim.org/resources/shortcuts/nvda" target="_specification">Webaim: NVDA Keyboard Commands</a></li>
+        <li><a href="https://community.nvda-project.org/documentation/userGuide.html#toc40" target="_specification">NVDA: Web Browse Keyboard Commands</a></li>
         <li><a href="https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts" target="_specification">Deque University: NVDA Commands</a></li>
       </ul>
 
@@ -1179,8 +1179,8 @@
       <h2>Other Voice Over Command Resources</h2>
 
       <ul>
-        <li><a href="http://accessibility.psu.edu/voiceover" target="_specification">Penn State: Voice Over for OS X</a></li>
-        <li><a href="http://www.apple.com/voiceover/info/guide/_1131.html" target="_specification">Apple Voice Over Commands</a></li>
+        <li><a href="https://accessibility.psu.edu/voiceover" target="_specification">Penn State: Voice Over for OS X</a></li>
+        <li><a href="https://www.apple.com/voiceover/info/guide/_1131.html" target="_specification">Apple Voice Over Commands</a></li>
         <li><a href="https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts#vo-mac-basics" target="_specification">Deque University: Voice Over Commands</a></li>
       </ul>
 
@@ -1310,7 +1310,7 @@
       <ul>
         <li><a href="https://www.w3.org/TR/wai-aria-practices/" target="_specification">W3C ARIA Authoring Practices</a>: Design resources for using ARIA roles, properties, states and providing keyboard interaction.</li>
         <li><a href="https://www.w3.org/TR/html-aria/"  target="_specification">W3C ARIA in HTML specification</a>: </li>
-        <li><a href="http://html5accessibility.com"  target="_specification">ARIA Implementation in Browsers</a></li>
+        <li><a href="https://html5accessibility.com"  target="_specification">ARIA Implementation in Browsers</a></li>
       </ul>
     </contents>
   </slide>

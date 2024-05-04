@@ -16,17 +16,17 @@
 
   <person>
     <name>Jon Gunderson, Ph.D.</name>
-    <desc href="http://openweba11y.com">Open Web Accessibility Services</desc>
+    <desc href="https://openweba11y.com">Open Web Accessibility Services</desc>
     <desc href="mailto:jongund@openweba11y.com">jongund@openweba11y.com</desc>
   </person>
 
   <home href="../index.html">Sessions</home>
 
-  <stylesheet media="screen">http://openweba11y.com/css/bootstrap.min.css</stylesheet>
-  <stylesheet media="screen">http://openweba11y.com/css/html-slides.css</stylesheet>
+  <stylesheet media="screen">https://openweba11y.com/css/bootstrap.min.css</stylesheet>
+  <stylesheet media="screen">https://openweba11y.com/css/html-slides.css</stylesheet>
 
-  <script>http://openweba11y.com/js/bootstrap.bundle.min.js</script>
-  <script>http://openweba11y.com/js/html-slides-2.js</script>
+  <script>https://openweba11y.com/js/bootstrap.bundle.min.js</script>
+  <script>https://openweba11y.com/js/html-slides-2.js</script>
 
   <slide>
     <title>Overview</title>

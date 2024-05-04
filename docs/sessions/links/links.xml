@@ -16,17 +16,17 @@
 
   <person>
     <name>Jon Gunderson, Ph.D.</name>
-    <desc href="http://openweba11y.com">Open Web Accessibility Services</desc>
+    <desc href="https://openweba11y.com">Open Web Accessibility Services</desc>
     <desc href="mailto:jongund@openweba11y.com">jongund@openweba11y.com</desc>
   </person>
 
   <home href="../index.html">Sessions</home>
 
-  <stylesheet media="screen">http://openweba11y.com/css/bootstrap.min.css</stylesheet>
-  <stylesheet media="screen">http://openweba11y.com/css/html-slides.css</stylesheet>
+  <stylesheet media="screen">https://openweba11y.com/css/bootstrap.min.css</stylesheet>
+  <stylesheet media="screen">https://openweba11y.com/css/html-slides.css</stylesheet>
 
-  <script>http://openweba11y.com/js/bootstrap.bundle.min.js</script>
-  <script>http://openweba11y.com/js/html-slides-2.js</script>
+  <script>https://openweba11y.com/js/bootstrap.bundle.min.js</script>
+  <script>https://openweba11y.com/js/html-slides-2.js</script>
 
   <slide>
     <title>Links overview</title>
@@ -69,10 +69,10 @@
     <title>WCAG 2.0 Link Requirements</title>
     <contents>
       <dl>
-        <dt><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs" target="_specification">2.4.4 Link Purpose (In Context)</a></dt>
+        <dt><a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs" target="_specification">2.4.4 Link Purpose (In Context)</a></dt>
         <dd>The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous to users in general (Level A).</dd>
 
-        <dt><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-link" target="_specification">2.4.9 Link Purpose (Link Only)</a></dt>
+        <dt><a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-link" target="_specification">2.4.9 Link Purpose (Link Only)</a></dt>
         <dd>A mechanism is available to allow the purpose of each link to be identified from link text alone, except where the purpose of the link would be ambiguous to users in general (Level AAA).</dd>
       </dl>
     </contents>
@@ -143,7 +143,7 @@
 
       <h2>Other Resources</h2>
       <ul>
-        <li><a href="http://accessibility.psu.edu/linktext/">PSU: Links on a Screenreader</a></li>
+        <li><a href="https://accessibility.psu.edu/linktext/">PSU: Links on a Screenreader</a></li>
         <li><a href="https://www.nngroup.com/articles/writing-links/">Writing Hyperlinks: Salient, Descriptive, Start with Keyword</a></li>
         <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H30.html">H30: Providing link text that describes the purpose of a link for anchor elements</a></li>
       </ul>
@@ -165,7 +165,7 @@
     <contents>
 
       <div id="example" class="image">
-        <a href="http://150.illinois.edu/index.html">
+        <a href="https://150.illinois.edu/index.html">
           <img src="images\il150_logo_dark.png" alt="University of Illinois Sesquicentennial"/>
         </a>
       </div>
@@ -289,9 +289,9 @@
 
       <h2>Other Jaws Command Resources</h2>
       <ul>
-        <li><a href="http://accessibility.psu.edu/jawscommands" target="_specification">Penn State: JAWS commands for web</a></li>
-        <li><a href="http://webaim.org/resources/shortcuts/jaws" target="_specification">WebAIM: JAWS commands for web</a></li>
-        <li><a href="http://www.freedomscientific.com/Training/Surfs-up/Quick_Keys.htm" target="_specification">Freedom Scientific: JAWS commands for web</a></li>
+        <li><a href="https://accessibility.psu.edu/jawscommands" target="_specification">Penn State: JAWS commands for web</a></li>
+        <li><a href="https://webaim.org/resources/shortcuts/jaws" target="_specification">WebAIM: JAWS commands for web</a></li>
+        <li><a href="https://www.freedomscientific.com/Training/Surfs-up/Quick_Keys.htm" target="_specification">Freedom Scientific: JAWS commands for web</a></li>
         <li><a href="https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts" target="_specification">Deque University: JAWS commands</a></li>
       </ul>
 
@@ -366,9 +366,9 @@
 
       <h2>Other NVDA Command Resources</h2>
       <ul>
-        <li><a href="http://accessibility.psu.edu/nvda" target="_specification">Penn State: NVDA Keyboard Commands</a></li>
-        <li><a href="http://webaim.org/resources/shortcuts/nvda" target="_specification">Webaim: NVDA Keyboard Commands</a></li>
-        <li><a href="http://community.nvda-project.org/documentation/userGuide.html#toc40" target="_specification">NVDA: Web Browse Keyboard Commands</a></li>
+        <li><a href="https://accessibility.psu.edu/nvda" target="_specification">Penn State: NVDA Keyboard Commands</a></li>
+        <li><a href="https://webaim.org/resources/shortcuts/nvda" target="_specification">Webaim: NVDA Keyboard Commands</a></li>
+        <li><a href="https://community.nvda-project.org/documentation/userGuide.html#toc40" target="_specification">NVDA: Web Browse Keyboard Commands</a></li>
         <li><a href="https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts" target="_specification">Deque University: NVDA Commands</a></li>
       </ul>
 
@@ -432,8 +432,8 @@
       <h2>Other Voice Over Command Resources</h2>
 
       <ul>
-        <li><a href="http://accessibility.psu.edu/voiceover" target="_specification">Penn State: Voice Over for OS X</a></li>
-        <li><a href="http://www.apple.com/voiceover/info/guide/_1131.html" target="_specification">Apple Voice Over Commands</a></li>
+        <li><a href="https://accessibility.psu.edu/voiceover" target="_specification">Penn State: Voice Over for OS X</a></li>
+        <li><a href="https://www.apple.com/voiceover/info/guide/_1131.html" target="_specification">Apple Voice Over Commands</a></li>
         <li><a href="https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts#vo-mac-basics" target="_specification">Deque University: Voice Over Commands</a></li>
       </ul>
 
@@ -492,7 +492,7 @@
 
     <contents>
       <p class="center">
-        <a href="http://www.w3.org/TR/2014/NOTE-WCAG20-TECHS-20140311/H80.html" target="_specification">Links with Heading Context</a>
+        <a href="https://www.w3.org/TR/2014/NOTE-WCAG20-TECHS-20140311/H80.html" target="_specification">Links with Heading Context</a>
       </p>
 
       <h2>Link Context Example</h2>
@@ -1114,7 +1114,7 @@
 
     <h2>WCAG 2.0 Link Requirements</h2>
       <dl>
-        <dt><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible" target="_specification">2.4.7 Focus Visible</a></dt>
+        <dt><a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible" target="_specification">2.4.7 Focus Visible</a></dt>
         <dd>Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible. (Level AA).</dd>
       </dl>
     </contents>
@@ -1212,11 +1212,11 @@
 
           <h2>Disability Resources</h2>
           <ul>
-            <li><a href="http://disability.illinois.edu/academic-support">Academic Support</a></li>
-            <li><a href="http://disability.illinois.edu/living-accommodations">Living Accommodations</a></li>
-            <li><a href="http://disability.illinois.edu/getting-around">Getting Around</a></li>
-            <li><a href="http://disability.illinois.edu/health">Health</a></li>
-            <li><a href="http://disability.illinois.edu/campus-life">Campus Life</a></li>
+            <li><a href="https://disability.illinois.edu/academic-support">Academic Support</a></li>
+            <li><a href="https://disability.illinois.edu/living-accommodations">Living Accommodations</a></li>
+            <li><a href="https://disability.illinois.edu/getting-around">Getting Around</a></li>
+            <li><a href="https://disability.illinois.edu/health">Health</a></li>
+            <li><a href="https://disability.illinois.edu/campus-life">Campus Life</a></li>
           </ul>
 
         </nav>

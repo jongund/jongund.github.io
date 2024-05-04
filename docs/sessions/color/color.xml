@@ -16,17 +16,17 @@
 
   <person>
     <name>Jon Gunderson, Ph.D.</name>
-    <desc href="http://openweba11y.com">Open Web Accessibility Services</desc>
+    <desc href="https://openweba11y.com">Open Web Accessibility Services</desc>
     <desc href="mailto:jongund@openweba11y.com">jongund@openweba11y.com</desc>
   </person>
 
   <home href="../index.html">Sessions</home>
 
-  <stylesheet media="screen">http://openweba11y.com/css/bootstrap.min.css</stylesheet>
-  <stylesheet media="screen">http://openweba11y.com/css/html-slides.css</stylesheet>
+  <stylesheet media="screen">https://openweba11y.com/css/bootstrap.min.css</stylesheet>
+  <stylesheet media="screen">https://openweba11y.com/css/html-slides.css</stylesheet>
 
-  <script>http://openweba11y.com/js/bootstrap.bundle.min.js</script>
-  <script>http://openweba11y.com/js/html-slides-2.js</script>
+  <script>https://openweba11y.com/js/bootstrap.bundle.min.js</script>
+  <script>https://openweba11y.com/js/html-slides-2.js</script>
 
   <slide>
     <title>Color Overview</title>
@@ -51,7 +51,7 @@
       <h2>More Resources</h2>
       <ul>
         <li><a href="https://msdn.microsoft.com/en-us/library/bb263953.aspx">Microsoft: Can Color-Blind Users See Your Site?</a></li>
-        <li><a href="http://www.colourblindawareness.org/colour-blindness/causes-of-colour-blindness/">Colour Blind Awareness</a></li>
+        <li><a href="https://www.colourblindawareness.org/colour-blindness/causes-of-colour-blindness/">Colour Blind Awareness</a></li>
       </ul>
     </contents>
   </slide>
@@ -60,8 +60,8 @@
     <title>Common Visual Impairments</title>
     <contents>
       <ul>
-        <li><a href="http://www.inclusivedesigntoolkit.com/betterdesign2/simsoftware/simsoftware.html">Inclusive Design Toolkit: Impairment simulator software</a></li>
-        <li><a href="http://www.lighthouse.org/about-low-vision-blindness/vision-disorders/">Lighthouse International: Vision Disorders</a></li>
+        <li><a href="https://www.inclusivedesigntoolkit.com/betterdesign2/simsoftware/simsoftware.html">Inclusive Design Toolkit: Impairment simulator software</a></li>
+        <li><a href="https://www.lighthouse.org/about-low-vision-blindness/vision-disorders/">Lighthouse International: Vision Disorders</a></li>
       </ul>
     </contents>
   </slide>
@@ -73,13 +73,13 @@
     <title>WCAG 2.0 Navigation and Layout Requirements</title>
     <contents>
       <dl>
-        <dt><a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding" target="_specification">1.3.3 Sensory Characteristics</a></dt>
+        <dt><a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-understanding" target="_specification">1.3.3 Sensory Characteristics</a></dt>
         <dd>Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound. (Level A)</dd>
 
-        <dt><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color" target="_specification">1.4.1 Use of Color</a></dt>
+        <dt><a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color" target="_specification">1.4.1 Use of Color</a></dt>
         <dd>Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element. (Level A)</dd>
 
-        <dt><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" target="_specification">1.4.3 Contrast (Minimum):</a></dt>
+        <dt><a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" target="_specification">1.4.3 Contrast (Minimum):</a></dt>
         <dd>The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following: (Level AA)
           <ul>
             <li>Large Text: Large-scale text and images of large-scale text have a contrast ratio of at least 3:1</li>
@@ -95,11 +95,11 @@
     <title>Color Contrast Analysis Design Tools</title>
     <contents>
       <ul>
-        <li><a target="_tool" href="http://ainspector.github.io/">AInspector Sidebar</a></li>
-        <li><a target="_tool" href="http://webaim.org/resources/contrastchecker/">WebAIM Color contrast checker</a></li>
+        <li><a target="_tool" href="https://ainspector.github.io/">AInspector Sidebar</a></li>
+        <li><a target="_tool" href="https://webaim.org/resources/contrastchecker/">WebAIM Color contrast checker</a></li>
         <li><a target="_tool" href="https://addons.mozilla.org/en-US/firefox/addon/wcag-contrast-checker">WCAG Contrast Checker for Firefox</a></li>
         <li><a target="_tool" href="https://chrome.google.com/webstore/search/color%20contrast%20analyzer">Color Contrast Analyzer for Chrome</a></li>
-        <li><a target="_tool" href="http://www.paciellogroup.com/resources/contrastAnalyser">TPC: Colour Contrast Analyser</a></li>
+        <li><a target="_tool" href="https://www.paciellogroup.com/resources/contrastAnalyser">TPC: Colour Contrast Analyser</a></li>
       </ul>
     </contents>
   </slide>
