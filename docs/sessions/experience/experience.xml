@@ -29,7 +29,7 @@
   <script>https://openweba11y.com/js/html-slides-2.js</script>
 
   <slide>
-    <title>Disability Experience Overview</title>
+    <title>Experience of Disability Overview</title>
     <contents>
       <ul>
         <li>Thinking about accessibility</li>
@@ -101,7 +101,7 @@
   <slide>
     <title>Distribution of Disability by Age</title>
     <contents>
-      <p><a href="https://www.census.gov/prod/2008pubs/p70-117.pdf">Americans With Disabilities: 2005</a></p>
+      <p><a href="https://www.disabilitystatistics.org/report/pdf/2021/2000000">2021 Disability Status Report in the United States</a></p>
 
       <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
@@ -109,7 +109,7 @@
 
       <script type="text/javascript">
 
-        $('#container').highcharts({
+        Highcharts.chart('container', {
           chart: {
             type: 'column'
           },
