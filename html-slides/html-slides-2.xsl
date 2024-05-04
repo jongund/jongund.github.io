@@ -42,10 +42,8 @@
             <xsl:element name="p">
               <xsl:attribute name="class">btn btn-default home</xsl:attribute>
               <xsl:element name="a">
-                <xsl:attribute name="href">
-                  <xsl:value-of select="/slides/home/."/>
-                </xsl:attribute>
-                Home
+                <xsl:attribute name="href"><xsl:value-of select="/slides/home/@href"/></xsl:attribute>
+                 <xsl:value-of select="/slides/home/."/>
               </xsl:element>
             </xsl:element>
           </xsl:if>
