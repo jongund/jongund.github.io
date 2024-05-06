@@ -166,12 +166,17 @@ class HTMLSlide {
 
   showSlideURL () {
     const link = window.location.href;
-    const elem = document.querySelector('#show-slide-url');
+    const elem = document.querySelector('.show-slide-url');
+
+    console.log(`link: ${link}`);
+    console.log(`elem: ${elem}`);
 
     if (elem) {
       const span = document.createElement('span');
       span.textContent = 'Current slide URL:';
       elem.appendChild(span);
+      const br = document.createElement('br');
+      elem.appendChild(br);
       const a = document.createElement('a');
       a.href = link;
       a.textContent = link;

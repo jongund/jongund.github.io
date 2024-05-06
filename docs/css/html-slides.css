@@ -167,6 +167,11 @@ main h2 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+main h2.index {
+    margin-top: 0.25em;
+    border-bottom: 1px solid #111;
+}
+
 main h3 {
     margin-top: 1.5em;
     font-size: 1em;
@@ -181,6 +186,41 @@ main li {
   padding-top: 0.25em;
   padding-bottom: 0.25em;
 }
+
+main .index li.index {
+  padding: 0;
+}
+
+main .contact {
+    margin: 0;
+    margin-bottom: 0.75em;
+    padding: 0.25em;
+    font-size: 75%;
+    width: auto;
+}
+
+main .contact div {
+    margin: 0;
+    padding: 0;
+}
+
+main .contact div.name {
+    font-weight: bold;
+}
+
+main .contact div a {
+    padding: 0px;
+}
+
+main .show-slide-url {
+    margin: 1em;
+    margin-top: 3em;
+    padding: 0.5em;
+    background: #eee;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
 
 main dt {
     margin-top: 1em;

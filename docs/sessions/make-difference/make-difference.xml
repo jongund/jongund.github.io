@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="funct.css" type="text/css"?>
+<?xm-well_formed path="funct.dtd"?>
+<slides>
+ <lang>en</lang>
+  <title>Making a Difference</title>
+  <logo>
+    <a href="https://openweba11y.com" aria-label="Open Web Accessibility">
+      <span class="brand"><span class="open">Open</span><span class="web">Web</span><span class="a11y">A11y</span></span>
+    </a>
+  </logo>
+
+  <copyright>
+     Copyright &#169; 2024 Jon Gunderson
+  </copyright>
+
+  <person>
+    <name>Jon Gunderson, Ph.D., CWAP</name>
+    <desc href="https://openweba11y.com">Open Web Accessibility Services</desc>
+    <desc href="mailto:jongund@openweba11y.com">jongund@openweba11y.com</desc>
+  </person>
+
+  <home href="../index.html">All Sessions</home>
+
+  <stylesheet media="screen">../../css/bootstrap.min.css</stylesheet>
+  <stylesheet media="screen">../../css/html-slides.css</stylesheet>
+
+  <script>../../js/bootstrap.bundle.min.js</script>
+  <script>../../js/html-slides-2.js</script>
+
+  <slide>
+    <title>Making a Difference Overview</title>
+    <contents>
+      <ul>
+        <li>Item #1</li>
+        <li>Item #2</li>
+        <li>Item #3</li>
+      </ul>
+      <div class="show-slide-url"></div>
+    </contents>
+  </slide>
+
+</slides>
+
+

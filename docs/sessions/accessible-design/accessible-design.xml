@@ -15,18 +15,18 @@
   </copyright>
 
   <person>
-    <name>Jon Gunderson, Ph.D.</name>
+    <name>Jon Gunderson, Ph.D., CWAP</name>
     <desc href="https://openweba11y.com">Open Web Accessibility Services</desc>
     <desc href="mailto:jongund@openweba11y.com">jongund@openweba11y.com</desc>
   </person>
 
   <home href="../index.html">All Sessions</home>
 
-  <stylesheet media="screen">https://openweba11y.com/css/bootstrap.min.css</stylesheet>
-  <stylesheet media="screen">https://openweba11y.com/css/html-slides.css</stylesheet>
+  <stylesheet media="screen">../../css/bootstrap.min.css</stylesheet>
+  <stylesheet media="screen">../../css/html-slides.css</stylesheet>
 
-  <script>https://openweba11y.com/js/bootstrap.bundle.min.js</script>
-  <script>https://openweba11y.com/js/html-slides-2.js</script>
+  <script>../../js/bootstrap.bundle.min.js</script>
+  <script>../../js/html-slides-2.js</script>
 
   <slide>
     <title>Accessible Design Overview</title>
@@ -36,9 +36,7 @@
         <li>Item #2</li>
         <li>Item #3</li>
       </ul>
-      <script type="text/javascript">
-        slideShowURL()
-      </script>
+    <div class="show-slide-url"></div>
     </contents>
   </slide>
 

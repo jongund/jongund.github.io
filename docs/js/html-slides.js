@@ -60,7 +60,9 @@ window.addEventListener('load', () => {
 //      $('#slide-nav').first().append(html);
     }
 
-    resizeContent()
+    slideShowURL
+
+    resizeContent();
 
 
 });  // end ready event
