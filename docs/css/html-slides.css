@@ -212,16 +212,6 @@ main .contact div a {
     padding: 0px;
 }
 
-main .show-slide-url {
-    margin: 1em;
-    margin-top: 3em;
-    padding: 0.5em;
-    background: #eee;
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-
 main dt {
     margin-top: 1em;
     font-weight: bold;
@@ -271,11 +261,6 @@ main .name {
     margin: 0;
     padding: 0;
     font-size: 110%;
-}
-
-main .slide-show-url {
-    margin-top: 2em;
-    font-size: 140%;
 }
 
 main figcaption {
@@ -373,23 +358,20 @@ main .table-striped > tbody > tr:nth-of-type(2n+1) {
   background-color: #ebf0fa;
 }
 
-#show-slide-url {
+main .show-slide-url {
     margin: 0.5em;
     margin-top: 3em;
     padding: 0.5em;
     border: 1px solid #555;
-    border-radius: 8px;
+    border-radius: 10px;
     background: #eee;
+    text-align: center;
 }
 
-#show-slide-url > span {
+main .show-slide-url > span {
     font-style: italic;
 }
 
-#show-slide-url > span,
-#show-slide-url > a {
-    display: block;
-}
 
 aside.container {
     margin-top: 4em;
