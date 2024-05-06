@@ -38,78 +38,82 @@
           <xsl:attribute name="class">container</xsl:attribute>
           <xsl:attribute name="id">content</xsl:attribute>
 
-          <xsl:if test="/slides/home/.">
-            <xsl:element name="p">
-              <xsl:attribute name="class">btn btn-default home</xsl:attribute>
-              <xsl:element name="a">
-                <xsl:attribute name="href"><xsl:value-of select="/slides/home/@href"/></xsl:attribute>
-                 <xsl:value-of select="/slides/home/."/>
-              </xsl:element>
-            </xsl:element>
-          </xsl:if>
-
           <xsl:element name="h1">
             Index: <xsl:value-of select="slides/title"/>
           </xsl:element>
 
-          <xsl:element name="p">
-            <xsl:attribute name="class">name</xsl:attribute>
-            <xsl:if test="/slides/name/.">
-              <xsl:value-of select="/slides/name/."/>
+          <xsl:element name="div">
+            <xsl:attribute name="class">contact</xsl:attribute>
+
+            <xsl:element name="div">
+              <xsl:attribute name="class">name</xsl:attribute>
+              <xsl:if test="/slides/name/.">
+                <xsl:value-of select="/slides/name/."/>
+              </xsl:if>
+            </xsl:element>
+
+            <xsl:if test="/slides/phone/.">
+              <xsl:element name="div">
+                <xsl:attribute name="class">phone</xsl:attribute>
+                <xsl:value-of select="/slides/phone/."/>
+              </xsl:element>
+            </xsl:if>
+
+            <xsl:for-each select="/slides/person">
+              <xsl:call-template name="person">
+              </xsl:call-template>
+            </xsl:for-each>
+
+            <xsl:for-each select="/slides/conference">
+              <xsl:call-template name="conference">
+              </xsl:call-template>
+            </xsl:for-each>
+
+            <xsl:for-each select="/slides/desc">
+              <xsl:call-template name="desc">
+              </xsl:call-template>
+            </xsl:for-each>
+
+
+            <xsl:if test="/slides/email/.">
+              <xsl:element name="p">
+                <xsl:attribute name="class">email</xsl:attribute>
+                E-mail:
+                <xsl:element name="a">
+                  <xsl:attribute name="href">mailto:<xsl:value-of select="/slides/email/."/></xsl:attribute>
+                  <xsl:value-of select="/slides/email/."/>
+                </xsl:element>
+              </xsl:element>
             </xsl:if>
           </xsl:element>
 
-          <xsl:if test="/slides/phone/.">
-            <xsl:element name="p">
-              <xsl:attribute name="class">phone</xsl:attribute>
-              <xsl:value-of select="/slides/phone/."/>
-            </xsl:element>
-          </xsl:if>
-
-          <xsl:for-each select="/slides/person">
-            <xsl:call-template name="person">
-            </xsl:call-template>
-          </xsl:for-each>
-
-          <xsl:for-each select="/slides/conference">
-            <xsl:call-template name="conference">
-            </xsl:call-template>
-          </xsl:for-each>
-
-          <xsl:for-each select="/slides/desc">
-            <xsl:call-template name="desc">
-            </xsl:call-template>
-          </xsl:for-each>
-
-
-          <xsl:if test="/slides/email/.">
-            <xsl:element name="p">
-              <xsl:attribute name="class">email</xsl:attribute>
-              E-mail:
-              <xsl:element name="a">
-                <xsl:attribute name="href">mailto:<xsl:value-of select="/slides/email/."/></xsl:attribute>
-                <xsl:value-of select="/slides/email/."/>
-              </xsl:element>
+          <xsl:if test="/slides/home/.">
+            <xsl:element name="a">
+              <xsl:attribute name="class">btn btn-primary home</xsl:attribute>
+              <xsl:attribute name="href"><xsl:value-of select="/slides/home/@href"/></xsl:attribute>
+               <xsl:value-of select="/slides/home/."/>
             </xsl:element>
           </xsl:if>
 
 
           <xsl:element name="h2">
-            <xsl:attribute name="class">index</xsl:attribute>Slides
+            <xsl:attribute name="class">index</xsl:attribute>
+            Index of Slides
           </xsl:element>
 
           <xsl:element name="ol">
+            <xsl:attribute name="class">index</xsl:attribute>
 
-          <xsl:for-each select="/slides/slide">
-            <xsl:element name="li">
-              <xsl:attribute name="class">index</xsl:attribute>
-              <xsl:element name="a">
-                <xsl:attribute name="href">slide<xsl:value-of select="position()"/>.html</xsl:attribute>
+            <xsl:for-each select="/slides/slide">
+              <xsl:element name="li">
                 <xsl:attribute name="class">index</xsl:attribute>
-                <xsl:value-of select="title/."/>
+                <xsl:element name="a">
+                  <xsl:attribute name="href">slide<xsl:value-of select="position()"/>.html</xsl:attribute>
+                  <xsl:attribute name="class">index</xsl:attribute>
+                  <xsl:value-of select="title/."/>
+                </xsl:element>
               </xsl:element>
-            </xsl:element>
-          </xsl:for-each>
+            </xsl:for-each>
 
           </xsl:element>
 
@@ -156,11 +160,11 @@
                 <xsl:attribute name="class">row</xsl:attribute>
 
                 <xsl:element name="div">
-                  <xsl:attribute name="class">col-md-1</xsl:attribute>
+                  <xsl:attribute name="class">col</xsl:attribute>
                 </xsl:element>
 
                 <xsl:element name="div">
-                  <xsl:attribute name="class">col-md-9</xsl:attribute>
+                  <xsl:attribute name="class">col-md-12</xsl:attribute>
 
                   <xsl:if test="title/.">
                     <xsl:element name="h1">
@@ -444,7 +448,7 @@
   </xsl:template>
 
   <xsl:template name="desc" >
-    <xsl:element name="p">
+    <xsl:element name="div">
       <xsl:attribute name="class">desc</xsl:attribute>
       <xsl:choose>
         <xsl:when test="@href">
@@ -464,7 +468,7 @@
     <xsl:element name="div">
       <xsl:attribute name="class">person</xsl:attribute>
       <xsl:if test="./name">
-        <xsl:element name="p">
+        <xsl:element name="div">
           <xsl:attribute name="class">name</xsl:attribute>
           <xsl:value-of select="./name"/>
         </xsl:element>
