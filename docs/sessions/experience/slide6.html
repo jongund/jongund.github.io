@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 6: Distribution of Disability by Age</title>
+      <title>Slide 6: Prevalence of Disability by Age</title>
       <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="../../css/html-slides.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><style id="style"></style>
    </head>
@@ -22,9 +22,9 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide7.html" title="Slide 7">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide14.html" title="Slide 14">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide15.html" title="Slide 15">
                         Last
-                      </a></li><span class="navbar-text">Slide 6 of 14</span></ul>
+                      </a></li><span class="navbar-text">Slide 6 of 15</span></ul>
             </div>
          </div>
       </nav>
@@ -32,7 +32,7 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">Distribution of Disability by Age</h1>
+               <h1 id="h1_title" class="title">Prevalence of Disability by Age</h1>
                <p><a href="https://www.disabilitystatistics.org/report/pdf/2021/2000000">2021 Disability Status Report in the United States</a></p>
                <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div><script src="https://code.highcharts.com/highcharts.js"></script><script type="text/javascript">
 
@@ -41,28 +41,24 @@
             type: 'column'
           },
           title: {
-          text: 'Disability Prevalence and the Need for Assistance by Age: 2005'
+          text: 'Disability Prevalence by Age'
           },
           subtitle: {
-            text: 'Source: Americans With Disabilities 2005'
+            text: 'Source: Disability Status Report in the US 2021'
           },
           xAxis: {
             categories: [
-            'Under 15',
-            '15-24',
-            '25 to 44',
-            '45 to 54',
-            '55 to 64',
-            '65 to 69',
-            '70 to 74',
-            '75 to 79',
-            '80 and over'
+            '5-15',
+            '16-20',
+            '21 to 64',
+            '65 to 74',
+            '75 and over'
             ],
             crosshair: true
           },
           yAxis: {
             min: 0,
-            max : 100,
+            max : 60,
             tickAmount: 6,
             title: {
               text: 'Percent Population'
@@ -82,84 +78,76 @@
             }
           },
           series: [{
-            name: 'Any disability',
-            data: [8.8, 10.4, 11.4, 19.4, 30.1, 37.4, 43.8, 55.9, 71.0]
-
+              name: 'Any disability',
+              data: [5.8, 7.6, 10.9, 23.9, 46.1]
             }, {
-            name: 'Severe disability',
-            data: [3.6, 5.0, 7.5, 12.8, 20.8, 26.1, 27.6, 37.8, 56.2]
-
+              name: 'Visual',
+              data: [0.9, 1.3, 2.2, 4.3, 8.7]
             }, {
-            name: 'Needs assistance',
-            data: [0.4, 1.3, 1.9, 3.4, 5.7, 7.6, 9.4, 16.1, 29.2]
+              name: 'Hearing',
+              data: [0.6, 0.7, 2.1, 8.4, 20.8]
+            }, {
+              name: 'Ambulatory',
+              data: [0.6, 0.8, 4.7, 14.4, 20.9]
+            }, {
+              name: 'Cognitive',
+              data: [4.6, 5.4, 4.8, 5.1, 12.3]
           }]
         });
       </script><details>
                   <summary>Table View of the Data in Chart</summary>
-                  <table class="table table-striped">
-                     <caption>Disability Prevalence and the Need for Assistance by Age: 2005</caption>
+                  <div id="prevalence-data">Disability Prevalence by Age</div>
+                  <table class="table table-striped" aria-labelledby="prevalence-data">
                      <thead>
                         <tr>
-                           <th class="text">Age Range</th>
+                           <th class="text">Age Range<br>(years)</th>
                            <th class="num">Any Disability</th>
-                           <th class="num">Severe Disability</th>
-                           <th class="num">Needs Assistance</th>
+                           <th class="num">Visual</th>
+                           <th class="num">Hearing</th>
+                           <th class="num">Ambulatory</th>
+                           <th class="num">Cognitive</th>
                         </tr>
                      </thead>
                      <tbody>
                         <tr>
-                           <th scope="row">Under 15</th>
-                           <td class="num">8.8%</td>
-                           <td class="num">3.6%</td>
-                           <td class="num">0.4%</td>
+                           <th scope="row">5-15</th>
+                           <td class="num">5.8%</td>
+                           <td class="num">0.9%</td>
+                           <td class="num">0.6%</td>
+                           <td class="num">0.6%</td>
+                           <td class="num">4.6%</td>
                         </tr>
                         <tr>
-                           <th scope="row">15 to 24</th>
-                           <td class="num">10.4%</td>
-                           <td class="num">5.0%</td>
-                           <td class="num">1.3%</td>
-                        </tr>
-                        <tr>
-                           <th scope="row">25 to 44</th>
-                           <td class="num">11.4%</td>
-                           <td class="num">7.5%</td>
-                           <td class="num">1.9%</td>
-                        </tr>
-                        <tr>
-                           <th scope="row">45 to 54</th>
-                           <td class="num">19.4%</td>
-                           <td class="num">12.8%</td>
-                           <td class="num">3.4%</td>
-                        </tr>
-                        <tr>
-                           <th scope="row">55 to 64</th>
-                           <td class="num">30.1%</td>
-                           <td class="num">20.8%</td>
-                           <td class="num">5.7%</td>
-                        </tr>
-                        <tr>
-                           <th scope="row">65 to 69</th>
-                           <td class="num">37.4%</td>
-                           <td class="num">26.1%</td>
+                           <th scope="row">16 to 20</th>
                            <td class="num">7.6%</td>
+                           <td class="num">1.3%</td>
+                           <td class="num">0.7%</td>
+                           <td class="num">0.8%</td>
+                           <td class="num">5.4%</td>
                         </tr>
                         <tr>
-                           <th scope="row">70 to 74</th>
-                           <td class="num">43.8%</td>
-                           <td class="num">27.6%</td>
-                           <td class="num">9.4%</td>
+                           <th scope="row">21 to 64</th>
+                           <td class="num">10.9%</td>
+                           <td class="num">2.2%</td>
+                           <td class="num">2.1%</td>
+                           <td class="num">4.7%</td>
+                           <td class="num">4.8%</td>
                         </tr>
                         <tr>
-                           <th scope="row">75 to 79</th>
-                           <td class="num">55.9%</td>
-                           <td class="num">37.8%</td>
-                           <td class="num">16.1%</td>
+                           <th scope="row">65 to 74</th>
+                           <td class="num">23.9%</td>
+                           <td class="num">4.3%</td>
+                           <td class="num">8.4%</td>
+                           <td class="num">14.4%</td>
+                           <td class="num">5.1%</td>
                         </tr>
                         <tr>
-                           <th scope="row">80 and over</th>
-                           <td class="num">71.0%</td>
-                           <td class="num">56.2%</td>
-                           <td class="num">29.2%</td>
+                           <th scope="row">75+</th>
+                           <td class="num">46.1%</td>
+                           <td class="num">8.7%</td>
+                           <td class="num">20.8%</td>
+                           <td class="num">29.9%</td>
+                           <td class="num">12.3%</td>
                         </tr>
                      </tbody>
                   </table>
@@ -171,19 +159,34 @@
       <footer class="container">
          <div id="footer" class="well well-sm"><span class="logo"><a href="https://openweba11y.com" aria-label="Open Web Accessibility">
       <span class="brand"><span class="open">Open</span><span class="web">Web</span><span class="a11y">A11y</span></span>
-    </a></span><span class="copyright">
+    </a></span><span xmlns:lxslt="http://xml.apache.org/xslt" xmlns:wai_report="http://www.w3.org/wai" class="copyright">
      Copyright © 2024 Jon Gunderson
-  </span><span class="highlight-icon">
-          ↖
-        </span><span id="ID_SHOW"><button class="show hide" id="ID_SHOW_MORE" aria-label="Show more">
-            ⊕
-          </button><button class="show hide " id="ID_SHOW_LESS" aria-label="Show less">
-            ⊖
-          </button><button class="show hide" id="ID_SHOW_ALL" aria-label="Show all">
-              All+
-          </button><button class="show hide" id="ID_HIDE_ALL" aria-label="Hide all">
-              All-
-          </button></span></div>
+  </span><span xmlns:lxslt="http://xml.apache.org/xslt" xmlns:wai_report="http://www.w3.org/wai" id="ID_SHOW">
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_MORE" role="button" tabindex="0" aria-label="Show more" width="30" height="30" viewBox="0 0 50 50">
+                  <circle class="focus" cx="25" cy="25" r="20"></circle>
+                  <circle class="icon" cx="25" cy="25" r="15"></circle>
+                  <line class="icon" x1="16" y1="25" x2="34" y2="25"></line>
+                  <line class="icon" x1="25" y1="16" x2="25" y2="34"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_LESS" role="button" tabindex="0" aria-label="Show less" width="30" height="30" viewBox="0 0 50 50">
+                  <circle class="focus" cx="25" cy="25" r="20"></circle>
+                  <circle class="icon" cx="25" cy="25" r="15"></circle>
+                  <line class="icon" x1="16" y1="25" x2="34" y2="25"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_ALL" role="button" tabindex="0" aria-label="Show all" width="34" height="30" viewBox="0 0 70 50">
+                  <rect class="focus" x="4" y="4" height="46" width="64" rx="4" ry="4"></rect>
+                  <rect class="icon" x="8" y="8" height="38" width="56" rx="4" ry="4"></rect>
+                  <line class="icon" x1="24" y1="15" x2="50" y2="15"></line>
+                  <line class="icon" x1="16" y1="23" x2="56" y2="23"></line>
+                  <line class="icon" x1="16" y1="31" x2="56" y2="31"></line>
+                  <line class="icon" x1="16" y1="39" x2="56" y2="39"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_HIDE_ALL" role="button" tabindex="0" aria-label="Hide all" width="34" height="30" viewBox="0 0 70 50">
+                  <rect class="focus" x="4" y="4" height="46" width="64" rx="4" ry="4"></rect>
+                  <rect class="icon" x="8" y="8" height="38" width="56" rx="4" ry="4"></rect>
+                  <line class="icon" x1="24" y1="15" x2="50" y2="15"></line>
+               </svg>
+            </span></div>
       </footer>
    </body>
 </html>

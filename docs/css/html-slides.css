@@ -38,24 +38,13 @@ summary {
 
 
 footer {
-    margin-top: 0.25em;
-    padding-top: 0.25em;
+    margin: 0;
     margin-top: 1em;
-    clear: both;
-}
-
-footer a img {
+    margin-top: 0.25em;
+    padding: 0;
     position: relative;
-    top: -.1em;
-    height: 2em;
-    padding: 0.25em;
-    border: transparent 2px solid;
-    border-radius: 5px;
-}
-
-footer a:hover img,
-footer a:focus img {
-    border-color: black;
+    height: 2.5em;
+    text-align: center;
 }
 
 footer .highlight-icon {
@@ -70,6 +59,65 @@ footer.highlight .highlight-icon {
     font-weight: bold;
 }
 
+footer .logo {
+  display: inline-block;
+  position: absolute;
+  top:  0;
+  left: -4px;
+}
+
+footer .logo a {
+    display: inline-block;
+    padding: 4px;
+}
+
+footer .logo a:focus,
+footer .logo a:hover {
+    padding: 2px;
+    border: 2px solid black;
+}
+
+footer .brand {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-family: "Fjalla One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  border: 1px solid #aaa;
+}
+
+
+footer .brand span {
+  margin: 0;
+  display: inline-block;
+  padding: 0.25rem;
+}
+
+footer .brand .open {
+  margin: 0;
+  color: #ffffff;
+  background: #C5050C;
+}
+
+footer .brand .web {
+  margin: 0;
+  color: #ffffff;
+  background: #13294B;
+}
+
+footer .brand .a11y {
+  margin: 0;
+  color: #13294B;
+  background: #dddddd;
+}
+
+footer .copyright {
+    position: relative;
+    top: 10px;
+}
+
+
 nav ul {
     margin: 0;
     padding: 0;
@@ -83,26 +131,64 @@ nav ul li {
     padding-right: 1em;
 }
 
-#ID_SHOW button.show {
+
+#ID_SHOW {
+    position: absolute;
+    top: 0.35em;
+    right: 0.5rem;
+    display: none;
+}
+
+#ID_SHOW.show {
+    display: inline-block;
+}
+
+
+#ID_SHOW svg[role=button].show {
     margin: 0;
-    margin-top: 0.05rem;
-    padding: 0.5rem;
+    margin-top: 0.35rem;
     border: none;
     background: transparent;
     display: inline-block;
 }
 
-#ID_SHOW button.show.hide {
-    visibility: hidden;
+#ID_SHOW svg[role=button] circle.focus,
+#ID_SHOW svg[role=button] rect.focus {
+    stroke-width: 3;
+    stroke: #13294B;
+    fill: transparent;
+    display: none;
 }
 
-#footer {
-    position: relative;
+#ID_SHOW svg[role=button] circle.icon {
+    fill: #13294B;
 }
 
-#ID_SHOW {
-    position: absolute;
-    right: 0.5rem;
+#ID_SHOW svg[role=button] line.icon {
+    stroke-width: 5;
+    stroke: #fff;
+    z-index: 100;
+}
+
+#ID_SHOW svg[role=button] rect.icon {
+    fill: #13294B;
+}
+
+
+#ID_SHOW svg[role=button][aria-disabled] circle.icon,
+#ID_SHOW svg[role=button][aria-disabled] rect.icon {
+    fill: gray;
+}
+
+#ID_SHOW svg[role=button]:focus {
+    outline: none;
+}
+
+#ID_SHOW svg[role=button]:focus circle.focus,
+#ID_SHOW svg[role=button]:hover circle.focus,
+#ID_SHOW svg[role=button]:focus rect.focus,
+#ID_SHOW svg[role=button]:hover rect.focus {
+    display: block;
 }
 
 
@@ -418,45 +504,5 @@ aside .full-transcript-link {
     background-color: #EEEEEE;
     border: 1px solid #EEEEEE;
     border-radius: 4px;
-}
-
-.brand {
-  display: inline-block;
-  font-family: "Fjalla One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.brand {
-  margin: 0;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  display: inline-block;
-  padding: 0;
-  border: 1px solid #aaa;
-}
-
-.brand span {
-  margin: 0;
-  display: inline-block;
-  padding: 0.25rem;
-}
-
-.brand .open {
-  margin: 0;
-  color: #ffffff;
-  background: #C5050C;
-}
-
-.brand .web {
-  margin: 0;
-  color: #ffffff;
-  background: #13294B;
-}
-
-.brand .a11y {
-  margin: 0;
-  color: #13294B;
-  background: #dddddd;
 }
 

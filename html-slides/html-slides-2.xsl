@@ -124,6 +124,16 @@
       </xsl:element>
     </xsl:element>
 
+    <xsl:for-each select="/slides/title">
+        <xsl:variable name="fname">title.html</xsl:variable>
+
+        <xsl:result-document href="{$fname}" method="html">
+
+          <xsl:call-template name="contentinfo">
+          </xsl:call-template>
+        </xsl:result-document>
+    </xsl:for-each>
+
     <xsl:for-each select="/slides/slide" >
 
       <xsl:variable name="fname">slide<xsl:value-of select="position()"/>.html</xsl:variable>
@@ -397,8 +407,7 @@
             </xsl:element>
           </xsl:if>
 
-          <xsl:element name="span">
-            <xsl:attribute name="class">copyright</xsl:attribute>
+          <span class="copyright">
             <xsl:choose>
               <xsl:when test="/slides/copyright">
                 <xsl:value-of select="/slides/copyright"/>
@@ -407,42 +416,66 @@
                 Copyright  &#169; 2024
               </xsl:otherwise>
             </xsl:choose>
-          </xsl:element>
-        <xsl:element name="span">
-          <xsl:attribute name="class">highlight-icon</xsl:attribute>
-          &#8598;
-        </xsl:element>
+          </span>
 
-        <xsl:element name="span">
-          <xsl:attribute name="id">ID_SHOW</xsl:attribute>
-          <xsl:element name="button">
-            <xsl:attribute name="class">show hide</xsl:attribute>
-            <xsl:attribute name="id">ID_SHOW_MORE</xsl:attribute>
-            <xsl:attribute name="aria-label">Show more</xsl:attribute>
-            ⊕
-          </xsl:element>
+          <span id="ID_SHOW">
 
-          <xsl:element name="button">
-            <xsl:attribute name="class">show hide </xsl:attribute>
-            <xsl:attribute name="id">ID_SHOW_LESS</xsl:attribute>
-            <xsl:attribute name="aria-label">Show less</xsl:attribute>
-            ⊖
-          </xsl:element>
+            <svg id="ID_SHOW_MORE"
+                 role="button"
+                 tabindex="0"
+                 aria-label="Show more"
+                 width="30"
+                 height="30"
+                 viewBox="0 0 50 50"
+                 xmlns="http://www.w3.org/2000/svg">
+                <circle class="focus" cx="25" cy="25" r="20" />
+                <circle class="icon" cx="25" cy="25" r="15" />
+                <line class="icon" x1="16" y1="25" x2="34" y2="25" />
+                <line class="icon" x1="25" y1="16" x2="25" y2="34"  />
+              </svg>
 
-          <xsl:element name="button">
-            <xsl:attribute name="class">show hide</xsl:attribute>
-            <xsl:attribute name="id">ID_SHOW_ALL</xsl:attribute>
-            <xsl:attribute name="aria-label">Show all</xsl:attribute>
-              All+
-          </xsl:element>
+            <svg id="ID_SHOW_LESS"
+                 role="button"
+                 tabindex="0"
+                 aria-label="Show less"
+                 width="30"
+                 height="30"
+                 viewBox="0 0 50 50"
+                 xmlns="http://www.w3.org/2000/svg">
+              <circle class="focus" cx="25" cy="25" r="20" />
+              <circle class="icon" cx="25" cy="25" r="15" />
+              <line class="icon" x1="16" y1="25" x2="34" y2="25" />
+            </svg>
 
-          <xsl:element name="button">
-            <xsl:attribute name="class">show hide</xsl:attribute>
-            <xsl:attribute name="id">ID_HIDE_ALL</xsl:attribute>
-            <xsl:attribute name="aria-label">Hide all</xsl:attribute>
-              All-
-          </xsl:element>
-        </xsl:element>
+            <svg id="ID_SHOW_ALL"
+                 role="button"
+                 tabindex="0"
+                 aria-label="Show all"
+                 width="34"
+                 height="30"
+                 viewBox="0 0 70 50"
+                 xmlns="http://www.w3.org/2000/svg">
+              <rect class="focus" x="4" y="4" height="46" width="64" rx="4" ry="4"/>
+              <rect class="icon"  x="8" y="8" height="38" width="56" rx="4" ry="4"/>
+              <line class="icon" x1="24" y1="15" x2="50" y2="15" />
+              <line class="icon" x1="16" y1="23" x2="56" y2="23" />
+              <line class="icon" x1="16" y1="31" x2="56" y2="31" />
+              <line class="icon" x1="16" y1="39" x2="56" y2="39" />
+            </svg>
+
+            <svg id="ID_HIDE_ALL"
+                 role="button"
+                 tabindex="0"
+                 aria-label="Hide all"
+                 width="34"
+                 height="30"
+                 viewBox="0 0 70 50"
+                 xmlns="http://www.w3.org/2000/svg">
+              <rect class="focus" x="4" y="4" height="46" width="64" rx="4" ry="4"/>
+              <rect class="icon"  x="8" y="8" height="38" width="56" rx="4" ry="4"/>
+              <line class="icon" x1="24" y1="15" x2="50" y2="15" />
+            </svg>
+        </span>
       </xsl:element>
     </xsl:element>
   </xsl:template>

@@ -17,6 +17,8 @@ class HTMLSlide {
     this.nextSlideLink     = document.querySelector('#ID_SLIDE_NEXT');
     this.previousSlideLink = document.querySelector('#ID_SLIDE_PREVIOUS');
 
+    this.showButtons   = document.querySelector('#ID_SHOW');
+
     this.showLessButton   = document.querySelector('#ID_SHOW_LESS');
     this.showMoreButton   = document.querySelector('#ID_SHOW_MORE');
     this.showAllButton = document.querySelector('#ID_SHOW_ALL');
@@ -26,8 +28,12 @@ class HTMLSlide {
 
     this.showLessButton.addEventListener('click',   this.showLess.bind(this));
     this.showMoreButton.addEventListener('click',   this.showMore.bind(this));
-    this.showAllButton.addEventListener('click', this.showToggle.bind(this));
-    this.hideAllButton.addEventListener('click', this.showToggle.bind(this));
+    this.showAllButton.addEventListener('click', this.showAll.bind(this));
+    this.hideAllButton.addEventListener('click', this.hideAll.bind(this));
+
+    this.showLessButton.addEventListener('keydown',   this.keydownShowLess.bind(this));
+    this.showAllButton.addEventListener('keydown', this.keydownShowAll.bind(this));
+    this.hideAllButton.addEventListener('keydown', this.keydownHideAll.bind(this));
 
     window.addEventListener("resize", this.resizeContent.bind(this));
 
@@ -64,12 +70,10 @@ class HTMLSlide {
   }
 
   showMore () {
-    console.log(`[showMore]`);
     for (let i = 0; i < this.moreElems.length; i += 1) {
       let moreElem = this.moreElems[i];
       if (moreElem.classList.contains('hide') ||
           moreElem.classList.contains('hideslow')) {
-        console.log(`[more]: ${moreElem.textContent}`);
         moreElem.classList.remove('hide');
         moreElem.classList.remove('hideslow');
         this.updateShowButtons();
@@ -80,7 +84,6 @@ class HTMLSlide {
   }
 
   showAll () {
-    console.log(`[showAll]`);
     for (let i = 0; i < this.moreElems.length; i +=1) {
       this.moreElems[i].classList.remove('hide');
       this.moreElems[i].classList.remove('hideslow');
@@ -89,7 +92,6 @@ class HTMLSlide {
   }
 
   showLess () {
-    console.log(`[showLess]`);
     for (let i = this.moreElems.length-1; i >= 0; i -=1) {
       let moreElem = this.moreElems[i];
         if (!moreElem.classList.contains('hide') &&
@@ -103,7 +105,6 @@ class HTMLSlide {
   }
 
   hideAll () {
-    console.log(`[hideAll]`);
     for (let i = 0; i < this.moreElems.length; i +=1) {
       this.moreElems[i].classList.add('hideslow');
     }
@@ -130,24 +131,24 @@ class HTMLSlide {
     return true;
   }
 
-  showToggle () {
-    console.log(`[showToggle]: ${this.areAllVisible()}`);
+  updateShowButtons () {
     if (this.areAllVisible()) {
-      this.hideAll();
-      this.showAllButton.classList.remove('hide');
-      this.hideAllButton.classList.add('hide');
+      this.showMoreButton.setAttribute('aria-disabled', 'true');
+      this.showAllButton.setAttribute('aria-disabled', 'true');
     }
     else {
-      this.showAll();
-      this.hideAllButton.classList.remove('hide');
-      this.showAllButton.classList.add('hide');
+      this.showMoreButton.removeAttribute('aria-disabled');
+      this.showAllButton.removeAttribute('aria-disabled');
     }
-  }
 
-  updateShowButtons () {
-    this.showLessButton.disabled = this.areAllHidden();
-    this.showMoreButton.disabled = this.areAllVisible();
-
+    if (this.areAllHidden()) {
+      this.showLessButton.setAttribute('aria-disabled', 'true');
+      this.hideAllButton.setAttribute('aria-disabled', 'true');
+    }
+    else {
+      this.showLessButton.removeAttribute('aria-disabled');
+      this.hideAllButton.removeAttribute('aria-disabled');
+    }
     this.resizeContent();
   }
 
@@ -156,10 +157,13 @@ class HTMLSlide {
       elem.classList.add('hide');
     });
 
+
     if (this.moreElems.length) {
+      this.showButtons.classList.add('show');
       this.showLessButton.classList.remove('hide');
       this.showMoreButton.classList.remove('hide');
       this.showAllButton.classList.remove('hide');
+      this.hideAllButton.classList.remove('hide');
       this.updateShowButtons();
     }
   }
@@ -167,9 +171,6 @@ class HTMLSlide {
   showSlideURL () {
     const link = window.location.href;
     const elem = document.querySelector('.show-slide-url');
-
-    console.log(`link: ${link}`);
-    console.log(`elem: ${elem}`);
 
     if (elem) {
       const span = document.createElement('span');
@@ -186,8 +187,6 @@ class HTMLSlide {
   }
 
   keyDown (event) {
-
-    console.log(`[keyDown][key]: ${event.key}`);
 
     if (!event.altKey &&
         !event.ctrlKey &&
@@ -245,12 +244,50 @@ class HTMLSlide {
           }
           break;
 
-
         default:
           break;
       }
     }
   }
+
+  keydownShowLess (event) {
+
+    if (!event.altKey &&
+        !event.ctrlKey &&
+        !event.metaKey &&
+        !event.shiftKey &&
+        (event.key === ' ')) {
+      this.showLess();
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+  }
+
+  keydownShowAll (event) {
+    if (!event.altKey &&
+        !event.ctrlKey &&
+        !event.metaKey &&
+        !event.shiftKey &&
+        (event.key === ' ')) {
+      this.showAll();
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
+
+  keydownHideAll (event) {
+    if (!event.altKey &&
+        !event.ctrlKey &&
+        !event.metaKey &&
+        !event.shiftKey &&
+        (event.key === ' ')) {
+      this.hideAll();
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
+
 }
 
 window.addEventListener( 'load', () => {
