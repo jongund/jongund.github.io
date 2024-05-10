@@ -506,3 +506,15 @@ aside .full-transcript-link {
     border-radius: 4px;
 }
 
+form fieldset legend {
+    font-weight: bold;
+}
+
+form fieldset {
+    margin-bottom: 2em;
+}
+
+form fieldset label[for] {
+    display: block;
+}
+
