@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 8: What's your Personal Disability Quotient (PDQ)?</title>
+      <title>Slide 8: Age Related Macular Degeneration</title>
       <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="../../css/html-slides.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><style id="style"></style>
    </head>
@@ -22,9 +22,9 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide9.html" title="Slide 9">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide14.html" title="Slide 14">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide17.html" title="Slide 17">
                         Last
-                      </a></li><span class="navbar-text">Slide 8 of 14</span></ul>
+                      </a></li><span class="navbar-text">Slide 8 of 17</span></ul>
             </div>
          </div>
       </nav>
@@ -32,215 +32,148 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">What's your Personal Disability Quotient (PDQ)?</h1>
-               <p>Calculate your Personal Disability Quotient</p><script>
-        const age = [
-          [18, 22],
-          [13, 16],
-          [ 9, 10],
-          [ 1,  1],
-          [ 0,  0]
-        ];
+               <h1 id="h1_title" class="title">Age Related Macular Degeneration</h1>
+               <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div><script src="https://code.highcharts.com/highcharts.js"></script><script type="text/javascript">
 
-        const pdqResult = [
-          [25, '5-25% chance', 'Below average'],
-          [36, '25-35% chance', 'Average'],
-          [50, '35-50% chance', 'Above average'],
-          [200, '50% or more chance', 'Significantly above average']
-        ];
-
-        function getValue (name) {
-          const radioNodes = document.querySelectorAll(`[name=${name}]`);
-          for (let i = 0; i < radioNodes.length; i += 1 ) {
-            if (radioNodes[i].checked) {
-              console.log(`[${name}Value]: ${radioNodes[i].value}`);
-              return parseInt(radioNodes[i].value);
+        Highcharts.chart('container', {
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: '2010 U.S. age-specific prevalence rates for AMD by age and race/ethnicity'
+          },
+          subtitle: {
+            text: 'Source: National Institutes of Health'
+          },
+          xAxis: {
+            categories: [
+            '50-54',
+            '55-59',
+            '25 to 44',
+            '45 to 54',
+            '55 to 64',
+            '65 to 69',
+            '70 to 74',
+            '75 to 79',
+            '80 and over'
+            ],
+            crosshair: true
+          },
+          yAxis: {
+            min: 0,
+            max : 100,
+            tickAmount: 6,
+            title: {
+              text: 'Percent Population'
             }
-          }
-          return 0;
-        }
-
-        function computePDQ() {
-
-          console.log(`=== Compute ===`);
-          const genderValue = getValue('gender');
-          const ageValue = getValue('age');
-
-          let pdq = age[ageValue][genderValue];
-
-          pdq += getValue('activity');
-          pdq += getValue('bmi');
-          pdq += getValue('tabacco');
-          pdq += getValue('life');
-          pdq += getValue('mc');
-
-          console.log(`[pdq]: ${pdq}`);
-
-          let prop   = pdqResult[0][1];
-          let likely = pdqResult[0][2];
-
-          for (let i = 0; i < pdqResult.length; i += 1) {
-            prop   = pdqResult[i][1];
-            likely = pdqResult[i][2];
-            if (pdq < pdqResult[i][0]) {
-              break;
+          },
+          tooltip: {
+            headerFormat: "<span style='font-size:10px'>{point.key}</span><table>",
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+           useHTML: true
+          },
+          plotOptions: {
+            column: {
+              pointPadding: 0,
+              borderWidth: 0
             }
-          }
+          },
+          series: [{
+            name: 'Any disability',
+            data: [8.8, 10.4, 11.4, 19.4, 30.1, 37.4, 43.8, 55.9, 71.0]
 
-          const pdqCell = document.querySelector('#pdq-value');
-          pdqCell.textContent = pdq.toString();
+            }, {
+            name: 'Severe disability',
+            data: [3.6, 5.0, 7.5, 12.8, 20.8, 26.1, 27.6, 37.8, 56.2]
 
-          const propCell = document.querySelector('#pdq-prop');
-          propCell.textContent = prop;
-
-          const likelyCell = document.querySelector('#pdq-likely');
-          likelyCell.textContent = likely;
-
-        }
-      </script><form action="javascript:computePDQ()">
-                  <fieldset>
-                     <legend>Gender</legend>
-                     <div class="form-check">
-            <input class="form-check-input" id="g1" type="radio" name="gender" value="0" required="">
-            <label class="form-check-label" for="g1">Male</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="g2" type="radio" name="gender" value="1">
-            <label class="form-check-label" for="g2">Female</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="g3" type="radio" name="gender" value="0">
-            <label class="form-check-label" for="g3">Trans-gender Male</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="g4" type="radio" name="gender" value="1">
-            <label class="form-check-label" for="g4">Trans-gender Female</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="g5" type="radio" name="gender" value="1">
-            <label class="form-check-label" for="g5">Non-Binary</label>
-          </div>
-                  </fieldset>
-                  <fieldset>
-                     <legend>Age (Years)</legend>
-                     <div class="form-check">
-            <input class="form-check-input" id="age1" type="radio" name="age" value="0" required="">
-            <label class="form-check-label" for="age1">&lt;25</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="age2" type="radio" name="age" value="1">
-            <label class="form-check-label" for="age2">25-34</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="age3" type="radio" name="age" value="2">
-            <label class="form-check-label" for="age3">35-44</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="age4" type="radio" name="age" value="3">
-            <label class="form-check-label" for="age4">45-54</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="age5" type="radio" name="age" value="4">
-            <label class="form-check-label" for="age4">55+</label>
-          </div>
-                  </fieldset>
-                  <fieldset>
-                     <legend>What kind of work do you do?</legend>
-                     <div class="form-check">
-            <input class="form-check-input" id="act1" type="radio" name="activity" value="0" required="">
-            <label class="form-check-label" for="act1">Mostly office work/indoors</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="act2" type="radio" name="activity" value="8">
-            <label class="form-check-label" for="act2">Little office work/indoors</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="act3" type="radio" name="activity" value="18">
-            <label class="form-check-label" for="act3">Little physical activity/outdoors</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="act4" type="radio" name="activity" value="20">
-            <label class="form-check-label" for="act4">Mostly physical activity/outdoors</label>
-          </div>
-                  </fieldset>
-                  <fieldset>
-                     <legend>Body Mass Index: Do you consider yoruself to be</legend>
-                     <div class="form-check">
-            <input class="form-check-input" id="bmi1" type="radio" name="bmi" value="0" required="">
-            <label class="form-check-label" for="bmi1">Underweight</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="bmi2" type="radio" name="bmi" value="8">
-            <label class="form-check-label" for="bmi2">About the right size</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="bmi3" type="radio" name="bmi" value="18">
-            <label class="form-check-label" for="bmi3">Overweight</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="bmi4" type="radio" name="bmi" value="20">
-            <label class="form-check-label" for="bmi4">Obese</label>
-          </div>
-                  </fieldset>
-                  <fieldset>
-                     <legend>Have you used tobacco products in the past year?</legend>
-                     <div class="form-check">
-            <input class="form-check-input" id="tab1" type="radio" name="tabacco" value="10" required="">
-            <label class="form-check-label" for="tab1">Yes</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="tab2" type="radio" name="tabacco" value="1">
-            <label class="form-check-label" for="tab2">No</label>
-          </div>
-                  </fieldset>
-                  <fieldset>
-                     <legend>Lifestyle: How healthy is your lifestyle? Consider regular physical exams, regular exercise, stress, sleep and eating habits, drug or alcohol abuse.</legend>
-                     <div class="form-check">
-            <input class="form-check-input" id="life1" type="radio" name="life" value="0" required="">
-            <label class="form-check-label" for="life1">Very healthy</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="life2" type="radio" name="life" value="3">
-            <label class="form-check-label" for="life2">About average</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="life3" type="radio" name="life" value="70" required="">
-            <label class="form-check-label" for="life3">Not very healthy</label>
-          </div>
-                  </fieldset>
-                  <fieldset>
-                     <legend>Medical Conditions: Do you have or are you undergoing treatment for: diabetes, high blood pressure, high cholesterol, heart disease, cancer, chronic back or joint pain, drug, alcohol or food addiction, anxiety or depression?</legend>
-                     <div class="form-check">
-            <input class="form-check-input" id="mc1" type="radio" name="mc" value="0" required="">
-            <label class="form-check-label" for="mc1">No</label>
-          </div>
-                     <div class="form-check">
-            <input class="form-check-input" id="mc2" type="radio" name="mc" value="12">
-            <label class="form-check-label" for="mc2">Yes</label>
-          </div>
-                  </fieldset>
-
-        <input type="reset">
-        <input type="submit" value="Calculate">
-
-        <h2>Your Chance of becoming disabled</h2>
-                  <table class="table">
-                     <thead>
-                        <tr>
-                           <th>PDQ Value</th>
-                           <th>Probability</th>
-                           <th>Likelihood</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td id="pdq-value">--</td>
-                           <td id="pdq-prop">--</td>
-                           <td id="pdq-likely">--</td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </form>
+            }, {
+            name: 'Needs assistance',
+            data: [0.4, 1.3, 1.9, 3.4, 5.7, 7.6, 9.4, 16.1, 29.2]
+          }]
+        });
+      </script><h2 id="h2-amd">
+          2010 U.S. age-specific prevalence rates for AMD by age and race/ethnicity
+        </h2>
+               <table class="table table-striped" aria-labelled="h2-amd">
+                  <thead>
+                     <tr>
+                        <th>Age</th>
+                        <th>White</th>
+                        <th>Black</th>
+                        <th>Hispanic</th>
+                        <th>Other</th>
+                        <th>All</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>50-54</td>
+                        <td>0.27%</td>
+                        <td>0.56%</td>
+                        <td>0.55%</td>
+                        <td>0.56%</td>
+                        <td>0.36%</td>
+                     </tr>
+                     <tr>
+                        <td>55-59</td>
+                        <td>0.32%</td>
+                        <td>0.68%</td>
+                        <td>0.67%</td>
+                        <td>0.68%</td>
+                        <td>0.41%</td>
+                     </tr>
+                     <tr>
+                        <td>60-64</td>
+                        <td>0.49%</td>
+                        <td>0.83%</td>
+                        <td>0.82%</td>
+                        <td>0.83%</td>
+                        <td>0.57%</td>
+                     </tr>
+                     <tr>
+                        <td>65-69</td>
+                        <td>0.88%</td>
+                        <td>1.02%</td>
+                        <td>1.01%</td>
+                        <td>1.01%</td>
+                        <td>0.91%</td>
+                     </tr>
+                     <tr>
+                        <td>70-74</td>
+                        <td>1.74%</td>
+                        <td>1.25%</td>
+                        <td>1.24%</td>
+                        <td>1.23%</td>
+                        <td>1.63%</td>
+                     </tr>
+                     <tr>
+                        <td>75-79</td>
+                        <td>3.57%</td>
+                        <td>1.53%</td>
+                        <td>1.51%</td>
+                        <td>1.51%</td>
+                        <td>3.16%</td>
+                     </tr>
+                     <tr>
+                        <td>80+</td>
+                        <td>13.59%</td>
+                        <td>2.22%</td>
+                        <td>2.12%</td>
+                        <td>2.13%</td>
+                        <td>11.73%</td>
+                     </tr>
+                     <tr>
+                        <td><strong>TOTAL</strong></td>
+                        <td><strong>2.46%</strong></td>
+                        <td><strong>0.94%</strong></td>
+                        <td><strong>0.90%</strong></td>
+                        <td><strong>0.92%</strong></td>
+                        <td><strong>2.09%</strong></td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
             <div class="col"></div>
          </div>

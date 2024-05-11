@@ -41,6 +41,18 @@
   </slide>
 
   <slide>
+    <title>Common Disability Accommodations in Higher Education</title>
+    <contents>
+      <ul>
+        <li>The way information is presented (e.g., books, online materials, lectures)</li>
+        <li>The way the student is required to respond (e.g., writing, speech, projects)</li>
+        <li>The characteristics of the setting (e.g., noise, lighting)</li>
+        <li>The timing and scheduling of instruction (e.g., time of day, length of assignment)</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
     <title>Prevalence of Disability by Age (Accessible Chart)</title>
     <contents>
       <p><a href="https://www.disabilitystatistics.org/report/pdf/2021/2000000">2021 Disability Status Report in the United States</a></p>
@@ -176,6 +188,61 @@
     </contents>
   </slide>
 
+
+  <slide>
+    <title>Principles in Universal Design in Learning</title>
+    <contents>
+      <p><a href="https://udlguidelines.cast.org/engagement">Universal Design in Learning 2.0</a></p>
+      <h2>Engagement</h2>
+      <ul>
+        <li>Recruiting Interest</li>
+        <li>Sustaining Effort and Persistence</li>
+        <li>Self Regulation</li>
+      </ul>
+
+      <h2>Representation</h2>
+      <ul>
+        <li>Perception</li>
+        <li>Language and Symbols</li>
+        <li>Comprehension</li>
+      </ul>
+
+      <h2>Action and Expression</h2>
+      <ul>
+        <li>Physical Action</li>
+        <li>Expression and Communication</li>
+        <li>Executive Functions</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>One Plus Teaching Strategy</title>
+    <contents>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <p class="center">
+        <a href="https://www.youtube.com/embed/FDt1r3FcCQU?si=oP8Lo-Y_0SNtM1Ef" target="_video">UDL plus-one - Thomas Tobin</a>
+      </p>
+
+      <p class="center">
+        <iframe width="560"
+          height="315"
+          src="https://www.youtube.com/embed/FDt1r3FcCQU?si=oP8Lo-Y_0SNtM1Ef"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen="">
+        </iframe>
+      </p>
+
+    </contents>
+  </slide>
 </slides>
 
 
