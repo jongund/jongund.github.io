@@ -32,11 +32,71 @@
     <title>Making a Difference Overview</title>
     <contents>
       <ul>
-        <li>Item #1</li>
-        <li>Item #2</li>
-        <li>Item #3</li>
+        <li>Accommodation vs. Accessibility</li>
+        <li>Universal design in learning technologies</li>
+        <li>Making accessibility visible and avaiable to everyone</li>
       </ul>
       <div class="show-slide-url"></div>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Equality vs. Equity</title>
+    <contents>
+      <div style="text-align: center">
+        <img src="./images/equity.png" alt="See description following the image"/>
+      </div>
+      <h2>Description</h2>
+      <p>The image shows two side-by-side images of three children watching a baseball game from the outfield fence.  In the first image demonstrates equality since they all have a box to help them see over the fence.  One child is tall enough to see over the fence standing on the box, the second child can only barely see over the fence standing on the box and the third child in a wheelchair cannot evvn get on the box. The second image shows the same children in equality with the features they need to see the game.  The tallest child with one box has what they need, the second child now has two boxes and they no longer have to struggle to see the game.  The child in the wheelchair has a ramp so they can now see the game unobstructed. </p>
+    </contents>
+  </slide>
+
+
+  <slide>
+    <title>Ramps and Curb cuts</title>
+    <contents>
+
+      <ul>
+        <li>Used by more than just people with disabilities.</li>
+        <li>Visible to everyone.</li>
+      </ul>
+
+      <figure style="text-align: center">
+        <img src="./images/ramp-second-story.jpeg" aria-labelledby="ramp"/>
+        <figcaption id="ramp">Added on ramp to second story</figcaption>
+      </figure>
+
+      <figure style="text-align: center">
+        <img src="./images/noramp" aria-labelledby="noramp"/>
+        <figcaption id="noramp">Barrier free building entrance</figcaption>
+      </figure>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Accessibility vs. Accommodation</title>
+    <contents>
+
+      <ul>
+        <li>Inaccessible experiences and materials <em>exclude</em> students. </li>
+        <li>Accommodations are modifications or adjustments made for an individual with a disability on an as-needed basis, and give access to whoever is there at the moment, which <em>requires</em> extra work on students, staff and faculty.</li>
+        <li>Accessible digital experiences and materials provide <em>equal access for everyone</em> without extra work. </li>
+      </ul>
+
+      <p><a href="https://accessibility.umn.edu/importance-accessibility/accessibility-vs-accommodation">Adapted from University of Minnesota: Accessibility vs. Accommodation</a></p>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Ramp at Eagle Lookout</title>
+    <contents>
+
+      <figure style="text-align: center">
+        <img src="./images/ramp-eagle-lookout.webp" aria-labelledby="ramp"/>
+        <figcaption id="ramp">Accessible ramp at Eagle Lookout in Peninsula State Park, Wisconsin</figcaption>
+      </figure>
+
     </contents>
   </slide>
 
@@ -51,6 +111,57 @@
       </ul>
     </contents>
   </slide>
+
+  <slide>
+    <title>Principles in Universal Design in Learning</title>
+    <contents>
+      <p><a href="https://udlguidelines.cast.org/engagement">Universal Design in Learning 2.0</a></p>
+      <h2>Engagement</h2>
+      <ul>
+        <li>Recruiting Interest</li>
+        <li>Sustaining Effort and Persistence</li>
+        <li>Self Regulation</li>
+      </ul>
+
+      <h2>Representation</h2>
+      <ul>
+        <li>Perception</li>
+        <li>Language and Symbols</li>
+        <li>Comprehension</li>
+      </ul>
+
+      <h2>Action and Expression</h2>
+      <ul>
+        <li>Physical Action</li>
+        <li>Expression and Communication</li>
+        <li>Executive Functions</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>One Plus Teaching Strategy</title>
+    <contents>
+      <p class="center">
+        <a href="https://www.youtube.com/embed/FDt1r3FcCQU?si=oP8Lo-Y_0SNtM1Ef" target="_video">UDL plus-one - Thomas Tobin</a>
+      </p>
+
+      <p class="center">
+        <iframe width="560"
+          height="315"
+          src="https://www.youtube.com/embed/FDt1r3FcCQU?si=oP8Lo-Y_0SNtM1Ef"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen="">
+        </iframe>
+      </p>
+
+    </contents>
+  </slide>
+
 
   <slide>
     <title>Prevalence of Disability by Age (Accessible Chart)</title>
@@ -188,61 +299,17 @@
     </contents>
   </slide>
 
-
   <slide>
-    <title>Principles in Universal Design in Learning</title>
+    <title>Discussion</title>
     <contents>
-      <p><a href="https://udlguidelines.cast.org/engagement">Universal Design in Learning 2.0</a></p>
-      <h2>Engagement</h2>
       <ul>
-        <li>Recruiting Interest</li>
-        <li>Sustaining Effort and Persistence</li>
-        <li>Self Regulation</li>
+        <li>What are the current initiatives for accessibility?</li>
+        <li>What are some next steps?</li>
+        <li>What are some plus-one techniques?</li>
       </ul>
-
-      <h2>Representation</h2>
-      <ul>
-        <li>Perception</li>
-        <li>Language and Symbols</li>
-        <li>Comprehension</li>
-      </ul>
-
-      <h2>Action and Expression</h2>
-      <ul>
-        <li>Physical Action</li>
-        <li>Expression and Communication</li>
-        <li>Executive Functions</li>
-      </ul>
-
     </contents>
   </slide>
 
-  <slide>
-    <title>One Plus Teaching Strategy</title>
-    <contents>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-      <p class="center">
-        <a href="https://www.youtube.com/embed/FDt1r3FcCQU?si=oP8Lo-Y_0SNtM1Ef" target="_video">UDL plus-one - Thomas Tobin</a>
-      </p>
-
-      <p class="center">
-        <iframe width="560"
-          height="315"
-          src="https://www.youtube.com/embed/FDt1r3FcCQU?si=oP8Lo-Y_0SNtM1Ef"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen="">
-        </iframe>
-      </p>
-
-    </contents>
-  </slide>
 </slides>
 
 

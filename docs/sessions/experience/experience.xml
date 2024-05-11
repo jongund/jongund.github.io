@@ -646,6 +646,22 @@
   </slide>
 
   <slide>
+    <title>macOS: Accessibility Features and Sticky Keys</title>
+    <contents>
+      <figure style="text-align: center">
+        <img src="./images/screenshot-macos-all.png" aria-labelledby="macos-all" style="width: 70%"/>
+        <figcaption id="macos-all">Screen shot of macOS accessibility features.</figcaption>
+      </figure>
+
+      <figure style="text-align: center">
+        <img src="./images/screenshot-macos-sticky-key-options.png" aria-labelledby="macos-sticky" style="width: 70%"/>
+        <figcaption id="macos-sticky">Screen shot of macOS Skicky Key features.</figcaption>
+      </figure>
+
+    </contents>
+  </slide>
+
+  <slide>
     <title>Group Activity: Disability Related to Simulations</title>
     <contents>
 
@@ -752,7 +768,7 @@
     <title>Summary</title>
     <contents>
       <ul>
-        <li>Providing opportunities instead of barriers for people with disabilities</li>
+        <li>Providing opportunities (e.g. Accessibility) instead of barriers (e.g. Accommodation) for people with disabilities</li>
         <li>Everyone will have functional limitations (e.g. disability) as we age</li>
         <li>Designing a better web for everyone, including ourselves</li>
         <li>Universal Design in Learning helps everyone including people with disabilities!</li>
