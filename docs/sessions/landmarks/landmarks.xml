@@ -375,9 +375,9 @@
     <title>How Screen Readers use Landmarks and Headings</title>
     <contents>
       <ul>
-        <li><a href="#">JAWS landmarks and headings navigation features (Video)</a></li>
-        <li><a href="#">NVDA landmarks and headings navigation features (Video)</a></li>
-        <li><a href="#">Voice Over landmarks and headings navigation features (Video)</a></li>
+        <li><a href="https://mediaspace.illinois.edu/media/t/1_c6vvlk6g" target="_video">JAWS landmarks and headings navigation features (Video)</a></li>
+        <li><a href="https://mediaspace.illinois.edu/media/t/0_hdra12rh" target="_video">NVDA landmarks and headings navigation features (Video)</a></li>
+        <li><a href="https://mediaspace.illinois.edu/media/t/1_g9rb6w59" target="_video">Voice Over landmarks and headings navigation features (Video)</a></li>
       </ul>
     </contents>
   </slide>
@@ -990,30 +990,6 @@
   </slide>
 
   <slide>
-    <title>Coding Landmarks: HTML Sectioning Elememts</title>
-    <contents>
-
-        <h2>Practice adding Landmarks using HTML sectioning elements</h2>
-        <ol>
-          <li><a href="https://webedit.disability.illinois.edu/accounts/login/" target="_webedit">Login into Web Edit</a></li>
-          <li>Copy example from the following Web Edit link</li>
-          <li>Change title "Coding Landmarks: Sectioning Elements"</li>
-          <li>Save example to your account</li>
-        </ol>
-        <p><a href="https://webedit.disability.illinois.edu/user/jongund/structure-problem-1/copy/" target="_webedit">Web Edit template for adding ARIA landmarks</a>
-        </p>
-
-        <h2>Learning Objectives</h2>
-        <ul>
-          <li>Identify the type of landmark for each section of the sample web page.</li>
-          <li>Change elements to use the proper HTML sectioning element (e.g. <code>div</code> -> <code>main</code> element).</li>
-          <li>Verify landmarks have been added by testing with a screen reader.</li>
-        </ul>
-
-    </contents>
-  </slide>
-
-  <slide>
     <title>Screen Reader Demonstrations</title>
     <contents>
       <!--
@@ -1187,63 +1163,6 @@
 
 
   <slide>
-    <title>Coding Landmarks: Role Attributes</title>
-    <contents>
-
-        <h2>Practice adding Landmarks using ARIA role attributes</h2>
-        <ol>
-          <li><a href="https://webedit.disability.illinois.edu/accounts/login/" target="_webedit">Login into Web Edit</a></li>
-          <li>Copy example from the following Web Edit link</li>
-          <li>Change title "Coding Landmarks: Role Attributes"</li>
-          <li>Save example to your account</li>
-        </ol>
-        <p><a href="https://webedit.disability.illinois.edu/user/jongund/structure-problem-2/copy/" target="_webedit">Web Edit template for adding ARIA landmarks</a>
-        </p>
-
-        <h2>Learning Objectives of Activity</h2>
-        <ul>
-          <li>Identify the type of landmark for each section of the sample web page.</li>
-          <li>Change elements to use the proper role attribute (e.g. <code>div</code> -> <code>div[role="main"]</code>).</li>
-          <li>Verify landmarks have been added by testing with a screen reader.</li>
-        </ul>
-    </contents>
-  </slide>
-
-  <slide>
-    <title>Coding Landmarks: Adding Labels</title>
-    <contents>
-
-        <h2>Practice adding labels to landmarks</h2>
-        <ol>
-          <li><a href="https://webedit.disability.illinois.edu/accounts/login/" target="_webedit">Login into Web Edit</a></li>
-          <li>Copy example from the following Web Edit link</li>
-          <li>Change title "Coding Landmarks: Adding Labels"</li>
-          <li>Save example to your account</li>
-        </ol>
-
-        <p><a href="https://webedit.disability.illinois.edu/user/jongund/structure-example-5/copy/" target="_webedit">WebEdit template for adding labels to landmarks</a></p>
-
-        <h2>Learning Objectives</h2>
-        <ul style="padding-left: 1.1em">
-          <li>Idenitfy landmarks that need a label (e.g. accessible name).</li>
-          <li>Creating labels that uniquely identify the content in the landmarks.</li>
-          <li>There are two primary ways to add a label to a landmark:
-            <ul>
-              <li><code>aria-label</code> attribute</li>
-              <li><code>aria-labelledby</code> attribute</li>
-            </ul>
-          </li>
-          <li>Verify labels have been added correctly using a screen reader.  In addition to the role names, you should now hear the labels when navigate landmarks on a page.</li>
-        </ul>
-
-        <p><a href="https://webedit.disability.illinois.edu/user/jongund/landmark-3/output/" target="_example">Example: Landmarks with labels</a></p>
-    </contents>
-
-  </slide>
-
-
-
-  <slide>
     <title>Landmark and Heading Visualization Tools</title>
     <contents>
       <p><a href="https://accessibility-bookmarklets.org/install.html" target="_bookmarklets">Landmark and header visualization bookmarklets</a></p>
@@ -1277,28 +1196,7 @@
   <slide>
     <title>ARIA Authoring Practices</title>
     <contents>
-      <p><a href="https://www.w3.org/TR/wai-aria-practices/examples/landmarks/index.html" target="_example">ARIA Authoring Practices Landmark Example</a></p>
-
-      <iframe src="https://www.w3.org/TR/wai-aria-practices/examples/landmarks/index.html" width="99%" height="600px" title="ARIA Authoring Practices Landmark Example"></iframe>
-    </contents>
-  </slide>
-
-
-
-  <slide>
-    <title>What About the Article Role and the Article Element?</title>
-    <contents>
-      <ul>
-        <li><code>article</code> role (ARIA)
-          <ul>
-            <li>Is <strong>NOT</strong> a landmark element</li>
-            <li>HTML5 <code>Article</code> element has the default role of <code>article</code>.</li>
-            <li>Self-contained compositions (e.g. magazine or newspaper article)</li>
-            <li>Nested discussion lists (e.g. forum post, a blog entry or a user-submitted comment)</li>
-            <li>Interactive widget or gadget</li>
-          </ul>
-        </li>
-      </ul>
+      <p><a href="https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/" target="_example">ARIA Authoring Practices for Landmarks</a></p>
     </contents>
   </slide>
 
