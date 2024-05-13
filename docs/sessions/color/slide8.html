@@ -2,9 +2,36 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 1: Color Overview</title>
+      <title>Slide 8: Use of Color: Availability Status</title>
       <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="../../css/html-slides.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><style id="style"></style>
+      <link rel="stylesheet" type="text/css" href="../../css/html-slides.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><style id="style">
+      table.status {
+        background-color: white;
+        color: black;
+        border-collapse: collapse;
+      }
+
+      table.status th {
+        border-bottom: thin solid black;
+      }
+
+      table.status th,
+      table.status td {
+        text-align: left;
+        padding-left: 0.5em;
+        padding-right: 1em;
+      }
+
+      table.status tr > th:first-child,
+      table.status tr > td:first-child {
+         text-align: right;
+      }
+
+      table.status tr.odd {
+        background-color: #E0E0E0;
+        color: black;
+      }
+    </style>
    </head>
    <body>
       <nav id="nav" class="navbar navbar-expand-md bg-body-tertiary">
@@ -13,18 +40,18 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_INDEX" href="index.html">
                         Index
                       </a></li>
-                  <li class="nav-item"><a tabindex="-1" aria-disabled="true" class="nav-link disabled" id="ID_SLIDE_FIRST" href="slide1.html" title="On First Slide">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_FIRST" href="slide1.html" title="Slide 1">
                         First
                       </a></li>
-                  <li class="nav-item"><a tabindex="-1" aria-disabled="true" class="nav-link disabled" id="ID_SLIDE_PREVIOUS" href="#" title="On First Slide">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_PREVIOUS" href="slide7.html" title="Slide 7">
                         Previous
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide2.html" title="Slide 2">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide9.html" title="Slide 9">
                         Next
                       </a></li>
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide10.html" title="Slide 10">
                         Last
-                      </a></li><span class="navbar-text">Slide 1 of 10</span></ul>
+                      </a></li><span class="navbar-text">Slide 8 of 10</span></ul>
             </div>
          </div>
       </nav>
@@ -32,13 +59,38 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">Color Overview</h1>
-               <ul>
-                  <li>Visual Impairments</li>
-                  <li>Color Contrast</li>
-                  <li>Use of Color</li>
-               </ul>
-               <div class="show-slide-url"></div>
+               <h1 id="h1_title" class="title">Use of Color: Availability Status</h1>
+               <table class="status">
+                  <thead>
+                     <tr>
+                        <th>Icon</th>
+                        <th>Status</th>
+                        <th>Person</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr class="odd">
+                        <td><img src="./images/circle_red_24_ns.png" title="Busy" height="16px"></td>
+                        <td> Busy</td>
+                        <td> Elida Locicero </td>
+                     </tr>
+                     <tr>
+                        <td class="status"><img src="./images/circle_yellow_24_ns.png" title="Away" height="16px"></td>
+                        <td> Away</td>
+                        <td> Gabriella Okane </td>
+                     </tr>
+                     <tr class="odd">
+                        <td><img src="./images/circle_green.png" title="Available" height="16px"></td>
+                        <td> Available</td>
+                        <td> Shizuko Enloe </td>
+                     </tr>
+                     <tr>
+                        <td><img src="./images/circle_black_24_ns.png" title="Unknown" height="16px"></td>
+                        <td> Unknown</td>
+                        <td> Val Rainwater </td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
             <div class="col"></div>
          </div>
