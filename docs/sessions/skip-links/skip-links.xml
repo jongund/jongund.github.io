@@ -119,7 +119,6 @@
             <td>
               <ul>
                 <li><a href="https://illinois.edu/">University of Illinois</a></li>
-                <li><a href="https://education.illinois.edu/about/mission-vision">College of Education</a></li>
                 <li><a href="https://uiowa.edu/">Univeristy of Iowa</a></li>
                 <li><a href="https://www.osu.edu/">The Ohio State University</a></li>
                 <li><a href="https://www.psu.edu/">Penn State University</a></li>
@@ -134,8 +133,6 @@
               <ul>
                 <li><a href="https://msu.edu/">Michigan State University</a></li>
                 <li><a href="https://www.indiana.edu/">Indiana University</a></li>
-                <li><a href="https://trace.umd.edu/">Trace Center</a></li>
-                <li><a href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></li>
               </ul>
             </td>
           </tr>
@@ -145,9 +142,11 @@
             </td>
             <td>
               <ul>
-                <li><a href="https://paypal.github.io/skipto/#">PayPal Skipto</a></li>
-                <li><a href="https://disability.illinois.edu/">Disability Resources and Education Services</a></li>
-                <li><a href="https://fae.disability.illinois.edu">Functional Accessibility Evaluator</a></li>
+                <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/">SkipTo.js</a></li>
+                <li><a href="https://www.w3.org/WAI/ARIA/apg/">W3C ARIA Authoring Pracitces</a></li>
+                <li><a href="https://uic.edu/">University of Illinois at Chicago</a></li>
+                <li><a href="https://ainspector.disability.illinois.edu/">Ainspector for Firefox</a></li>
+                <li><a href="https://opena11y.github.io/evaluation-library/">OpenA11y Evaluation Library Documentation</a></li>
               </ul>
             </td>
           </tr>
