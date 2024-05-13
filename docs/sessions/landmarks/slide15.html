@@ -42,12 +42,12 @@
             </td>
                      </tr>
                      <tr>
-                        <th>ARIA 1.1 Specification</th>
+                        <th>ARIA Specification</th>
                         <td>
               <a href="https://www.w3.org/TR/wai-aria/#contentinfo" target="_specification"><code>contentinfo</code> landmark</a>
             </td>
                      </tr>
-                     <tr>
+                     <tr class="more">
                         <th>Coding Patterns</th>
                         <td>
                            <ul>
@@ -59,7 +59,7 @@
                            </ul>
                         </td>
                      </tr>
-                     <tr>
+                     <tr class="more">
                         <th>Techniques</th>
                         <td>
                            <ul>
@@ -83,7 +83,7 @@
                            </ul>
                         </td>
                      </tr>
-                     <tr>
+                     <tr class="more">
                         <th>Headings</th>
                         <td>
                            <ul>
@@ -93,71 +93,73 @@
                      </tr>
                   </tbody>
                </table>
-               <h2>Example of HTML5 <code>footer</code> element technique</h2>
-               <div class="code">
-        &lt;body&gt;<br><br>
+               <div class="more">
+                  <h2>Example of HTML5 <code>footer</code> element technique</h2>
+                  <div class="code">
+          &lt;body&gt;<br><br>
 
-          &lt;header&gt;<br>
-            &lt;h1&gt;<em>website information</em>&lt;h1&gt;<br>
-            .... <em>banner content</em>....   <br>
-          &lt;/header&gt;<br><br>
-          &lt;nav&gt;<br>
-            &lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br>
-            &lt;ul&gt;<br>
-              &lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>
-              &lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>
-              &lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br>
-              &lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br>
-              .....<br>
-            &lt;/ul&gt;<br>
-          &lt;/nav&gt;<br><br>
+            &lt;header&gt;<br>
+              &lt;h1&gt;<em>website information</em>&lt;h1&gt;<br>
+              .... <em>banner content</em>....   <br>
+            &lt;/header&gt;<br><br>
+            &lt;nav&gt;<br>
+              &lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br>
+              &lt;ul&gt;<br>
+                &lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>
+                &lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>
+                &lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br>
+                &lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br>
+                .....<br>
+              &lt;/ul&gt;<br>
+            &lt;/nav&gt;<br><br>
 
-          &lt;main&gt;<br>
-            &lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br>
-            .... <em>main content</em>....   <br>
-          &lt;/main&gt;<br><br>
+            &lt;main&gt;<br>
+              &lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br>
+              .... <em>main content</em>....   <br>
+            &lt;/main&gt;<br><br>
 
-          <strong>&lt;footer&gt;</strong><br>
-            &lt;h2&gt;<em>Contact, Policies and Legal</em>&lt;h2&gt;<br>
-            .... <em>contentinfo content</em>....   <br>
-          <strong>&lt;/footer&gt;</strong><br>
+            <strong>&lt;footer&gt;</strong><br>
+              &lt;h2&gt;<em>Contact, Policies and Legal</em>&lt;h2&gt;<br>
+              .... <em>contentinfo content</em>....   <br>
+            <strong>&lt;/footer&gt;</strong><br>
 
-        &lt;/body&gt;<br><br>
+          &lt;/body&gt;<br><br>
 
-      </div>
-               <h2>Example of <code>[role="contentinfo"]</code> element technique</h2>
-               <div class="code">
-        &lt;body&gt;<br><br>
+        </div>
+                  <h2>Example of <code>[role="contentinfo"]</code> element technique</h2>
+                  <div class="code">
+          &lt;body&gt;<br><br>
 
-          &lt;divrole="banner"&gt;<br>
-            &lt;h1&gt;website information&lt;h1&gt;<br>
-            .... <em>banner content</em>....   <br>
-          &lt;/div&gt;<br><br>
+            &lt;divrole="banner"&gt;<br>
+              &lt;h1&gt;website information&lt;h1&gt;<br>
+              .... <em>banner content</em>....   <br>
+            &lt;/div&gt;<br><br>
 
-          &lt;div role="navigation"&gt;<br>
-            &lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br>
-            &lt;ul&gt;<br>
-              &lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>
-              &lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>
-              &lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br>
-              &lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br>
-              .....<br>
-            &lt;/ul&gt;<br>
-          &lt;/div&gt;<br><br>
+            &lt;div role="navigation"&gt;<br>
+              &lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br>
+              &lt;ul&gt;<br>
+                &lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>
+                &lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>
+                &lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br>
+                &lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br>
+                .....<br>
+              &lt;/ul&gt;<br>
+            &lt;/div&gt;<br><br>
 
-          &lt;div role="main"&gt;<br>
-            &lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br>
-            .... <em>main content</em>....   <br>
-          &lt;/div&gt;<br><br>
+            &lt;div role="main"&gt;<br>
+              &lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br>
+              .... <em>main content</em>....   <br>
+            &lt;/div&gt;<br><br>
 
-          &lt;div <strong>role="contentinfo"</strong>&gt;<br>
-            &lt;h2&gt;<em>Contact, Policies and Legal</em>&lt;h2&gt;<br>
-            .... <em>contentinfo content</em>....   <br>
-          &lt;/div&gt;<br>
+            &lt;div <strong>role="contentinfo"</strong>&gt;<br>
+              &lt;h2&gt;<em>Contact, Policies and Legal</em>&lt;h2&gt;<br>
+              .... <em>contentinfo content</em>....   <br>
+            &lt;/div&gt;<br>
 
-        &lt;/body&gt;<br><br>
+          &lt;/body&gt;<br><br>
 
-      </div>
+        </div>
+               </div>
             </div>
             <div class="col"></div>
          </div>

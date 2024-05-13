@@ -42,12 +42,12 @@
             </td>
                      </tr>
                      <tr>
-                        <th>ARIA 1.1 Specification</th>
+                        <th>ARIA Specification</th>
                         <td>
               <a href="https://www.w3.org/TR/wai-aria/#navigation" target="_specification"><code>navigation</code> landmark</a>
             </td>
                      </tr>
-                     <tr>
+                     <tr class="more">
                         <th>Coding Patterns</th>
                         <td>
                            <ul>
@@ -56,7 +56,7 @@
                            </ul>
                         </td>
                      </tr>
-                     <tr>
+                     <tr class="more">
                         <th>Techniques</th>
                         <td>
                            <ul>
@@ -65,7 +65,7 @@
                            </ul>
                         </td>
                      </tr>
-                     <tr>
+                     <tr class="more">
                         <th>Headings</th>
                         <td>
                            <ul>
@@ -76,57 +76,61 @@
                      </tr>
                   </tbody>
                </table>
-               <h2>One <code>navigation</code> landmark</h2>
-               <h3>HTML5 <code>nav</code> element technique</h3>
-               <div class="code">
-        <strong>&lt;nav&gt;</strong><br><br>
-          &lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br><br>
-          &lt;ul&gt;<br>
-            &lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>
-            &lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>
-            &lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br>
-            &lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br>
-            .....<br>
-          &lt;/ul&gt;<br>
-        <strong>&lt;/nav&gt;</strong>
-      </div>
-               <h3><code>[role="navigation"]</code> attribute technique</h3>
-               <div class="code">
-        &lt;div <strong>role="navigation"</strong>&gt;<br><br>
-          &lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br><br>
-          &lt;ul&gt;<br>
-            &lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>
-            &lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>
-            &lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br>
-            &lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br>
-            .....<br>
-          &lt;/ul&gt;<br>
-        &lt;/div&gt;
-      </div>
-               <h2>More than one <code>navigation</code> landmark</h2>
-               <div class="code">
-        <strong>&lt;nav  aria-labelledby="<em>nav1</em>"&gt;</strong><br><br>
-          &lt;h2 <strong>id="<em>nav1</em>"</strong>&gt;<em>title for navigation 1</em>&lt;h2&gt;<br><br>
-          &lt;ul&gt;<br>
-            &lt;li&gt;&lt;a href="page11.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>
-            &lt;li&gt;&lt;a href="page12.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>
-            &lt;li&gt;&lt;a href="page13.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br>
-            &lt;li&gt;&lt;a href="page14.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br>
-            .....<br>
-          &lt;/ul&gt;<br>
-        <strong>&lt;/nav&gt;</strong><br><br>
-        ....<br><br>
-        <strong>&lt;nav  aria-labelledby="<em>nav2</em>"&gt;</strong><br><br>
-          &lt;h2 <strong>id="<em>nav2</em>"</strong>&gt;<em>title for navigation 2</em>&lt;h2&gt;<br><br>
-          &lt;ul&gt;<br>
-            &lt;li&gt;&lt;a href="page11.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>
-            &lt;li&gt;&lt;a href="page12.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>
-            &lt;li&gt;&lt;a href="page13.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br>
-            &lt;li&gt;&lt;a href="page14.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br>
-            .....<br>
-          &lt;/ul&gt;<br>
-        <strong>&lt;/nav&gt;</strong>
-      </div>
+               <div class="more">
+                  <h2>One <code>navigation</code> landmark</h2>
+                  <h3>HTML5 <code>nav</code> element technique</h3>
+                  <div class="code">
+          <strong>&lt;nav&gt;</strong><br><br>
+            &lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br><br>
+            &lt;ul&gt;<br>
+              &lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>
+              &lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>
+              &lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br>
+              &lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br>
+              .....<br>
+            &lt;/ul&gt;<br>
+          <strong>&lt;/nav&gt;</strong>
+        </div>
+                  <h3><code>[role="navigation"]</code> attribute technique</h3>
+                  <div class="code">
+          &lt;div <strong>role="navigation"</strong>&gt;<br><br>
+            &lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br><br>
+            &lt;ul&gt;<br>
+              &lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>
+              &lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>
+              &lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br>
+              &lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br>
+              .....<br>
+            &lt;/ul&gt;<br>
+          &lt;/div&gt;
+        </div>
+               </div>
+               <div class="more">
+                  <h2>More than one <code>navigation</code> landmark</h2>
+                  <div class="code">
+          <strong>&lt;nav  aria-labelledby="<em>nav1</em>"&gt;</strong><br><br>
+            &lt;h2 <strong>id="<em>nav1</em>"</strong>&gt;<em>title for navigation 1</em>&lt;h2&gt;<br><br>
+            &lt;ul&gt;<br>
+              &lt;li&gt;&lt;a href="page11.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>
+              &lt;li&gt;&lt;a href="page12.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>
+              &lt;li&gt;&lt;a href="page13.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br>
+              &lt;li&gt;&lt;a href="page14.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br>
+              .....<br>
+            &lt;/ul&gt;<br>
+          <strong>&lt;/nav&gt;</strong><br><br>
+          ....<br><br>
+          <strong>&lt;nav  aria-labelledby="<em>nav2</em>"&gt;</strong><br><br>
+            &lt;h2 <strong>id="<em>nav2</em>"</strong>&gt;<em>title for navigation 2</em>&lt;h2&gt;<br><br>
+            &lt;ul&gt;<br>
+              &lt;li&gt;&lt;a href="page11.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>
+              &lt;li&gt;&lt;a href="page12.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>
+              &lt;li&gt;&lt;a href="page13.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br>
+              &lt;li&gt;&lt;a href="page14.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br>
+              .....<br>
+            &lt;/ul&gt;<br>
+          <strong>&lt;/nav&gt;</strong>
+        </div>
+               </div>
             </div>
             <div class="col"></div>
          </div>

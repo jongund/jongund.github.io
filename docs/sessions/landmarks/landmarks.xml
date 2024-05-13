@@ -3,7 +3,7 @@
 <?xm-well_formed path="funct.dtd"?>
 <slides>
  <lang>en</lang>
-  <title>ARIA Landmarks</title>
+  <title>ARIA Landmark Regions</title>
   <logo>
     <a href="https://openweba11y.com" aria-label="Open Web Accessibility">
       <span class="brand"><span class="open">Open</span><span class="web">Web</span><span class="a11y">A11y</span></span>
@@ -53,7 +53,7 @@
 -->
 
   <slide>
-    <title>Landmarks and HTML5 Section Elements</title>
+    <title>Landmark Regions and HTML5 Section Elements</title>
     <contents>
       <ul>
         <li>ARIA landmark roles</li>
@@ -66,9 +66,6 @@
         <li><a href="https://www.w3.org/TR/WCAG/#navigation-mechanisms-descriptive" target="_specification">2.4.6 Headings and Labels</a></li>
       </ul>
     </contents>
-    <transcript>
-
-    </transcript>
   </slide>
 
 
@@ -91,17 +88,17 @@
             <td>None or one</td>
             <td>The common content typically found at the top of each page in a website.</td>
           </tr>
-          <tr>
+          <tr class="more">
             <td><code>complementary</code></td>
             <td>As many as needed, often none.</td>
             <td>Identifies unique page content not part of the <code>main</code> landmark.</td>
           </tr>
-          <tr>
+          <tr class="more">
             <td><code>contentinfo</code></td>
             <td>None or one</td>
             <td>The common content typically found at the bottom of each page in a website.</td>
           </tr>
-          <tr>
+          <tr class="more">
             <td><code>form</code></td>
             <td>As many as needed, rarely used in practice.</td>
             <td>
@@ -111,17 +108,17 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <td><code>main</code></td>
             <td>Typically one, but in web sites that aggregate content from other resources, some or all of the resources may identify a <code>main</code> landmark.</td>
             <td>Identify the main content area or areas of a web page or application.</td>
           </tr>
-          <tr>
+          <tr class="more">
             <td><code>navigation</code></td>
             <td>As many as needed.</td>
             <td>Identify major groupings of navigational links to other pages in the website.</td>
           </tr>
-          <tr>
+          <tr class="more">
             <td>
               <code>region</code>
               <br/>(conditional)
@@ -134,7 +131,7 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <td><code>search</code></td>
             <td>Typically one if there is a site search feature.</td>
             <td>Identify website search features</td>
@@ -155,7 +152,7 @@
   </slide>
 
   <slide>
-    <title>Pitfalls Observed in Initial Use of Landmarks by Developers</title>
+    <title>Pitfalls Observed in Initial Use of Landmark regions by Developers</title>
     <contents>
       <ul>
         <li>ARIA menu roles were used in flyout menus:
@@ -164,10 +161,10 @@
             <li>Menu roles override link role.</li>
           </ul>
         </li>
-        <li>Nested Navigation Landmarks, resulting in too many navigation landmarks.</li>
-        <li>Landmarks indicated programmatic/styling sections, not semantic sections.</li>
-        <li>Some content in landmarks some content not in landmarks.</li>
-        <li><code>article</code> role was used as a landmark role.</li>
+        <li class="more">Nested Navigation Landmarks, resulting in too many navigation landmarks.</li>
+        <li class="more">Landmarks indicated programmatic/styling sections, not semantic sections.</li>
+        <li class="more">Some content in landmarks some content not in landmarks.</li>
+        <li class="more"><code>article</code> role was used as a landmark role.</li>
       </ul>
     </contents>
   </slide>
@@ -272,14 +269,14 @@
   </slide>
 
   <slide>
-    <title>DRES Home Page NVDA showing List of Landmarks</title>
+    <title>DRES Home Page NVDA showing List of Landmark Regions</title>
     <contents>
       <p class="center"><img width="98%" src="images/landmark-list-dres-1.png" alt="screen shot NVDA list of landmarks on dres home page"/></p>
     </contents>
   </slide>
 
   <slide>
-    <title>Landmarks on DRES Informational Page</title>
+    <title>Landmark Regions on DRES Informational Page</title>
     <style>
       table.table.table-striped th {
         min-width: 8em;
@@ -297,9 +294,10 @@
         padding-left: 2em;
       }
     </style>
+
     <contents>
-      <table class="table table-striped">
-        <caption>Landmarks on DRES Informational Pages</caption>
+      <h2 id="h2-landmark-region">Landmark Regions on DRES Informational Pages</h2>
+      <table class="table table-striped" aria-labelledby="h2-landmark-region">
         <thead>
           <tr>
             <th>Role</th>
@@ -390,42 +388,49 @@
         Including <strong>all content</strong> on a page in one of its landmark regions and giving each landmark region a semantically meaningful role is one of the most effective ways of ensuring assistive technology users will not overlook information that is relevant to their needs.
       </p>
 
-      <p><strong>Step 1: Identify the logical structure</strong></p>
+      <div class="more">
+        <p><strong>Step 1: Identify the logical structure</strong></p>
 
-      <ul>
-        <li>Break the page into perceivable areas of content which designers typically indicate visually using alignment and spacing.</li>
+        <ul>
+          <li>Break the page into perceivable areas of content which designers typically indicate visually using alignment and spacing.</li>
 
-        <li>Areas can be further defined into logical sub-areas as needed.</li>
+          <li>Areas can be further defined into logical sub-areas as needed.</li>
 
-        <li>An example of a sub-area is a portlet in a portal application.</li>
-      </ul>
+          <li>An example of a sub-area is a portlet in a portal application.</li>
+        </ul>
+      </div>
 
-      <p><strong>Step 2: Assign landmark roles to each area</strong></p>
+      <div class="more">
+        <p><strong>Step 2: Assign landmark roles to each area</strong></p>
 
-      <ul>
-        <li>Assign landmark roles based on the type of content in the area.</li>
+        <ul>
+          <li>Assign landmark roles based on the type of content in the area.</li>
 
-        <li><code>banner</code>, <code>main</code>, <code>complementary</code> and <code>contentinfo</code> landmarks should be top level landmarks.</li>
+          <li><code>banner</code>, <code>main</code>, <code>complementary</code> and <code>contentinfo</code> landmarks should be top level landmarks.</li>
 
-        <li>Landmark roles can be nested to identify parent/child relationships of the information being presented.</li>
-      </ul>
+          <li>Landmark roles can be nested to identify parent/child relationships of the information being presented.</li>
+        </ul>
 
-      <p><strong>Step 3: Label areas</strong></p>
+      </div>
 
-      <ul>
-        <li>If a specific landmark role is used more than once on a web page, it should have a unique label.</li>
+      <div class="more">
+        <p><strong>Step 3: Label areas</strong></p>
 
-        <li>If a landmark is only used once on the page it may not require a label. See Landmark Roles section below. </li>
+        <ul>
+          <li>If a specific landmark role is used more than once on a web page, it should have a unique label.</li>
 
-        <li>If an area begins with a heading element (e.g. <code>h1-h6</code>) it can be used as the label for the area using the <code>aria-labelledby</code> attribute.</li>
+          <li>If a landmark is only used once on the page it may not require a label. See Landmark Roles section below. </li>
 
-        <li>If an area requires a label and does not have a heading element, provide a label using the <code>aria-label</code> attribute.</li>
+          <li>If an area begins with a heading element (e.g. <code>h1-h6</code>) it can be used as the label for the area using the <code>aria-labelledby</code> attribute.</li>
 
-        <li>
-          Do not use the landmark role as part of the label. For example, a navigation landmark with a label "Site Navigation" will be announced by a screen reader as "Site Navigation Navigation". The label should simply be "Site".
-        </li>
-      </ul>
-      <p><em><a href="https://www.w3.org/TR/wai-aria-practices/#general-principles-of-landmark-design">Taken from ARIA Authoring Practices Guide</a></em></p>
+          <li>If an area requires a label and does not have a heading element, provide a label using the <code>aria-label</code> attribute.</li>
+
+          <li>
+            Do not use the landmark role as part of the label. For example, a navigation landmark with a label "Site Navigation" will be announced by a screen reader as "Site Navigation Navigation". The label should simply be "Site".
+          </li>
+        </ul>
+        <p><em><a href="https://www.w3.org/TR/wai-aria-practices/#general-principles-of-landmark-design">Taken from ARIA Authoring Practices Guide</a></em></p>
+      </div>
     </contents>
   </slide>
 
@@ -441,12 +446,12 @@
             </td>
           </tr>
           <tr>
-            <th>ARIA 1.1 Specification</th>
+            <th>ARIA Specification</th>
             <td>
               <a href="https://www.w3.org/TR/wai-aria/#main" target="_specification"><code>main</code> landmark</a>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Coding Patterns</th>
             <td>
               <ul>
@@ -458,7 +463,7 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Techniques</th>
             <td>
               <ul>
@@ -467,7 +472,7 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Headings</th>
             <td>
               <ul>
@@ -479,37 +484,40 @@
         </tbody>
       </table>
 
-      <h2>One Main Landmark</h2>
+      <div class="more">
+        <h2>One Main Landmark</h2>
 
-      <h3>HTML5 <code>main</code> element technique</h3>
-      <div class="code">
-        <strong>&lt;main&gt;</strong><br/><br/>
-        &#160;&#160;&lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br/><br/>
-        &#160;&#160;.... <em>main content</em>....   <br/><br/>
-        <strong>&lt;/main&gt;</strong>
+        <h3>HTML5 <code>main</code> element technique</h3>
+        <div class="code">
+          <strong>&lt;main&gt;</strong><br/><br/>
+          &#160;&#160;&lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br/><br/>
+          &#160;&#160;.... <em>main content</em>....   <br/><br/>
+          <strong>&lt;/main&gt;</strong>
+        </div>
+
+        <h3><code>[role="main"]</code> attribute technqiue</h3>
+        <div class="code">
+          &lt;div <strong>role="main"&gt;</strong><br/><br/>
+          &#160;&#160;&lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br/><br/>
+          &#160;&#160;.... <em>main content</em>....   <br/><br/>
+          &lt;/div&gt;
+        </div>
       </div>
 
-      <h3><code>[role="main"]</code> attribute technqiue</h3>
-      <div class="code">
-        &lt;div <strong>role="main"&gt;</strong><br/><br/>
-        &#160;&#160;&lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br/><br/>
-        &#160;&#160;.... <em>main content</em>....   <br/><br/>
-        &lt;/div&gt;
-      </div>
+      <div class="more">
+        <h2>Multiple Main Landmarks</h2>
 
-
-      <h2>Multiple Main Landmarks</h2>
-
-      <div class="code">
-        <strong>&lt;main  aria-labelledby="<em>title1</em>"&gt;</strong><br/><br/>
-        &#160;&#160;&lt;h1 <strong>id="<em>title1</em>"</strong>&gt;<em>title for main content 1</em>&lt;h1&gt;<br/><br/>
-        &#160;&#160;.... <em>main content</em>....<br/><br/>
-        <strong>&lt;/main&gt;</strong><br/><br/>
-        ....<br/><br/>
-        <strong>&lt;main  aria-labelledby="<em>title2</em>"&gt;</strong><br/><br/>
-        &#160;&#160;&lt;h1 <strong>id="<em>title2</em>"</strong>&gt;<em>title for main content 2</em>&lt;h1&gt;<br/><br/>
-        &#160;&#160;.... <em>main content</em>....<br/><br/>
-        <strong>&lt;/main&gt;</strong><br/><br/>
+        <div class="code">
+          <strong>&lt;main  aria-labelledby="<em>title1</em>"&gt;</strong><br/><br/>
+          &#160;&#160;&lt;h1 <strong>id="<em>title1</em>"</strong>&gt;<em>title for main content 1</em>&lt;h1&gt;<br/><br/>
+          &#160;&#160;.... <em>main content</em>....<br/><br/>
+          <strong>&lt;/main&gt;</strong><br/><br/>
+          ....<br/><br/>
+          <strong>&lt;main  aria-labelledby="<em>title2</em>"&gt;</strong><br/><br/>
+          &#160;&#160;&lt;h1 <strong>id="<em>title2</em>"</strong>&gt;<em>title for main content 2</em>&lt;h1&gt;<br/><br/>
+          &#160;&#160;.... <em>main content</em>....<br/><br/>
+          <strong>&lt;/main&gt;</strong><br/><br/>
+        </div>
       </div>
     </contents>
   </slide>
@@ -526,12 +534,12 @@
             </td>
           </tr>
           <tr>
-            <th>ARIA 1.1 Specification</th>
+            <th>ARIA Specification</th>
             <td>
               <a href="https://www.w3.org/TR/wai-aria/#navigation" target="_specification"><code>navigation</code> landmark</a>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Coding Patterns</th>
             <td>
               <ul>
@@ -540,7 +548,7 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Techniques</th>
             <td>
               <ul>
@@ -549,7 +557,7 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Headings</th>
             <td>
               <ul>
@@ -560,56 +568,61 @@
           </tr>
         </tbody>
       </table>
-      <h2>One <code>navigation</code> landmark</h2>
-      <h3>HTML5 <code>nav</code> element technique</h3>
-      <div class="code">
-        <strong>&lt;nav&gt;</strong><br/><br/>
-        &#160;&#160;&lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br/><br/>
-        &#160;&#160;&lt;ul><br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;.....<br/>
-        &#160;&#160;&lt;/ul><br/>
-        <strong>&lt;/nav&gt;</strong>
+
+      <div class="more">
+        <h2>One <code>navigation</code> landmark</h2>
+        <h3>HTML5 <code>nav</code> element technique</h3>
+        <div class="code">
+          <strong>&lt;nav&gt;</strong><br/><br/>
+          &#160;&#160;&lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br/><br/>
+          &#160;&#160;&lt;ul><br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;.....<br/>
+          &#160;&#160;&lt;/ul><br/>
+          <strong>&lt;/nav&gt;</strong>
+        </div>
+        <h3><code>[role="navigation"]</code> attribute technique</h3>
+        <div class="code">
+          &lt;div <strong>role="navigation"</strong>&gt;<br/><br/>
+          &#160;&#160;&lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br/><br/>
+          &#160;&#160;&lt;ul><br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;.....<br/>
+          &#160;&#160;&lt;/ul><br/>
+          &lt;/div&gt;
+        </div>
       </div>
-      <h3><code>[role="navigation"]</code> attribute technique</h3>
-      <div class="code">
-        &lt;div <strong>role="navigation"</strong>&gt;<br/><br/>
-        &#160;&#160;&lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br/><br/>
-        &#160;&#160;&lt;ul><br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;.....<br/>
-        &#160;&#160;&lt;/ul><br/>
-        &lt;/div&gt;
-      </div>
-      <h2>More than one <code>navigation</code> landmark</h2>
-      <div class="code">
-        <strong>&lt;nav  aria-labelledby="<em>nav1</em>"&gt;</strong><br/><br/>
-        &#160;&#160;&lt;h2 <strong>id="<em>nav1</em>"</strong>&gt;<em>title for navigation 1</em>&lt;h2&gt;<br/><br/>
-        &#160;&#160;&lt;ul><br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page11.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page12.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page13.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page14.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;.....<br/>
-        &#160;&#160;&lt;/ul><br/>
-        <strong>&lt;/nav&gt;</strong><br/><br/>
-        ....<br/><br/>
-        <strong>&lt;nav  aria-labelledby="<em>nav2</em>"&gt;</strong><br/><br/>
-        &#160;&#160;&lt;h2 <strong>id="<em>nav2</em>"</strong>&gt;<em>title for navigation 2</em>&lt;h2&gt;<br/><br/>
-        &#160;&#160;&lt;ul><br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page11.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page12.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page13.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page14.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;.....<br/>
-        &#160;&#160;&lt;/ul><br/>
-        <strong>&lt;/nav&gt;</strong>
+      <div class="more">
+        <h2>More than one <code>navigation</code> landmark</h2>
+        <div class="code">
+          <strong>&lt;nav  aria-labelledby="<em>nav1</em>"&gt;</strong><br/><br/>
+          &#160;&#160;&lt;h2 <strong>id="<em>nav1</em>"</strong>&gt;<em>title for navigation 1</em>&lt;h2&gt;<br/><br/>
+          &#160;&#160;&lt;ul><br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page11.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page12.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page13.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page14.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;.....<br/>
+          &#160;&#160;&lt;/ul><br/>
+          <strong>&lt;/nav&gt;</strong><br/><br/>
+          ....<br/><br/>
+          <strong>&lt;nav  aria-labelledby="<em>nav2</em>"&gt;</strong><br/><br/>
+          &#160;&#160;&lt;h2 <strong>id="<em>nav2</em>"</strong>&gt;<em>title for navigation 2</em>&lt;h2&gt;<br/><br/>
+          &#160;&#160;&lt;ul><br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page11.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page12.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page13.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page14.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;.....<br/>
+          &#160;&#160;&lt;/ul><br/>
+          <strong>&lt;/nav&gt;</strong>
+        </div>
       </div>
     </contents>
   </slide>
@@ -627,12 +640,12 @@
             </td>
           </tr>
           <tr>
-            <th>ARIA 1.1 Specification</th>
+            <th>ARIA Specification</th>
             <td>
               <a href="https://www.w3.org/TR/wai-aria/#banner" target="_specification"><code>banner</code> landmark</a>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Coding Patterns</th>
             <td>
               <ul>
@@ -644,7 +657,7 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Techniques</th>
             <td>
               <ul>
@@ -668,7 +681,7 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Headings</th>
             <td>
               <ul>
@@ -679,72 +692,74 @@
         </tbody>
       </table>
 
+      <div class="more">
 
-      <h2>Example of HTML5 <code>header</code> element technique</h2>
-      <div class="code">
-        &lt;body&gt;<br/><br/>
+        <h2>Example of HTML5 <code>header</code> element technique</h2>
+        <div class="code">
+          &lt;body&gt;<br/><br/>
 
-        &#160;&#160;<strong>&lt;header&gt;</strong><br/>
-        &#160;&#160;&#160;&#160;&lt;h1&gt;<em>website information</em>&lt;h1&gt;<br/>
-        &#160;&#160;&#160;&#160;.... <em>banner content</em>....   <br/>
-        &#160;&#160;<strong>&lt;/header&gt;</strong><br/><br/>
-        &#160;&#160;&lt;nav&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;ul><br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;.....<br/>
-        &#160;&#160;&#160;&#160;&lt;/ul><br/>
-        &#160;&#160;&lt;/nav&gt;<br/><br/>
+          &#160;&#160;<strong>&lt;header&gt;</strong><br/>
+          &#160;&#160;&#160;&#160;&lt;h1&gt;<em>website information</em>&lt;h1&gt;<br/>
+          &#160;&#160;&#160;&#160;.... <em>banner content</em>....   <br/>
+          &#160;&#160;<strong>&lt;/header&gt;</strong><br/><br/>
+          &#160;&#160;&lt;nav&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;ul><br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;.....<br/>
+          &#160;&#160;&#160;&#160;&lt;/ul><br/>
+          &#160;&#160;&lt;/nav&gt;<br/><br/>
 
-        &#160;&#160;&lt;main&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br/>
-        &#160;&#160;&#160;&#160;.... <em>main content</em>....   <br/>
-        &#160;&#160;&lt;/main&gt;<br/><br/>
+          &#160;&#160;&lt;main&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br/>
+          &#160;&#160;&#160;&#160;.... <em>main content</em>....   <br/>
+          &#160;&#160;&lt;/main&gt;<br/><br/>
 
-        &#160;&#160;&lt;footer&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h2&gt;Contact, Policies and Legal&lt;h2&gt;<br/>
-        &#160;&#160;&#160;&#160;.... <em>contentinfo content</em>....   <br/>
-        &#160;&#160;&lt;/footer&gt;<br/>
+          &#160;&#160;&lt;footer&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h2&gt;Contact, Policies and Legal&lt;h2&gt;<br/>
+          &#160;&#160;&#160;&#160;.... <em>contentinfo content</em>....   <br/>
+          &#160;&#160;&lt;/footer&gt;<br/>
 
-        &lt;/body&gt;<br/><br/>
+          &lt;/body&gt;<br/><br/>
 
-      </div>
+        </div>
 
-      <h2>Example of <code>[role="banner"]</code> element technique</h2>
-      <div class="code">
-        &lt;body&gt;<br/><br/>
+        <h2>Example of <code>[role="banner"]</code> element technique</h2>
+        <div class="code">
+          &lt;body&gt;<br/><br/>
 
-        &#160;&#160;&lt;div <strong>role="banner"</strong>&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h1&gt;<em>website information</em>&lt;h1&gt;<br/>
-        &#160;&#160;&#160;&#160;.... <em>banner content</em>....   <br/>
-        &#160;&#160;&lt;/div&gt;<br/><br/>
+          &#160;&#160;&lt;div <strong>role="banner"</strong>&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h1&gt;<em>website information</em>&lt;h1&gt;<br/>
+          &#160;&#160;&#160;&#160;.... <em>banner content</em>....   <br/>
+          &#160;&#160;&lt;/div&gt;<br/><br/>
 
-        &#160;&#160;&lt;div role="navigation"&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;ul><br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;.....<br/>
-        &#160;&#160;&#160;&#160;&lt;/ul><br/>
-        &#160;&#160;&lt;/div&gt;<br/><br/>
+          &#160;&#160;&lt;div role="navigation"&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;ul><br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;.....<br/>
+          &#160;&#160;&#160;&#160;&lt;/ul><br/>
+          &#160;&#160;&lt;/div&gt;<br/><br/>
 
-        &#160;&#160;&lt;div role="main"&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br/>
-        &#160;&#160;&#160;&#160;.... <em>main content</em>....   <br/>
-        &#160;&#160;&lt;/div&gt;<br/><br/>
+          &#160;&#160;&lt;div role="main"&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br/>
+          &#160;&#160;&#160;&#160;.... <em>main content</em>....   <br/>
+          &#160;&#160;&lt;/div&gt;<br/><br/>
 
-        &#160;&#160;&lt;div role="contentinfo"&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h2&gt;Contact, Policies and Legal&lt;h2&gt;<br/>
-        &#160;&#160;&#160;&#160;.... <em>contentinfo content</em>....   <br/>
-        &#160;&#160;&lt;/div&gt;<br/>
+          &#160;&#160;&lt;div role="contentinfo"&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h2&gt;Contact, Policies and Legal&lt;h2&gt;<br/>
+          &#160;&#160;&#160;&#160;.... <em>contentinfo content</em>....   <br/>
+          &#160;&#160;&lt;/div&gt;<br/>
 
-        &lt;/body&gt;<br/><br/>
+          &lt;/body&gt;<br/><br/>
 
+        </div>
       </div>
 
     </contents>
@@ -763,12 +778,12 @@
             </td>
           </tr>
           <tr>
-            <th>ARIA 1.1 Specification</th>
+            <th>ARIA Specification</th>
             <td>
               <a href="https://www.w3.org/TR/wai-aria/#contentinfo" target="_specification"><code>contentinfo</code> landmark</a>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Coding Patterns</th>
             <td>
               <ul>
@@ -780,7 +795,7 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Techniques</th>
             <td>
               <ul>
@@ -804,7 +819,7 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Headings</th>
             <td>
               <ul>
@@ -815,72 +830,74 @@
         </tbody>
       </table>
 
+      <div class="more">
 
       <h2>Example of HTML5 <code>footer</code> element technique</h2>
-      <div class="code">
-        &lt;body&gt;<br/><br/>
+        <div class="code">
+          &lt;body&gt;<br/><br/>
 
-        &#160;&#160;&lt;header&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h1&gt;<em>website information</em>&lt;h1&gt;<br/>
-        &#160;&#160;&#160;&#160;.... <em>banner content</em>....   <br/>
-        &#160;&#160;&lt;/header&gt;<br/><br/>
-        &#160;&#160;&lt;nav&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;ul><br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;.....<br/>
-        &#160;&#160;&#160;&#160;&lt;/ul><br/>
-        &#160;&#160;&lt;/nav&gt;<br/><br/>
+          &#160;&#160;&lt;header&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h1&gt;<em>website information</em>&lt;h1&gt;<br/>
+          &#160;&#160;&#160;&#160;.... <em>banner content</em>....   <br/>
+          &#160;&#160;&lt;/header&gt;<br/><br/>
+          &#160;&#160;&lt;nav&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;ul><br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;.....<br/>
+          &#160;&#160;&#160;&#160;&lt;/ul><br/>
+          &#160;&#160;&lt;/nav&gt;<br/><br/>
 
-        &#160;&#160;&lt;main&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br/>
-        &#160;&#160;&#160;&#160;.... <em>main content</em>....   <br/>
-        &#160;&#160;&lt;/main&gt;<br/><br/>
+          &#160;&#160;&lt;main&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br/>
+          &#160;&#160;&#160;&#160;.... <em>main content</em>....   <br/>
+          &#160;&#160;&lt;/main&gt;<br/><br/>
 
-        &#160;&#160;<strong>&lt;footer&gt;</strong><br/>
-        &#160;&#160;&#160;&#160;&lt;h2&gt;<em>Contact, Policies and Legal</em>&lt;h2&gt;<br/>
-        &#160;&#160;&#160;&#160;.... <em>contentinfo content</em>....   <br/>
-        &#160;&#160;<strong>&lt;/footer&gt;</strong><br/>
+          &#160;&#160;<strong>&lt;footer&gt;</strong><br/>
+          &#160;&#160;&#160;&#160;&lt;h2&gt;<em>Contact, Policies and Legal</em>&lt;h2&gt;<br/>
+          &#160;&#160;&#160;&#160;.... <em>contentinfo content</em>....   <br/>
+          &#160;&#160;<strong>&lt;/footer&gt;</strong><br/>
 
-        &lt;/body&gt;<br/><br/>
+          &lt;/body&gt;<br/><br/>
 
-      </div>
+        </div>
 
-      <h2>Example of <code>[role="contentinfo"]</code> element technique</h2>
-      <div class="code">
-        &lt;body&gt;<br/><br/>
+        <h2>Example of <code>[role="contentinfo"]</code> element technique</h2>
+        <div class="code">
+          &lt;body&gt;<br/><br/>
 
-        &#160;&#160;&lt;divrole="banner"&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h1&gt;website information&lt;h1&gt;<br/>
-        &#160;&#160;&#160;&#160;.... <em>banner content</em>....   <br/>
-        &#160;&#160;&lt;/div&gt;<br/><br/>
+          &#160;&#160;&lt;divrole="banner"&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h1&gt;website information&lt;h1&gt;<br/>
+          &#160;&#160;&#160;&#160;.... <em>banner content</em>....   <br/>
+          &#160;&#160;&lt;/div&gt;<br/><br/>
 
-        &#160;&#160;&lt;div role="navigation"&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;ul><br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
-        &#160;&#160;&#160;&#160;&#160;&#160;.....<br/>
-        &#160;&#160;&#160;&#160;&lt;/ul><br/>
-        &#160;&#160;&lt;/div&gt;<br/><br/>
+          &#160;&#160;&lt;div role="navigation"&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h2&gt;<em>title for navigation</em>&lt;h2&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;ul><br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page1.html"&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page2.html"&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page3.html"&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&lt;li&gt;&lt;a href="page4.html"&gt;Link 4&lt;/a&gt;&lt;/li&gt;<br/>
+          &#160;&#160;&#160;&#160;&#160;&#160;.....<br/>
+          &#160;&#160;&#160;&#160;&lt;/ul><br/>
+          &#160;&#160;&lt;/div&gt;<br/><br/>
 
-        &#160;&#160;&lt;div role="main"&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br/>
-        &#160;&#160;&#160;&#160;.... <em>main content</em>....   <br/>
-        &#160;&#160;&lt;/div&gt;<br/><br/>
+          &#160;&#160;&lt;div role="main"&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h1&gt;<em>title for main content</em>&lt;h1&gt;<br/>
+          &#160;&#160;&#160;&#160;.... <em>main content</em>....   <br/>
+          &#160;&#160;&lt;/div&gt;<br/><br/>
 
-        &#160;&#160;&lt;div <strong>role="contentinfo"</strong>&gt;<br/>
-        &#160;&#160;&#160;&#160;&lt;h2&gt;<em>Contact, Policies and Legal</em>&lt;h2&gt;<br/>
-        &#160;&#160;&#160;&#160;.... <em>contentinfo content</em>....   <br/>
-        &#160;&#160;&lt;/div&gt;<br/>
+          &#160;&#160;&lt;div <strong>role="contentinfo"</strong>&gt;<br/>
+          &#160;&#160;&#160;&#160;&lt;h2&gt;<em>Contact, Policies and Legal</em>&lt;h2&gt;<br/>
+          &#160;&#160;&#160;&#160;.... <em>contentinfo content</em>....   <br/>
+          &#160;&#160;&lt;/div&gt;<br/>
 
-        &lt;/body&gt;<br/><br/>
+          &lt;/body&gt;<br/><br/>
 
+        </div>
       </div>
 
     </contents>
@@ -899,12 +916,12 @@
             </td>
           </tr>
           <tr>
-            <th>ARIA 1.1 Specification</th>
+            <th>ARIA Specification</th>
             <td>
               <a href="https://www.w3.org/TR/wai-aria/#complementary" target="_specification"><code>complementary</code> landmark</a>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Coding Patterns</th>
             <td>
               <ul>
@@ -914,7 +931,7 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Techniques</th>
             <td>
               <ul>
@@ -923,7 +940,7 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Headings</th>
             <td>
               <ul>
@@ -956,7 +973,7 @@
               <a href="https://www.w3.org/TR/wai-aria/#region" target="_specification"><code>region</code> landmark</a>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Coding Patterns</th>
             <td>
               <ul>
@@ -966,7 +983,7 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Techniques</th>
             <td>
               <ul>
@@ -975,7 +992,7 @@
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr class="more">
             <th>Headings</th>
             <td>
               <ul>
@@ -1004,7 +1021,7 @@
       <ul>
         <li><a href="https://support.freedomscientific.com/Downloads/JAWS">Download and install JAWS for Windows</a> (NOTE: Unlicensed version can be used in a 40 minute demonstration mode)</li>
         <li><a href="https://www.nvaccess.org/download/">Download and install NVDA for Windows</a> (NOTE: Open Source, so please donate, I make a monthly donation)</li>
-        <li><a href="https://www.apple.com/accessibility/mac/vision/">Voice Over</a> is a part of MacOS</li>
+        <li><a href="https://www.apple.com/accessibility/mac/vision/">Voice Over</a> is a part of MacOS, Command + F5</li>
       </ul>
     </contents>
   </slide>
@@ -1172,10 +1189,10 @@
   </slide>
 
   <slide>
-    <title>Landmark Coding Patterns</title>
+    <title>Landmark Region Coding Patterns</title>
     <contents>
       <ul>
-        <li>All content should be contained in a landmark:
+        <li><em>All content</em> should be contained in a landmark region:
           <ul>
             <li>banner (top level)</li>
             <li>complementary</li>
@@ -1186,17 +1203,17 @@
             <li>search</li>
           </ul>
         </li>
-        <li><em>Must</em> use labels when a landmark of the same type is used more than once</li>
-        <li><em>Should</em> not nest landmarks of the same type</li>
-        <li>From a design stand point having too few or two many landmarks on a page will reduce the utility of landmarks to people using screen readers.  A rule of thumb is to have between 4-10 landmarks on a page, although more complex pages may require more landmarks.</li>
+        <li class="more"><em>Must use labels</em> when a landmark region of the same type is used more than once</li>
+        <li class="more"><em>Should not nest</em> landmark regions of the same type</li>
+        <li class="more"><em>Usability</em> of landmarks is affected by the number of landmark regions on a page.  A rule of thumb is to have between <strong>4-10</strong> landmarks on a page to make it faster for screen reader users so rebiew them, although more complex pages may require more landmarks.</li>
       </ul>
     </contents>
   </slide>
 
   <slide>
-    <title>ARIA Authoring Practices</title>
+    <title>Landmark Regions in ARIA Authoring Practices</title>
     <contents>
-      <p><a href="https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/" target="_example">ARIA Authoring Practices for Landmarks</a></p>
+      <p><a href="https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/" target="_example">More on Landmark Regions in the ARIA Authoring Practices</a></p>
     </contents>
   </slide>
 

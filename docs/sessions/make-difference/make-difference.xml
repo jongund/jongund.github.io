@@ -126,16 +126,41 @@
 
 
   <slide>
-    <title>Ramp at Eagle Lookout</title>
+    <title>Ramp at Eagle Lookout: Entrance</title>
     <contents>
 
       <figure style="text-align: center">
-        <img src="./images/ramp-eagle-lookout.webp" aria-labelledby="ramp"/>
-        <figcaption id="ramp">Accessible ramp at Eagle Lookout in Peninsula State Park, Wisconsin</figcaption>
+        <img src="./images/ramp-eagle-lookout-2.jpg" aria-labelledby="ramp"/>
+        <figcaption id="ramp">Entrance to ramp at Eagle Lookout in Peninsula State Park, Wisconsin</figcaption>
       </figure>
 
     </contents>
   </slide>
+
+  <slide>
+    <title>Ramp at Eagle Lookout: In the Trees</title>
+    <contents>
+
+      <figure style="text-align: center">
+        <img src="./images/ramp-eagle-lookout-4.jpg" aria-labelledby="ramp"/>
+        <figcaption id="ramp">Observation point half way up the ramp at Eagle Lookout </figcaption>
+      </figure>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Ramp at Eagle Lookout: Observation Platform</title>
+    <contents>
+
+      <figure style="text-align: center">
+        <img src="./images/ramp-eagle-lookout-3.jpg" aria-labelledby="ramp"/>
+        <figcaption id="ramp">Ramp connecting to observation platform at Eagle Lookout </figcaption>
+      </figure>
+
+    </contents>
+  </slide>
+
 
   <slide>
     <title>Common Disability Accommodations in Higher Education</title>
@@ -152,7 +177,7 @@
   <slide>
     <title>Principles in Universal Design in Learning</title>
     <contents>
-      <p><a href="https://udlguidelines.cast.org/engagement">Universal Design in Learning 2.0</a></p>
+      <p><a href="https://udlguidelines.cast.org/#mainContent">Universal Design in Learning 2.0</a></p>
       <h2>Engagement</h2>
       <ul>
         <li>Recruiting Interest</li>
