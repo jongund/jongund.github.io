@@ -421,12 +421,14 @@ main.highlight li:hover * {
 }
 
 
-main .code {
+main .code,
+main pre {
     font-family: monospace;
     background-color: #EEE;
     border: thin solid #DDD;
     padding: 0.25em;
     border-radius: 6px;
+    width: 100%;
 }
 
 

@@ -2,9 +2,55 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 14: NVDA showing list of links with no context markup</title>
-      <link rel="stylesheet" type="text/css" href="../..//css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="../..//css/html-slides.css"><script src="../..//js/bootstrap.bundle.min.js"></script><script src="../..//js/html-slides-2.js"></script><style id="style"></style>
+      <title>Slide 14: Using aria-describedby to define context of a link</title>
+      <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="../../css/html-slides.css">
+      <link rel="stylesheet" type="text/css" href="href=&#34;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css&#34;&gt;"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><script src="../../js/html-slides-code.js"></script><style id="style">
+     ul.horizontal {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul.horizontal li {
+        padding: 0;
+        display: inline;
+      }
+
+      ul.horizontal li:first-child a {
+        padding-left: 0;
+        padding-right: 0.25em;
+      }
+
+      ul.horizontal li a {
+        padding-left: 0.25em;
+        padding-right: 0.25em;
+      }
+
+      ul.horizontal li:after {
+      content: '|';
+      }
+
+      ul.horizontal li:last-child:after {
+      content: '';
+      }
+
+      div.example {
+      margin: 1em;
+      padding: 1em;
+      background-color: #EEEEEE;
+      color: black;
+      border: medium white solid;
+      }
+
+      div#content div.example a {
+      color: black;
+      }
+
+      div#content div.example a:visited {
+      color: black;
+      }
+
+    </style>
    </head>
    <body>
       <nav id="nav" class="navbar navbar-expand-md bg-body-tertiary">
@@ -22,9 +68,9 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide15.html" title="Slide 15">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide26.html" title="Slide 26">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide25.html" title="Slide 25">
                         Last
-                      </a></li><span class="navbar-text">Slide 14 of 26</span></ul>
+                      </a></li><span class="navbar-text">Slide 14 of 25</span></ul>
             </div>
          </div>
       </nav>
@@ -32,28 +78,68 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">NVDA showing list of links with no context markup</h1>
-               <p class="center"><img width="98%" src="images/links-list-no-aria.png" alt="screen shot NVDA list of links when there is no link context"></p>
-            </div>
+               <h1 id="h1_title" class="title">Using aria-describedby to define context of a link</h1>
+               <h2>Link Context Example</h2>
+               <div id="ex1" class="example">
+                  <h3 id="ref1">Royal Palm Hotel</h3>
+                  <ul class="horizontal">
+                     <li><a href="royal_palm_hotel_more_info.html" aria-describedby="ref1">More Info</a></li>
+                     <li><a href="royal_palm_hotel_map.html" aria-describedby="ref1">Map</a></li>
+                     <li><a href="royal_palm_hotel_photos.html" aria-describedby="ref1">Photos</a></li>
+                     <li><a href="hroyal_palm_hotel_directions.html" aria-describedby="ref1">Directions</a></li>
+                     <li><a href="royal_palm_hotel_reviews.html" aria-describedby="ref1">Guest reviews</a></li>
+                     <li><a href="royal_palm_hotel_book.html" aria-describedby="ref1">Book now</a></li>
+                  </ul>
+                  <h3 id="ref2">Hotel Three Rivers</h3>
+                  <ul class="horizontal">
+                     <li><a href="hotel_three_rivers_more_info.html" aria-describedby="ref2">More Info</a></li>
+                     <li><a href="hotel_three_rivers_map.html" aria-describedby="ref2">Map</a></li>
+                     <li><a href="hotel_three_rivers_photos.html" aria-describedby="ref2">Photos</a></li>
+                     <li><a href="hotel_three_rivers_directions.html" aria-describedby="ref2">Directions</a></li>
+                     <li><a href="hotel_three_rivers_reviews.html" aria-describedby="ref2">Guest reviews</a></li>
+                     <li><a href="hotel_three_rivers_book.html" aria-describedby="ref2">Book now</a></li>
+                  </ul>
+               </div>
+               <h2>Source Code</h2>
+               <pre><code id="sc1"></code></pre><script>
+        sourceCode.add('sc1', 'ex1');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script></div>
             <div class="col"></div>
          </div>
       </main>
       <footer class="container">
          <div id="footer" class="well well-sm"><span class="logo"><a href="https://openweba11y.com" aria-label="Open Web Accessibility">
       <span class="brand"><span class="open">Open</span><span class="web">Web</span><span class="a11y">A11y</span></span>
-    </a></span><span class="copyright">
+    </a></span><span xmlns:lxslt="http://xml.apache.org/xslt" xmlns:wai_report="http://www.w3.org/wai" class="copyright">
      Copyright © 2024 Jon Gunderson
-  </span><span class="highlight-icon">
-          ↖
-        </span><span id="ID_SHOW"><button class="show hide" id="ID_SHOW_MORE" aria-label="Show more">
-            ⊕
-          </button><button class="show hide " id="ID_SHOW_LESS" aria-label="Show less">
-            ⊖
-          </button><button class="show hide" id="ID_SHOW_ALL" aria-label="Show all">
-              All+
-          </button><button class="show hide" id="ID_HIDE_ALL" aria-label="Hide all">
-              All-
-          </button></span></div>
+  </span><span xmlns:lxslt="http://xml.apache.org/xslt" xmlns:wai_report="http://www.w3.org/wai" id="ID_SHOW">
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_MORE" role="button" tabindex="0" aria-label="Show more" width="30" height="30" viewBox="0 0 50 50">
+                  <circle class="focus" cx="25" cy="25" r="20"></circle>
+                  <circle class="icon" cx="25" cy="25" r="15"></circle>
+                  <line class="icon" x1="16" y1="25" x2="34" y2="25"></line>
+                  <line class="icon" x1="25" y1="16" x2="25" y2="34"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_LESS" role="button" tabindex="0" aria-label="Show less" width="30" height="30" viewBox="0 0 50 50">
+                  <circle class="focus" cx="25" cy="25" r="20"></circle>
+                  <circle class="icon" cx="25" cy="25" r="15"></circle>
+                  <line class="icon" x1="16" y1="25" x2="34" y2="25"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_ALL" role="button" tabindex="0" aria-label="Show all" width="34" height="30" viewBox="0 0 70 50">
+                  <rect class="focus" x="4" y="4" height="46" width="64" rx="4" ry="4"></rect>
+                  <rect class="icon" x="8" y="8" height="38" width="56" rx="4" ry="4"></rect>
+                  <line class="icon" x1="24" y1="15" x2="50" y2="15"></line>
+                  <line class="icon" x1="16" y1="23" x2="56" y2="23"></line>
+                  <line class="icon" x1="16" y1="31" x2="56" y2="31"></line>
+                  <line class="icon" x1="16" y1="39" x2="56" y2="39"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_HIDE_ALL" role="button" tabindex="0" aria-label="Hide all" width="34" height="30" viewBox="0 0 70 50">
+                  <rect class="focus" x="4" y="4" height="46" width="64" rx="4" ry="4"></rect>
+                  <rect class="icon" x="8" y="8" height="38" width="56" rx="4" ry="4"></rect>
+                  <line class="icon" x1="24" y1="15" x2="50" y2="15"></line>
+               </svg>
+            </span></div>
       </footer>
    </body>
 </html>

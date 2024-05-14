@@ -27,6 +27,7 @@
 
   <script>../../js/bootstrap.bundle.min.js</script>
   <script>../../js/html-slides-2.js</script>
+  <script>../../js/html-slides-code.js</script>
 
   <slide>
     <title>Tables Overview</title>
@@ -78,9 +79,9 @@
     <title>Layout Table Design issues</title>
     <contents>
       <ul>
-	    <li>Use <code>role="presentation"</code> on just the <code>table</code>elements</li>
-	    <li>Use only <code>tr</code> and <code>td</code> elements in table</li>
-	    <li>Make sure content is still understandable with table layout is disabled</li>
+	    <li>Use <code>role="none"</code> on just the <code>table</code> element.</li>
+	    <li>Use only <code>tr</code> and <code>td</code> elements in table.</li>
+	    <li>Make sure content is still understandable with table layout is disabled.</li>
       </ul>
 
       <h2>Layout Table Example</h2>
@@ -230,7 +231,7 @@
     <title>Accessible Name</title>
     <contents>
       <ul>
-	    <li><code>summary</code> (deprecated in HTML5)</li>
+	    <li><code>summary</code> (deprecated in HTML, should not be used)</li>
 	    <li><code>caption</code></li>
 	    <li><code>aria-label</code></li>
 	    <li><code>aria-labelledby</code></li>
@@ -243,7 +244,7 @@
     <title>Accessible Description</title>
     <contents>
       <ul>
-	    <li><code>summary</code></li>
+	    <li><code>summary</code> (deprecated in HTML, should not be used)</li>
 	    <li><code>aria-describedby</code></li>
 	    <li><code>title</code> (Tooltip)</li>
       </ul>
@@ -263,17 +264,18 @@
 
 
   <slide>
-    <title>Data Table: Caption and Summary</title>
+    <title>Data Table: Caption for Accessible Name</title>
     <contents>
 
       <div class="example">
 
-        <table class="table table-striped" summary="70% of Instructors use Microsoft Office to create instructional web materials" id="id_dd">
+        <div id="id_dd">
+        <table class="table table-striped" >
           <caption> Use of Microsoft Office to Create Web Materials</caption>
 
           <thead>
             <tr>
-              <th></th>
+              <th>Author</th>
               <th>Power Point</th>
               <th>Word</th>
               <th>Excel</th>
@@ -310,6 +312,7 @@
             </tr>
           </tbody>
         </table>
+      </div>
       </div>
 
       <h2>Source Code</h2>
@@ -493,9 +496,9 @@
     <title>Coding Practices for Tables</title>
     <contents>
       <ul>
-	    <li>If more than one data table, each table must have an accessible name</li>
-	    <li>Summary is very context sensitive and therefore a manual check, very important for complex data</li>
-	    <li>Complex data tables require the use of the <code>headers</code> attribute</li>
+	    <li>Each table must have an accessible name.</li>
+	    <li class="more">Summary is very context sensitive and therefore a manual check, very important for data tables</li>
+	    <li class="more">Complex data tables using spanned rows and/or columns require the use of the <code>headers</code> attribute</li>
       </ul>
     </contents>
   </slide>

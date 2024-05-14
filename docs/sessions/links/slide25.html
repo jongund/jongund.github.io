@@ -2,9 +2,10 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 25: Keyboard focus should always be visible</title>
-      <link rel="stylesheet" type="text/css" href="../..//css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="../..//css/html-slides.css"><script src="../..//js/bootstrap.bundle.min.js"></script><script src="../..//js/html-slides-2.js"></script><style id="style"></style>
+      <title>Slide 25: Link menu focus and hover styling example</title>
+      <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="../../css/html-slides.css">
+      <link rel="stylesheet" type="text/css" href="href=&#34;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css&#34;&gt;"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><script src="../../js/html-slides-code.js"></script><style id="style"></style>
    </head>
    <body>
       <nav id="nav" class="navbar navbar-expand-md bg-body-tertiary">
@@ -19,12 +20,12 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_PREVIOUS" href="slide24.html" title="Slide 24">
                         Previous
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide26.html" title="Slide 26">
+                  <li class="nav-item"><a tabindex="-1" aria-disabled="true" class="nav-link disabled" id="ID_SLIDE_NEXT" href="#" title="On Last Slide">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide26.html" title="Slide 26">
+                  <li class="nav-item"><a tabindex="-1" aria-disabled="true" class="nav-link disabled" id="ID_SLIDE_LAST" href="#" name="On Last Slide">
                         Last
-                      </a></li><span class="navbar-text">Slide 25 of 26</span></ul>
+                      </a></li><span class="navbar-text">Slide 25 of 25</span></ul>
             </div>
          </div>
       </nav>
@@ -32,34 +33,113 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">Keyboard focus should always be visible</h1>
-               <ul>
-                  <li>On some pages when tabbing through the page the keyboard focus disappears and then magically reappears.</li>
-                  <li>Disorienting to users when keyboard focus disappears and then reappears.</li>
-                  <li>Disappearing focus is usally caused by links or form controls that are rendered off screen using CSS <code>position="absolute"</code>, <code>top</code> and <code>left</code> properties.</li>
-                  <li>If links or form controls are not visible they should be hidden using CSS <code>display: none</code> or using the HTML5 <code>hidden</code> attribute, so they are not part of the tab order of the page.</li>
-                  <li>In general if you can't see a link or form control visually, the screen reader or keyboard only user should not be able to interact with link or form control.</li>
-               </ul>
-            </div>
+               <h1 id="h1_title" class="title">Link menu focus and hover styling example</h1>
+               <style id="ex2">
+      #id_nav {
+        margin-top: 2em;
+        margin-bottom: 5em;
+      }
+
+      #id_nav h2 {
+        position: absolute;
+        top: -30em;
+        left: -300em;
+       }
+
+       #id_nav ul {
+        margin: 0;
+        padding: 0.5em;
+      }
+
+       #id_nav ul li {
+         margin: 0;
+         padding: 0;
+         list-style: none;
+         float: left;
+         padding-right: .5em;
+        border-top: solid 2px #819BD5;
+        border-bottom: solid 2px #819BD5;
+       }
+
+       #id_nav ul li a {
+         margin: 0;
+         padding: 0;
+         display: block;
+         text-decoration: none;
+         padding-left: 0.25em;
+         padding-right: 0.25em;
+         border: 2px transparent solid;
+         outline: none;
+        }
+
+       #id_nav ul li a:focus {
+         border-color: #5478c4;
+         background-color: #d9e1f2;
+         text-decoration: underline;
+       }
+
+       #id_nav ul li a:hover {
+         background-color: #E5EBF6;
+         text-decoration: underline;
+       }
+
+    </style>
+               <div id="ex1">
+                  <nav aria-labelledby="id_ds" id="id_nav">
+                     <h2>Disability Resources</h2>
+                     <ul>
+                        <li><a href="https://disability.illinois.edu/academic-support">Academic Support</a></li>
+                        <li><a href="https://disability.illinois.edu/living-accommodations">Living Accommodations</a></li>
+                        <li><a href="https://disability.illinois.edu/getting-around">Getting Around</a></li>
+                        <li><a href="https://disability.illinois.edu/health">Health</a></li>
+                        <li><a href="https://disability.illinois.edu/campus-life">Campus Life</a></li>
+                     </ul>
+                  </nav>
+               </div>
+               <div style="clear: both;"></div>
+               <p><a href="https://webedit.disability.illinois.edu/pages/user/jongund/links-focus/">WebEdit sample for link focus styling</a></p>
+               <h2>HTML Code</h2>
+               <pre><code id="sc1"></code></pre>
+               <h2>CSS Code</h2>
+               <pre><code id="sc2"></code></pre><script>
+        sourceCode.add('sc1', 'ex1');
+        sourceCode.add('sc2', 'ex2');
+        sourceCode.make();
+      </script></div>
             <div class="col"></div>
          </div>
       </main>
       <footer class="container">
          <div id="footer" class="well well-sm"><span class="logo"><a href="https://openweba11y.com" aria-label="Open Web Accessibility">
       <span class="brand"><span class="open">Open</span><span class="web">Web</span><span class="a11y">A11y</span></span>
-    </a></span><span class="copyright">
+    </a></span><span xmlns:lxslt="http://xml.apache.org/xslt" xmlns:wai_report="http://www.w3.org/wai" class="copyright">
      Copyright © 2024 Jon Gunderson
-  </span><span class="highlight-icon">
-          ↖
-        </span><span id="ID_SHOW"><button class="show hide" id="ID_SHOW_MORE" aria-label="Show more">
-            ⊕
-          </button><button class="show hide " id="ID_SHOW_LESS" aria-label="Show less">
-            ⊖
-          </button><button class="show hide" id="ID_SHOW_ALL" aria-label="Show all">
-              All+
-          </button><button class="show hide" id="ID_HIDE_ALL" aria-label="Hide all">
-              All-
-          </button></span></div>
+  </span><span xmlns:lxslt="http://xml.apache.org/xslt" xmlns:wai_report="http://www.w3.org/wai" id="ID_SHOW">
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_MORE" role="button" tabindex="0" aria-label="Show more" width="30" height="30" viewBox="0 0 50 50">
+                  <circle class="focus" cx="25" cy="25" r="20"></circle>
+                  <circle class="icon" cx="25" cy="25" r="15"></circle>
+                  <line class="icon" x1="16" y1="25" x2="34" y2="25"></line>
+                  <line class="icon" x1="25" y1="16" x2="25" y2="34"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_LESS" role="button" tabindex="0" aria-label="Show less" width="30" height="30" viewBox="0 0 50 50">
+                  <circle class="focus" cx="25" cy="25" r="20"></circle>
+                  <circle class="icon" cx="25" cy="25" r="15"></circle>
+                  <line class="icon" x1="16" y1="25" x2="34" y2="25"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_ALL" role="button" tabindex="0" aria-label="Show all" width="34" height="30" viewBox="0 0 70 50">
+                  <rect class="focus" x="4" y="4" height="46" width="64" rx="4" ry="4"></rect>
+                  <rect class="icon" x="8" y="8" height="38" width="56" rx="4" ry="4"></rect>
+                  <line class="icon" x1="24" y1="15" x2="50" y2="15"></line>
+                  <line class="icon" x1="16" y1="23" x2="56" y2="23"></line>
+                  <line class="icon" x1="16" y1="31" x2="56" y2="31"></line>
+                  <line class="icon" x1="16" y1="39" x2="56" y2="39"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_HIDE_ALL" role="button" tabindex="0" aria-label="Hide all" width="34" height="30" viewBox="0 0 70 50">
+                  <rect class="focus" x="4" y="4" height="46" width="64" rx="4" ry="4"></rect>
+                  <rect class="icon" x="8" y="8" height="38" width="56" rx="4" ry="4"></rect>
+                  <line class="icon" x1="24" y1="15" x2="50" y2="15"></line>
+               </svg>
+            </span></div>
       </footer>
    </body>
 </html>

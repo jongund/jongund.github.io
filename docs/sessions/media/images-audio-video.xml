@@ -24,14 +24,20 @@
 
   <stylesheet media="screen">../../css/bootstrap.min.css</stylesheet>
   <stylesheet media="screen">../..//css/html-slides.css</stylesheet>
+  <stylesheet media="screen">../..//css/ableplayer.min.css</stylesheet>
 
   <script>../../js/bootstrap.bundle.min.js</script>
   <script>../../js/html-slides-2.js</script>
+  <script>../../js/html-slides-code.js</script>
+
+  <script>https://code.jquery.com/jquery-3.7.1.min.js</script>
+  <script>../../js/ableplayer.js</script>
 
   <slide>
     <title>Audio/Video Overview</title>
     <contents>
       <ul>
+        <li>Images and Graphics</li>
         <li>Captioning
            <ul>
              <li>Open Captions: Always on, usually part of the video</li>
@@ -52,6 +58,52 @@
         </li>
       </ul>
       <div class="show-slide-url"></div>
+    </contents>
+  </slide>
+
+  <slide>
+    <style>
+      dt { font-weight: bold; padding-top: 1em;}
+    </style>
+    <title>WCAG 2.x Image Requirements</title>
+    <contents>
+      <dl>
+        <dt><a href="http://www.w3.org/TR/WCAG20/#text-equiv-all" target="_specification">1.1.1 Non-Text Content</a></dt>
+        <dd>WCAG 2.0 Level A requirement</dd>
+        <dd>All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below.</dd>
+      </dl>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Types of Images</title>
+    <contents>
+
+      <ul>
+        <li>
+          <p><strong><a href="https://www.w3.org/WAI/tutorials/images/informative/">Informative images</a></strong>: Images that graphically represent concepts and information, typically pictures, photos, and illustrations. The text alternative should be at least a short description conveying the essential information presented by the image.</p>
+        </li>
+        <li class="more">
+          <p><strong><a href="https://www.w3.org/WAI/tutorials/images/decorative/">Decorative images</a></strong>: Provide a null text alternative (<code class="language-plaintext highlighter-rouge">alt=""</code>) when the only purpose of an image is to add visual decoration to the page, rather than to convey information that is important to understanding the page.</p>
+        </li>
+        <li class="more">
+          <p><strong><a href="https://www.w3.org/WAI/tutorials/images/functional/">Functional images</a></strong>: The text alternative of an image used as a link or as a button should describe the functionality of the link or button rather than the visual image. Examples of such images are a printer icon to represent the print function or a button to submit a form.</p>
+        </li>
+        <li class="more">
+          <p><strong><a href="https://www.w3.org/WAI/tutorials/images/textual/">Images of text</a></strong>: Readable text is sometimes presented within an image. If the image is not a logo, avoid text in images. However, if images of text are used, the text alternative should contain the same words as in the image.</p>
+        </li>
+        <li class="more">
+          <p><strong><a href="https://www.w3.org/WAI/tutorials/images/complex/">Complex images</a></strong> such as graphs and diagrams: To convey data or detailed information, provide a complete text equivalent of the data or information provided in the image as the text alternative.</p>
+        </li>
+        <li class="more">
+          <p><strong><a href="https://www.w3.org/WAI/tutorials/images/groups/">Groups of images</a></strong>: If multiple images convey a single piece of information, the text alternative for one image should convey the information for the entire group.</p>
+        </li>
+        <li class="more">
+          <p><strong><a href="/WAI/tutorials/images/imagemap/">Image maps</a></strong>: The text alternative for an image that contains multiple clickable areas should provide an overall context for the set of links. Also, each individually clickable area should have alternative text that describes the purpose or destination of the link.</p>
+        </li>
+      </ul>
+
+      <p><a href="https://www.w3.org/WAI/tutorials/images/">From W3C WAI Image Tutorial</a></p>
     </contents>
   </slide>
 
@@ -204,8 +256,8 @@ and returned home is a strong,
     <title>Browser Built-in Video Players</title>
     <contents>
       <ul>
-        <li>Missing Keyboard support</li>
-        <li>No support for closed captions and audio descriptions</li>
+        <li>Keyboard support</li>
+        <li>Support for closed captions</li>
       </ul>
       <video id="video1" controls="">
         <source src="media/gb-imovie-mobile.mp4" type="video/mp4"></source>
@@ -231,65 +283,15 @@ and returned home is a strong,
   </slide>
 
   <slide>
-    <title>Able Player with Captions</title>
+    <title>Able Player with Captions and audio Descriptions</title>
     <contents>
       <ul>
         <li>Fully keyboard accessible</li>
         <li>Support for captions and audio descriptions</li>
-        <li><a href="http://ableplayer.github.io/ableplayer/">More information about Able Player</a></li>
-        <li><a href="http://ableplayer.github.io/ableplayer/tests/">Able Player Examples</a></li>
+        <li><a href="https://ableplayer.github.io/ableplayer/">More information about Able Player</a></li>
+        <li><a href="https://ableplayer.github.io/ableplayer/demos/">Able Player Examples</a></li>
         <li>Developed by Terry Thompson at University of Washington and Ken Petri at The Ohio State University</li>
       </ul>
-
-      <video id="video1" width="480" height="360" data-able-player="" data-translation-path="ableplayer/translations/">
-        <source type="video/webm"   src="media/gb-imovie-mobile.webm" />
-        <source type="video/mp4"    src="media/gb-imovie-mobile.mp4"  />
-        <track  kind="captions"     src="media/groundbreaking.vtt"/>
-      </video>
-
-      <h2 style="clear: both">Source Code</h2>
-
-      <div id="sc1">
-
-      </div>
-
-      <script type="text/javascript">
-        sourceCode.add('sc1', 'video1');
-        sourceCode.make();
-      </script>
-
-    </contents>
-  </slide>
-
-  <slide>
-    <title>Able Player with Captions and Audio Descriptions</title>
-    <contents>
-      <ul>
-        <li>Fully keyboard accessible</li>
-        <li>Support for captions and audio descriptions</li>
-        <li><a href="http://ableplayer.github.io/ableplayer/">More information about Able Player</a></li>
-        <li><a href="http://ableplayer.github.io/ableplayer/tests/">Able Player Examples</a></li>
-        <li>Developed by Terry Thompson at University of Washington and Ken Petri at The Ohio State University</li>
-      </ul>
-
-      <video id="video1" width="480" height="360" poster="media/wwa.jpg" data-able-player="" data-translation-path="ableplayer/translations/">
-        <source type="video/webm"   src="media/wwa.webm" data-desc-src="media/wwa_described.webm"/>
-        <source type="video/mp4"    src="media/wwa.mp4"  data-desc-src="media/wwa_described.mp4"/>
-        <track  kind="captions"     src="media/wwa_captions_en.vtt"/>
-        <track  kind="descriptions" src="media/wwa_description_en.vtt"/>
-      </video>
-
-      <h2 style="clear: both">Source Code</h2>
-
-      <div id="sc1">
-
-      </div>
-
-      <script type="text/javascript">
-        sourceCode.add('sc1', 'video1');
-        sourceCode.make();
-      </script>
-
 
     </contents>
   </slide>
@@ -298,9 +300,9 @@ and returned home is a strong,
     <title>Captioning Basics</title>
     <contents>
       <ul>
-        <li>The text of the captions, which should be an accurate transcript of what is said in the video, plus sound effects.</li>
-        <li>Timing information, so the right caption shows up at the right time</li>
-        <li>Optional formatting information about where the captions appear on the screen, font, color, etc. </li>
+        <li>The text of the captions should be an accurate transcript of what is said in the video, plus sound effects.</li>
+        <li class="more">Timing information, so the right caption shows up at the right time</li>
+        <li class="more">Optional formatting information about where the captions appear on the screen, font, color, etc. </li>
       </ul>
     </contents>
   </slide>
@@ -310,22 +312,14 @@ and returned home is a strong,
     <contents>
       <ul>
         <li>Use of Natural pauses in existing soundtrack to insert descriptions of visual elements such as actions, settings, appearance of characters, body language, costumes, lighting, and on-screen text.</li>
-        <li>Describe what is seen and do not interpret and try to describe objectively.</li>
-        <li>Keep language consistent.</li>
-        <li>Do NOT censor the material.</li>
-        <li>Provide a separate script and record to a separate audio track.</li>
-        <li>If possible, allow the narrator’s voice to compliment the video. An appropriate tone should be used based on the levity of the topic. If possible, use a voice to compliment the topic being Audio Described.</li>
-        <li>A trained individual is recommended to narrate and/or write the descriptions.</li>
+        <li class="more">Describe what is seen and do not interpret and try to describe objectively.</li>
+        <li class="more">Keep language consistent.</li>
+        <li class="more">Do NOT censor the material.</li>
+        <li class="more">Provide a separate script and record to a separate audio track.</li>
+        <li class="more">If possible, allow the narrator’s voice to compliment the video. An appropriate tone should be used based on the levity of the topic. If possible, use a voice to compliment the topic being Audio Described.</li>
+        <li class="more">A trained individual is recommended to narrate and/or write the descriptions.</li>
       </ul>
       <p><a href="http://accessibility.psu.edu/video/audiodescription/">Adapted from accessibility resources at Penn State University</a></p>
-    </contents>
-  </slide>
-
-  <slide>
-    <title>Issues with Automatically Generated Captions</title>
-    <contents>
-      <p class="center"><a href="https://youtu.be/D5RD03bxrf8?list=PLADCD4386853F5AC0" target="_example">Video with Automatically Generated Captions: Water Efficiency in your Home </a></p>
-      <iframe width="1120" height="630" src="https://www.youtube.com/embed/D5RD03bxrf8?list=PLADCD4386853F5AC0" frameborder="0" allowfullscreen=""></iframe>
     </contents>
   </slide>
 
@@ -337,14 +331,6 @@ and returned home is a strong,
         <li><a href="http://www.audiodescriptioncoalition.org/index.html">Audio Description Coalition</a></li>
         <li><a href="http://www.universalsubtitles.org">Amara: Crowd sourcing the captioning of web videos</a></li>
       </ul>
-    </contents>
-  </slide>
-
-  <slide>
-    <title>Recent Webinar on the Accessibility of Media Players</title>
-    <contents>
-      <p><a href="http://www.3playmedia.com/how-it-works/webinars/video-player-04-22-2015/">3PlayMedia: The Future of Video Player Accessibility</a></p>
-      <iframe src="http://www.3playmedia.com/how-it-works/webinars/video-player-04-22-2015/" width="99%" height="600"/>
     </contents>
   </slide>
 
