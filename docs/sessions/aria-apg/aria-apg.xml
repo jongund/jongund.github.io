@@ -26,8 +26,9 @@
   <stylesheet media="screen">../..//css/bootstrap.min.css</stylesheet>
   <stylesheet media="screen">../..//css/html-slides.css</stylesheet>
 
-  <script>../..//js/bootstrap.bundle.min.js</script>
-  <script>../..//js/html-slides-2.js</script>
+  <script>../../js/bootstrap.bundle.min.js</script>
+  <script>../../js/html-slides-2.js</script>
+  <script>../../js/html-slides-code.js</script>
 
   <slide>
     <title>Goals</title>
