@@ -646,20 +646,53 @@
   </slide>
 
   <slide>
-    <title>macOS: Accessibility Features and Sticky Keys</title>
+    <title>macOS: Accessibility Features</title>
     <contents>
       <figure style="text-align: center">
-        <img src="./images/screenshot-macos-all.png" aria-labelledby="macos-all" style="width: 70%"/>
+        <img src="./images/macos-all.png" aria-labelledby="macos-all" style="width: 70%"/>
         <figcaption id="macos-all">Screen shot of macOS accessibility features.</figcaption>
+      </figure>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>macOS: Keyboard Accessibility Features and Sticky Keys</title>
+    <contents>
+      <figure style="text-align: center">
+        <img src="./images/macos-kb.png" aria-labelledby="macos-kb" style="width: 70%"/>
+        <figcaption id="macos-kb">Screen shot of macOS keyboard accessibility features.</figcaption>
       </figure>
 
       <figure style="text-align: center">
-        <img src="./images/screenshot-macos-sticky-key-options.png" aria-labelledby="macos-sticky" style="width: 70%"/>
-        <figcaption id="macos-sticky">Screen shot of macOS Skicky Key features.</figcaption>
+        <img src="./images/macos-sticky-key-options.png" aria-labelledby="macos-sticky" style="width: 70%"/>
+        <figcaption id="macos-sticky">Screen shot of macOS Sticky Key features.</figcaption>
       </figure>
 
     </contents>
   </slide>
+
+  <slide>
+    <title>Microsoft Windows: Accessibility Features</title>
+    <contents>
+      <figure style="text-align: center">
+        <img src="./images/windows11-accessibility.png" aria-labelledby="windows-all" style="width: 70%"/>
+        <figcaption id="windows-all">Screen shot of Windows 11 accessibility features.</figcaption>
+      </figure>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Microsoft Windows: Keyboard Accessibility Features</title>
+    <contents>
+      <figure style="text-align: center">
+        <img src="./images/windows11-accessibility-keyboard.png" aria-labelledby="windows-akb" style="width: 70%"/>
+        <figcaption id="windows-akb">Screen shot of Windows 11 keyboard accessibility features.</figcaption>
+      </figure>
+
+    </contents>
+  </slide>
+
 
   <slide>
     <title>Group Activity: Disability Related to Simulations</title>
