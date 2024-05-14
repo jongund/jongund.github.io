@@ -53,7 +53,7 @@
 
 
   <slide>
-    <title>Ramps and Curb cuts</title>
+    <title>Ramps and curb cuts help everyone</title>
     <contents>
 
       <ul>
@@ -62,14 +62,10 @@
       </ul>
 
       <figure style="text-align: center">
-        <img src="./images/ramp-second-story.jpeg" aria-labelledby="ramp"/>
-        <figcaption id="ramp">Added on ramp to second story</figcaption>
+        <img src="./images/curb-cuts-for-all.jpeg" alt="child on scooter, woman pusing baby stroller up to a curbcut"/>
+        <figcaption id="ramp">Curbcuts are used by more than just people in wheelchairs</figcaption>
       </figure>
 
-      <figure style="text-align: center">
-        <img src="./images/noramp" aria-labelledby="noramp"/>
-        <figcaption id="noramp">Barrier free building entrance</figcaption>
-      </figure>
 
     </contents>
   </slide>
@@ -80,8 +76,8 @@
 
       <ul>
         <li>Inaccessible experiences and materials <em>exclude</em> students. </li>
-        <li>Accommodations are modifications or adjustments made for an individual with a disability on an as-needed basis, and give access to whoever is there at the moment, which <em>requires</em> extra work on students, staff and faculty.</li>
-        <li>Accessible digital experiences and materials provide <em>equal access for everyone</em> without extra work. </li>
+        <li class="more">Accommodations are made when the materials are inaccessible, which <em>requires</em> extra work on students, staff and faculty.</li>
+        <li class="more">Accessible digital experiences and materials provide <em>equality for everyone</em> without extra work of accommodations. </li>
       </ul>
 
       <p><a href="https://accessibility.umn.edu/importance-accessibility/accessibility-vs-accommodation">Adapted from University of Minnesota: Accessibility vs. Accommodation</a></p>
@@ -167,9 +163,9 @@
     <contents>
       <ul>
         <li>The way information is presented (e.g., books, online materials, lectures)</li>
-        <li>The way the student is required to respond (e.g., writing, speech, projects)</li>
-        <li>The characteristics of the setting (e.g., noise, lighting)</li>
-        <li>The timing and scheduling of instruction (e.g., time of day, length of assignment)</li>
+        <li class="more">The way the student is required to respond (e.g., writing, speech, projects)</li>
+        <li class="more">The characteristics of the setting (e.g., noise, lighting)</li>
+        <li class="more">The timing and scheduling of instruction (e.g., time of day, length of assignment)</li>
       </ul>
     </contents>
   </slide>
@@ -180,23 +176,23 @@
       <p><a href="https://udlguidelines.cast.org/#mainContent">Universal Design in Learning 2.0</a></p>
       <h2>Engagement</h2>
       <ul>
-        <li>Recruiting Interest</li>
-        <li>Sustaining Effort and Persistence</li>
-        <li>Self Regulation</li>
+        <li class="more">Recruiting Interest</li>
+        <li class="more">Sustaining Effort and Persistence</li>
+        <li class="more">Self Regulation</li>
       </ul>
 
       <h2>Representation</h2>
       <ul>
-        <li>Perception</li>
-        <li>Language and Symbols</li>
-        <li>Comprehension</li>
+        <li class="more">Perception</li>
+        <li class="more">Language and Symbols</li>
+        <li class="more">Comprehension</li>
       </ul>
 
       <h2>Action and Expression</h2>
       <ul>
-        <li>Physical Action</li>
-        <li>Expression and Communication</li>
-        <li>Executive Functions</li>
+        <li class="more">Physical Action</li>
+        <li class="more">Expression and Communication</li>
+        <li class="more">Executive Functions</li>
       </ul>
 
     </contents>
@@ -490,7 +486,18 @@
           </tbody>
         </table>
       </details>
+    </contents>
+  </slide>
 
+  <slide>
+    <title>Efficiency of Captions</title>
+    <contents>
+      <ul>
+        <li>Online math class half the students received captions and the other half did not.</li>
+        <li class="more">At the end of the class the grade distributions were the same between the two groups.</li>
+        <li class="more">The group that received the captions spent about 40% less time watching the videos (~70 hours vs ~130 hours).</li>
+        <li class="more">Which group would you want to be in?</li>
+      </ul>
     </contents>
   </slide>
 
@@ -498,9 +505,9 @@
     <title>Discussion</title>
     <contents>
       <ul>
-        <li>What are the current initiatives for accessibility?</li>
-        <li>What are some next steps?</li>
-        <li>What are some plus-one techniques?</li>
+        <li class="more">How do accessibility requirements help all students learn more efficiently?</li>
+        <li class="more">Has this workshop sparked any ideas for some next steps for accessibility and universal design?</li>
+        <li class="more">What are some plus-one techniques for teaching and learning environments?</li>
       </ul>
     </contents>
   </slide>
