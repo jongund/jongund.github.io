@@ -86,7 +86,7 @@
   </slide>
 
   <slide>
-    <title>HTML 5</title>
+    <title>HTML</title>
     <contents>
       <p>
         <a href="https://html.spec.whatwg.org/" target="_specification">HTML 5 Living Standard</a>
@@ -200,13 +200,20 @@
         </thead>
         <tbody>
           <tr>
-            <td>HTML5 and ARIA Techniques</td>
-            <td>WCAG 2.0 Level A and AA requirements using ARIA 1.0 and HTML5 accessibility features.</td>
+            <td>WCAG 2.0</td>
+            <td>WCAG 2.0 Level A and AA requirements using ARIA 1.2 and HTML accessibility features.</td>
           </tr>
           <tr>
-            <td>HTML4 Legacy Techniques</td>
-            <td>WCAG 2.0 Level A and AA requirements primarily using HTML4 techniques, but allows HTML5 and ARIA 1.0 accessibility techniques.
-            </td>
+            <td>WCAG 2.1</td>
+            <td>WCAG 2.1 Level A and AA requirements using ARIA 1.2 and HTML accessibility features.</td>
+          </tr>
+          <tr>
+            <td>WCAG 2.2</td>
+            <td>WCAG 2.2 Level A and AA requirements using ARIA 1.2 and HTML accessibility features.</td>
+          </tr>
+          <tr>
+            <td>First Step</td>
+            <td>Selected rules to help people get started, mostly pass/fail rules with some manual checks.</td>
           </tr>
 
         </tbody>
@@ -355,7 +362,7 @@
     <title>Ruleset and Rule Details</title>
     <contents>
       <ul>
-        <li><a href="https://opena11y.github.io/evaluation-library/rulesets.html">WCSAG and First Step Rulesets</a></li>
+        <li><a href="https://opena11y.github.io/evaluation-library/rulesets.html">WCAG and First Step Rulesets</a></li>
         <li><a href="https://opena11y.github.io/evaluation-library/rules-rc.html" target="_specification">Rules by Rule Categories</a></li>
         <li><a href="https://opena11y.github.io/evaluation-library/rules-gl.html" target="_specification">Rules by WCAG Guidelines</a></li>
         <li><a href="https://opena11y.github.io/evaluation-library/rules-rs.html" target="_specification">Rules by Scope</a></li>
@@ -415,7 +422,7 @@
     <contents>
       <ul>
         <li><a href="https://github.com/opena11y/evaluation-library/issues">Issues or ideas on the OpenA11y Rules, Rulesets and Messaging</a></li>
-        <li><a href="https://github.com/opena11y/ainspector-for-firefox">Issues or ideas on the features for AInspector for FIrefox</a></li>
+        <li><a href="https://github.com/opena11y/ainspector-for-firefox/issues">Issues or ideas on the features for AInspector for FIrefox</a></li>
         <li><a href="https://github.com/oaa-tools/bookmarklets/issues">Issues or ideas on the Bookmarklets</a></li>
       </ul>
 
