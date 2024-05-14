@@ -32,13 +32,218 @@
     <title>Web Editors Overview</title>
     <contents>
       <ul>
-        <li>Item #1</li>
-        <li>Item #2</li>
-        <li>Item #3</li>
+        <li>Accessibility Checkers</li>
+        <li>Accessible Authoring</li>
       </ul>
       <div class="show-slide-url"></div>
     </contents>
   </slide>
+
+  <slide>
+    <title>Accessibility Checker for TinyMCE</title>
+    <contents>
+     <p><a href="https://www.tiny.cloud/docs/tinymce/latest/a11ychecker/">TinyMCE: Accessibility Checker plugin</a></p>
+
+       <figure style="text-align: center">
+        <img src="./images/tinymce-checker.png" aria-labelledby="tinymce-checker" style="border: 2px solid darkgray"/>
+        <figcaption id="tinymce-checker">Screen shot of Accessibility Checker in TinyMCE.</figcaption>
+      </figure>
+
+      <h2>Checking Features</h2>
+
+      <ul>
+        <li>Headings</li>
+        <li>Image ALT text</li>
+        <li>Lists</li>
+        <li>Links</li>
+        <li>Tables</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Problems with Accessibility Checkers</title>
+    <contents>
+      <ul>
+        <li>Authors need to remember to use them.</li>
+        <li class="more">People thought they were done, but the checker tells them they are not done.</li>
+        <li class="more">Extra work to go back and fix accessibility problems.</li>
+        <li class="more">Perpetuates the view that accessibility takes more time and is hard.</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>OneNet Editor</title>
+    <contents>
+      <p><a href="https://onenet.illinois.gov/page.aspx?item=84877">State of Illinois OneNet Web Content Management System</a></p>
+
+       <figure style="text-align: center">
+        <img src="./images/onenet-editor.png" aria-labelledby="onenet"/>
+        <figcaption id="onenet">Screen shot of OneNet Editor user interface.</figcaption>
+      </figure>
+
+      <h2>Premise</h2>
+
+      <ol>
+        <li>Existing authoring tools do not adequately support "typical" authors in producing accessible documents.</li>
+        <li class="more">An authoring tool designed to intentionally promote accessibility would significantly improve the likelihood that typical authors will produce accessible documents.</li>
+        <li class="more">Testing showed typcial authors using OneNext had significantly less than half the accessibility errors as people using other popular web editors.</li>
+        <li class="more">It is not adequate to make accessibility <strong>possible</strong>, it must be <strong>automatic</strong>.</li>
+      </ol>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>OneNet Editor: Accessibility Checking</title>
+    <contents>
+
+       <figure style="text-align: center">
+        <img src="./images/onenet-editor-alt.png" aria-labelledby="onenet-alt"/>
+        <figcaption id="onenet-alt">Screen shot of OneNet Editor prompting for missing image description.</figcaption>
+      </figure>
+
+      <h2>Accessibility Checking Features</h2>
+
+      <ul>
+        <li><strong>Heading Check:</strong>
+          The heading check provides a "table of contents" view of all the headings on a page. If the headings do not properly provide a table of contents for the page, headings may need to be added, removed, or set to the right levels. Headings never should be used just to make text look larger. The heading check also notifies the author if the document contains bold paragraphs that may be meant to be headings.</li>
+
+          <li class="more"><strong>List Check:</strong>
+          The list check displays potentially inappropriate lists on the page. Lists created by typing asterisks, numbers, or letters at the beginning of each line instead of using the list menu options are flagged. If the possible list should be a list, select a list type option from the drop-down list.</li>
+
+          <li class="more"><strong>Link Check</strong>
+          The link check lists all the links on the page and their addresses so the author can ensure that the link text is meaningful and clearly indicates the link's destination or function. The user should be able to tell where each link will take him or her or what it will do by reading just the text listed. Potentially incorrect link text (link text that is not clear, missing link text, same link text used for different addresses, same addresses used with different link text, and link text that is shorter than four characters) is flagged. Links also may be tested from the link check dialog.</li>
+
+          <li class="more"><strong>Image Check</strong>
+          The image check lists all the images on the page along with their type and alternate text. An image's alternate text should convey the same meaning as the image. The image check alerts the author of missing alternate text and missing full descriptions for complex images. The author also is notified of alternate text containing the words "image," "graphic," "picture," or "photo" or alternate text that is fewer than two words or greater than twenty words in length.</li>
+
+          <li class="more"><strong>Document Check</strong>
+          The document check lists all the links to documents on the page with their link text so the author can ensure that the link text contains the title of the document and the file type (e.g., pdf, doc) and shows the means by which an accessible version is provided.</li>
+
+          <li class="more"><strong>Table Check</strong>
+          The table check displays each table's summary and table showing the headers for each data cell in a table. Confirm that the displayed headers correctly describe the text in the data cell. Also ensure that the table makes sense when read in the order shown.</li>
+        </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>OneNet Editor: Header Outline</title>
+    <contents>
+
+       <figure style="text-align: center">
+        <img src="./images/onenet-editor-headings.png" aria-labelledby="onenet-headings"/>
+        <figcaption id="onenet-headings">Screen shot of OneNet Editor heading (H1-H6) outline.</figcaption>
+      </figure>
+
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>A11yFirst Project Goals</title>
+    <contents>
+      <ul>
+        <li>Accessible authoring versus remediation.</li>
+        <li class="more">Support accessibility as content is created.</li>
+        <li class="more">Teach authors about accessibility.</li>
+        <li class="more">Change how people think about creating content.</li>
+        <li class="more">Support features of a11yChecker for CKEditor.</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Author Thinking of WYSISWYG Editors</title>
+    <contents>
+      <ul>
+        <li>What does the page look like.</li>
+        <li class="more">HTML markup is about styling (e.g. don't understand/appreciate structure).</li>
+        <li class="more">Not aware of accessibility requirements.</li>
+        <li class="more">Not aware of accessibility issues of different types of content.</li>
+        <li class="more">Accessibility takes more time and is hard (e.g. remidation model).</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Change User Thinking About Accessibility</title>
+    <contents>
+      <ul>
+        <li>Accessibility is important to the <em>organization</em>.</li>
+        <li class="more">Accessibility is part of <em>their</em> responsibilities.</li>
+        <li class="more">HTML <em>semantics</em> are important (e.g. headings, lists, ..).</li>
+        <li class="more">Meaningful link text.</li>
+        <li class="more">Describing images.</li>
+        <li class="more">Accessibility during the <em>creation</em> of content.</li>
+      </ul>
+    </contents>
+  </slide>
+
+ <slide>
+    <title>a11yFirst configuration of CKEditor</title>
+    <contents>
+      <table class="table table-striped" aria-label="Features and associated CKEditor plugins">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Original Plugin</th>
+            <th>a11yFirst Plugin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Headings and Paragraphs</td>
+            <td>format</td>
+            <td>a11yheading</td>
+          </tr>
+          <tr>
+            <td>Links</td>
+            <td>link</td>
+            <td>a11ylink</td>
+          </tr>
+          <tr>
+            <td>Images</td>
+            <td>image or image2</td>
+            <td>a11yimage2</td>
+          </tr>
+          <tr>
+            <td>Accessibility Information</td>
+            <td><em>none</em></td>
+            <td>a11yhelp</td>
+          </tr>
+          <tr>
+            <td>Accessibility Checker</td>
+            <td>a11ychecker</td>
+            <td><em>same</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>A11yFirst Demo</title>
+    <contents>
+      <p><a href="https://a11yfirst.gitlab.io/custom/a11yfirst.html">A11yFirst Demonstration Website</a></p>
+      <iframe src="https://a11yfirst.gitlab.io/custom/a11yfirst.html" width="90%" height="600" title="A11yFirst Demonstration Website"></iframe>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>A11yFirst is Open Source and Free to Use</title>
+    <contents>
+      <ul>
+        <li><a href="https://ckeditor.com/cke4/addons/search/plugins/a11y">Get A11yFirst Add-ons</a></li>
+        <li><a href="https://github.com/a11yfirst/plugins-dev">Code Repository</a></li>
+      </ul>
+    </contents>
+  </slide>
+
+
 
 </slides>
 
