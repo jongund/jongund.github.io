@@ -2,9 +2,47 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 11: Accessible Name and Description Computation</title>
+      <title>Slide 11: Checkbox Example: Responding to the keyboard</title>
       <link rel="stylesheet" type="text/css" href="../..//css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="../..//css/html-slides.css"><script src="../..//js/bootstrap.bundle.min.js"></script><script src="../..//js/html-slides-2.js"></script><style id="style"></style>
+      <link rel="stylesheet" type="text/css" href="../..//css/html-slides.css"><script src="../..//js/bootstrap.bundle.min.js"></script><script src="../..//js/html-slides-2.js"></script><script src="../../js/html-slides-code.js"></script><style id="style">
+fieldset {
+     border-color: #EEE;
+     width: 10em;
+}
+
+fieldset legend {
+     font-size: 100%;
+}
+
+label,
+div.checkbox {
+     padding: 2px;
+     width: 10em;
+     display: block;
+     margin-top: 0.25em;
+     margin-bottom: 0.25em;
+}
+
+label input {
+     margin-right: 0.5em;
+}
+
+div.checkbox span {
+     padding: 0.25em;
+}
+
+div.checkbox span:before {
+    content: '✗';
+    color: red;
+    padding-right: 0.125em;
+}
+
+div.checkbox.checked span:before {
+    content: '✓';
+    color: green;
+    padding-right: 0.190em;
+}
+    </style>
    </head>
    <body>
       <nav id="nav" class="navbar navbar-expand-md bg-body-tertiary">
@@ -22,9 +60,9 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide12.html" title="Slide 12">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide45.html" title="Slide 45">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide16.html" title="Slide 16">
                         Last
-                      </a></li><span class="navbar-text">Slide 11 of 45</span></ul>
+                      </a></li><span class="navbar-text">Slide 11 of 16</span></ul>
             </div>
          </div>
       </nav>
@@ -32,44 +70,105 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">Accessible Name and Description Computation</h1>
-               <p class="center">
-        <a href="https://www.w3.org/TR/accname-1.1/" target="_specification">Accessible Name and Description Computation 1.1</a>
-      </p>
+               <h1 id="h1_title" class="title">Checkbox Example: Responding to the keyboard</h1>
                <ul>
-                  <li>Defines the priority and the algorithms for computing:
-          <ul>
-                        <li>Accessible name</li>
-                        <li>Accessible description</li>
-                     </ul>
-                  </li>
-                  <li>Complexity of algorithm due to <code>aria-labelledby</code> and <code>aria-describedby</code> computation:
-          <ul>
-                        <li>Using "value" for referenced controls and widgets, instead of just text content.</li>
-                        <li>The preservation of spacing for referenced elements.</li>
-                     </ul>
-                  </li>
-                  <li>Simpler explanation of the <a href="https://w3c.github.io/aria-practices/#names_and_descriptions">basics of naming and describing</a> in ARIA Authoring Practices.</li>
-               </ul><iframe src="https://www.w3.org/TR/accname-1.1/" title="Accessible Name and Description Computation 1.1" width="90%" height="600px"></iframe></div>
+                  <li>Adding <code>tabindex="0"</code> to make part of tab order of the page.</li>
+                  <li>Add <code>onKeyDown</code> event handler to toggle checkbox when <kbd>space</kbd> key is pressed.</li>
+               </ul><script id="script" type="text/javascript">
+function toggleCheckbox(node) {
+ if (node.classList.contains('checked')) {
+  node.classList.remove('checked');
+ } else {
+  node.classList.add('checked');
+ }
+}
+
+function clickCheckbox(event) {
+ var cb = event.currentTarget;
+ toggleCheckbox(cb);
+ event.stopPropagation();
+ event.preventDefault();
+}
+
+function keydownCheckbox(event) {
+  var cb = event.currentTarget;
+  if (event.key === ' ') {
+    toggleCheckbox(cb);
+
+    event.stopPropagation();
+    event.preventDefault();
+  }
+}      </script><h2>Example</h2>
+               <p><a href="https://webedit.disability.illinois.edu/user/jongund/checkbox-part-1/output/" target="_webedit">Part 1 on WebEdit</a></p>
+               <div id="example">
+                  <fieldset>
+                     <legend>
+        Pizza Toppings
+    </legend>
+    <label>
+      <input type="checkbox">
+        Green pepper
+     </label>
+    <label>
+      <input type="checkbox">
+        Onion
+    </label>
+    <div class="checkbox" tabindex="0" onclick="clickCheckbox(event)" onkeydown="keydownCheckbox(event)">
+      <span></span>
+        Mushrooms
+    </div>
+                     <div class="checkbox" tabindex="0" onclick="clickCheckbox(event)" onkeydown="keydownCheckbox(event)">
+      <span></span>
+          Spinach
+    </div>
+                  </fieldset>
+               </div>
+               <h2>HTML Source Code</h2>
+               <pre><code id="sc1"></code></pre>
+               <h2>CSS Source Code</h2>
+               <pre><code id="sc2"></code></pre>
+               <h2>Javascript Source Code</h2>
+               <pre><code id="sc3"></code></pre><script type="text/javascript">
+        sourceCode.add('sc1', 'example');
+        sourceCode.add('sc2', 'style');
+        sourceCode.add('sc3', 'script');
+        sourceCode.make();
+        hljs.initHighlightingOnLoad();
+      </script></div>
             <div class="col"></div>
          </div>
       </main>
       <footer class="container">
          <div id="footer" class="well well-sm"><span class="logo"><a href="https://openweba11y.com" aria-label="Open Web Accessibility">
       <span class="brand"><span class="open">Open</span><span class="web">Web</span><span class="a11y">A11y</span></span>
-    </a></span><span class="copyright">
+    </a></span><span xmlns:lxslt="http://xml.apache.org/xslt" xmlns:wai_report="http://www.w3.org/wai" class="copyright">
      Copyright © 2024 Jon Gunderson
-  </span><span class="highlight-icon">
-          ↖
-        </span><span id="ID_SHOW"><button class="show hide" id="ID_SHOW_MORE" aria-label="Show more">
-            ⊕
-          </button><button class="show hide " id="ID_SHOW_LESS" aria-label="Show less">
-            ⊖
-          </button><button class="show hide" id="ID_SHOW_ALL" aria-label="Show all">
-              All+
-          </button><button class="show hide" id="ID_HIDE_ALL" aria-label="Hide all">
-              All-
-          </button></span></div>
+  </span><span xmlns:lxslt="http://xml.apache.org/xslt" xmlns:wai_report="http://www.w3.org/wai" id="ID_SHOW">
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_MORE" role="button" tabindex="0" aria-label="Show more" width="30" height="30" viewBox="0 0 50 50">
+                  <circle class="focus" cx="25" cy="25" r="20"></circle>
+                  <circle class="icon" cx="25" cy="25" r="15"></circle>
+                  <line class="icon" x1="16" y1="25" x2="34" y2="25"></line>
+                  <line class="icon" x1="25" y1="16" x2="25" y2="34"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_LESS" role="button" tabindex="0" aria-label="Show less" width="30" height="30" viewBox="0 0 50 50">
+                  <circle class="focus" cx="25" cy="25" r="20"></circle>
+                  <circle class="icon" cx="25" cy="25" r="15"></circle>
+                  <line class="icon" x1="16" y1="25" x2="34" y2="25"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_ALL" role="button" tabindex="0" aria-label="Show all" width="34" height="30" viewBox="0 0 70 50">
+                  <rect class="focus" x="4" y="4" height="46" width="64" rx="4" ry="4"></rect>
+                  <rect class="icon" x="8" y="8" height="38" width="56" rx="4" ry="4"></rect>
+                  <line class="icon" x1="24" y1="15" x2="50" y2="15"></line>
+                  <line class="icon" x1="16" y1="23" x2="56" y2="23"></line>
+                  <line class="icon" x1="16" y1="31" x2="56" y2="31"></line>
+                  <line class="icon" x1="16" y1="39" x2="56" y2="39"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_HIDE_ALL" role="button" tabindex="0" aria-label="Hide all" width="34" height="30" viewBox="0 0 70 50">
+                  <rect class="focus" x="4" y="4" height="46" width="64" rx="4" ry="4"></rect>
+                  <rect class="icon" x="8" y="8" height="38" width="56" rx="4" ry="4"></rect>
+                  <line class="icon" x1="24" y1="15" x2="50" y2="15"></line>
+               </svg>
+            </span></div>
       </footer>
    </body>
 </html>
