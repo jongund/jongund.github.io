@@ -183,7 +183,7 @@
   </slide>
 
   <slide>
-    <title>Informative Images</title>
+    <title>Informative Image</title>
     <contents>
       <div class="center" id="ex1">
         <img src="./images/informative-image-1.jpeg" alt="Photo of the Falcon 9 rocket lifting off from launch complex 39A at the Kennedy Space Centre in Florida."/>
@@ -218,10 +218,46 @@
   </slide>
 
   <slide>
+    <title>Informative Image: Figure element</title>
+    <contents>
+      <div class="center" id="ex1">
+        <figure>
+          <img src="./images/informative-image-1.jpeg" aria-labelledby="id-1"/>
+          <figcaption id="id-1">Falcon 9 rocket lifting off from launch complex 39A at the Kennedy Space Center in Florida on June 30th.</figcaption>
+        </figure>
+      </div>
+
+      <h2>Code</h2>
+      <div>
+        <pre>
+          <code id="sc1"></code>
+        </pre>
+      </div>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'ex1');
+        sourceCode.make();
+      </script>
+
+
+      <h2>Overview</h2>
+      <ul>
+        <li>
+          Use of the <code>figure</code> and <code>figcapture</code> elements to provide a caption for the image.
+        </li>
+        <li>
+          Uses <code>aria-labelledby</code> reference to the <code>figcaption</code> element to define the accessible name of the image.</li>
+        <li>This technique ties the accessible name to the visible text on the screen for a more reliable accessible name for the image.</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
     <title>Informative Image: Warning Label</title>
     <contents>
       <div class="center" id="ex1">
-        <img width="40%" src="./images/informative-image-2.jpeg" alt="Warning label: A yellow triangular symbol with black border with a skull and cross bones in the center of the triangle."/>
+        <img width="40%" src="./images/informative-image-2.jpeg" alt="Toxic Warning label: A yellow triangular symbol with black border with a skull and cross bones in the center of the triangle."/>
       </div>
 
       <h2>Code</h2>
@@ -236,11 +272,17 @@
         sourceCode.make();
       </script>
 
+     <h2>Overview</h2>
+      <ul>
+        <li>Includes both the purpose and a description of what the label looks like.
+        </li>
+      </ul>
+
     </contents>
   </slide>
 
   <slide>
-    <title>Images of Text</title>
+    <title>Image of Text</title>
     <contents>
       <div class="center" id="ex1">
         <img src="./images/image-of-text.jpeg" alt="Prajna Purpose: With patience, compassion, and a contemporary approach to Ayurvedic medicine, we reestablish our natural connection with health and uncover out ability to thrive."/>
@@ -338,13 +380,14 @@
         <li>
           Missing or empty alt values create significant problems for screen reader users because functional images are essential to the functionality of the content.
         </li>
+        <li><strong>Note:</strong> Using images for buttons <em>is not</em> a best practice. A better practices is to use of text content, since the colors and font can easily be adjusted to a users needs.</li>
       </ul>
 
     </contents>
   </slide>
 
   <slide>
-    <title>Complex Image</title>
+    <title>Complex Image: Minard's Chart</title>
     <contents>
       <div class="center" id="ex1">
 
@@ -589,6 +632,150 @@
             </li>
           </ol>
         </li>
+        <li>This example uses the <code>figcaption</code> to provide a longer description of the image and is visible to everyone, ensuring that it will be a more accurate description of the image.</li>
+        <li>A <code>details</code> and <code>summary</code> elements are used to provide a data table of the information shown in the image.</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Complex Image: Interactive Graph</title>
+    <contents>
+      <p><a href="https://www.disabilitystatistics.org/report/pdf/2021/2000000">2021 Disability Status Report in the United States</a></p>
+
+      <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/exporting.js"></script>
+      <script src="https://code.highcharts.com/modules/export-data.js"></script>
+      <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+      <script type="text/javascript">
+
+        Highcharts.chart('container', {
+          chart: {
+            type: 'column'
+          },
+          title: {
+          text: 'Disability Prevalence by Age'
+          },
+          subtitle: {
+            text: 'Source: Disability Status Report in the US 2021'
+          },
+          xAxis: {
+            categories: [
+            '5-15',
+            '16-20',
+            '21 to 64',
+            '65 to 74',
+            '75 and over'
+            ],
+            crosshair: true
+          },
+          yAxis: {
+            min: 0,
+            max : 60,
+            tickAmount: 6,
+            title: {
+              text: 'Percent Population'
+            }
+          },
+          tooltip: {
+            headerFormat: "&lt;span style='font-size:10px'>{point.key}&lt;/span>&lt;table>",
+            pointFormat: '&lt;tr>&lt;td style="color:{series.color};padding:0">{series.name}: &lt;/td>&lt;td style="padding:0">&lt;b>{point.y:.1f} percent&lt;/b>&lt;/td>&lt;/tr>',
+            footerFormat: '&lt;/table>',
+            shared: true,
+           useHTML: true
+          },
+          plotOptions: {
+            column: {
+              pointPadding: 0,
+              borderWidth: 0
+            }
+          },
+          series: [{
+              name: 'Any disability',
+              data: [5.8, 7.6, 10.9, 23.9, 46.1]
+            }, {
+              name: 'Visual',
+              data: [0.9, 1.3, 2.2, 4.3, 8.7]
+            }, {
+              name: 'Hearing',
+              data: [0.6, 0.7, 2.1, 8.4, 20.8]
+            }, {
+              name: 'Ambulatory',
+              data: [0.6, 0.8, 4.7, 14.4, 20.9]
+            }, {
+              name: 'Cognitive',
+              data: [4.6, 5.4, 4.8, 5.1, 12.3]
+          }]
+        });
+      </script>
+
+      <details>
+        <summary>Table View of the Data in Chart</summary>
+        <div id="prevalence-data">Disability Prevalence by Age</div>
+        <table class="table table-striped" aria-labelledby="prevalence-data">
+          <thead>
+            <tr>
+              <th class="text">Age Range<br/>(years)</th>
+              <th class="num">Any Disability</th>
+              <th class="num">Visual</th>
+              <th class="num">Hearing</th>
+              <th class="num">Ambulatory</th>
+              <th class="num">Cognitive</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">5-15</th>
+              <td class="num">5.8%</td>
+              <td class="num">0.9%</td>
+              <td class="num">0.6%</td>
+              <td class="num">0.6%</td>
+              <td class="num">4.6%</td>
+            </tr>
+            <tr>
+              <th scope="row">16 to 20</th>
+              <td class="num">7.6%</td>
+              <td class="num">1.3%</td>
+              <td class="num">0.7%</td>
+              <td class="num">0.8%</td>
+              <td class="num">5.4%</td>
+            </tr>
+            <tr>
+              <th scope="row">21 to 64</th>
+              <td class="num">10.9%</td>
+              <td class="num">2.2%</td>
+              <td class="num">2.1%</td>
+              <td class="num">4.7%</td>
+              <td class="num">4.8%</td>
+            </tr>
+            <tr>
+              <th scope="row">65 to 74</th>
+              <td class="num">23.9%</td>
+              <td class="num">4.3%</td>
+              <td class="num">8.4%</td>
+              <td class="num">14.4%</td>
+              <td class="num">5.1%</td>
+            </tr>
+            <tr>
+              <th scope="row">75+</th>
+              <td class="num">46.1%</td>
+              <td class="num">8.7%</td>
+              <td class="num">20.8%</td>
+              <td class="num">29.9%</td>
+              <td class="num">12.3%</td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+
+      <h2>Overview</h2>
+      <ul>
+        <li>Keyboard and screen reader support for access to popup information in the bar graph.</li>
+        <li>Options to download the data give students a chance to explore the data in different ways and the opportunity to combine the data with other data to create new insights into the information (e.g. OnePlus strategy).</li>
       </ul>
 
     </contents>
@@ -660,6 +847,7 @@
             <li>Adding timing information</li>
             <li>Deciding on a timed text format (e.g. what is compatible with your media player)</li>
             <li>Use a player that supports closed captioning</li>
+            <li>Automatically generated captions. <br/><em>Note:</em> Accuracy maybe affected by speakers with strong accents.</li>
           </ol>
         </li>
         <li>Adding audio description tracks to video
@@ -677,10 +865,8 @@
         </li>
       </ul>
 
-      <h2>Accessible Audio/Video Links</h2>
+      <h2>Some Accessible Audio/Video Links</h2>
       <ul>
-        <li><a href="http://www.longtailvideo.com/addons/plugins/84/Captions" target="_specifications">Captioning Plug-in for JW Player</a></li>
-        <li><a href="http://www.w3.org/community/texttracks/" target="_specifications">W3C Web Media Text Tracks Community Group</a></li>
         <li><a href="http://www.3playmedia.com/2011/12/22/html5-video-captioning-explain-it-to-me/" target="_specifications">3Play Media</a></li>
         <li><a href="http://html5doctor.com/video-subtitling-and-webvtt/" target="_specifications">Video Subtitling and WebVTT</a></li>
         <li><a href="https://support.google.com/youtube/topic/3014331?hl=en&amp;ref_topic=4355241" target="_specifications">YouTube: Getting started with captions and transcripts</a></li>

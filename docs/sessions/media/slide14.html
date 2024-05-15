@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 14: Browser Built-in Video Players</title>
+      <title>Slide 14: Accessible Video/Audio Issues</title>
       <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="../..//css/html-slides.css">
       <link rel="stylesheet" type="text/css" href="../..//css/ableplayer.min.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><script src="../../js/html-slides-code.js"></script><script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="../../js/ableplayer.js"></script><style id="style"></style>
@@ -23,9 +23,9 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide15.html" title="Slide 15">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide18.html" title="Slide 18">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide20.html" title="Slide 20">
                         Last
-                      </a></li><span class="navbar-text">Slide 14 of 18</span></ul>
+                      </a></li><span class="navbar-text">Slide 14 of 20</span></ul>
             </div>
          </div>
       </nav>
@@ -33,21 +33,44 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">Browser Built-in Video Players</h1>
+               <h1 id="h1_title" class="title">Accessible Video/Audio Issues</h1>
+               <h2>Issues</h2>
                <ul>
-                  <li>Keyboard support</li>
-                  <li>Support for closed captions</li>
-               </ul><video id="video1" controls="">
-                  <source src="media/gb-imovie-mobile.mp4" type="video/mp4">
-                  <source src="media/gb-imovie-mobile.webm" type="video/ogg">
-                  <track kind="captions" src="media/groundbreaking.vtt" srclang="en" label="English Captioning">
-               </video><h2>Source Code</h2>
-               <pre>
-        <code id="sc1"></code>
-      </pre><script type="text/javascript">
-        sourceCode.add('sc1', 'video1');
-        sourceCode.make();
-      </script></div>
+                  <li>Adding text caption tracks to video
+          <ol>
+                        <li>Getting a text transcript</li>
+                        <li>Adding timing information</li>
+                        <li>Deciding on a timed text format (e.g. what is compatible with your media player)</li>
+                        <li>Use a player that supports closed captioning</li>
+                        <li>Automatically generated captions. <br><em>Note:</em> Accuracy maybe affected by speakers with strong accents.</li>
+                     </ol>
+                  </li>
+                  <li>Adding audio description tracks to video
+          <ol>
+                        <li>Identifying pauses in speech or adding time to create pauses</li>
+                        <li>Add synchronized audio tracks that describe the video content</li>
+                        <li>Use a player that support audio tracks</li>
+                     </ol>
+                  </li>
+                  <li>Players
+          <ul>
+                        <li>Keyboard access to media player controls and track selection</li>
+                        <li>User interface controls support assistive technologies</li>
+                     </ul>
+                  </li>
+               </ul>
+               <h2>Some Accessible Audio/Video Links</h2>
+               <ul>
+                  <li><a href="http://www.3playmedia.com/2011/12/22/html5-video-captioning-explain-it-to-me/" target="_specifications">3Play Media</a></li>
+                  <li><a href="http://html5doctor.com/video-subtitling-and-webvtt/" target="_specifications">Video Subtitling and WebVTT</a></li>
+                  <li><a href="https://support.google.com/youtube/topic/3014331?hl=en&amp;ref_topic=4355241" target="_specifications">YouTube: Getting started with captions and transcripts</a></li>
+               </ul>
+               <h2>Timed Text Formats</h2>
+               <ul>
+                  <li><a href="http://dev.w3.org/html5/webvtt/" target="_specifications">WebVTT</a></li>
+                  <li><a href="http://www.w3.org/TR/ttaf1-dfxp/" target="_specifications">Timed Text Markup Language (TTML) 1.0</a></li>
+               </ul>
+            </div>
             <div class="col"></div>
          </div>
       </main>

@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 7: Decorative Image</title>
+      <title>Slide 7: Image of Text</title>
       <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="../..//css/html-slides.css">
       <link rel="stylesheet" type="text/css" href="../..//css/ableplayer.min.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><script src="../../js/html-slides-code.js"></script><script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="../../js/ableplayer.js"></script><style id="style"></style>
@@ -23,9 +23,9 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide8.html" title="Slide 8">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide18.html" title="Slide 18">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide20.html" title="Slide 20">
                         Last
-                      </a></li><span class="navbar-text">Slide 7 of 18</span></ul>
+                      </a></li><span class="navbar-text">Slide 7 of 20</span></ul>
             </div>
          </div>
       </nav>
@@ -33,13 +33,10 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">Decorative Image</h1>
+               <h1 id="h1_title" class="title">Image of Text</h1>
                <div class="center" id="ex1">
-                  <div>
-          <img width="50px" src="./images/decorative-image.jpg" alt="">
-          Call (312) 996-4350
-        </div>
-               </div>
+        <img src="./images/image-of-text.jpeg" alt="Prajna Purpose: With patience, compassion, and a contemporary approach to Ayurvedic medicine, we reestablish our natural connection with health and uncover out ability to thrive.">
+      </div>
                <h2>Code</h2>
                <pre>
         <code id="sc1"></code>
@@ -48,25 +45,8 @@
         sourceCode.make();
       </script><h2>Overview</h2>
                <ul>
-                  <li>
-          Decorative images don’t add information to the content of a page. For example, the information provided by the image might already be given using adjacent text, or the image might be included to make the website more visually attractive.
-        </li>
-                  <li>
-          Decoratibe image should have a null (empty) alt text should be provided (alt="") so that they can be ignored by assistive technologies, such as screen readers.</li>
-                  <li>
-          Text descriptions for these types of images would add audible clutter to screen reader output or could distract users if the topic is different from that in adjacent text.
-        </li>
-                  <li>
-          Leaving out the alt attribute is also not an option because when it is not provided, some screen readers will announce the file name of the image instead.
-        </li>
-                  <li>Whether to treat an image as decorative or informative is a judgment that only the author can make, based on the reason for including the image on the page. Images may be decorative when they are:
-          <ul>
-                        <li>Visual styling such as borders, spacers, and corners.</li>
-                        <li>Supplementary to link text to improve its appearance or increase the clickable area.</li>
-                        <li>Illustrative of adjacent text but not contributing information (“eye-candy”)</li>
-                        <li>Identified and described by surrounding text.</li>
-                     </ul>
-                  </li>
+                  <li>Images of text as almost always a bad idea from an accessibility point of view, since the colors and font can not easily be adjusted to a users needs.</li>
+                  <li><code>alt</code> text should contain the text of the image.</li>
                </ul>
             </div>
             <div class="col"></div>
