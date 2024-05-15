@@ -54,10 +54,10 @@
   </slide>
 
    <slide>
-    <title>Web Content Accessibility Guidelines 2.0</title>
+    <title>Web Content Accessibility Guidelines 2.x</title>
     <contents>
       <p class="center">
-        <a href="http://www.w3.org/TR/WCAG" target="_specification">Web Content Accessibility Guidelines 2.0</a>
+        <a href="http://www.w3.org/TR/WCAG" target="_specification">Web Content Accessibility Guidelines (WCAG)</a>
       </p>
       <img src="images/wcag20-title.png" width="100%" alt="Graphical browser rendering of title portion of WCAG 2.0 Guidelines"/>
     </contents>
@@ -89,7 +89,7 @@
     <title>HTML</title>
     <contents>
       <p>
-        <a href="https://html.spec.whatwg.org/" target="_specification">HTML 5 Living Standard</a>
+        <a href="https://html.spec.whatwg.org/" target="_specification">HTML Living Standard</a>
       </p>
 
       <h2>Important Features</h2>
@@ -106,7 +106,7 @@
 
 
   <slide>
-    <title>HTML 5: main element</title>
+    <title>HTML: main element</title>
     <contents>
       <p>
         <a href="https://www.w3.org/TR/html5/#the-main-element" target="_specification">HTML 5: main element</a>
@@ -177,7 +177,7 @@
     <title>Rules</title>
     <contents>
       <ul>
-        <li>Specific to ARIA and HTML5 best practices to meeting WCAG 2.0 Level A and AA requirements.</li>
+        <li>Specific to ARIA and HTML5 best practices to meeting WCAG 2.x Level A and AA requirements.</li>
         <li>Understanding rules provides confidence in implementing accessibility.</li>
       </ul>
     </contents>
@@ -233,7 +233,7 @@
         <li>Summary</li>
         <li>Defintion</li>
         <li>Purpose</li>
-        <li>WCAG 2.0 Success Criteria (e.g. primary and secondary)</li>
+        <li>WCAG Success Criteria (e.g. primary and secondary)</li>
         <li>Techniques</li>
         <li>Scope: Website, Page or element</li>
         <li>Links to related information</li>
@@ -387,7 +387,7 @@
         <li>Summary Rule Results
           <ul>
             <li>Rule Categories</li>
-            <li>WCAG 2.0 Guideline Summary</li>
+            <li>WCAG Guideline Summary</li>
           </ul>
         </li>
         <li>Analyzes the browser DOM content</li>
@@ -443,13 +443,12 @@
       <dl>
         <dt>Jon Gunderson, Illinois</dt>
         <dd>Project coordinator</dd>
-        <dd>OAA evaluation library software development</dd>
-        <dd>Software developer for FAE 2.0</dd>
+        <dd>OpenA11y Evaluation Library software development</dd>
 
         <dt>Nicholas Hoyt, Illinois (retired)</dt>
         <dd>Conceptual model for accessibility evaluation</dd>
-        <dd>Interaction designer for AInspector, Bookmarklets and FAE 2.0</dd>
-        <dd>Software developer for AInspector Sidebar and Bookmarklets</dd>
+        <dd>Interaction designer for AInspector and Bookmarklets</dd>
+        <dd>Software developer for AInspector for Firefox and Bookmarklets</dd>
       </dl>
 
       <h2>Other Contributing Developers</h2>
@@ -470,9 +469,6 @@
 
         <dt>Prasanna Bale, Illinois Technology Services</dt>
         <dd>Software development of FAE 1.1 and AInspector for Firebug</dd>
-
-        <dt>Garrett Smith, Wisconsin DO-IT</dt>
-        <dd>Software development for FAE 2.0</dd>
       </dl>
     </contents>
   </slide>
