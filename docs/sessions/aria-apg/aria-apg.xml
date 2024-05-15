@@ -2601,8 +2601,7 @@
     <title>None/Presentation Role</title>
     <contents>
       <h2>ARIA AUthoring Practices</h2>
-      <p><a href="https://w3c.github.io/aria-practices/#children_presentational">Section 6: Intentionally Hiding Semantics with the presentation Role </a></p>
-      <iframe src="https://w3c.github.io/aria-practices/#children_presentational" width="98%" height="600px"></iframe>
+      <p><a href="https://www.w3.org/WAI/ARIA/apg/practices/hiding-semantics/">Section 6: Intentionally Hiding Semantics with the presentation Role </a></p>
     </contents>
   </slide>
 
@@ -2665,7 +2664,6 @@
     <title>Live Region Roles</title>
     <contents>
       <p><a href="https://www.w3.org/TR/wai-aria/#live_region_roles">ARIA live region roles</a></p>
-      <iframe src="https://www.w3.org/TR/wai-aria/#live_region_roles" width="98%" height="600px" title="ARIA Live Region Roles"></iframe>
     </contents>
   </slide>
 
@@ -2673,12 +2671,11 @@
     <title>Live Region Attributes</title>
     <contents>
       <p><a href="https://www.w3.org/TR/wai-aria/#attrs_liveregions">ARIA live region attributes</a></p>
-      <iframe src="https://www.w3.org/TR/wai-aria/#attrs_liveregions" width="98%" height="600px" title="ARIA Live Region Atttributes"></iframe>
     </contents>
   </slide>
 
   <slide>
-    <title>ARIA Authoring Practices 1.2</title>
+    <title>ARIA Authoring Practices</title>
     <contents>
       <p><a href="https://w3c.github.io/aria-practices/">ARIA Authoring Practices 1.2</a></p>
       <ul>
@@ -2733,46 +2730,9 @@
     </contents>
   </slide>
 
-  <slide>
-    <title>Open Source Tools</title>
-    <contents>
-      <ul>
-        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/ainspector-sidebar/">AInspector Sidebar for Firefox</a></li>
-        <li><a href="https://fae.disability.illinois.edu">Functional Accessibility Evaluator 2.0</a></li>
-        <li><a href="https://accessibility-bookmarklets.org/">Public Bookmarklets Website</a></li>
-      </ul>
-    </contents>
-  </slide>
 
   <slide>
-    <title>Functional Accessibility Evaluator (FAE) 2.0</title>
-    <contents>
-      <ul>
-        <li>Two versions of Functional Accessibility Evaluator 2.0
-          <ul>
-            <li><a href="https://fae.disability.illinois.edu">FAE 2.0 Indidvidual License Version</a></li>
-            <li><a href="https://fae.illinois.edu">FAE 2.0 Institutional License Version</a> using <a href="https://www.incommon.org/">InCommon</a></li>
-          </ul>
-        </li>
-        <li>Designed for:
-          <ul>
-            <li>Managers</li>
-            <li>Web designers</li>
-            <li>Software developers</li>
-            <li>Quality assurance testers</li>
-            <li>IT Auditors</li>
-          </ul>
-        </li>
-        <li>Website rule result summaries and implementation status</li>
-        <li>Page rule result summaries</li>
-        <li>Organizes rules by Rule Categories, Rule Scope and WCAG Guidelines</li>
-        <li>Archive and share reports</li>
-      </ul>
-    </contents>
-  </slide>
-
-  <slide>
-    <title>AInspector Sidebar for Firefox</title>
+    <title>AInspector for Firefox</title>
     <contents>
       <ul>
         <li><a href="https://ainspector.disability.illinois.edu">https://ainspector.disability.illinois.edu"</a></li>
@@ -2786,33 +2746,14 @@
         <li>Summary Rule Results
           <ul>
             <li>Rule Categories</li>
-            <li>WCAG 2.0 Guideline Summary</li>
+            <li>WCAG Guideline Summary</li>
           </ul>
         </li>
         <li>Analyzes the browser DOM content</li>
         <li>Highlighting elements</li>
-        <li>DOM inspector</li>
+        <li>References to learn more about an issue</li>
       </ul>
 
-    </contents>
-  </slide>
-
-  <slide>
-    <title>Bookmarklets for Visualizing Accessibility Features</title>
-    <contents>
-      <ul>
-        <li><a href="https://accessibility-bookmarklets.org/">Public Bookmarklets Website</a></li>
-        <li>Features:
-          <ul>
-            <li>Highlight Regions and Elements on page</li>
-            <li>Element information</li>
-            <li>Default or defined <code>role</code></li>
-            <li>Accessible name</li>
-            <li>Accessible description</li>
-            <li>Important prorperties (e.g the number of items in a list)</li>
-          </ul>
-        </li>
-      </ul>
     </contents>
   </slide>
 
