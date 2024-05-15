@@ -34,26 +34,31 @@
   <script>../../js/ableplayer.js</script>
 
   <slide>
-    <title>Audio/Video Overview</title>
+    <title>Overview</title>
     <contents>
       <ul>
-        <li>Images and Graphics</li>
+        <li>Images and Graphics
+           <ul>
+             <li class="more">Short descriptions</li>
+             <li class="more">Longer descriptions</li>
+           </ul>
+        </li>
         <li>Captioning
            <ul>
-             <li>Open Captions: Always on, usually part of the video</li>
-             <li>Closed Captions: Can be turned on/off, sometimes restyled and/or positioned</li>
+             <li class="more">Open Captions: Always on, usually part of the video</li>
+             <li class="more">Closed Captions: Can be turned on/off, sometimes restyled and/or positioned</li>
            </ul>
         </li>
         <li>Audio descriptions:
           <ul>
-            <li>Narrator(s) describe visual information</li>
-            <li>Separate audio track: pausing or narrator silences</li>
+            <li class="more">Narrator(s) describe visual information</li>
+            <li class="more">Separate audio track: pausing or narrator silences</li>
           </ul>
         </li>
         <li>Accessible media players:
           <ul>
-            <li>Keyboard support</li>
-            <li>Pause, Stop, Start</li>
+            <li class="more">Keyboard support</li>
+            <li class="more">Pause, Stop, Start</li>
           </ul>
         </li>
       </ul>
@@ -79,33 +84,516 @@
     <title>Types of Images</title>
     <contents>
 
+      <table class="table table-striped" aria-label="Types of Images">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <td>Description</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a href="https://www.w3.org/WAI/tutorials/images/informative/" target="_wai_tutorial">
+                Informative images
+              </a>
+            </td>
+            <td>
+              <ul>
+                <li>Images that graphically represent concepts and information, typically pictures, photos, and illustrations.</li>
+                <li>The text alternative should be at least a short description conveying the essential information presented by the image.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.w3.org/WAI/tutorials/images/decorative/" target="_wai_tutorial">
+                Decorative images
+              </a>
+            </td>
+            <td>
+              Provide a null text alternative (<code>alt=""</code>) when the only purpose of an image is to add visual decoration to the page, rather than to convey information that is important to understanding the page.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.w3.org/WAI/tutorials/images/functional/" target="_wai_tutorial">
+                Functional images
+              </a>
+            </td>
+            <td>
+              <ul>
+                <li>The text alternative of an image used as a link or as a button should describe the functionality of the link or button rather than the visual image.</li>
+                <li> Examples of such images are a printer icon to represent the print function or a button to submit a form.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.w3.org/WAI/tutorials/images/textual/" target="_wai_tutorial">
+                Images of text
+              </a>
+            </td>
+            <td>
+              <ul>
+                <li>Readable text is sometimes presented within an image. If the image is not a logo, avoid text in images.</li>
+                <li> However, if images of text are used, the text alternative should contain the same words as in the image.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.w3.org/WAI/tutorials/images/complex/" target="_wai_tutorial">
+                Complex images
+              </a>
+            </td>
+            <td>
+              <ul>
+                <li>Contain substantial information, more than can be conveyed in a short phrase or sentence.</li>
+                <li> For example, graphs and diagrams. To convey data or detailed information, provide a complete text equivalent of the data or information provided in the image as the text alternative.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://www.w3.org/WAI/tutorials/images/groups/" target="_wai_tutorial">
+                Groups of images
+              </a>
+            </td>
+            <td>
+              If multiple images convey a single piece of information, the text alternative for one image should convey the information for the entire group.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="/WAI/tutorials/images/imagemap/" target="_wai_tutorial">Image maps</a>
+            </td>
+            <td>
+              <ul>
+                <li>The text alternative for an image that contains multiple clickable areas should provide an overall context for the set of links.</li>
+                <li>Each clickable area should have alternative text that describes the purpose or destination of the link.</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><a href="https://www.w3.org/WAI/tutorials/images/" target="_wai_tutorial">Adpated from W3C WAI Image Tutorial</a></p>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Informative Images</title>
+    <contents>
+      <div class="center" id="ex1">
+        <img src="./images/informative-image-1.jpeg" alt="Photo of the Falcon 9 rocket lifting off from launch complex 39A at the Kennedy Space Centre in Florida."/>
+      </div>
+
+      <h2>Code</h2>
+      <div class="more">
+        <pre>
+          <code id="sc1"></code>
+        </pre>
+      </div>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'ex1');
+        sourceCode.make();
+      </script>
+
+
+      <h2>Overview</h2>
       <ul>
         <li>
-          <p><strong><a href="https://www.w3.org/WAI/tutorials/images/informative/">Informative images</a></strong>: Images that graphically represent concepts and information, typically pictures, photos, and illustrations. The text alternative should be at least a short description conveying the essential information presented by the image.</p>
+          Informative images convey a simple concept or information that can be expressed in a short phrase or sentence.
         </li>
-        <li class="more">
-          <p><strong><a href="https://www.w3.org/WAI/tutorials/images/decorative/">Decorative images</a></strong>: Provide a null text alternative (<code class="language-plaintext highlighter-rouge">alt=""</code>) when the only purpose of an image is to add visual decoration to the page, rather than to convey information that is important to understanding the page.</p>
+        <li>
+          The text alternative should convey the meaning or content that is displayed visually, which typically isn’t a literal description of the image.
         </li>
-        <li class="more">
-          <p><strong><a href="https://www.w3.org/WAI/tutorials/images/functional/">Functional images</a></strong>: The text alternative of an image used as a link or as a button should describe the functionality of the link or button rather than the visual image. Examples of such images are a printer icon to represent the print function or a button to submit a form.</p>
+        <li>
+          In some situations a detailed literal description may be needed, but only when the content of the image is all or part of the conveyed information.</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Informative Image: Warning Label</title>
+    <contents>
+      <div class="center" id="ex1">
+        <img width="40%" src="./images/informative-image-2.jpeg" alt="Warning label: A yellow triangular symbol with black border with a skull and cross bones in the center of the triangle."/>
+      </div>
+
+      <h2>Code</h2>
+      <div class="more">
+        <pre>
+          <code id="sc1"></code>
+        </pre>
+      </div>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'ex1');
+        sourceCode.make();
+      </script>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Images of Text</title>
+    <contents>
+      <div class="center" id="ex1">
+        <img src="./images/image-of-text.jpeg" alt="Prajna Purpose: With patience, compassion, and a contemporary approach to Ayurvedic medicine, we reestablish our natural connection with health and uncover out ability to thrive."/>
+      </div>
+      <h2>Code</h2>
+      <pre>
+        <code id="sc1"></code>
+      </pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'ex1');
+        sourceCode.make();
+      </script>
+
+
+      <h2>Overview</h2>
+      <ul>
+        <li>Images of text as almost always a bad idea from an accessibility point of view, since the colors and font can not easily be adjusted to a users needs.</li>
+        <li><code>alt</code> text should contain the text of the image.</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Decorative Image</title>
+    <contents>
+      <div class="center" id="ex1">
+        <div>
+          <img width="50px" src="./images/decorative-image.jpg" alt=""/>
+          Call (312) 996-4350
+        </div>
+      </div>
+      <h2>Code</h2>
+      <pre>
+        <code id="sc1"></code>
+      </pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'ex1');
+        sourceCode.make();
+      </script>
+
+      <h2>Overview</h2>
+      <ul>
+        <li>
+          Decorative images don’t add information to the content of a page. For example, the information provided by the image might already be given using adjacent text, or the image might be included to make the website more visually attractive.
         </li>
-        <li class="more">
-          <p><strong><a href="https://www.w3.org/WAI/tutorials/images/textual/">Images of text</a></strong>: Readable text is sometimes presented within an image. If the image is not a logo, avoid text in images. However, if images of text are used, the text alternative should contain the same words as in the image.</p>
+        <li>
+          Decoratibe image should have a null (empty) alt text should be provided (alt="") so that they can be ignored by assistive technologies, such as screen readers.</li>
+        <li>
+          Text descriptions for these types of images would add audible clutter to screen reader output or could distract users if the topic is different from that in adjacent text.
         </li>
-        <li class="more">
-          <p><strong><a href="https://www.w3.org/WAI/tutorials/images/complex/">Complex images</a></strong> such as graphs and diagrams: To convey data or detailed information, provide a complete text equivalent of the data or information provided in the image as the text alternative.</p>
+        <li>
+          Leaving out the alt attribute is also not an option because when it is not provided, some screen readers will announce the file name of the image instead.
         </li>
-        <li class="more">
-          <p><strong><a href="https://www.w3.org/WAI/tutorials/images/groups/">Groups of images</a></strong>: If multiple images convey a single piece of information, the text alternative for one image should convey the information for the entire group.</p>
-        </li>
-        <li class="more">
-          <p><strong><a href="/WAI/tutorials/images/imagemap/">Image maps</a></strong>: The text alternative for an image that contains multiple clickable areas should provide an overall context for the set of links. Also, each individually clickable area should have alternative text that describes the purpose or destination of the link.</p>
+
+        <li>Whether to treat an image as decorative or informative is a judgment that only the author can make, based on the reason for including the image on the page. Images may be decorative when they are:
+          <ul>
+            <li>Visual styling such as borders, spacers, and corners.</li>
+            <li>Supplementary to link text to improve its appearance or increase the clickable area.</li>
+            <li>Illustrative of adjacent text but not contributing information (“eye-candy”)</li>
+            <li>Identified and described by surrounding text.</li>
+          </ul>
         </li>
       </ul>
 
-      <p><a href="https://www.w3.org/WAI/tutorials/images/">From W3C WAI Image Tutorial</a></p>
     </contents>
   </slide>
+
+  <slide>
+    <title>Functional Image</title>
+    <contents>
+      <div class="center" id="ex1">
+          <img width="180px" src="./images/functional-image.jpeg" alt="Next"/>
+      </div>
+      <h2>Code</h2>
+      <pre>
+        <code id="sc1"></code>
+      </pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'ex1');
+        sourceCode.make();
+      </script>
+
+      <h2>Overview</h2>
+      <ul>
+        <li>
+          Functional images are used to initiate actions rather than to convey information. They are used in buttons, links, and other interactive elements.
+        </li>
+        <li>
+          The text alternative for the image should convey the action that will be initiated (the purpose of the image), rather than a description of the image.
+        </li>
+        <li>
+          Missing or empty alt values create significant problems for screen reader users because functional images are essential to the functionality of the content.
+        </li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Complex Image</title>
+    <contents>
+      <div class="center" id="ex1">
+
+      <figure>
+        <img src=".\images\complex-image.png" alt="Charles Minard's 1869 chart showing the number of men in Napoleon’s 1812 Russian campaign army, their movements, as well as the temperature they encountered on the return path. See description following the image.  See the following content for a more detailed description."/>
+        <figcaption style="text-align: left">
+          <p>
+            Figurative Map of the successive losses in men of the French Army in the Russian campaign 1812-1813.
+            Drawn by Mr. Minard, Inspector General of Bridges and Roads in retirement.
+            Paris, 20 November 1869.
+          </p>
+          <p>
+            The numbers of men present are represented by the widths of the colored zones in a rate of one millimeter for ten thousand men; these are also written beside the zones.
+            Red designates men moving into Russia, black those on retreat.
+          </p>
+          <p>
+            The information used for drawing the map were taken from the works of Messrs. Thiers,
+            <span lang="fr">
+              de Ségur, de Fezensac, de Chambray
+            </span>
+            and the unpublished diary of Jacob, pharmacist of the Army since 28 October.
+          </p>
+          <p>
+            In order to facilitate the judgement of the eye regarding the diminution of the army, I supposed that the troops under Prince Jèrôme and under Marshal Davoust, who were sent to Minsk and Mobilow and who rejoined near Orscha and Witebsk, had always marched with the army.
+          </p>
+          <p>
+            <strong>
+              Note: A French translation from Wikipedia.
+            </strong>
+          </p>
+          <details>
+            <summary>
+              Data Table for Minard's Chart
+            </summary>
+            <div class="long_desc" id="id_long_desc">
+              <h3 id="id_data_label">
+                Data for Charles Minard's Chart of Napoleon's Invasion of Russia
+              </h3>
+              <div class="table-wrap">
+                <table aria-labelledby="id_data_label" class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Location</th>
+                      <th scope="col">Approximate Date</th>
+                      <th scope="col">Size of Army</th>
+                      <th scope="col">Temperature C</th>
+                      <th scope="col">Temperature F</th>
+                      <th scope="col">Direction"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Kowno River</th>
+                      <td>June 24th</td>
+                      <td>442,000</td>
+                      <td>na</td>
+                      <td>na</td>
+                      <td>
+                        Advance
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Wilna</th>
+                      <td>June 30th</td>
+                      <td>400,000</td>
+                      <td>na</td>
+                      <td>na</td>
+                      <td>Advance</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Witebsk</th>
+                      <td>na</td>
+                      <td>175,000</td>
+                      <td>na</td>
+                      <td>na</td>
+                      <td>Advance</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Smolensk</th>
+                      <td>August 16th</td>
+                      <td>145,000</td>
+                      <td>na</td>
+                      <td>na</td>
+                      <td>Advance</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Chjat</th>
+                      <td>na</td>
+                      <td>127,000</td>
+                      <td>na</td>
+                      <td>na</td>
+                      <td>Advance</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Mojaisk</th>
+                      <td>September 7th</td>
+                      <td>100,000</td>
+                      <td>na</td>
+                      <td>na</td>
+                      <td>Advance</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Moscow</th>
+                      <td>September 14th</td>
+                      <td>100,000</td>
+                      <td>na</td>
+                      <td>na</td>
+                      <td>Advance</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Malo-jarosewli</th>
+                      <td>October 18th</td>
+                      <td>96,000</td>
+                      <td>0</td>
+                      <td>32</td>
+                      <td>Retreat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Mojaisk</th>
+                      <td>October 24th</td>
+                      <td>87,000</td>
+                      <td>0</td>
+                      <td>32</td>
+                      <td>Retreat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Wirma</th>
+                      <td>na</td>
+                      <td>55,000</td>
+                      <td>na</td>
+                      <td>na</td>
+                      <td>Retreat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Smolensk</th>
+                      <td>November 14th</td>
+                      <td>37,000</td>
+                      <td>-26</td>
+                      <td>-13</td>
+                      <td>Retreat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Orscha</th>
+                      <td>na</td>
+                      <td>24,000</td>
+                      <td>na</td>
+                      <td>na</td>
+                      <td>Retreat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Botr</th>
+                      <td>na</td>
+                      <td>20,000</td>
+                      <td>-14</td>
+                      <td>-7</td>
+                      <td>Retreat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Studienska (reinforcements arrive)</th>
+                      <td>December 1st</td>
+                      <td>50,000</td>
+                      <td>-25</td>
+                      <td>-13</td>
+                      <td>Retreat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Minsk</th>
+                      <td>December 1st</td>
+                      <td>28,000</td>
+                      <td>-30</td>
+                      <td>-22</td>
+                      <td>Retreat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Moloderno</th>
+                      <td>December 6th</td>
+                      <td>28,000</td>
+                      <td>-38</td>
+                      <td>-34</td>
+                      <td>Retreat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Smorgeni</th>
+                      <td>December 7th</td>
+                      <td>12,000</td>
+                      <td>-33</td>
+                      <td>-27</td>
+                      <td>Retreat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Wilna</th>
+                      <td>na</td>
+                      <td>8,000</td>
+                      <td>na</td>
+                      <td>na</td>
+                      <td>Retreat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Kowno (reinforcements arrive)</th>
+                      <td>December 14th</td>
+                      <td>10,000</td>
+                      <td>na</td>
+                      <td>na</td>
+                      <td>Retreat</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+        </figcaption>
+      </figure>
+
+      </div>
+      <h2>Code</h2>
+      <pre>
+        <code id="sc1"></code>
+      </pre>
+
+      <script type="text/javascript">
+        sourceCode.add('sc1', 'ex1');
+        sourceCode.make();
+      </script>
+
+      <h2>Overview</h2>
+      <ul>
+        <li>Complex images contain substantial information – more than can be conveyed in a short phrase or sentence. These are typically:
+          <ul>
+            <li>Graphs and charts, including flow charts and organizational charts.</li>
+            <li>Diagrams and illustrations where the page text relies on the user being able to understand the image.</li>
+            <li>Maps showing locations or other information such as weather systems.</li>
+          </ul>
+        </li>
+
+        <li>Complex images have two-parts for the text alternative:
+          <ol>
+            <li>
+              The first part is the short description to identify the image and, where appropriate, indicate the location of the long description.
+            </li>
+            <li>
+              The second part is the long description – a textual representation of the essential information conveyed by the image.
+            </li>
+          </ol>
+        </li>
+      </ul>
+
+    </contents>
+  </slide>
+
 
   <slide>
     <style>
@@ -270,9 +758,9 @@ and returned home is a strong,
 
       <h2>Source Code</h2>
 
-      <div id="sc1">
-
-      </div>
+      <pre>
+        <code id="sc1"></code>
+      </pre>
 
       <script type="text/javascript">
         sourceCode.add('sc1', 'video1');

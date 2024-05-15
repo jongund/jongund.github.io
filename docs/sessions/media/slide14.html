@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 5: Informative Image: Warning Label</title>
+      <title>Slide 14: Browser Built-in Video Players</title>
       <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="../..//css/html-slides.css">
       <link rel="stylesheet" type="text/css" href="../..//css/ableplayer.min.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><script src="../../js/html-slides-code.js"></script><script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="../../js/ableplayer.js"></script><style id="style"></style>
@@ -17,15 +17,15 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_FIRST" href="slide1.html" title="Slide 1">
                         First
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_PREVIOUS" href="slide4.html" title="Slide 4">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_PREVIOUS" href="slide13.html" title="Slide 13">
                         Previous
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide6.html" title="Slide 6">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide15.html" title="Slide 15">
                         Next
                       </a></li>
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide18.html" title="Slide 18">
                         Last
-                      </a></li><span class="navbar-text">Slide 5 of 18</span></ul>
+                      </a></li><span class="navbar-text">Slide 14 of 18</span></ul>
             </div>
          </div>
       </nav>
@@ -33,17 +33,19 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">Informative Image: Warning Label</h1>
-               <div class="center" id="ex1">
-        <img width="40%" src="./images/informative-image-2.jpeg" alt="Warning label: A yellow triangular symbol with black border with a skull and cross bones in the center of the triangle.">
-      </div>
-               <h2>Code</h2>
-               <div class="more">
-                  <pre>
-          <code id="sc1"></code>
-        </pre>
-               </div><script type="text/javascript">
-        sourceCode.add('sc1', 'ex1');
+               <h1 id="h1_title" class="title">Browser Built-in Video Players</h1>
+               <ul>
+                  <li>Keyboard support</li>
+                  <li>Support for closed captions</li>
+               </ul><video id="video1" controls="">
+                  <source src="media/gb-imovie-mobile.mp4" type="video/mp4">
+                  <source src="media/gb-imovie-mobile.webm" type="video/ogg">
+                  <track kind="captions" src="media/groundbreaking.vtt" srclang="en" label="English Captioning">
+               </video><h2>Source Code</h2>
+               <pre>
+        <code id="sc1"></code>
+      </pre><script type="text/javascript">
+        sourceCode.add('sc1', 'video1');
         sourceCode.make();
       </script></div>
             <div class="col"></div>

@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 13: Recent Webinar on the Accessibility of Media Players</title>
+      <title>Slide 13: HTML5 Video Element Accessibility: Example</title>
       <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="../..//css/html-slides.css">
       <link rel="stylesheet" type="text/css" href="../..//css/ableplayer.min.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><script src="../../js/html-slides-code.js"></script><script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="../../js/ableplayer.js"></script><style id="style"></style>
@@ -20,12 +20,12 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_PREVIOUS" href="slide12.html" title="Slide 12">
                         Previous
                       </a></li>
-                  <li class="nav-item"><a tabindex="-1" aria-disabled="true" class="nav-link disabled" id="ID_SLIDE_NEXT" href="#" title="On Last Slide">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide14.html" title="Slide 14">
                         Next
                       </a></li>
-                  <li class="nav-item"><a tabindex="-1" aria-disabled="true" class="nav-link disabled" id="ID_SLIDE_LAST" href="#" name="On Last Slide">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide18.html" title="Slide 18">
                         Last
-                      </a></li><span class="navbar-text">Slide 13 of 13</span></ul>
+                      </a></li><span class="navbar-text">Slide 13 of 18</span></ul>
             </div>
          </div>
       </nav>
@@ -33,8 +33,43 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">Recent Webinar on the Accessibility of Media Players</h1>
-               <p><a href="http://www.3playmedia.com/how-it-works/webinars/video-player-04-22-2015/">3PlayMedia: The Future of Video Player Accessibility</a></p><iframe src="http://www.3playmedia.com/how-it-works/webinars/video-player-04-22-2015/" width="99%" height="600"></iframe></div>
+               <h1 id="h1_title" class="title">HTML5 Video Element Accessibility: Example</h1>
+               <ul>
+                  <li><a href="http://dev.w3.org/html5/spec/single-page.html#the-video-element" target="_specification"><code>video</code> element</a> supports captioning through the <a href="http://dev.w3.org/html5/spec/single-page.html#the-track-element" target="_specification"><code>track</code> element</a></li>
+                  <li><a href="http://dev.w3.org/html5/webvtt/" target="_specification">WebVTT timed text format</a></li>
+               </ul>
+               <h2>Video Element Example</h2>
+               <pre class="code">
+  &lt;video controls"&gt;
+    &lt;source src="media/gb-imovie-mobile.mp4" type="video/mp4"&gt;
+    &lt;source src="media/gb-imovie-mobile.webm" type="video/ogg"&gt;
+    &lt;track  kind="captions"
+            src="media/groundbreaking.vtt"
+            srclang="en"
+            label="English Captioning"&gt;
+  &lt;/video&gt;
+      </pre>
+               <h2>VTT Time Text Format Example</h2>
+               <pre class="code">
+WEBVTT
+
+00:00:00.000 --&gt; 00:00:00.500
+
+
+00:00:07.140 --&gt; 00:00:26.860
+[music]
+
+00:00:26.860 --&gt; 00:00:29.696
+Recognizing our members of the armed forces
+
+00:00:29.696 --&gt; 00:00:33.266
+who have fallen, and supporting those who have served,
+
+00:00:33.266 --&gt; 00:00:35.869
+and returned home is a strong,
+
+      </pre>
+            </div>
             <div class="col"></div>
          </div>
       </main>

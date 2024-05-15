@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 8: Browser Built-in Video Players</title>
+      <title>Slide 8: Functional Image</title>
       <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="../..//css/html-slides.css">
       <link rel="stylesheet" type="text/css" href="../..//css/ableplayer.min.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><script src="../../js/html-slides-code.js"></script><script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="../../js/ableplayer.js"></script><style id="style"></style>
@@ -23,9 +23,9 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide9.html" title="Slide 9">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide12.html" title="Slide 12">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide18.html" title="Slide 18">
                         Last
-                      </a></li><span class="navbar-text">Slide 8 of 12</span></ul>
+                      </a></li><span class="navbar-text">Slide 8 of 18</span></ul>
             </div>
          </div>
       </nav>
@@ -33,21 +33,29 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">Browser Built-in Video Players</h1>
-               <ul>
-                  <li>Keyboard support</li>
-                  <li>Support for closed captions</li>
-               </ul><video id="video1" controls="">
-                  <source src="media/gb-imovie-mobile.mp4" type="video/mp4">
-                  <source src="media/gb-imovie-mobile.webm" type="video/ogg">
-                  <track kind="captions" src="media/groundbreaking.vtt" srclang="en" label="English Captioning">
-               </video><h2>Source Code</h2>
-               <div id="sc1">
-
-      </div><script type="text/javascript">
-        sourceCode.add('sc1', 'video1');
+               <h1 id="h1_title" class="title">Functional Image</h1>
+               <div class="center" id="ex1">
+          <img width="180px" src="./images/functional-image.jpeg" alt="Next">
+      </div>
+               <h2>Code</h2>
+               <pre>
+        <code id="sc1"></code>
+      </pre><script type="text/javascript">
+        sourceCode.add('sc1', 'ex1');
         sourceCode.make();
-      </script></div>
+      </script><h2>Overview</h2>
+               <ul>
+                  <li>
+          Functional images are used to initiate actions rather than to convey information. They are used in buttons, links, and other interactive elements.
+        </li>
+                  <li>
+          The text alternative for the image should convey the action that will be initiated (the purpose of the image), rather than a description of the image.
+        </li>
+                  <li>
+          Missing or empty alt values create significant problems for screen reader users because functional images are essential to the functionality of the content.
+        </li>
+               </ul>
+            </div>
             <div class="col"></div>
          </div>
       </main>

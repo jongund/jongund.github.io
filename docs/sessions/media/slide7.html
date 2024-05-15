@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 7: HTML5 Video Element Accessibility: Example</title>
+      <title>Slide 7: Decorative Image</title>
       <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="../..//css/html-slides.css">
       <link rel="stylesheet" type="text/css" href="../..//css/ableplayer.min.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><script src="../../js/html-slides-code.js"></script><script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><script src="../../js/ableplayer.js"></script><style id="style"></style>
@@ -23,9 +23,9 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide8.html" title="Slide 8">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide12.html" title="Slide 12">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide18.html" title="Slide 18">
                         Last
-                      </a></li><span class="navbar-text">Slide 7 of 12</span></ul>
+                      </a></li><span class="navbar-text">Slide 7 of 18</span></ul>
             </div>
          </div>
       </nav>
@@ -33,42 +33,41 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">HTML5 Video Element Accessibility: Example</h1>
+               <h1 id="h1_title" class="title">Decorative Image</h1>
+               <div class="center" id="ex1">
+                  <div>
+          <img width="50px" src="./images/decorative-image.jpg" alt="">
+          Call (312) 996-4350
+        </div>
+               </div>
+               <h2>Code</h2>
+               <pre>
+        <code id="sc1"></code>
+      </pre><script type="text/javascript">
+        sourceCode.add('sc1', 'ex1');
+        sourceCode.make();
+      </script><h2>Overview</h2>
                <ul>
-                  <li><a href="http://dev.w3.org/html5/spec/single-page.html#the-video-element" target="_specification"><code>video</code> element</a> supports captioning through the <a href="http://dev.w3.org/html5/spec/single-page.html#the-track-element" target="_specification"><code>track</code> element</a></li>
-                  <li><a href="http://dev.w3.org/html5/webvtt/" target="_specification">WebVTT timed text format</a></li>
+                  <li>
+          Decorative images don’t add information to the content of a page. For example, the information provided by the image might already be given using adjacent text, or the image might be included to make the website more visually attractive.
+        </li>
+                  <li>
+          Decoratibe image should have a null (empty) alt text should be provided (alt="") so that they can be ignored by assistive technologies, such as screen readers.</li>
+                  <li>
+          Text descriptions for these types of images would add audible clutter to screen reader output or could distract users if the topic is different from that in adjacent text.
+        </li>
+                  <li>
+          Leaving out the alt attribute is also not an option because when it is not provided, some screen readers will announce the file name of the image instead.
+        </li>
+                  <li>Whether to treat an image as decorative or informative is a judgment that only the author can make, based on the reason for including the image on the page. Images may be decorative when they are:
+          <ul>
+                        <li>Visual styling such as borders, spacers, and corners.</li>
+                        <li>Supplementary to link text to improve its appearance or increase the clickable area.</li>
+                        <li>Illustrative of adjacent text but not contributing information (“eye-candy”)</li>
+                        <li>Identified and described by surrounding text.</li>
+                     </ul>
+                  </li>
                </ul>
-               <h2>Video Element Example</h2>
-               <pre class="code">
-  &lt;video controls"&gt;
-    &lt;source src="media/gb-imovie-mobile.mp4" type="video/mp4"&gt;
-    &lt;source src="media/gb-imovie-mobile.webm" type="video/ogg"&gt;
-    &lt;track  kind="captions"
-            src="media/groundbreaking.vtt"
-            srclang="en"
-            label="English Captioning"&gt;
-  &lt;/video&gt;
-      </pre>
-               <h2>VTT Time Text Format Example</h2>
-               <pre class="code">
-WEBVTT
-
-00:00:00.000 --&gt; 00:00:00.500
-
-
-00:00:07.140 --&gt; 00:00:26.860
-[music]
-
-00:00:26.860 --&gt; 00:00:29.696
-Recognizing our members of the armed forces
-
-00:00:29.696 --&gt; 00:00:33.266
-who have fallen, and supporting those who have served,
-
-00:00:33.266 --&gt; 00:00:35.869
-and returned home is a strong,
-
-      </pre>
             </div>
             <div class="col"></div>
          </div>
