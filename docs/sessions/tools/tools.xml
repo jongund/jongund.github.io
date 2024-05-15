@@ -164,6 +164,7 @@
     <title>OpenA11y Evaluation Library</title>
     <contents>
       <ul>
+        <li><a href="https://opena11y.github.io/evaluation-library/">Evaluation Library Documentation.</a></li>
         <li>Support the use of HTML5 and ARIA techniques for implementation of WCAG 2.0 Level A and AA requirements</li>
         <li>Raise awareness of accessibility of accessibility issues</li>
         <li>Knowledge base on what it means to comply with WCAG 2.0 requirements for specific technologies (e.g. teaching and learning framework)</li>
