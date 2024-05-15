@@ -2,9 +2,9 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 37: Popup Error Example 5: aria-labelledby attribute used for error message</title>
-      <link rel="stylesheet" type="text/css" href="../..//css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="../..//css/html-slides.css"><script src="../..//js/bootstrap.bundle.min.js"></script><script src="../..//js/html-slides-2.js"></script><style id="style">
+      <title>Slide 37: Popup Error Example 6: aria-label attribute used for error message</title>
+      <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="../../css/html-slides.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><script src="../../js/html-slides-code.js"></script><script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><style id="style">
       div {
       border: solid medium transparent;
       }
@@ -51,28 +51,45 @@
       margin-top: 1em;
       }
 
+      label {
+      display: block;
+      margin: 0;
+      padding: 0;
+      font-weight: normal;
+      }
+
+      fieldset,
+      legend {
+      padding: 0;
+      margin: 0;
+      margin-top: 1em;
+      }
+
+      legend {
+      margin-top: 1em;
+      font-weight: bold;
+      font-size: 110%;
+      }
+
       div.text,
       div.select,
-      div.group,
       input[type="submit"] {
       margin-top: 0.5em;
       }
 
-      div.group {
-      width: 20em;
+
+      label.error,
+      lanel.noerror {
+      display: inline;
       }
 
-      div.group div.title {
-      font-weight: bold;
-      }
-
-      span.error {
+      label.error {
       color: red;
       border: thin solid red;
       padding: 0.25em;
       }
 
-      span.noerror {
+      label.noerror {
       color: transparent;
       border: thin solid transparent;
       padding: 0.25em;
@@ -96,9 +113,9 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide38.html" title="Slide 38">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide39.html" title="Slide 39">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide38.html" title="Slide 38">
                         Last
-                      </a></li><span class="navbar-text">Slide 37 of 39</span></ul>
+                      </a></li><span class="navbar-text">Slide 37 of 38</span></ul>
             </div>
          </div>
       </nav>
@@ -106,86 +123,107 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">Popup Error Example 5: aria-labelledby attribute used for error message</h1>
+               <h1 id="h1_title" class="title">Popup Error Example 6: aria-label attribute used for error message</h1>
                <h2>Features</h2>
                <ul>
-                  <li><code>aria-labelledby</code> attribute is used to label form control and includes element with error message.</li>
+                  <li><code>label[for]</code> elements provide initial labels for form contorls.</li>
+                  <li><code>aria-label</code> attribute changes the label for a form control when it has an error.</li>
                   <li>HTML5 <code>required</code> attribute to identify a form control is required.</li>
                   <li><code>aria-invalid="true"</code> attribute is used to identify a form control has an invalid value, otherwise the attribute is removed for compatibility with Firefox.</li>
                   <li><code>role="status"</code> is used to autmatically announce errors in form controls.</li>
                </ul>
                <div role="region" aria-label="Example">
-                  <div id="id-errors" role="region" aria-label="Error information">
-
-        </div>
                   <form id="form">
                      <h2>Pizza Order Form</h2>
                      <div class="text">
-                        <div id="id-name-label">Name</div>
-            <input id="id-name" required="true" type="text" size="30" aria-labelledby="id-name-label id-name-error" onblur="checkName()">
-            <span id="id-name-error" class="noerror" role="status"> </span>
+            <label for="id-name">Name</label>
+            <input id="id-name" required="true" type="text" size="30" onblur="checkName()">
+            <label id="id-name-error" for="id-name" class="noerror" role="status"> </label>
           </div>
                      <div class="text">
-                        <div id="id-address-label">Address</div>
-            <input id="id-address" required="true" type="text" size="40" aria-labelledby="id-address-label id-address-error" onblur="checkAddress()">
-            <span id="id-address-error" class="noerror" role="status"> </span>
+            <label for="id-address">Address</label>
+            <input id="id-address" required="true" type="text" size="40" onblur="checkAddress()">
+            <label id="id-address-error" for="id-address" class="noerror" role="status"> </label>
           </div>
                      <div class="text">
-                        <div id="id-phone-label">Phone</div>
-            <input id="id-phone" required="true" type="text" size="14" aria-labelledby="id-phone-label id-phone-error" onblur="checkPhone()">
-            <span id="id-phone-error" class="noerror" role="status"> </span>
+            <label for="id-phone">Phone</label>
+            <input id="id-phone" required="true" type="text" size="14" onblur="checkPhone()">
+            <label id="id-phone-error" for="id-phone" class="noerror" role="status"> </label>
           </div>
                      <div class="select">
-                        <div id="id-delivery-label">Delivery Method</div>
-            <select id="id-delivery" aria-labelledby="id-delivery-label">
+            <label for="id-delivery">Delivery Method</label>
+            <select id="id-delivery">
                            <option>Eat in store</option>
                            <option>Pickup</option>
                            <option>Home delivery</option>
                         </select>
           </div>
-                     <div class="group">
-                        <div id="id-crust" class="title">Crust</div>
+                     <fieldset>
+                        <legend>Crust</legend>
                         <div class="button">
-              <input id="id-thin" name="crust" type="radio" value="Thin" aria-required="true" aria-labelledby="id-thin id-crust"> Thin
+              <label>
+                <input id="id-thin" name="crust" type="radio" value="Thin" required="true">
+                Thin
+              </label>
             </div>
                         <div class="button">
-              <input id="id-classic" name="crust" type="radio" value="Classic" aria-required="true" aria-labelledby="id-thin id-crust"> Classic
+              <label>
+                <input id="id-classic" name="crust" type="radio" value="Classic" required="true">
+                Classic
+              </label>
             </div>
                         <div class="button">
-              <input id="id-deep" name="crust" type="radio" value="Deep Dish" aria-required="true" aria-labelledby="id-thin id-crust"> Deep Dish
+              <label>
+                <input id="id-deep" name="crust" type="radio" value="Deep Dish" required="true">
+                Deep Dish
+              </label>
             </div>
-                     </div>
-                     <div class="group">
-                        <div id="id-toppings" class="title">Toppings</div>
+                     </fieldset>
+                     <fieldset>
+                        <legend>Toppings</legend>
                         <div class="button">
-              <input id="id-sausage" name="topping" type="checkbox" value="Sausage" aria-labelledby="id-sausage id-toppings" aria-describedby="id-special">
+              <label>
+                <input id="id-sausage" name="topping" type="checkbox" value="Sausage">
                 Sausage
+              </label>
             </div>
                         <div class="button">
-              <input id="id-pepperoni" name="topping" type="checkbox" value="Pepperoni" aria-labelledby="id-pepperoni id-toppings">
+              <label>
+                <input id="id-pepperoni" name="topping" type="checkbox" value="Pepperoni">
                 Pepperoni
+              </label>
             </div>
                         <div class="button">
-              <input id="id-mushrooms" name="topping" type="checkbox" value="Mushrooms" aria-labelledby="id-mushrooms id-toppings">
+              <label>
+                <input id="id-mushrooms" name="topping" type="checkbox" value="Mushrooms">
                 Mushrooms
+              </label>
             </div>
                         <div class="button">
-              <input id="id-onions" name="topping" type="checkbox" value="Onions" aria-labelledby="id-onions id-toppings">
+              <label>
+                <input id="id-onions" name="topping" type="checkbox" value="Onions">
                 Onions
+              </label>
             </div>
                         <div class="button">
-              <input id="id-green" name="topping" type="checkbox" value="Green Peppers" aria-labelledby="id-green id-toppings">
+              <label>
+                <input id="id-green" name="topping" type="checkbox" value="Green Peppers">
                 Green Peppers
+              </label>
             </div>
                         <div class="button">
-              <input id="id-black" name="topping" type="checkbox" value="Black Olives" aria-labelledby="id-black id-toppings">
+              <label>
+                <input id="id-black" name="topping" type="checkbox" value="Black Olives">
                 Back Olives
+              </label>
             </div>
                         <div class="button">
-              <input id="id-x-cheese" name="topping" type="checkbox" value="Extra Cheese" aria-labelledby="id-x-cheese id-toppings">
+              <label>
+                <input id="id-x-cheese" name="topping" type="checkbox" value="Extra Cheese" aria-labelledby="id-x-cheese id-toppings">
                 Extra cheese
+              </label>
             </div>
-                     </div>
+                     </fieldset>
 
           <input type="submit" value="Submit Order" onclick="submitOrder(event)">
 
@@ -276,12 +314,14 @@
 
         if (flag) {
         $(ei).attr('aria-invalid', 'true');
+        $(ei).attr('aria-label', message);
         $(em).append(message);
         $(em).removeClass('noerror');
         $(em).addClass('error');
         }
         else {
         $(ei).removeAttr('aria-invalid');
+        $(ei).removeAttr('aria-label');
         $(em).addClass('noerror');
         $(em).removeClass('error');
         }
@@ -333,19 +373,34 @@
       <footer class="container">
          <div id="footer" class="well well-sm"><span class="logo"><a href="https://openweba11y.com" aria-label="Open Web Accessibility">
       <span class="brand"><span class="open">Open</span><span class="web">Web</span><span class="a11y">A11y</span></span>
-    </a></span><span class="copyright">
+    </a></span><span xmlns:lxslt="http://xml.apache.org/xslt" xmlns:wai_report="http://www.w3.org/wai" class="copyright">
      Copyright © 2024 Jon Gunderson
-  </span><span class="highlight-icon">
-          ↖
-        </span><span id="ID_SHOW"><button class="show hide" id="ID_SHOW_MORE" aria-label="Show more">
-            ⊕
-          </button><button class="show hide " id="ID_SHOW_LESS" aria-label="Show less">
-            ⊖
-          </button><button class="show hide" id="ID_SHOW_ALL" aria-label="Show all">
-              All+
-          </button><button class="show hide" id="ID_HIDE_ALL" aria-label="Hide all">
-              All-
-          </button></span></div>
+  </span><span xmlns:lxslt="http://xml.apache.org/xslt" xmlns:wai_report="http://www.w3.org/wai" id="ID_SHOW">
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_MORE" role="button" tabindex="0" aria-label="Show more" width="30" height="30" viewBox="0 0 50 50">
+                  <circle class="focus" cx="25" cy="25" r="20"></circle>
+                  <circle class="icon" cx="25" cy="25" r="15"></circle>
+                  <line class="icon" x1="16" y1="25" x2="34" y2="25"></line>
+                  <line class="icon" x1="25" y1="16" x2="25" y2="34"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_LESS" role="button" tabindex="0" aria-label="Show less" width="30" height="30" viewBox="0 0 50 50">
+                  <circle class="focus" cx="25" cy="25" r="20"></circle>
+                  <circle class="icon" cx="25" cy="25" r="15"></circle>
+                  <line class="icon" x1="16" y1="25" x2="34" y2="25"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_SHOW_ALL" role="button" tabindex="0" aria-label="Show all" width="34" height="30" viewBox="0 0 70 50">
+                  <rect class="focus" x="4" y="4" height="46" width="64" rx="4" ry="4"></rect>
+                  <rect class="icon" x="8" y="8" height="38" width="56" rx="4" ry="4"></rect>
+                  <line class="icon" x1="24" y1="15" x2="50" y2="15"></line>
+                  <line class="icon" x1="16" y1="23" x2="56" y2="23"></line>
+                  <line class="icon" x1="16" y1="31" x2="56" y2="31"></line>
+                  <line class="icon" x1="16" y1="39" x2="56" y2="39"></line>
+               </svg>
+               <svg xmlns="http://www.w3.org/2000/svg" id="ID_HIDE_ALL" role="button" tabindex="0" aria-label="Hide all" width="34" height="30" viewBox="0 0 70 50">
+                  <rect class="focus" x="4" y="4" height="46" width="64" rx="4" ry="4"></rect>
+                  <rect class="icon" x="8" y="8" height="38" width="56" rx="4" ry="4"></rect>
+                  <line class="icon" x1="24" y1="15" x2="50" y2="15"></line>
+               </svg>
+            </span></div>
       </footer>
    </body>
 </html>
