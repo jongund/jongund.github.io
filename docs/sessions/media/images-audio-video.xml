@@ -847,7 +847,7 @@
             <li>Adding timing information</li>
             <li>Deciding on a timed text format (e.g. what is compatible with your media player)</li>
             <li>Use a player that supports closed captioning</li>
-            <li>Automatically generated captions. <br/><em>Note:</em> Accuracy maybe affected by speakers with strong accents.</li>
+            <li>Automatically generated captions. <br/><em>Note:</em> Accuracy maybe affected by speakers with strong accents or technical terms not in general use.</li>
           </ol>
         </li>
         <li>Adding audio description tracks to video
@@ -878,7 +878,17 @@
         <li><a href="http://www.w3.org/TR/ttaf1-dfxp/" target="_specifications">Timed Text Markup Language (TTML) 1.0</a></li>
       </ul>
     </contents>
+  </slide>
 
+  <slide>
+    <title>Features of Tools to Assist in Creating Captions</title>
+    <contents>
+      <ul>
+        <li>Using speech recognition to create initial transcription.</li>
+        <li>Ease of editing transcriptions to make a script for a pfresentation.</li>
+        <li>Use script for the author to create the final high quality captions for the presentation.</li>
+      </ul>
+    </contents>
   </slide>
 
   <slide>
