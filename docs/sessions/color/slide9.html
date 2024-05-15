@@ -2,9 +2,35 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 9: Sensory Characteristics</title>
+      <title>Slide 9: Use of Color: Availability Status</title>
       <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="../../css/html-slides.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><style id="style"></style>
+      <link rel="stylesheet" type="text/css" href="../../css/html-slides.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><style id="style">
+      table.status {
+        background-color: white;
+        color: black;
+        border-collapse: collapse;
+      }
+
+      table.status th {
+        border-bottom: thin solid black;
+      }
+
+      table.status th.status {
+        width: 3em;
+      }
+
+      table.status th,
+      table.status td {
+        text-align: left;
+        padding-left: 0.5em;
+        padding-right: 1em;
+      }
+
+      table.status tr > th:first-child,
+      table.status tr > td:first-child {
+         text-align: right;
+      }
+    </style>
    </head>
    <body>
       <nav id="nav" class="navbar navbar-expand-md bg-body-tertiary">
@@ -22,9 +48,9 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide10.html" title="Slide 10">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide10.html" title="Slide 10">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide12.html" title="Slide 12">
                         Last
-                      </a></li><span class="navbar-text">Slide 9 of 10</span></ul>
+                      </a></li><span class="navbar-text">Slide 9 of 12</span></ul>
             </div>
          </div>
       </nav>
@@ -32,12 +58,38 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">Sensory Characteristics</h1>
-               <h2>Failing Example: Event Schedule</h2>
-               <p>The instructions for interpreting a schedule of competitive events references colored icons in different shapes to indicate the venue for each event.. A table presents a list of times across the top row and a list of events in the first vertical column and instructions are provided under the table: "Events marked with a blue diamond are played on field A and events marked with a green circle are played on field B." The instructions rely on color and shape only and result in a failure of this criterion.</p>
-               <h2>Passing Example: An online multi-page survey</h2>
-               <p>
-        An online multi-page survey uses a link implemented as a green arrow icon placed in the lower right hand corner of the page to move to the next set of questions. The arrow is clearly labeled with "Next" and the instructions state, "To move to the next section of the survey, select the green arrow icon labeled 'Next' in the lower right corner below the last survey question." The instruction uses positioning and color to help identify the icon; the instruction does not rely on these sensory characteristics since it also refers to the label, so it passes this criterion.      </p>
+               <h1 id="h1_title" class="title">Use of Color: Availability Status</h1>
+               <table class="status table table-striped">
+                  <thead>
+                     <tr>
+                        <th class="status">Icon</th>
+                        <th class="status">Status</th>
+                        <th>Person</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr class="odd">
+                        <td><img src="./images/circle_red_24_ns.png" title="Busy" height="16px"></td>
+                        <td> Busy</td>
+                        <td> Elida Locicero </td>
+                     </tr>
+                     <tr>
+                        <td class="status"><img src="./images/circle_yellow_24_ns.png" title="Away" height="16px"></td>
+                        <td> Away</td>
+                        <td> Gabriella Okane </td>
+                     </tr>
+                     <tr class="odd">
+                        <td><img src="./images/circle_green.png" title="Available" height="16px"></td>
+                        <td> Available</td>
+                        <td> Shizuko Enloe </td>
+                     </tr>
+                     <tr>
+                        <td><img src="./images/circle_black_24_ns.png" title="Unknown" height="16px"></td>
+                        <td> Unknown</td>
+                        <td> Val Rainwater </td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
             <div class="col"></div>
          </div>

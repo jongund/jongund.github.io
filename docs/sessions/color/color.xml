@@ -42,17 +42,29 @@
   </slide>
 
   <slide>
-    <title>Color Blindness</title>
+    <title>Tyoes of Color Blindness</title>
     <contents>
-      <h2>Deuteranopia – Red-Green Color Blindness (~6% of male population)</h2>
-      <p><img src="color_blind_12.jpg" alt="Traffic stop lights showing the effert of Deuteranopia color blindness"/></p>
-      <p><img src="deuteranopia-color-spectrum.jpg" alt="Deuteranopia color perception compared to normal vision"/></p>
+      <figure>
+        <img src="./images/types-of-color-blindness.webp" alt="Four colorwheels representing normal vision, Deuteranopia, Protanopia and Tritanomaly"/>
+        <figcaption>Types Of Color Blindness</figcaption>
+      </figure>
 
       <h2>More Information</h2>
       <ul>
+        <li><a href="https://heffingtons.com/types-of-color-blindness/">Heffington's Blog</a></li>
         <li><a href="https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/color-blindness">NIH: Color Blindness</a></li>
         <li><a href="https://www.colourblindawareness.org/colour-blindness/causes-of-colour-blindness/">Causes of Colour Blindness.</a></li>
       </ul>
+    </contents>
+  </slide>
+
+
+  <slide>
+    <title>Color Blindness: Deuteranopia</title>
+    <contents>
+      <h2>Deuteranopia – Red-Green Color Blindness (~6% of male population)</h2>
+      <p><img src="./images/color_blind_12.jpg" alt="Traffic stop lights showing the effert of Deuteranopia color blindness"/></p>
+      <p><img src="./images/deuteranopia-color-spectrum.jpg" alt="Deuteranopia color perception compared to normal vision"/></p>
     </contents>
   </slide>
 
@@ -128,19 +140,29 @@
     <title>WCAG Color Requirements</title>
     <contents>
       <dl>
-        <dt><a href="https://www.w3.org/TR/WCAG20/#content-structure-separation-understanding" target="_specification">1.3.3 Sensory Characteristics</a></dt>
+        <dt><a href="https://www.w3.org/TR/WCAG/#sensory-characteristics">1.3.3 Sensory Characteristics</a></dt>
         <dd>Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound. (Level A)</dd>
 
-        <dt class="more"><a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color" target="_specification">1.4.1 Use of Color</a></dt>
-        <dd class="more">Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element. (Level A)</dd>
+        <dt><a href="https://www.w3.org/TR/WCAG/#use-of-color" target="_specification">1.4.1 Use of Color</a></dt>
+        <dd>Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element. (Level A)</dd>
 
-        <dt class="more"><a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" target="_specification">1.4.3 Contrast (Minimum):</a></dt>
-        <dd class="more">The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following: (Level AA)
+        <dt><a href="https://www.w3.org/TR/WCAG/#contrast-minimum" target="_specification">1.4.3 Contrast (Minimum):</a></dt>
+        <dd>The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following: (Level AA)
           <ul>
-            <li>Large Text: Large-scale text and images of large-scale text have a contrast ratio of at least 3:1</li>
-            <li>Incidental: Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.</li>
-            <li>Logotypes: Text that is part of a logo or brand name has no minimum contrast requirement.</li>
+            <li><em>Large Text:</em> Large-scale text and images of large-scale text have a contrast ratio of at least 3:1</li>
+            <li><em>Incidental:</em> Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.</li>
+            <li><em>Logotypes:</em> Text that is part of a logo or brand name has no minimum contrast requirement.</li>
           </ul>
+
+        <dt><a href="https://www.w3.org/TR/WCAG/#contrast-enhanced" target="_specification">1.4.6 Contrast (Enhanced):</a></dt>
+        <dd>The visual presentation of text and images of text has a contrast ratio of at least 7:1, except for the following: (Level AAA)
+          <ul>
+            <li><em>Large Text:</em> Large-scale text and images of large-scale text have a contrast ratio of at least 4.5:1</li>
+            <li><em>Incidental:</em> Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.</li>
+            <li><em>Logotypes:</em> Text that is part of a logo or brand name has no contrast requirement.</li>
+          </ul>
+        </dd>
+
         </dd>
       </dl>
     </contents>
@@ -159,6 +181,10 @@
         border-bottom: thin solid black;
       }
 
+      table.status th.status {
+        width: 3em;
+      }
+
       table.status th,
       table.status td {
         text-align: left;
@@ -170,17 +196,12 @@
       table.status tr > td:first-child {
          text-align: right;
       }
-
-      table.status tr.odd {
-        background-color: #E0E0E0;
-        color: black;
-      }
     </style>
     <contents>
-      <table class="status">
+      <table class="status table table-striped">
         <thead>
           <tr>
-            <th>Status</th>
+            <th class="status">Status</th>
             <th>Person</th>
           </tr>
         </thead>
@@ -220,6 +241,10 @@
         border-bottom: thin solid black;
       }
 
+      table.status th.status {
+        width: 3em;
+      }
+
       table.status th,
       table.status td {
         text-align: left;
@@ -231,18 +256,13 @@
       table.status tr > td:first-child {
          text-align: right;
       }
-
-      table.status tr.odd {
-        background-color: #E0E0E0;
-        color: black;
-      }
     </style>
     <contents>
-      <table class="status">
+      <table class="status table table-striped">
         <thead>
           <tr>
-            <th>Icon</th>
-            <th>Status</th>
+            <th class="status">Icon</th>
+            <th class="status">Status</th>
             <th>Person</th>
           </tr>
         </thead>
@@ -299,6 +319,134 @@
         <li><a target="_tool" href="https://chrome.google.com/webstore/search/color%20contrast%20analyzer">Color Contrast Analyzer for Chrome</a></li>
         <li><a target="_tool" href="https://www.paciellogroup.com/resources/contrastAnalyser">TPC: Colour Contrast Analyser</a></li>
       </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Color Contrast Examples</title>
+
+    <style>
+      td.fail {
+        background-color: #ffb09c;
+        text-align: center;
+      }
+      td.pass {
+        background-color: #c2ffa1;
+        text-align: center;
+      }
+    </style>
+    <contents>
+      <table class="table">
+        <thead>
+          <tr style="font-size: 12pt">
+            <th>Example Color Contrast</th>
+            <th>Font<br/>Size</th>
+            <th>CCR</th>
+            <th style="text-align: center">WCAG<br/>Minimum (AA)</th>
+            <th style="text-align: center">WCAG<br/>Enhanced (AAA)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #FFF">Sample Text</td>
+            <td>normal</td>
+            <td>21</td>
+            <td class="pass">Pass</td>
+            <td class="pass">Pass</td>
+          </tr>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #FFF; font-size: 18pt">Sample Text</td>
+            <td>large</td>
+            <td>21</td>
+            <td class="pass">Pass</td>
+            <td class="pass">Pass</td>
+          </tr>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #DDD">Sample Text</td>
+            <td>normal</td>
+            <td>15.5</td>
+            <td class="pass">Pass</td>
+            <td class="pass">Pass</td>
+          </tr>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #DDD; font-size: 18pt">Sample Text</td>
+            <td>large</td>
+            <td>15.5</td>
+            <td class="pass">Pass</td>
+            <td class="pass">Pass</td>
+          </tr>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #BBB">Sample Text</td>
+            <td>normal</td>
+            <td>10.9</td>
+            <td class="pass">Pass</td>
+            <td class="pass">Pass</td>
+          </tr>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #BBB; font-size: 18pt">Sample Text</td>
+            <td>large</td>
+            <td>10.9</td>
+            <td class="pass">Pass</td>
+            <td class="pass">Pass</td>
+          </tr>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #999">Sample Text</td>
+            <td>normal</td>
+            <td>7.4</td>
+            <td class="pass">Pass</td>
+            <td class="pass">Pass</td>
+          </tr>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #999; font-size: 18pt">Sample Text</td>
+            <td>large</td>
+            <td>7.4</td>
+            <td class="pass">Pass</td>
+            <td class="pass">Pass</td>
+          </tr>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #777">Sample Text</td>
+            <td>normal</td>
+            <td>4.7</td>
+            <td class="pass">Pass</td>
+            <td class="pass">Pass</td>
+          </tr>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #777; font-size: 18pt">Sample Text</td>
+            <td>large</td>
+            <td>4.7</td>
+            <td class="pass">Pass</td>
+            <td class="fail">Fail</td>
+          </tr>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #666">Sample Text</td>
+            <td>normal</td>
+            <td>3.7</td>
+            <td class="fail">Fail</td>
+            <td class="fail">Fail</td>
+          </tr>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #666; font-size: 18pt">Sample Text</td>
+            <td>large</td>
+            <td>3.7</td>
+            <td class="pass">Pass</td>
+            <td class="fail">Fail</td>
+          </tr>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #444">Sample Text</td>
+            <td>normal</td>
+            <td>2.2</td>
+            <td class="fail">Fail</td>
+            <td class="fail">Fail</td>
+          </tr>
+          <tr style="font-size: 12pt">
+            <td style="color: #000; background: #444; font-size: 18pt">Sample Text</td>
+            <td>large</td>
+            <td>2.2</td>
+            <td class="fail">Fail</td>
+            <td class="fail">Fail</td>
+          </tr>
+        </tbody>
+      </table>
     </contents>
   </slide>
 

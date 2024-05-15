@@ -2,35 +2,10 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 7: Use of Color: Availability Status</title>
+      <title>Slide 7: WCAG Color Requirements</title>
       <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="../../css/html-slides.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><style id="style">
-      table.status {
-        background-color: white;
-        color: black;
-        border-collapse: collapse;
-      }
-
-      table.status th {
-        border-bottom: thin solid black;
-      }
-
-      table.status th,
-      table.status td {
-        text-align: left;
-        padding-left: 0.5em;
-        padding-right: 1em;
-      }
-
-      table.status tr > th:first-child,
-      table.status tr > td:first-child {
-         text-align: right;
-      }
-
-      table.status tr.odd {
-        background-color: #E0E0E0;
-        color: black;
-      }
+      dt { font-weight: bold; padding-top: 1em;}
     </style>
    </head>
    <body>
@@ -49,9 +24,9 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide8.html" title="Slide 8">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide10.html" title="Slide 10">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide12.html" title="Slide 12">
                         Last
-                      </a></li><span class="navbar-text">Slide 7 of 10</span></ul>
+                      </a></li><span class="navbar-text">Slide 7 of 12</span></ul>
             </div>
          </div>
       </nav>
@@ -59,33 +34,29 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">Use of Color: Availability Status</h1>
-               <table class="status">
-                  <thead>
-                     <tr>
-                        <th>Status</th>
-                        <th>Person</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr class="odd">
-                        <td><img src="./images/circle_red_24_ns.png" title="Busy" height="16px"></td>
-                        <td> Elida Locicero </td>
-                     </tr>
-                     <tr>
-                        <td class="status"><img src="./images/circle_yellow_24_ns.png" title="Away" height="16px"></td>
-                        <td> Gabriella Okane </td>
-                     </tr>
-                     <tr class="odd">
-                        <td><img src="./images/circle_green.png" title="Available" height="16px"></td>
-                        <td> Shizuko Enloe </td>
-                     </tr>
-                     <tr>
-                        <td><img src="./images/circle_black_24_ns.png" title="Unknown" height="16px"></td>
-                        <td> Val Rainwater </td>
-                     </tr>
-                  </tbody>
-               </table>
+               <h1 id="h1_title" class="title">WCAG Color Requirements</h1>
+               <dl>
+                  <dt><a href="https://www.w3.org/TR/WCAG/#sensory-characteristics">1.3.3 Sensory Characteristics</a></dt>
+                  <dd>Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound. (Level A)</dd>
+                  <dt><a href="https://www.w3.org/TR/WCAG/#use-of-color" target="_specification">1.4.1 Use of Color</a></dt>
+                  <dd>Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element. (Level A)</dd>
+                  <dt><a href="https://www.w3.org/TR/WCAG/#contrast-minimum" target="_specification">1.4.3 Contrast (Minimum):</a></dt>
+                  <dd>The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following: (Level AA)
+          <ul>
+                        <li><em>Large Text:</em> Large-scale text and images of large-scale text have a contrast ratio of at least 3:1</li>
+                        <li><em>Incidental:</em> Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.</li>
+                        <li><em>Logotypes:</em> Text that is part of a logo or brand name has no minimum contrast requirement.</li>
+                     </ul>
+                     <dt><a href="https://www.w3.org/TR/WCAG/#contrast-enhanced" target="_specification">1.4.6 Contrast (Enhanced):</a></dt>
+                     <dd>The visual presentation of text and images of text has a contrast ratio of at least 7:1, except for the following: (Level AAA)
+          <ul>
+                           <li><em>Large Text:</em> Large-scale text and images of large-scale text have a contrast ratio of at least 4.5:1</li>
+                           <li><em>Incidental:</em> Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.</li>
+                           <li><em>Logotypes:</em> Text that is part of a logo or brand name has no contrast requirement.</li>
+                        </ul>
+                     </dd>
+                  </dd>
+               </dl>
             </div>
             <div class="col"></div>
          </div>
