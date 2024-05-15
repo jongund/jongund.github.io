@@ -2677,37 +2677,10 @@
   <slide>
     <title>ARIA Authoring Practices</title>
     <contents>
-      <p><a href="https://w3c.github.io/aria-practices/">ARIA Authoring Practices 1.2</a></p>
+      <p><a href="https://www.w3.org/WAI/ARIA/apg/">ARIA Authoring Practices</a></p>
       <ul>
-        <li>Combobox design pattern 1.2 that works with assistive technologies.</li>
-        <li>New section on communicating value and limits for range widgets.</li>
-        <li>New section on navigational links using disclosure, menubar and tree widgets.</li>
-        <li>Unit testing of examples for:
-          <ul>
-            <li>Keyboard interaction.</li>
-            <li>Proper use of ARIA roles.</li>
-            <li>Proper use of ARIA properties and states.</li>
-          </ul>
-        </li>
-        <li>Linting code quality:
-          <ul>
-            <li>HTML code</li>
-            <li>CSS code</li>
-            <li>Javascript code</li>
-          </ul>
-        </li>
-        <li>High contrast support in new and some updated examples:
-          <ul>
-            <li>Carousel</li>
-            <li>Combobox</li>
-            <li>Date Pickers</li>
-            <li>Menubar</li>
-            <li>Menu Button</li>
-            <li>Single-Thumb Slider</li>
-            <li>Toolbar</li>
-            <li>Treeview Navigation</li>
-          </ul>
-        </li>
+        <li>Use as reference to understand how to use ARIA and to interact with examples.</li>
+        <li>Can be used as a reference when filing bugs with designers and developers.</li>
       </ul>
     </contents>
   </slide>
