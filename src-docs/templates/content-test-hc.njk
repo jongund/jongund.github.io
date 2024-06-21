@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    {% include "./head.njk" %}
+
+    <!-- Test CSS -->
+    <link href="{{path}}test/test-hc.css" rel="stylesheet" />
+
+  </head>
+  <body>
+    {% include "./header.njk" %}
+
+    <!-- Main section-->
+    <div id="main-section" class="container px-4">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">{{title | safe}}</li>
+        </ol>
+      </nav>
+      <main class="row gx-4 justify-content-center">
+        <div class="col-lg-8">
+          {% block title %}
+          <h1>High Contrast Test</h1>
+          {% endblock %}
+          <div id="high-contrast">
+
+            <h2>Media Query Settings</h2>
+            <div>
+              <code>
+                prefers-contrast:
+                <span id="id-ic-custom">custom</span>
+                <span id="id-ic-less">less</span>
+                <span id="id-ic-more">more</span>
+                <span id="id-ic-np">no-preference</span>
+              </code>
+            </div>
+
+            <div>
+              <code>
+                prefers-color-theme:
+                <span id="id-pcs-light">light</span>
+                <span id="id-pcs-dark">dark</span>
+                <span id="id-pcs-undefined">undefined</span>
+              </code>
+            </div>
+
+            <div>
+              <code>
+                forced-colors:
+                <span id="id-fc-none">none</span>
+                <span id="id-fc-active">active</span>
+              </code>
+            </div>
+
+            <h2>Link Styling</h2>
+
+            <h3>Browser Defaults</h3>
+
+            <ul>
+              <li>Follow <a href="#">Link 1</a> to a new page.</li>
+              <li>Follow <a href="#">Link 2</a> to a new page.</li>
+              <li>Follow <a href="#">Link 3</a> to a new page.</li>
+              <li>Follow <a href="#">Link 4</a> to a new page.</li>
+            </ul>
+
+            <h3>Author Set Colors</h3>
+
+            <ul>
+              <li class="link5">Follow <a href="#">Link 5</a> to a new page.</li>
+              <li class="link6">Follow <a href="#">Link 6</a> to a new page.</li>
+              <li class="link7">Follow <a href="#">Link 7</a> to a new page.</li>
+              <li class="link8">Follow <a href="#">Link 8</a> to a new page.</li>
+            </ul>
+
+            <h2>Button Styling</h2>
+
+            <div class="control">
+              <input type="image" src="{{path}}test/green-arrow.jpg" style="height: 40px" alt="Next"/>
+            </div>
+
+            <div class="control">
+              <button>
+                <img src="{{path}}test/green-arrow.jpg" alt="Next" style="height: 40px; width: 40px" />
+              </button>
+            </div>
+
+            <div class="control">
+              <label>Name: <input type="text"></label>
+            </div>
+
+            <div>
+              <label>Options:
+                <select>
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+                </select>
+              </label>
+            </div>
+
+            <h2>Image Styling</h2>
+
+            <div><img src="{{path}}test/info-1.webp"/></div>
+
+            <div><img src="{{path}}test/info-2.webp"/></div>
+
+            <div class="background">Background Image</div>
+
+
+
+          </div>
+        </div>
+      </main>
+    {% include "./footer.njk" %}
+    {% include "./scripts.njk" %}
+
+  </body>
+</html>

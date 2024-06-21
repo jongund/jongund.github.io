@@ -1,0 +1,213 @@
+main .control {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+main li {
+  padding: 0.125em;
+  max-width: 15em;
+}
+
+main .link5 {
+  color: #cccccc;
+  background: #444444;
+}
+
+main .link5 a,
+main .link5 a:visited {
+  display: inline-block;
+  padding-left: 0.125em;
+  padding-right: 0.125em;
+  color: #444444;
+  background: #cccccc;
+  text-decoration: none;
+}
+
+main .link6 {
+  color: black;
+  background: DarkOrange;
+}
+
+main .link6 a,
+main .link6 a:visited {
+  display: inline-block;
+  padding-left: 0.125em;
+  padding-right: 0.125em;
+  color: DarkOrange;
+  background: black;
+  text-decoration: none;
+}
+
+main .link7 {
+  color: LemonChiffon;
+  background: DarkRed;
+}
+
+main .link7 a,
+main .link7 a:visited {
+  display: inline-block;
+  padding-left: 0.125em;
+  padding-right: 0.125em;
+  color: DarkRed;
+  background: LemonChiffon;
+  text-decoration: none;
+}
+
+main .link8 {
+  color: Gold;
+  background: Maroon;
+}
+
+main .link8 a,
+main .link8 a:visited {
+  display: inline-block;
+  padding-left: 0.125em;
+  padding-right: 0.125em;
+  color: Maroon;
+  background: Gold;
+  text-decoration: none;
+}
+
+
+@media (forced-colors: active) {
+  a[href] {
+    text-decoration: underline;
+  }
+
+main .link5,
+main .link6,
+main .link7,
+main .link8 {
+  color: canvas;
+  background: canvasText;
+}
+
+main .link5 a,
+main .link5 a:visited,
+main .link6 a,
+main .link6 a:visited,
+main .link7 a,
+main .link7 a:visited,
+main .link8 a,
+main .link8 a:visited {
+  color: linkText;
+  background: canvas;
+}
+
+
+}
+
+main .background {
+  display: block;
+  height: 150px;
+  width: 400px;
+  background-image: url('./green-arrow.jpg');
+  background-position: center;
+}
+
+
+main div img {
+  width: 50%;
+}
+
+/* forced-colors */
+
+#id-fc-none {
+  display: none;
+}
+
+@media (forced-colors: none) {
+  #id-fc-none {
+    display: inline;
+  }
+}
+
+#id-fc-active {
+  display: none;
+}
+
+@media (forced-colors: active) {
+  #id-fc-active {
+    display: inline;
+  }
+}
+
+/* prefers-color-scheme */
+
+#id-pcs-undefined {
+  display: inline;
+}
+
+#id-pcs-light {
+  display: none;
+}
+
+@media (prefers-color-scheme: light) {
+  #id-pcs-light {
+    display: inline;
+  }
+
+  #id-pcs-undefined {
+    display: none;
+  }
+
+}
+
+#id-pcs-dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  #id-pcs-dark {
+    display: inline;
+  }
+
+  #id-pcs-undefined {
+    display: none;
+  }
+
+}
+
+
+
+/* prefers-contrast */
+
+#id-ic-np {
+  display: none;
+}
+
+@media (prefers-contrast: no-preference) {
+  #id-ic-np {
+    display: inline;
+  }
+}
+
+#id-ic-less {
+  display: none;
+}
+
+@media (prefers-contrast: less) {
+  #id-ic-less {
+    display: inline;
+  }
+}
+
+#id-ic-more {
+  display: none;
+}
+
+@media (prefers-contrast: more) {
+  #id-ic-more {
+    display: inline;
+  }
+}
+
+#id-ic-custom {
+  display: none;
+}
+
+@media (prefers-contrast: custom) {
+  #id-ic-custom {
+    display: inline;
+  }
+}

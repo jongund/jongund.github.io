@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Consulting and Mentoring | Open Web Accessibility Services | Jon Gunderson, Ph.D. CWAP</title>
+    <title>High Contrast Test | Open Web Accessibility Services | Jon Gunderson, Ph.D. CWAP</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -19,6 +19,10 @@
     <script src="./js/contact-button.js"></script>
 
 
+
+
+    <!-- Test CSS -->
+    <link href="./test/test-hc.css" rel="stylesheet" />
 
   </head>
   <body>
@@ -97,60 +101,103 @@
       <nav aria-label="Breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Consulting and Mentoring</li>
+          <li class="breadcrumb-item active">High Contrast Test</li>
         </ol>
       </nav>
       <main class="row gx-4 justify-content-center">
         <div class="col-lg-8">
           
-          <h1>Consulting and Mentoring</h1>
+          <h1>High Contrast Test</h1>
           
-          <div id="consulting">
+          <div id="high-contrast">
 
-            <p>Jon Gunderson can help you understand:
+            <h2>Media Query Settings</h2>
+            <div>
+              <code>
+                prefers-contrast:
+                <span id="id-ic-custom">custom</span>
+                <span id="id-ic-less">less</span>
+                <span id="id-ic-more">more</span>
+                <span id="id-ic-np">no-preference</span>
+              </code>
+            </div>
+
+            <div>
+              <code>
+                prefers-color-theme:
+                <span id="id-pcs-light">light</span>
+                <span id="id-pcs-dark">dark</span>
+                <span id="id-pcs-undefined">undefined</span>
+              </code>
+            </div>
+
+            <div>
+              <code>
+                forced-colors:
+                <span id="id-fc-none">none</span>
+                <span id="id-fc-active">active</span>
+              </code>
+            </div>
+
+            <h2>Link Styling</h2>
+
+            <h3>Browser Defaults</h3>
+
             <ul>
-              <li>How to test websites for accessibility.</li>
-              <li>Identify and document accessibility issues.</li>
-              <li>Finding solutions for solving accessibility issues.</li>
-              <li>Understanding how to use Accessible Rich Internet Applications (ARIA) technology to improve accessibility.</li>
-              <li>Improving the user experience of people with disabilities.</li>
-              <li>Support people new to accessibility to feel confident in their understanding of accessibility.</li>
+              <li>Follow <a href="#">Link 1</a> to a new page.</li>
+              <li>Follow <a href="#">Link 2</a> to a new page.</li>
+              <li>Follow <a href="#">Link 3</a> to a new page.</li>
+              <li>Follow <a href="#">Link 4</a> to a new page.</li>
             </ul>
 
-            <p>Jon has over 25 years of experience working on web accessibility standards and solutions.  He is a founding member of both W3C Web Content Accessibility Guidelines (WCAG) and Accessible Rich Internet Applications (ARIA) working groups.  He has worked with major software companies and individual developers in helping the them understand accessible design and making their designs not only more accessible, but more usable to people with disabilities.  He has developed open-source (e.g. free) tools designed to help people learn about WCAG requirements and use best practices to meet them.  Contact Jon to see how he can help you improve the accessibility of your online resources.</p>
+            <h3>Author Set Colors</h3>
 
-            <h2 >Rates</h2>
-           <table aria-label="Consulting Rates" class="table table-striped" style="margin-bottom: 3em; width: 20em">
-              <thead>
-                <tr>
-                    <td style="width: 14em"></td>
-                    <th>Rate</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th class="text-left">Commercial</th>
-                  <td class="text-left">$60/hour</td>
-                </tr>
-                <tr>
-                  <th class="text-left">Government</th>
-                  <td class="text-left">$50/hour</td>
-                </tr>
-                <tr>
-                  <th class="text-left">Education/Non-Profit</th>
-                  <td class="text-left">$50/hour</td>
-                </tr>
-              </tbody>
-            </table>
+            <ul>
+              <li class="link5">Follow <a href="#">Link 5</a> to a new page.</li>
+              <li class="link6">Follow <a href="#">Link 6</a> to a new page.</li>
+              <li class="link7">Follow <a href="#">Link 7</a> to a new page.</li>
+              <li class="link8">Follow <a href="#">Link 8</a> to a new page.</li>
+            </ul>
 
-            <contact-button data-button-class="button" data-interest="consulting" >
-              <span slot="label">Contact Jon Gunderson about Consulting</span>
-            </contact-button>
+            <h2>Button Styling</h2>
+
+            <div class="control">
+              <input type="image" src="./test/green-arrow.jpg" style="height: 40px" alt="Next"/>
+            </div>
+
+            <div class="control">
+              <button>
+                <img src="./test/green-arrow.jpg" alt="Next" style="height: 40px; width: 40px" />
+              </button>
+            </div>
+
+            <div class="control">
+              <label>Name: <input type="text"></label>
+            </div>
+
+            <div>
+              <label>Options:
+                <select>
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+                </select>
+              </label>
+            </div>
+
+            <h2>Image Styling</h2>
+
+            <div><img src="./test/info-1.webp"/></div>
+
+            <div><img src="./test/info-2.webp"/></div>
+
+            <div class="background">Background Image</div>
+
+
 
           </div>
         </div>
       </main>
-    </div>
             <!-- Footer-->
         <footer class="py-5 bg-light">
             <blockquote  class="center-block">

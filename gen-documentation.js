@@ -58,6 +58,11 @@ const files = [
     title: 'Sessions',
     menuName: '',
     filename: 'sessions/index.html'
+  },
+  { template: './src-docs/templates/content-test-hc.njk',
+    title: 'High Contrast Test',
+    menuName: '',
+    filename: 'test-hc.html'
   }
   ];
 
