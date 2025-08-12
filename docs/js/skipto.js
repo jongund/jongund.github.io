@@ -5454,8 +5454,8 @@ button:hover {
         customClass: '',
 
         // Button labels and messages
-        buttonLabel: 'Skip To Content A',
-        smallButtonLabel: 'SkipTo A',
+        buttonLabel: 'Skip To Content B',
+        smallButtonLabel: 'SkipTo B',
         altLabel: 'Alt',
         optionLabel: 'Option',
         shortcutLabel: 'shortcut',
