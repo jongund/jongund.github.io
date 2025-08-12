@@ -4186,8 +4186,8 @@ button:hover {
 
         this.containerNode.addEventListener('focusin', this.handleFocusin.bind(this));
         this.containerNode.addEventListener('focusout', this.handleFocusout.bind(this));
-        this.containerNode.addEventListener('pointerdown', this.handleContainerPointerdown.bind(this), true);
-        document.documentElement.addEventListener('pointerdown', this.handleBodyPointerdown.bind(this), true);
+//        this.containerNode.addEventListener('pointerdown', this.handleContainerPointerdown.bind(this), true);
+//        document.documentElement.addEventListener('pointerdown', this.handleBodyPointerdown.bind(this), true);
 
         if (this.usesAltKey || this.usesOptionKey) {
           document.addEventListener(
