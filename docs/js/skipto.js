@@ -5425,7 +5425,7 @@ button:hover {
       // Always call super first in constructor
       super();
       this.attachShadow({ mode: 'open' });
-      this.version = "5.8.4";
+      this.version = "5.8.4a";
       this.buttonSkipTo = false;
       this.initialized = false;
 
