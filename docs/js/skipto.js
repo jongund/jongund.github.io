@@ -320,7 +320,6 @@
 #${SKIP_TO_ID},
 #${SKIP_TO_ID}.popup.focus,
 #${SKIP_TO_ID}.popup:hover {
-  position: absolute;
   top: 0;
   left: $positionLeft;
   font-family: $fontFamily;
@@ -5004,6 +5003,7 @@ button:hover {
 
       handleButtonClick(event) {
         debug$2.flag && debug$2.log(`[handleButtonClick]`);
+        this.containerNode.classList.add('focus');
         if (this.isOpen()) {
           this.closePopup();
           this.buttonNode.focus();
@@ -5011,7 +5011,7 @@ button:hover {
         } else {
           this.buttonNode.focus();
           this.openPopup();
-  //        this.setFocusToFirstMenuitem();
+          this.setFocusToFirstMenuitem();
         }
         event.stopPropagation();
         event.preventDefault();
