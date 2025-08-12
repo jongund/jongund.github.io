@@ -345,6 +345,7 @@
   font-family: $fontFamily;
   font-size: $fontSize;
   z-index: $z1Index !important;
+  touch-action: none;
 }
 
 @media screen and (max-width: $smallBreakPointpx) {
@@ -5007,8 +5008,9 @@ button:hover {
           this.buttonNode.focus();
           this.skipToContentElem.setAttribute('focus', 'button');
         } else {
+          this.buttonNode.focus();
           this.openPopup();
-          this.setFocusToFirstMenuitem();
+  //        this.setFocusToFirstMenuitem();
         }
         event.stopPropagation();
         event.preventDefault();
@@ -5425,7 +5427,7 @@ button:hover {
       // Always call super first in constructor
       super();
       this.attachShadow({ mode: 'open' });
-      this.version = "5.8.4a";
+      this.version = "5.8.4";
       this.buttonSkipTo = false;
       this.initialized = false;
 
@@ -5451,8 +5453,8 @@ button:hover {
         customClass: '',
 
         // Button labels and messages
-        buttonLabel: 'Skip To Content A',
-        smallButtonLabel: 'SkipTo A',
+        buttonLabel: 'Skip To Content',
+        smallButtonLabel: 'SkipTo',
         altLabel: 'Alt',
         optionLabel: 'Option',
         shortcutLabel: 'shortcut',
