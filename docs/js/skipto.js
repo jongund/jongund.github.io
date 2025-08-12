@@ -292,6 +292,7 @@
 }
 
 #${SKIP_TO_ID}.popup {
+  position: absolute;
   top: -36px;
   transition: top 0.35s ease;
 }
@@ -319,7 +320,7 @@
 #${SKIP_TO_ID},
 #${SKIP_TO_ID}.popup.focus,
 #${SKIP_TO_ID}.popup:hover {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: $positionLeft;
   font-family: $fontFamily;
@@ -5453,8 +5454,8 @@ button:hover {
         customClass: '',
 
         // Button labels and messages
-        buttonLabel: 'Skip To Content',
-        smallButtonLabel: 'SkipTo',
+        buttonLabel: 'Skip To Content A',
+        smallButtonLabel: 'SkipTo A',
         altLabel: 'Alt',
         optionLabel: 'Option',
         shortcutLabel: 'shortcut',
