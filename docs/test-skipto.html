@@ -4,39 +4,14 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Test Page: SkipTo.js popup button</title>
-
-    <style>
-      button {
-        position: absolute;
-        touch-action: none;
-      }
-
-      button.popup {
-        top: -36px;
-        transition: top 0.35s ease;
-      }
-
-      button.popup.focus,
-      button.popup:hover {
-        position: fixed;
-        top: 0;
-        display: block;
-        transition: left 1s ease;
-      }
-
-      output {
-        border: 1px solid black;
-        width: 10em;
-      }
-
-    </style>
+    <link href="./css/test-skipto.css" rel="stylesheet" />
 
   </head>
   <body>
     <main>
       <h1>Test Page: SkipTo.js popup button</h1>
 
-      <button class="popup">Test Button</button>
+      <button class="popup">Regular Button</button>
 
       <button-test></button-test>
 

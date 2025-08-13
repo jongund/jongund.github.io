@@ -1,0 +1,24 @@
+/* test-skipto.css */
+button {
+  position: absolute;
+  touch-action: none;
+}
+
+button.popup {
+  top: -36px;
+  transition: top 0.35s ease;
+}
+
+button.popup.focus,
+button.popup:hover {
+  position: fixed;
+  top: 0;
+  display: block;
+  transition: left 1s ease;
+}
+
+output {
+  border: 1px solid black;
+  width: 10em;
+}
+
