@@ -45,7 +45,7 @@ function handleClick(event) {
 
 const buttonTemplate = document.createElement('template');
 buttonTemplate.innerHTML = `
-  <div class="popup">
+  <div>
     <button>
       <slot name="name">Test Button</slot>
     </button>
@@ -67,20 +67,16 @@ class buttonTest extends HTMLElement {
     const buttonClone = buttonTemplate.content.cloneNode(true);
     this.shadowRoot.appendChild(buttonClone);
 
+    this.div = this.shadowRoot.querySelector('div');
     this.btn = this.shadowRoot.querySelector('button');
 
-    const cn = this.getAttribute('data-class');
-    if (cn) {
-      this.btn.classList.add(cn);
+    if (this.hasAttribute('data-popup')) {
+      this.div.classList.add('popup');
     }
 
     const name = this.getAttribute('data-name');
     if (name) {
       this.btn.setAttribute('data-name', name);
-    }
-
-    if (this.hasAttribute('data-no-touch')) {
-      this.btn.classList.add('no-touch');
     }
 
     this.btn.addEventListener('focusin', handleFocusin);
