@@ -44,6 +44,16 @@ function handleBlur(event) {
 function handleClick(event) {
   const tgt = event.currentTarget;
   logOutput('click', tgt);
+  const menuNode = tgt.parentNode.querySelector('div');
+  const rect = tgt.getBoundingClientRect();
+  console.log(`${menuNode.style.display} ${rect.height} `);
+  menuNode.style.top = (rect.height + 4) + 'px';
+  if (menuNode.style.display === 'none') {
+    menuNode.style.display = 'block';
+  }
+  else {
+    menuNode.style.display = 'none';
+  }
 }
 
 function isOverButton(node, x, y) {

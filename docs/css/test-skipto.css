@@ -19,10 +19,13 @@
   touch-action: none;
 }
 
-div.menu {
+.popup div.menu {
   position: absolute;
-  top: 40px;
   margin: .25em;
   padding: 0.25em;
+  border: 1px solid green;
   touch-action: none;
 }
+
+
+
