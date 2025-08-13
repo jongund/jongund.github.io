@@ -18,7 +18,11 @@ function handleBlur(event) {
   status.value=`"${event.currentTarget.textContent}" lost focus`;
 }
 
- class buttonTest extends HTMLElement {
+function handleClick(event) {
+  status.value=`"${event.currentTarget.textContent}" clicked`;
+}
+
+class buttonTest extends HTMLElement {
 
 
 
@@ -41,6 +45,7 @@ function handleBlur(event) {
     this.btn.addEventListener('focusout', handleFocusout);
     this.btn.addEventListener('focus', handleFocus);
     this.btn.addEventListener('blur', handleBlur);
+    this.btn.addEventListener('click', handleClick);
   }
 }
 
@@ -54,5 +59,6 @@ window.addEventListener("load", (event) => {
   btn.addEventListener('focusout', handleFocusout);
   btn.addEventListener('focus', handleFocus);
   btn.addEventListener('blur', handleBlur);
+  btn.addEventListener('click', handleClick);
 
 });
