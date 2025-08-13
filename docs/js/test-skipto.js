@@ -3,11 +3,19 @@
 const status = document.querySelector('output');
 
 function handleFocusin(event) {
-  event.currentTarget.classList.add('focus');
+  const tgt = event.currentTarget;
+  const pNode = tgt.parentNode;
+  if (pNode.classList.contains('popup')) {
+    pNode.classList.add('focus');
+  }
 }
 
 function handleFocusout(event) {
-  event.currentTarget.classList.remove('focus');
+  const tgt = event.currentTarget;
+  const pNode = tgt.parentNode;
+  if (pNode.classList.contains('popup')) {
+    pNode.classList.remove('focus');
+  }
 }
 
 function setOutput(elem, msg) {
@@ -21,22 +29,27 @@ function setOutput(elem, msg) {
 }
 
 function handleFocus(event) {
-  setOutput(event.currentTarget, 'has focus');
+  const tgt = event.currentTarget;
+  setOutput(tgt, 'has focus');
 }
 
 function handleBlur(event) {
-  setOutput(event.currentTarget, 'lost focus');
+  const tgt = event.currentTarget;
+  setOutput(tgt, 'lost focus');
 }
 
 function handleClick(event) {
-  setOutput(event.currentTarget, 'click');
+  const tgt = event.currentTarget;
+  setOutput(tgt, 'click');
 }
 
 const buttonTemplate = document.createElement('template');
 buttonTemplate.innerHTML = `
-  <button>
-    <slot name="name">Test Button</slot>
-  </button>
+  <div class="popup">
+    <button>
+      <slot name="name">Test Button</slot>
+    </button>
+  </div>
 `
 
 class buttonTest extends HTMLElement {
