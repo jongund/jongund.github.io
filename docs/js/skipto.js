@@ -266,9 +266,9 @@
   const BOOKMARKLET_ELEMENT_NAME = 'skip-to-content-bookmarklet';
   const EXTENSION_ELEMENT_NAME   = 'skip-to-content-extension';
 
-  const INFO_DIALOG_ELEMENT_NAME = 'skip-to-content-info-dialog-580';
-  const MESSAGE_ELEMENT_NAME     = 'skip-to-content-message-element-580';
-  const HIGHLIGHT_ELEMENT_NAME   = 'skip-to-content-highlight-element-580';
+  const INFO_DIALOG_ELEMENT_NAME = 'skip-to-content-info-dialog-584';
+  const MESSAGE_ELEMENT_NAME     = 'skip-to-content-message-element-584';
+  const HIGHLIGHT_ELEMENT_NAME   = 'skip-to-content-highlight-element-584';
 
   // Attributes
 
@@ -292,7 +292,6 @@
 }
 
 #${SKIP_TO_ID}.popup {
-  position: absolute;
   top: -36px;
   transition: top 0.35s ease;
 }
@@ -320,6 +319,7 @@
 #${SKIP_TO_ID},
 #${SKIP_TO_ID}.popup.focus,
 #${SKIP_TO_ID}.popup:hover {
+  position: fixed;
   top: 0;
   left: $positionLeft;
   font-family: $fontFamily;
@@ -5003,13 +5003,11 @@ button:hover {
 
       handleButtonClick(event) {
         debug$2.flag && debug$2.log(`[handleButtonClick]`);
-        this.containerNode.classList.add('focus');
         if (this.isOpen()) {
           this.closePopup();
           this.buttonNode.focus();
           this.skipToContentElem.setAttribute('focus', 'button');
         } else {
-          this.buttonNode.focus();
           this.openPopup();
           this.setFocusToFirstMenuitem();
         }
@@ -5418,11 +5416,11 @@ button:hover {
 
   const defaultStyleOptions = colorThemes['default'];
 
-  /* @class SkipToContent580
+  /* @class SkipToContent584
    *
    */
 
-  class SkipToContent580 extends HTMLElement {
+  class SkipToContent584 extends HTMLElement {
 
     constructor() {
       // Always call super first in constructor
@@ -5454,8 +5452,8 @@ button:hover {
         customClass: '',
 
         // Button labels and messages
-        buttonLabel: 'Skip To Content B',
-        smallButtonLabel: 'SkipTo B',
+        buttonLabel: 'Skip To Content',
+        smallButtonLabel: 'SkipTo',
         altLabel: 'Alt',
         optionLabel: 'Option',
         shortcutLabel: 'shortcut',
@@ -5931,7 +5929,7 @@ button:hover {
           if (!isExtensionLoaded) {
             if (!isBookmarkletLoaded) {
               removePageSkipTo();
-              window.customElements.define(BOOKMARKLET_ELEMENT_NAME, SkipToContent580);
+              window.customElements.define(BOOKMARKLET_ELEMENT_NAME, SkipToContent584);
               skipToContentElem = document.createElement(BOOKMARKLET_ELEMENT_NAME);
               skipToContentElem.setAttribute('version', skipToContentElem.version);
               skipToContentElem.setAttribute('type', type);
@@ -5947,7 +5945,7 @@ button:hover {
           if (!isExtensionLoaded) {
             removePageSkipTo();
             removeBookmarkletSkipTo();
-            window.customElements.define(EXTENSION_ELEMENT_NAME, SkipToContent580);
+            window.customElements.define(EXTENSION_ELEMENT_NAME, SkipToContent584);
             skipToContentElem = document.createElement(EXTENSION_ELEMENT_NAME);
             skipToContentElem.setAttribute('version', skipToContentElem.version);
             skipToContentElem.setAttribute('type', type);
@@ -5960,7 +5958,7 @@ button:hover {
 
         default:
           if (!isPageLoaded && !isBookmarkletLoaded && !isExtensionLoaded) {
-            window.customElements.define(PAGE_SCRIPT_ELEMENT_NAME, SkipToContent580);
+            window.customElements.define(PAGE_SCRIPT_ELEMENT_NAME, SkipToContent584);
             skipToContentElem = document.createElement(PAGE_SCRIPT_ELEMENT_NAME);
             skipToContentElem.setAttribute('version', skipToContentElem.version);
             skipToContentElem.setAttribute('type', type);
