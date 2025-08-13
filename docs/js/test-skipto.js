@@ -1,6 +1,6 @@
 /* test-skipto.js */
 
-const status = document.querySelector('output');
+const log = document.querySelector('textarea');
 
 function handleFocusin(event) {
   const tgt = event.currentTarget;
@@ -16,30 +16,90 @@ function handleFocusout(event) {
   }
 }
 
-function setOutput(elem, msg) {
-  if (elem.hasAttribute('data-name')) {
-    status.textContent=`"${elem.getAttribute('data-name')}" ${msg}`;
+function logOutput(msg, elem) {
+  if (elem) {
+    if (elem.hasAttribute('data-name')) {
+      log.textContent =`"${elem.getAttribute('data-name')}" ${msg}\n` + log.textContent;
+    }
+    else {
+      log.textContent=`"${elem.textContent}"  ${msg}\n` + log.textContent;
+    }
   }
   else {
-    status.textContent=`"${elem.textContent}"  ${msg}`;
+    log.textContent=`"${msg}\n` + log.textContent;
   }
-
 }
+
 
 function handleFocus(event) {
   const tgt = event.currentTarget;
-  setOutput(tgt, 'has focus');
+  logOutput('has focus', tgt);
 }
 
 function handleBlur(event) {
   const tgt = event.currentTarget;
-  setOutput(tgt, 'lost focus');
+  logOutput('lost focus', tgt);
 }
 
 function handleClick(event) {
   const tgt = event.currentTarget;
-  setOutput(tgt, 'click');
+  logOutput('click', tgt);
 }
+
+function isOverButton(node, x, y) {
+  const rect = node.getBoundingClientRect();
+
+  return (rect.left <= x) &&
+         (rect.right >= x) &&
+         (rect.top <= y) &&
+         (rect.bottom >= y);
+}
+
+function handleContainerPointerdown(event, containerNode) {
+
+  const btn = containerNode.querySelector('button');
+
+  if (isOverButton(btn, event.clientX, event.clientY)) {
+    logOutput(`container pointer down(${event.pointerId}): over button `);
+    containerNode.releasePointerCapture(event.pointerId);
+  }
+  else {
+    logOutput(`container pointer down(${event.pointerId}): NOT over button`);
+    containerNode.setPointerCapture(event.pointerId);
+    containerNode.addEventListener('pointermove', (event) => {
+      handleContainerPointermove(event, containerNode);
+    });
+    containerNode.addEventListener('pointerup', (event) => {
+      handleContainerPointerup(event, containerNode);
+    });
+  }
+
+  event.stopPropagation();
+  event.preventDefault();
+}
+
+function handleContainerPointermove(event, containerNode) {
+  logOutput(`"Container pointer move ${event.clientX}:${event.clientY}`);
+
+  event.stopPropagation();
+  event.preventDefault();
+}
+
+function handleContainerPointerup(event, containerNode) {
+  logOutput(`"Container pointer up`);
+
+  containerNode.releasePointerCapture(event.pointerId);
+  containerNode.removeEventListener('pointermove', handleContainerPointermove);
+  containerNode.removeEventListener('pointerup', handleContainerPointerup);
+
+  event.stopPropagation();
+  event.preventDefault();
+}
+
+function handleBodyPointerdown(event) {
+  logOutput(`"Body pointer down`);
+}
+
 
 const buttonTemplate = document.createElement('template');
 buttonTemplate.innerHTML = `
@@ -47,6 +107,7 @@ buttonTemplate.innerHTML = `
     <button>
       <slot name="name">Test Button</slot>
     </button>
+   <div class="menu">Menu</div>
   </div>
 `
 
@@ -79,6 +140,10 @@ class buttonTest extends HTMLElement {
 
     this.div.addEventListener('focusin', handleFocusin);
     this.div.addEventListener('focusout', handleFocusout);
+    this.div.addEventListener('pointerdown', (event) => {
+      handleContainerPointerdown(event, this.div);
+    }, true);
+
     this.btn.addEventListener('focus', handleFocus);
     this.btn.addEventListener('blur', handleBlur);
     this.btn.addEventListener('click', handleClick);
@@ -95,6 +160,9 @@ window.addEventListener("load", (event) => {
   divs.forEach( (div) => {
     div.addEventListener('focusin', handleFocusin);
     div.addEventListener('focusout', handleFocusout);
+    div.addEventListener('pointerdown', (event) => {
+      handleContainerPointerdown(event, div);
+    }, true);
   });
 
   btns.forEach( (btn) => {
