@@ -11,20 +11,43 @@ function handleFocusout(event) {
 }
 
 function handleFocus(event) {
-  status.value=`"${event.currentTarget.textContent}" got focus`;
+  const tgt = event.currentTarget;
+  if (tgt.hasAttribute('data-name')) {
+    status.textContent=`"${tgt.getAttribute('data-name')}" has focus`;
+  }
+  else {
+    status.textContent=`"${tgt.textContent}" clicked`;
+  }
 }
 
 function handleBlur(event) {
-  status.value=`"${event.currentTarget.textContent}" lost focus`;
+  const tgt = event.currentTarget;
+  if (tgt.hasAttribute('data-name')) {
+    status.textContent=`"${tgt.getAttribute('data-name')}" lost focus`;
+  }
+  else {
+    status.textContent=`"${tgt.textContent}" clicked`;
+  }
 }
 
 function handleClick(event) {
-  status.value=`"${event.currentTarget.textContent}" clicked`;
+  const tgt = event.currentTarget;
+  if (tgt.hasAttribute('data-name')) {
+    status.textContent=`"${tgt.getAttribute('data-name')}" clicked`;
+  }
+  else {
+    status.textContent=`"${tgt.textContent}" clicked`;
+  }
 }
 
+const buttonTemplate = document.createElement('template');
+buttonTemplate.innerHTML = `
+  <button>
+    <slot name="name">Test Button</slot>
+  </button>
+`
+
 class buttonTest extends HTMLElement {
-
-
 
   constructor() {
     // Always call super first in constructor
@@ -36,10 +59,21 @@ class buttonTest extends HTMLElement {
     linkNode.href = './css/test-skipto.css';
     this.shadowRoot.appendChild(linkNode);
 
-    this.btn = document.createElement('button');
-    this.btn.textContent = 'Test Button';
-    this.btn.className = 'popup';
-    this.shadowRoot.appendChild(this.btn);
+    const buttonClone = buttonTemplate.content.cloneNode(true);
+    this.shadowRoot.appendChild(buttonClone);
+
+
+    this.btn = this.shadowRoot.querySelector('button');
+
+    const cn = this.getAttribute('data-class');
+    if (cn) {
+      this.btn.className = cn;
+    }
+
+    const name = this.getAttribute('data-name');
+    if (name) {
+      this.btn.setAttribute('data-name', name);
+    }
 
     this.btn.addEventListener('focusin', handleFocusin);
     this.btn.addEventListener('focusout', handleFocusout);
@@ -53,12 +87,14 @@ window.customElements.define('button-test', buttonTest);
 
 window.addEventListener("load", (event) => {
 
-  const btn = document.querySelector('button.popup');
+  const btns = Array.from(document.querySelectorAll('button'));
 
-  btn.addEventListener('focusin', handleFocusin);
-  btn.addEventListener('focusout', handleFocusout);
-  btn.addEventListener('focus', handleFocus);
-  btn.addEventListener('blur', handleBlur);
-  btn.addEventListener('click', handleClick);
+  btns.forEach( (btn) => {
+    btn.addEventListener('focusin', handleFocusin);
+    btn.addEventListener('focusout', handleFocusout);
+    btn.addEventListener('focus', handleFocus);
+    btn.addEventListener('blur', handleBlur);
+    btn.addEventListener('click', handleClick);
+  });
 
 });

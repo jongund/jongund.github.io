@@ -10,9 +10,11 @@
   <body>
     <main>
 
-      <button class="popup">Regular Button</button>
+      <button class="popup">Regular Button 1</button>
 
-      <button-test></button-test>
+      <button-test data-class="popup" data-name="Test Button 1">
+        <span slot="name">Test Button 1</span>
+      </button-test>
 
       <h1>Test Page: SkipTo.js popup button</h1>
 
@@ -27,7 +29,13 @@
 
       <p>This is some <a href="#">text</a> with a link</p>
 
-      <output value="     ">
+      <button>Regular Button 2</button>
+
+      <button-test data-name="Test Button 2">
+        <span slot="name">Test Button 2</span>
+      </button-test>
+
+      <output>abc</output>
 
     </main>
 
