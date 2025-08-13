@@ -10,34 +10,27 @@ function handleFocusout(event) {
   event.currentTarget.classList.remove('focus');
 }
 
-function handleFocus(event) {
+function setOutput(elem, msg) {
   const tgt = event.currentTarget;
-  if (tgt.hasAttribute('data-name')) {
-    status.textContent=`"${tgt.getAttribute('data-name')}" has focus`;
+  if (elem.hasAttribute('data-name')) {
+    status.textContent=`"${elem.getAttribute('data-name')}" ${msg}`;
   }
   else {
-    status.textContent=`"${tgt.textContent}" clicked`;
+    status.textContent=`"${elem.textContent}"  ${msg}`;
   }
+
+}
+
+function handleFocus(event) {
+  setOutput(event.currentTarget, 'has focus');
 }
 
 function handleBlur(event) {
-  const tgt = event.currentTarget;
-  if (tgt.hasAttribute('data-name')) {
-    status.textContent=`"${tgt.getAttribute('data-name')}" lost focus`;
-  }
-  else {
-    status.textContent=`"${tgt.textContent}" clicked`;
-  }
+  setOutput(event.currentTarget, 'lost focus');
 }
 
 function handleClick(event) {
-  const tgt = event.currentTarget;
-  if (tgt.hasAttribute('data-name')) {
-    status.textContent=`"${tgt.getAttribute('data-name')}" clicked`;
-  }
-  else {
-    status.textContent=`"${tgt.textContent}" clicked`;
-  }
+  setOutput(event.currentTarget, 'click');
 }
 
 const buttonTemplate = document.createElement('template');
