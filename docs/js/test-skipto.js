@@ -123,7 +123,7 @@ buttonTemplate.innerHTML = `
     <button>
       <slot name="name">Test Button</slot>
     </button>
-   <div class="menu">Menu</div>
+   <div class="menu">Test Menu</div>
   </div>
 `
 
