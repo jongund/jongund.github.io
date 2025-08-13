@@ -4,17 +4,15 @@ const status = document.querySelector('output');
 
 function handleFocusin(event) {
   const tgt = event.currentTarget;
-  const pNode = tgt.parentNode;
-  if (pNode.classList.contains('popup')) {
-    pNode.classList.add('focus');
+  if (tgt.classList.contains('popup')) {
+    tgt.classList.add('focus');
   }
 }
 
 function handleFocusout(event) {
   const tgt = event.currentTarget;
-  const pNode = tgt.parentNode;
-  if (pNode.classList.contains('popup')) {
-    pNode.classList.remove('focus');
+  if (tgt.classList.contains('popup')) {
+    tgt.classList.remove('focus');
   }
 }
 
@@ -79,8 +77,8 @@ class buttonTest extends HTMLElement {
       this.btn.setAttribute('data-name', name);
     }
 
-    this.btn.addEventListener('focusin', handleFocusin);
-    this.btn.addEventListener('focusout', handleFocusout);
+    this.div.addEventListener('focusin', handleFocusin);
+    this.div.addEventListener('focusout', handleFocusout);
     this.btn.addEventListener('focus', handleFocus);
     this.btn.addEventListener('blur', handleBlur);
     this.btn.addEventListener('click', handleClick);
@@ -91,11 +89,15 @@ window.customElements.define('button-test', buttonTest);
 
 window.addEventListener("load", (event) => {
 
+  const divs = Array.from(document.querySelectorAll('div.popup'));
   const btns = Array.from(document.querySelectorAll('button'));
 
+  divs.forEach( (div) => {
+    div.addEventListener('focusin', handleFocusin);
+    div.addEventListener('focusout', handleFocusout);
+  });
+
   btns.forEach( (btn) => {
-    btn.addEventListener('focusin', handleFocusin);
-    btn.addEventListener('focusout', handleFocusout);
     btn.addEventListener('focus', handleFocus);
     btn.addEventListener('blur', handleBlur);
     btn.addEventListener('click', handleClick);
