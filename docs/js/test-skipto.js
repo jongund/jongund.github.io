@@ -13,6 +13,10 @@ function handleFocusout(event) {
   const tgt = event.currentTarget;
   if (tgt.classList.contains('popup')) {
     tgt.classList.remove('focus');
+    const node = tgt.querySelector('div.menu');
+    if (node) {
+      node.style.display = 'none';
+    }
   }
 }
 

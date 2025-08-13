@@ -26,6 +26,9 @@
   border: 1px solid green;
   touch-action: none;
   display: none;
+  z-index: 200;
+  color: blue;
+  background: white;
 }
 
 
