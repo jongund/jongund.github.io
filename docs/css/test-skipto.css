@@ -4,7 +4,6 @@ button.popup {
   position: absolute;
   top: -36px;
   transition: top 0.35s ease;
-  touch-action: none;
 }
 
 button.popup.focus,
