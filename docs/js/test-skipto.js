@@ -11,7 +11,6 @@ function handleFocusout(event) {
 }
 
 function setOutput(elem, msg) {
-  const tgt = event.currentTarget;
   if (elem.hasAttribute('data-name')) {
     status.textContent=`"${elem.getAttribute('data-name')}" ${msg}`;
   }
