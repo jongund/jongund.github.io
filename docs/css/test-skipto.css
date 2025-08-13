@@ -19,7 +19,8 @@ button.popup:hover {
 }
 
 output {
-  margin-top: 2em;
+  margin: 0.25em;
+  margin-left: 0;
   display: block;
   border: 1px solid black;
   width: 30em;
