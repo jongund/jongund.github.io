@@ -54,17 +54,20 @@ class buttonTest extends HTMLElement {
     const buttonClone = buttonTemplate.content.cloneNode(true);
     this.shadowRoot.appendChild(buttonClone);
 
-
     this.btn = this.shadowRoot.querySelector('button');
 
     const cn = this.getAttribute('data-class');
     if (cn) {
-      this.btn.className = cn;
+      this.btn.classList.add(cn);
     }
 
     const name = this.getAttribute('data-name');
     if (name) {
       this.btn.setAttribute('data-name', name);
+    }
+
+    if (this.hasAttribute('data-no-touch')) {
+      this.btn.classList.add('no-touch');
     }
 
     this.btn.addEventListener('focusin', handleFocusin);
