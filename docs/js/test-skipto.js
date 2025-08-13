@@ -44,15 +44,17 @@ function handleBlur(event) {
 function handleClick(event) {
   const tgt = event.currentTarget;
   logOutput('click', tgt);
-  const menuNode = tgt.parentNode.querySelector('div');
+  const menuNode = tgt.parentNode.querySelector('div.menu');
   const rect = tgt.getBoundingClientRect();
-  console.log(`${menuNode.style.display} ${rect.height} `);
-  menuNode.style.top = (rect.height + 4) + 'px';
-  if (menuNode.style.display === 'none') {
-    menuNode.style.display = 'block';
-  }
-  else {
-    menuNode.style.display = 'none';
+    console.log(`${menuNode} ${rect.height} `);
+  if (menuNode) {
+    menuNode.style.top = (rect.height + 4) + 'px';
+    if (menuNode.style.display === 'block') {
+      menuNode.style.display = 'none';
+    }
+    else {
+      menuNode.style.display = 'block';
+    }
   }
 }
 
