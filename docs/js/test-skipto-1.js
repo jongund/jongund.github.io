@@ -157,13 +157,12 @@ class buttonTest extends HTMLElement {
 
     this.div.addEventListener('focusin', handleFocusin);
     this.div.addEventListener('focusout', handleFocusout);
-/*
     if (this.menu) {
       this.menu.addEventListener('pointerdown', (event) => {
         handleContainerPointerdown(event, this.menu);
       }, true);
     }
-*/
+
     this.btn.addEventListener('focus', handleFocus);
     this.btn.addEventListener('blur', handleBlur);
     this.btn.addEventListener('click', handleClick);
@@ -181,13 +180,11 @@ window.addEventListener("load", (event) => {
     div.addEventListener('focusin', handleFocusin);
     div.addEventListener('focusout', handleFocusout);
     const menu = div.querySelector('div.menu');
-/*
     if (menu) {
       menu.addEventListener('pointerdown', (event) => {
         handleContainerPointerdown(event, menu);
       }, true);
     }
-*/
   });
 
   btns.forEach( (btn) => {
