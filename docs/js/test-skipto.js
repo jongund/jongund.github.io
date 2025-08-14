@@ -159,7 +159,7 @@ class buttonTest extends HTMLElement {
     this.div.addEventListener('focusout', handleFocusout);
     if (this.menu) {
       this.menu.addEventListener('pointerdown', (event) => {
-        handleContainerPointerdown(event, this.div);
+        handleContainerPointerdown(event, this.menu);
       }, true);
     }
 
@@ -182,7 +182,7 @@ window.addEventListener("load", (event) => {
     const menu = div.querySelector('div.menu');
     if (menu) {
       menu.addEventListener('pointerdown', (event) => {
-        handleContainerPointerdown(event, div);
+        handleContainerPointerdown(event, menu);
       }, true);
     }
   });
