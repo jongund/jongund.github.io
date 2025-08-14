@@ -142,8 +142,9 @@ class buttonTest extends HTMLElement {
     const buttonClone = buttonTemplate.content.cloneNode(true);
     this.shadowRoot.appendChild(buttonClone);
 
-    this.div = this.shadowRoot.querySelector('div.menu');
+    this.div = this.shadowRoot.querySelector('div');
     this.btn = this.shadowRoot.querySelector('button');
+    this.menu = this.div.querySelector('div.menu');
 
     if (this.hasAttribute('data-popup')) {
       this.div.classList.add('popup');
@@ -156,9 +157,11 @@ class buttonTest extends HTMLElement {
 
     this.div.addEventListener('focusin', handleFocusin);
     this.div.addEventListener('focusout', handleFocusout);
-    this.div.addEventListener('pointerdown', (event) => {
-      handleContainerPointerdown(event, this.div);
-    }, true);
+    if (this.menu) {
+      this.menu.addEventListener('pointerdown', (event) => {
+        handleContainerPointerdown(event, this.div);
+      }, true);
+    }
 
     this.btn.addEventListener('focus', handleFocus);
     this.btn.addEventListener('blur', handleBlur);
@@ -176,9 +179,12 @@ window.addEventListener("load", (event) => {
   divs.forEach( (div) => {
     div.addEventListener('focusin', handleFocusin);
     div.addEventListener('focusout', handleFocusout);
-    div.addEventListener('pointerdown', (event) => {
-      handleContainerPointerdown(event, div);
-    }, true);
+    const menu = div.querySelector('div.menu');
+    if (menu) {
+      menu.addEventListener('pointerdown', (event) => {
+        handleContainerPointerdown(event, div);
+      }, true);
+    }
   });
 
   btns.forEach( (btn) => {
