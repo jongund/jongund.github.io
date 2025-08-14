@@ -142,7 +142,7 @@ class buttonTest extends HTMLElement {
     const buttonClone = buttonTemplate.content.cloneNode(true);
     this.shadowRoot.appendChild(buttonClone);
 
-    this.div = this.shadowRoot.querySelector('div');
+    this.div = this.shadowRoot.querySelector('div.menu');
     this.btn = this.shadowRoot.querySelector('button');
 
     if (this.hasAttribute('data-popup')) {
