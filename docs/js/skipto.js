@@ -1,5 +1,5 @@
 /* ========================================================================
- * Version: 5.4
+ * Version: 5.5.0
  * Copyright (c) 2022, 2023, 2024 Jon Gunderson; Licensed BSD
  * Copyright (c) 2021 PayPal Accessibility Team and University of Illinois; Licensed BSD
  * All rights reserved.
@@ -17,6 +17,116 @@
 
 (function () {
   'use strict';
+
+  /* colorThemes */
+
+  const colorThemes = {
+    'default': {
+
+      fontFamily: 'inherit',
+      fontSize: 'inherit',
+      positionLeft: '46%',
+      smallBreakPoint: '576',
+      mediumBreakPoint: '992',
+      buttonTextColor: '#13294B',
+      buttonBackgroundColor: '#dddddd',
+      focusBorderColor: '#C5050C',
+      menuTextColor: '#13294B',
+      menuBackgroundColor: '#dddddd',
+      menuitemFocusTextColor: '#dddddd',
+      menuitemFocusBackgroundColor: '#13294B',
+      zIndex: '100000',
+      zHighlight: '99999',
+      displayOption: 'fixed'
+    },
+    'aria': {
+      hostnameSelector: 'w3.org',
+      pathnameSelector: 'ARIA/apg',
+      fontFamily: 'sans-serif',
+      fontSize: '10pt',
+      positionLeft: '7%',
+      menuTextColor: '#000',
+      menuBackgroundColor: '#def',
+      menuitemFocusTextColor: '#fff',
+      menuitemFocusBackgroundColor: '#005a9c',
+      focusBorderColor: '#005a9c',
+      buttonTextColor: '#005a9c',
+      buttonBackgroundColor: '#ddd',
+    },
+    'illinois': {
+      hostnameSelector: 'illinois.edu',
+      menuTextColor: '#00132c',
+      menuBackgroundColor: '#cad9ef',
+      menuitemFocusTextColor: '#eeeeee',
+      menuitemFocusBackgroundColor: '#00132c',
+      focusBorderColor: '#ff552e',
+      buttonTextColor: '#444444',
+      buttonBackgroundColor: '#dddede',
+    },
+    'openweba11y': {
+      hostnameSelector: 'openweba11y.com',
+      buttonTextColor: '#13294B',
+      buttonBackgroundColor: '#dddddd',
+      focusBorderColor: '#C5050C',
+      menuTextColor: '#13294B',
+      menuBackgroundColor: '#dddddd',
+      menuitemFocusTextColor: '#dddddd',
+      menuitemFocusBackgroundColor: '#13294B',
+      fontSize: '90%'
+    },
+    'skipto': {
+      hostnameSelector: 'skipto-landmarks-headings.github.io',
+      positionLeft: '25%',
+      fontSize: '14px',
+      menuTextColor: '#00132c',
+      menuBackgroundColor: '#cad9ef',
+      menuitemFocusTextColor: '#eeeeee',
+      menuitemFocusBackgroundColor: '#00132c',
+      focusBorderColor: '#ff552e',
+      buttonTextColor: '#444444',
+      buttonBackgroundColor: '#dddede',
+    },
+    'uic': {
+      hostnameSelector: 'uic.edu',
+      menuTextColor: '#001e62',
+      menuBackgroundColor: '#f8f8f8',
+      menuitemFocusTextColor: '#ffffff',
+      menuitemFocusBackgroundColor: '#001e62',
+      focusBorderColor: '#d50032',
+      buttonTextColor: '#ffffff',
+      buttonBackgroundColor: '#001e62',
+    },
+    'uillinois': {
+      hostnameSelector: 'uillinois.edu',
+      menuTextColor: '#001e62',
+      menuBackgroundColor: '#e8e9ea',
+      menuitemFocusTextColor: '#f8f8f8',
+      menuitemFocusBackgroundColor: '#13294b',
+      focusBorderColor: '#dd3403',
+      buttonTextColor: '#e8e9ea',
+      buttonBackgroundColor: '#13294b',
+    },
+    'uis': {
+      hostnameSelector: 'uis.edu',
+      menuTextColor: '#036',
+      menuBackgroundColor: '#fff',
+      menuitemFocusTextColor: '#fff',
+      menuitemFocusBackgroundColor: '#036',
+      focusBorderColor: '#dd3444',
+      buttonTextColor: '#fff',
+      buttonBackgroundColor: '#036',
+    },
+    'walmart': {
+      hostnameSelector: 'walmart.com',
+      buttonTextColor: '#ffffff',
+      buttonBackgroundColor: '#00419a',
+      focusBorderColor: '#ffc220',
+      menuTextColor: '#ffffff',
+      menuBackgroundColor: '#0071dc',
+      menuitemFocusTextColor: '#00419a',
+      menuitemFocusBackgroundColor: '#ffffff',
+    }
+  };
 
   /*
   *   debug.js
@@ -111,12 +221,12 @@
   /* style.js */
 
   /* Constants */
-  const debug$7 = new DebugLogging('style', false);
-  debug$7.flag = false;
+  const debug$8 = new DebugLogging('style', false);
+  debug$8.flag = false;
 
   const styleTemplate = document.createElement('template');
   styleTemplate.innerHTML = `
-<style type="text/css" id="id-skip-to-css">
+<style type="text/css">
 $skipToId.popup {
   top: -30px;
   transition: top 0.35s ease;
@@ -194,6 +304,9 @@ $skipToId button {
     display: none;
   }
 
+  $skipToId.popup {
+    top: -26px;
+  }
 }
 
 @media screen and (min-width: $smallBreakPointpx) and (max-width: $mediumBreakPointpx) {
@@ -219,6 +332,10 @@ $skipToId button {
     display: none;
   }
 
+  $skipToId.popup {
+    top: -28px;
+  }
+
 }
 
 $skipToId.static {
@@ -238,6 +355,7 @@ $skipToId [role="menu"] {
   border-color: $focusBorderColor;
   border-radius: 5px;
   overflow-x: hidden;
+  overflow-y: scroll;
   z-index: $zIndex !important;
   touch-action: none;
 }
@@ -277,6 +395,7 @@ $skipToId [role="menuitem"] .label {
   line-height: inherit;
   display: inline-block;
   white-space: nowrap;
+  border: none;
 }
 
 $skipToId [role="menuitem"] .level {
@@ -304,7 +423,7 @@ $skipToId [role="menuitem"].skip-to-h2 .level { grid-column: 2; }
 $skipToId [role="menuitem"].skip-to-h3 .level { grid-column: 3; }
 $skipToId [role="menuitem"].skip-to-h4 .level { grid-column: 4; }
 $skipToId [role="menuitem"].skip-to-h5 .level { grid-column: 5; }
-$skipToId [role="menuitem"].skip-to-h6 .level { grid-column: 8;}
+$skipToId [role="menuitem"].skip-to-h6 .level { grid-column: 6;}
 
 $skipToId [role="menuitem"].skip-to-h1 .label { grid-column: 2 / 8; }
 $skipToId [role="menuitem"].skip-to-h2 .label { grid-column: 3 / 8; }
@@ -400,14 +519,26 @@ $skipToId [role="menuitem"].hover .label {
   background-color: $menuitemFocusBackgroundColor;
   color: $menuitemFocusTextColor;
 }
+</style>
+`;
 
+  const highlightTemplate = document.createElement('template');
+  highlightTemplate.innerHTML = `
+<style type="text/css">
 $skipToId-highlight {
   position: absolute;
   border-radius: 3px;
-  border: solid $focusBorderColor 2px;
-  z-index: $zIndexHighlight;
+  border: 4px solid $buttonBackgroundColor;
 }
 
+$skipToId-highlight div {
+  position: relative;
+  top: -2px;
+  left: -2px;
+  border-radius: 3px;
+  border: 2px solid $focusBorderColor;
+  z-index: $zHighlight;
+}
 </style>
 `;
 
@@ -416,12 +547,11 @@ $skipToId-highlight {
    *
    *   @desc Returns
    *
-   *   @param  {Object}  colorThemes  -  Javascript object with keyed color themes
    *   @param  {String}  colorTheme   -  A string identifying a color theme  
    *
    *   @returns {Object}  see @desc
    */
-  function getTheme(colorThemes, colorTheme) {
+  function getTheme(colorTheme) {
     if (typeof colorThemes[colorTheme] === 'object') {
       return colorThemes[colorTheme];
     }
@@ -439,7 +569,6 @@ $skipToId-highlight {
       const pathnameSelector = colorThemes[item].pathnameSelector;
       let hostnameFlag = false; 
       let pathnameFlag = false; 
-
 
       if (hostnameSelector) {
         if (hostname.indexOf(hostnameSelector) >= 0) {
@@ -500,7 +629,7 @@ $skipToId-highlight {
    *
    *   @returns 
    */
-  function updateStyle(stylePlaceholder, configValue, themeValue, defaultValue) {
+  function updateStyle(template, stylePlaceholder, configValue, themeValue, defaultValue) {
     let value = defaultValue;
     if (typeof configValue === 'string' && configValue) {
       value = configValue;
@@ -510,7 +639,7 @@ $skipToId-highlight {
       }
     }
 
-    let cssContent = styleTemplate.innerHTML;
+    let cssContent = template.innerHTML;
     let index1 = cssContent.indexOf(stylePlaceholder);
     let index2 = index1 + stylePlaceholder.length;
     while (index1 >= 0 && index2 < cssContent.length) {
@@ -518,7 +647,7 @@ $skipToId-highlight {
       index1 = cssContent.indexOf(stylePlaceholder, index2);
       index2 = index1 + stylePlaceholder.length;
     }
-    styleTemplate.innerHTML = cssContent;
+    template.innerHTML = cssContent;
   }
 
   /*
@@ -527,65 +656,82 @@ $skipToId-highlight {
    * @desc Updates the styling information in the attached
    *       stylesheet to use the configured or default colors  
    *
-   * @param  {Object}  colorThemes -  Object with theme information
    * @param  {Object}  config      -  Configuration information object
    */
-  function addCSSColors (colorThemes, config) {
-    const theme = getTheme(colorThemes, config.colorTheme);
-    const defaultTheme = getTheme(colorThemes, 'default');
+  function addCSSColors (config) {
+    const theme = getTheme(config.colorTheme);
+    const defaultTheme = getTheme('default');
 
     // Check for display option in theme
-    if ((typeof theme.displayOption === 'string') && 
-        ('fixed popup static'.indexOf(theme.displayOption.toLowerCase())>= 0)) {
-      config.displayOption = theme.displayOption;
+    if ((typeof config.displayOption === 'string') &&
+        ('fixed popup static'.indexOf(config.displayOption.toLowerCase()) < 0)) {
+
+      if ((typeof theme.displayOption === 'string') &&
+          ('fixed popup static'.indexOf(theme.displayOption.toLowerCase())>= 0)) {
+        config.displayOption = theme.displayOption;
+      }
+      else {
+        config.displayOption = defaultTheme.displayOption;
+      }
     }
 
-    updateStyle('$fontFamily', config.fontFamily, theme.fontFamily, defaultTheme.fontFamily);
-    updateStyle('$fontSize', config.fontSize, theme.fontSize, defaultTheme.fontSize);
+    updateStyle(styleTemplate, '$fontFamily', config.fontFamily, theme.fontFamily, defaultTheme.fontFamily);
+    updateStyle(styleTemplate, '$fontSize', config.fontSize, theme.fontSize, defaultTheme.fontSize);
 
-    updateStyle('$positionLeft', config.positionLeft, theme.positionLeft, defaultTheme.positionLeft);
-    updateStyle('$smallBreakPoint', config.smallBreakPoint, theme.smallBreakPoint, defaultTheme.smallBreakPoint);
-    updateStyle('$mediumBreakPoint', config.mediumBreakPoint, theme.mediumBreakPoint, defaultTheme.mediumBreakPoint);
+    updateStyle(styleTemplate, '$positionLeft', config.positionLeft, theme.positionLeft, defaultTheme.positionLeft);
+    updateStyle(styleTemplate, '$smallBreakPoint', config.smallBreakPoint, theme.smallBreakPoint, defaultTheme.smallBreakPoint);
+    updateStyle(styleTemplate, '$mediumBreakPoint', config.mediumBreakPoint, theme.mediumBreakPoint, defaultTheme.mediumBreakPoint);
 
-    updateStyle('$menuTextColor', config.menuTextColor, theme.menuTextColor, defaultTheme.menuTextColor);
-    updateStyle('$menuBackgroundColor', config.menuBackgroundColor, theme.menuBackgroundColor, defaultTheme.menuBackgroundColor);
+    updateStyle(styleTemplate, '$menuTextColor', config.menuTextColor, theme.menuTextColor, defaultTheme.menuTextColor);
+    updateStyle(styleTemplate, '$menuBackgroundColor', config.menuBackgroundColor, theme.menuBackgroundColor, defaultTheme.menuBackgroundColor);
 
-    updateStyle('$menuitemFocusTextColor', config.menuitemFocusTextColor, theme.menuitemFocusTextColor, defaultTheme.menuitemFocusTextColor);
-    updateStyle('$menuitemFocusBackgroundColor', config.menuitemFocusBackgroundColor, theme.menuitemFocusBackgroundColor, defaultTheme.menuitemFocusBackgroundColor);
+    updateStyle(styleTemplate, '$menuitemFocusTextColor', config.menuitemFocusTextColor, theme.menuitemFocusTextColor, defaultTheme.menuitemFocusTextColor);
+    updateStyle(styleTemplate, '$menuitemFocusBackgroundColor', config.menuitemFocusBackgroundColor, theme.menuitemFocusBackgroundColor, defaultTheme.menuitemFocusBackgroundColor);
 
-    updateStyle('$focusBorderColor', config.focusBorderColor, theme.focusBorderColor, defaultTheme.focusBorderColor);
+    updateStyle(styleTemplate, '$focusBorderColor', config.focusBorderColor, theme.focusBorderColor, defaultTheme.focusBorderColor);
 
-    updateStyle('$buttonTextColor', config.buttonTextColor, theme.buttonTextColor, defaultTheme.buttonTextColor);
-    updateStyle('$buttonBackgroundColor', config.buttonBackgroundColor, theme.buttonBackgroundColor, defaultTheme.buttonBackgroundColor);
+    updateStyle(styleTemplate, '$buttonTextColor', config.buttonTextColor, theme.buttonTextColor, defaultTheme.buttonTextColor);
+    updateStyle(styleTemplate, '$buttonBackgroundColor', config.buttonBackgroundColor, theme.buttonBackgroundColor, defaultTheme.buttonBackgroundColor);
 
-    updateStyle('$zIndex', config.zIndex, theme.zIndex, defaultTheme.zIndex);
-    updateStyle('$zIndexHighlight', config.zIndexHighlight, theme.zIndexHighlight, defaultTheme.zIndexHighlight);
+    updateStyle(styleTemplate, '$zIndex', config.zIndex, theme.zIndex, defaultTheme.zIndex);
+
+    updateStyle(styleTemplate, '$zHighlight', config.zHighlight, theme.zHighlight, defaultTheme.zHighlight);
+
+    updateStyle(highlightTemplate, '$buttonBackgroundColor', config.buttonBackgroundColor, theme.buttonBackgroundColor, defaultTheme.buttonBackgroundColor);
+    updateStyle(highlightTemplate, '$focusBorderColor', config.focusBorderColor, theme.focusBorderColor, defaultTheme.focusBorderColor);
 
   }
 
   /*
-   *   @function enderStyleElement
+   *   @function renderStyleElement
    *
    *   @desc  Updates the style sheet template and then attaches it to the document
    *
-   * @param  {Object}  colorThemes     -  Object with theme information
+   * @param {Object}  attachNode      - DOM element node to attach button and menu container element
    * @param  {Object}  config          -  Configuration information object
    * @param  {String}  skipYToStyleId  -  Id used for the skipto container element
    */
-  function renderStyleElement (colorThemes, config, skipToId) {
+  function renderStyleElement (attachNode, config, skipToId) {
     styleTemplate.innerHTML = styleTemplate.innerHTML.replaceAll('$skipToId', '#' + skipToId);
-    addCSSColors(colorThemes, config);
+    highlightTemplate.innerHTML = highlightTemplate.innerHTML.replaceAll('$skipToId', '#' + skipToId);
+    addCSSColors(config);
+
     const styleNode = styleTemplate.content.cloneNode(true);
     styleNode.id = `${skipToId}-style`;
-    const headNode = document.getElementsByTagName('head')[0];
-    headNode.appendChild(styleNode);
+    attachNode.appendChild(styleNode);
+
+    const highlightNode = highlightTemplate.content.cloneNode(true);
+    highlightNode.id = `${skipToId}-highlight`;
+    const headNode = document.querySelector('head');
+    headNode.appendChild(highlightNode);
+
   }
 
   /* utils.js */
 
   /* Constants */
-  const debug$6 = new DebugLogging('Utils', false);
-  debug$6.flag = false;
+  const debug$7 = new DebugLogging('Utils', false);
+  debug$7.flag = false;
 
 
   /*
@@ -674,8 +820,8 @@ $skipToId-highlight {
 
   /* constants */
 
-  const debug$5 = new DebugLogging('nameFrom', false);
-  debug$5.flag = false;
+  const debug$6 = new DebugLogging('nameFrom', false);
+  debug$6.flag = false;
 
   //
   // LOW-LEVEL HELPER FUNCTIONS (NOT EXPORTED)
@@ -944,8 +1090,8 @@ $skipToId-highlight {
   /* accName.js */
 
   /* Constants */
-  const debug$4 = new DebugLogging('accName', false);
-  debug$4.flag = false;
+  const debug$5 = new DebugLogging('accName', false);
+  debug$5.flag = false;
 
   /**
    *   @fuction getAccessibleName
@@ -1023,8 +1169,8 @@ $skipToId-highlight {
   /* landmarksHeadings.js */
 
   /* Constants */
-  const debug$3 = new DebugLogging('landmarksHeadings', false);
-  debug$3.flag = false;
+  const debug$4 = new DebugLogging('landmarksHeadings', false);
+  debug$4.flag = false;
 
   const skipableElements = [
     'base',
@@ -1262,6 +1408,12 @@ $skipToId-highlight {
                     return targetNode;
                   }
                 }
+                else {
+                  targetNode = transverseDOMForSkipToId(node);
+                  if (targetNode) {
+                    return targetNode;
+                  }
+                }
               } else {
                 targetNode = transverseDOMForSkipToId(node);
                 if (targetNode) {
@@ -1280,12 +1432,12 @@ $skipToId-highlight {
   /**
    * @function findVisibleElement
    *
-   * @desc Returns the first isible decsendant DOM node that matches a set of element tag names
+   * @desc Returns the first visible descendant DOM node that matches a set of element tag names
    * 
    * @param {node}   startingNode  - dom node to start search for element
    * @param {Array}  tagNames      - Array of tag names
    * 
-   * @returns (node} Returns first descendmt element, if not found returns false
+   * @returns (node} Returns first descendant element, if not found returns false
    */
   function findVisibleElement (startingNode, tagNames) {
 
@@ -1320,6 +1472,12 @@ $skipToId-highlight {
               if (isCustomElement(node)) {
                 if (node.shadowRoot) {
                   targetNode = transverseDOMForVisibleElement(node.shadowRoot, targetTagName);
+                  if (targetNode) {
+                    return targetNode;
+                  }
+                }
+                else {
+                  targetNode = transverseDOMForVisibleElement(node, targetTagName);
                   if (targetNode) {
                     return targetNode;
                   }
@@ -1467,7 +1625,7 @@ $skipToId-highlight {
     let landmarkInfo = [];
     let targetLandmarks = getLandmarkTargets(landmarkTargets.toLowerCase());
     let targetHeadings  = getHeadingTargets(headingTargets.toLowerCase());
-    let onlyInMain = headingTargets.includes('main');
+    let onlyInMain = headingTargets.includes('main') || headingTargets.includes('main-only');
 
     function transverseDOM(startingNode, doc, parentDoc=null, inMain = false) {
       for (let node = startingNode.firstChild; node !== null; node = node.nextSibling ) {
@@ -1523,6 +1681,9 @@ $skipToId-highlight {
               if (isCustomElement(node)) {
                 if (node.shadowRoot) {
                   transverseDOM(node.shadowRoot, node.shadowRoot, doc, inMain);
+                }
+                else {
+                  transverseDOM(node, doc, parentDoc, inMain);
                 }
               } else {
                 transverseDOM(node, doc, parentDoc, inMain);
@@ -1581,7 +1742,7 @@ $skipToId-highlight {
     // If targets undefined, use default settings
     if (typeof headingTargets !== 'string') {
       console.warn(`[skipto.js]: Error in heading configuration`);
-      headingTargets = 'h1 h2';
+      headingTargets = 'main-only h1 h2';
     }
 
     const [landmarks, headings] = queryDOMForLandmarksAndHeadings(landmarkTargets, headingTargets, skiptoId);
@@ -1841,17 +2002,21 @@ $skipToId-highlight {
   /* highlight.js */
 
   /* Constants */
-  const debug$2 = new DebugLogging('highlight', false);
-  debug$2.flag = false;
+  const debug$3 = new DebugLogging('highlight', false);
+  debug$3.flag = false;
 
   const minWidth = 68;
   const minHeight = 27;
-  const offset = 5;
+  const offset = 6;
+  const borderWidth = 2;
 
   const overlayElement = document.createElement('div');
   overlayElement.id = 'id-skip-to-highlight';
   document.body.appendChild(overlayElement);
   overlayElement.style.display = 'none';
+
+  const overlayElementChild = document.createElement('div');
+  overlayElement.appendChild(overlayElementChild);
 
 
   /*
@@ -1959,32 +2124,41 @@ $skipToId-highlight {
    *
    *  @desc  Create an overlay element and set its position on the page.
    *
-   *  @param  {Object}  overlay  -  DOM element for overlay
-   *  @param  {Object}  element  -  DOM element node to highlight
+   *  @param  {Object}  overlayElem      -  DOM element for overlay
+   *  @param  {Object}  element          -  DOM element node to highlight
    *
    */
 
   function updateOverlayElement (overlayElem, element) {
 
+    const childElem = overlayElem.firstElementChild;
+
     const rect = element.getBoundingClientRect();
 
-    if (rect.left > offset) {
-      overlayElem.style.left   = Math.round(rect.left - offset + window.scrollX) + 'px';
-      overlayElem.style.width  = Math.max(rect.width  + offset * 2, minWidth)  + 'px';
-    }
-    else {
-      overlayElem.style.left   = Math.round(rect.left + window.scrollX) + 'px';
-      overlayElem.style.width  = Math.max(rect.width, minWidth)  + 'px';
-    }
+    const left   = rect.left > offset ?
+                    Math.round(rect.left - offset + window.scrollX) :
+                    Math.round(rect.left + window.scrollX);
 
-    if (rect.top > offset) {
-      overlayElem.style.top    = Math.round(rect.top  - offset + window.scrollY) + 'px';
-      overlayElem.style.height = Math.max(rect.height + offset * 2, minHeight) + 'px';
-    }
-    else {
-      overlayElem.style.top    = Math.round(rect.top + window.scrollY) + 'px';
-      overlayElem.style.height = Math.max(rect.height, minHeight) + 'px';
-    }
+    const width  = rect.left > offset ?
+                    Math.max(rect.width  + offset * 2, minWidth) :
+                    Math.max(rect.width, minWidth);
+
+    const top    = rect.top > offset ?
+                    Math.round(rect.top  - offset + window.scrollY) :
+                    Math.round(rect.top + window.scrollY);
+
+    const height = rect.top > offset ?
+                    Math.max(rect.height + offset * 2, minHeight) :
+                    Math.max(rect.height, minHeight);
+
+    overlayElem.style.left   = left   + 'px';
+    overlayElem.style.width  = width  + 'px';
+    overlayElem.style.top    = top    + 'px';
+    overlayElem.style.height = height + 'px';
+
+    childElem.style.width  = (width  - 2 * borderWidth) + 'px';
+    childElem.style.height = (height - 2 * borderWidth) + 'px';
+
 
     overlayElem.style.display = 'block';
   }
@@ -1992,8 +2166,44 @@ $skipToId-highlight {
   /* skiptoMenuButton.js */
 
   /* Constants */
-  const debug$1 = new DebugLogging('SkipToButton', false);
-  debug$1.flag = false;
+  const debug$2 = new DebugLogging('SkipToButton', false);
+  debug$2.flag = false;
+
+  const menuButtonTemplate = document.createElement('template');
+  menuButtonTemplate.innerHTML = `
+  <button aria-label="Skip To Content"
+          aria-haspopup="menu"
+          aria-expanded="false"
+          aria-controls="id-skip-to-menu">
+    <span class="skipto-text">Skip</span>
+    <span class="skipto-small">Skip to Content</span>
+    <span class="skipto-medium">Skip to Content (Alt+0)</span>
+  </button>
+
+  <div id="id-skip-to-menu"
+       role="menu"
+       aria-label="skip to content">
+
+    <div id="id-skip-to-menu-landmark-group-label"
+         role="separator">
+       Landmark Regions
+    </div>
+    <div id="id-skip-to-menu-landmark-group"
+         role="group"
+         aria-labelledby="id-skip-to-menu-landmark-group-label">
+    </div>
+
+    <div id="id-skip-to-menu-heading-group-label"
+         role="separator">
+       Headings
+    </div>
+    <div id="id-skip-to-menu-heading-group"
+         role="group"
+         aria-labelledby="id-skip-to-menu-landmark-group-label">
+    </div>
+
+  </div>
+`;
 
   /**
    * @class SkiptoMenuButton
@@ -2001,7 +2211,7 @@ $skipToId-highlight {
    * @desc Constructor for creating a button to open a menu of headings and landmarks on 
    *       a web page
    *
-   * @param {Object}  attachNode  - DOM eleemnt node to attach button and menu container element
+   * @param {Object}  attachNode  - DOM element node to attach button and menu container element
    * 
    * @returns {Object}  DOM element node that is the contatiner for the button and the menu
    */
@@ -2011,13 +2221,16 @@ $skipToId-highlight {
         this.config = config;
         this.skiptoId = id;
 
-        this.containerNode = document.createElement(config.containerElement);
-        if (config.containerElement === 'nav') {
-          this.containerNode.setAttribute('aria-label', config.buttonLabel);
-        }
+        // check for 'nav' element, if not use 'div' element
+        const ce = config.containerElement.toLowerCase().trim() === 'nav' ? 'nav' : 'div';
+
+        this.containerNode = document.createElement(ce);
+        attachNode.appendChild(this.containerNode);
 
         this.containerNode.id = id;
-
+        if (ce === 'nav') {
+          this.containerNode.setAttribute('aria-label', config.buttonLabel);
+        }
         if (isNotEmptyString(config.customClass)) {
           this.containerNode.classList.add(config.customClass);
         }
@@ -2038,64 +2251,40 @@ $skipToId-highlight {
           }
         }
 
+        const menuButtonClone = menuButtonTemplate.content.cloneNode(true);
+        this.containerNode.appendChild(menuButtonClone);
+
         // Create button
 
         const [buttonVisibleLabel, buttonAriaLabel] = this.getBrowserSpecificShortcut(config);
 
-        this.buttonNode = document.createElement('button');
+        this.buttonNode = this.containerNode.querySelector('button');
         this.buttonNode.setAttribute('aria-label', buttonAriaLabel);
         this.buttonNode.addEventListener('keydown', this.handleButtonKeydown.bind(this));
         this.buttonNode.addEventListener('click', this.handleButtonClick.bind(this));
-        this.containerNode.appendChild(this.buttonNode);
 
-        this.buttonTextNode = document.createElement('span');
-        this.buttonTextNode.classList.add('skipto-text');
+        this.buttonTextNode = this.buttonNode.querySelector('.skipto-text');
         this.buttonTextNode.textContent = buttonVisibleLabel;
-        this.buttonNode.appendChild(this.buttonTextNode);
 
-        const smallButtonNode = document.createElement('span');
-        smallButtonNode.classList.add('skipto-small');
+        const smallButtonNode = this.buttonNode.querySelector('.skipto-small');
         smallButtonNode.textContent = config.smallButtonLabel;
-        this.buttonNode.appendChild(smallButtonNode);
 
-        const mediumButtonNode = document.createElement('span');
-        mediumButtonNode.classList.add('skipto-medium');
+        const mediumButtonNode = this.buttonNode.querySelector('.skipto-medium');
         mediumButtonNode.textContent = config.buttonLabel;
-        this.buttonNode.appendChild(mediumButtonNode);
 
         // Create menu container
         this.menuitemNodes = [];
 
-        this.menuNode   = document.createElement('div');
-        this.menuNode.id = 'id-skip-to-menu';
-        this.menuNode.setAttribute('role', 'menu');
+        this.menuNode   = this.containerNode.querySelector('[role="menu"]');
         this.menuNode.setAttribute('aria-label', config.menuLabel);
-        this.menuNode.setAttribute('aria-busy', 'true');
-        this.containerNode.appendChild(this.menuNode);
 
-        const landmarkGroupLabelNode = document.createElement('div');
-        landmarkGroupLabelNode.id = 'id-skip-to-menu-landmark-group-label';
-        landmarkGroupLabelNode.setAttribute('role', 'separator');
-        landmarkGroupLabelNode.textContent = this.config.landmarkGroupLabel;
-        this.menuNode.appendChild(landmarkGroupLabelNode);
+        this.landmarkGroupLabelNode = this.containerNode.querySelector('#id-skip-to-menu-landmark-group-label');
+        this.landmarkGroupLabelNode.textContent = this.config.landmarkGroupLabel;
+        this.landmarkGroupNode = this.containerNode.querySelector('#id-skip-to-menu-landmark-group');
 
-        this.landmarkGroupNode = document.createElement('div');
-        this.landmarkGroupNode.setAttribute('role', 'group');
-        this.landmarkGroupNode.setAttribute('aria-labelledby', landmarkGroupLabelNode.id);
-        this.landmarkGroupNode.id = '#id-skip-to-menu-landmark-group';
-        this.menuNode.appendChild(this.landmarkGroupNode);
-
-        const headingGroupLabelNode = document.createElement('div');
-        headingGroupLabelNode.id = 'id-skip-to-menu-heading-group-label';
-        headingGroupLabelNode.setAttribute('role', 'separator');
-        headingGroupLabelNode.textContent = this.config.headingGroupLabel;
-        this.menuNode.appendChild(headingGroupLabelNode);
-
-        this.headingGroupNode = document.createElement('div');
-        this.headingGroupNode.setAttribute('role', 'group');
-        this.headingGroupNode.setAttribute('aria-labelledby', headingGroupLabelNode.id);
-        this.headingGroupNode.id = '#id-skip-to-menu-heading-group';
-        this.menuNode.appendChild(this.headingGroupNode);
+        this.headingGroupLabelNode = this.containerNode.querySelector('#id-skip-to-menu-heading-group-label');
+        this.headingGroupLabelNode.textContent = this.config.headingGroupLabel;
+        this.headingGroupNode = this.containerNode.querySelector('#id-skip-to-menu-heading-group');
 
         this.containerNode.addEventListener('focusin', this.handleFocusin.bind(this));
         this.containerNode.addEventListener('focusout', this.handleFocusout.bind(this));
@@ -2109,17 +2298,15 @@ $skipToId-highlight {
           );
         }
 
-        attachNode.insertBefore(this.containerNode, attachNode.firstElementChild);
+        attachNode.appendChild(this.containerNode);
 
         this.highlightEnabled = (typeof config.highlightTarget === 'string') ?
                                  config.highlightTarget.trim().toLowerCase() === 'enabled' :
                                  false;
 
-
         this.focusMenuitem = null;
 
-        return this.containerNode;
-
+        return this.buttonNode;
       }
         
       /*
@@ -2516,10 +2703,10 @@ $skipToId-highlight {
       /*
        * @method openPopup
        *
-       * @desc Opens the memu of landmark regions and headings
+       * @desc Opens the menu of landmark regions and headings
        */
       openPopup() {
-        debug$1.flag && debug$1.log(`[openPopup]`);
+        debug$2.flag && debug$2.log(`[openPopup]`);
         this.menuNode.setAttribute('aria-busy', 'true');
         const h = (80 * window.innerHeight) / 100;
         this.menuNode.style.maxHeight = h + 'px';
@@ -2545,7 +2732,7 @@ $skipToId-highlight {
        * @desc Closes the memu of landmark regions and headings
        */
       closePopup() {
-        debug$1.flag && debug$1.log(`[closePopup]`);
+        debug$2.flag && debug$2.log(`[closePopup]`);
         if (this.isOpen()) {
           this.buttonNode.setAttribute('aria-expanded', 'false');
           this.menuNode.style.display = 'none';
@@ -2684,7 +2871,7 @@ $skipToId-highlight {
       }
 
       handleButtonClick(event) {
-        debug$1.flag && debug$1.log(`[handleButtonClick]`);
+        debug$2.flag && debug$2.log(`[handleButtonClick]`);
         if (this.isOpen()) {
           this.closePopup();
           this.buttonNode.focus();
@@ -2830,14 +3017,13 @@ $skipToId-highlight {
       }
 
       handleMenuitemClick(event) {
-        debug$1.log(`[click]`);
         this.handleMenuitemAction(event.currentTarget);
         event.stopPropagation();
         event.preventDefault();
       }
 
       handleMenuitemPointerenter(event) {
-        debug$1.flag && debug$1.log(`[enter]`);
+        debug$2.flag && debug$2.log(`[enter]`);
         let tgt = event.currentTarget;
         tgt.classList.add('hover');
         if (this.highlightEnabled) {
@@ -2848,7 +3034,7 @@ $skipToId-highlight {
       }
 
      handleMenuitemPointerover(event) {
-        debug$1.flag && debug$1.log(`[over]`);
+        debug$2.flag && debug$2.log(`[over]`);
         let tgt = event.currentTarget;
         if (this.highlightEnabled) {
           highlightElement(tgt.getAttribute('data-id'));
@@ -2858,7 +3044,7 @@ $skipToId-highlight {
       }
 
       handleMenuitemPointerleave(event) {
-        debug$1.flag && debug$1.log(`[leave]`);
+        debug$2.flag && debug$2.log(`[leave]`);
         let tgt = event.currentTarget;
         tgt.classList.remove('hover');
         event.stopPropagation();
@@ -2866,7 +3052,7 @@ $skipToId-highlight {
       }
 
       handleContinerPointerdown(event) {
-        debug$1.flag && debug$1.log(`[down]: target: ${event.pointerId}`);
+        debug$2.flag && debug$2.log(`[down]: target: ${event.pointerId}`);
 
         if (this.isOverButton(event.clientX, event.clientY)) {
           this.containerNode.releasePointerCapture(event.pointerId);
@@ -2879,13 +3065,13 @@ $skipToId-highlight {
           if (this.containerNode.contains(event.target)) {
             if (this.isOpen()) {
               if (!this.isOverMenu(event.clientX, event.clientY)) {
-                debug$1.flag && debug$1.log(`[down][close]`);
+                debug$2.flag && debug$2.log(`[down][close]`);
                 this.closePopup();
                 this.buttonNode.focus();            
               }
             }
             else {
-              debug$1.flag && debug$1.log(`[down][open]`);
+              debug$2.flag && debug$2.log(`[down][open]`);
               this.openPopup();          
               this.setFocusToFirstMenuitem();
             }
@@ -2919,16 +3105,16 @@ $skipToId-highlight {
 
         const mi = this.getMenuitem(event.clientX, event.clientY);
         const omb = this.isOverButton(event.clientX, event.clientY);
-        debug$1.flag && debug$1.log(`[up] isOverButton: ${omb} getMenuitem: ${mi} id: ${event.pointerId}`);
+        debug$2.flag && debug$2.log(`[up] isOverButton: ${omb} getMenuitem: ${mi} id: ${event.pointerId}`);
 
         if (mi) {
           this.handleMenuitemAction(mi);          
         }
         else {
           if (!omb) {
-            debug$1.flag && debug$1.log(`[up] not over button `);
+            debug$2.flag && debug$2.log(`[up] not over button `);
             if (this.isOpen()) {
-              debug$1.flag && debug$1.log(`[up] close `);
+              debug$2.flag && debug$2.log(`[up] close `);
               this.closePopup();
               this.buttonNode.focus();
             }        
@@ -2940,7 +3126,7 @@ $skipToId-highlight {
       }
 
       handleBodyPointerdown(event) {
-        debug$1.flag && debug$1.log(`[handleBodyPointerdown]: target: ${event.pointerId}`);
+        debug$2.flag && debug$2.log(`[handleBodyPointerdown]: target: ${event.pointerId}`);
 
         if (!this.isOverButton(event.clientX, event.clientY) &&
             !this.isOverMenu(event.clientX, event.clientY)) {
@@ -2950,33 +3136,32 @@ $skipToId-highlight {
 
   }
 
+  /* skiptoContent.js */
+
   /* constants */
-  const debug = new DebugLogging('skipto', false);
-  debug.flag = true;
+  const debug$1 = new DebugLogging('skiptoContent', false);
+  debug$1.flag = false;
 
-  (function() {
 
-    const SkipTo = {
-      skipToId: 'id-skip-to',
-      domNode: null,
-      buttonNode: null,
-      menuNode: null,
-      menuitemNodes: [],
-      firstMenuitem: false,
-      lastMenuitem: false,
-      firstChars: [],
-      headingLevels: [],
-      skipToIdIndex: 1,
+  class SkipToContent extends HTMLElement {
+
+    constructor() {
+      // Always call super first in constructor
+      super();
+      this.attachShadow({ mode: 'open' });
+      this.skipToId = 'id-skip-to';
+      this.version = "5.5.0";
+      this.buttonSkipTo = null;
+
       // Default configuration values
-      config: {
+      this.config = {
         // Feature switches
         enableHeadingLevelShortcuts: true,
 
         // Customization of button and menu
         altShortcut: '0', // default shortcut key is the number zero
-        optionShortcut: 'º', // default shortcut key character associated with option+0 on mac 
-        attachElement: 'body',
-        displayOption: 'fixed', // options: static, popup, fixed (default)
+        optionShortcut: 'º', // default shortcut key character associated with option+0 on mac
+        displayOption: '', // options: static, popup, fixed (default)
         // container element, use containerClass for custom styling
         containerElement: 'nav',
         containerRole: '',
@@ -3009,7 +3194,7 @@ $skipToId-highlight {
 
         // Selectors for landmark and headings sections
         landmarks: 'main search navigation complementary',
-        headings: 'main h1 h2',
+        headings: 'main-only h1 h2',
 
         // Highlight options
         highlightTarget: 'enabled', // options: 'enabled' (default) and 'disabled'
@@ -3029,243 +3214,235 @@ $skipToId-highlight {
         buttonTextColor: '',
         buttonBackgroundColor: '',
         zIndex: '',
-      },
-      colorThemes: {
-        'default': {
-          fontFamily: 'inherit',
-          fontSize: 'inherit',
-          positionLeft: '46%',
-          smallBreakPoint: '576',
-          mediumBreakPoint: '992',
-          menuTextColor: '#1a1a1a',
-          menuBackgroundColor: '#dcdcdc',
-          menuitemFocusTextColor: '#eeeeee',
-          menuitemFocusBackgroundColor: '#1a1a1a',
-          focusBorderColor: '#1a1a1a',
-          buttonTextColor: '#1a1a1a',
-          buttonBackgroundColor: '#eeeeee',
-          zIndex: '100000',
-          zIndexHighlight: '999910',
-        },
-        'aria': {
-          hostnameSelector: 'w3.org',
-          pathnameSelector: 'ARIA/apg',
-          fontFamily: 'sans-serif',
-          fontSize: '10pt',
-          positionLeft: '7%',
-          menuTextColor: '#000',
-          menuBackgroundColor: '#def',
-          menuitemFocusTextColor: '#fff',
-          menuitemFocusBackgroundColor: '#005a9c',
-          focusBorderColor: '#005a9c',
-          buttonTextColor: '#005a9c',
-          buttonBackgroundColor: '#ddd',
-        },
-        'illinois': {
-          hostnameSelector: 'illinois.edu',
-          menuTextColor: '#00132c',
-          menuBackgroundColor: '#cad9ef',
-          menuitemFocusTextColor: '#eeeeee',
-          menuitemFocusBackgroundColor: '#00132c',
-          focusBorderColor: '#ff552e',
-          buttonTextColor: '#444444',
-          buttonBackgroundColor: '#dddede',
-        },
-        'skipto': {
-          hostnameSelector: 'skipto-landmarks-headings.github.io',
-          fontSize: '14px',
-          menuTextColor: '#00132c',
-          menuBackgroundColor: '#cad9ef',
-          menuitemFocusTextColor: '#eeeeee',
-          menuitemFocusBackgroundColor: '#00132c',
-          focusBorderColor: '#ff552e',
-          buttonTextColor: '#444444',
-          buttonBackgroundColor: '#dddede',
-        },
-        'uic': {
-          hostnameSelector: 'uic.edu',
-          menuTextColor: '#001e62',
-          menuBackgroundColor: '#f8f8f8',
-          menuitemFocusTextColor: '#ffffff',
-          menuitemFocusBackgroundColor: '#001e62',
-          focusBorderColor: '#d50032',
-          buttonTextColor: '#ffffff',
-          buttonBackgroundColor: '#001e62',
-        },
-        'uillinois': {
-          hostnameSelector: 'uillinois.edu',
-          menuTextColor: '#001e62',
-          menuBackgroundColor: '#e8e9ea',
-          menuitemFocusTextColor: '#f8f8f8',
-          menuitemFocusBackgroundColor: '#13294b',
-          focusBorderColor: '#dd3403',
-          buttonTextColor: '#e8e9ea',
-          buttonBackgroundColor: '#13294b',
-        },
-        'uis': {
-          hostnameSelector: 'uis.edu',
-          menuTextColor: '#036',
-          menuBackgroundColor: '#fff',
-          menuitemFocusTextColor: '#fff',
-          menuitemFocusBackgroundColor: '#036',
-          focusBorderColor: '#dd3444',
-          buttonTextColor: '#fff',
-          buttonBackgroundColor: '#036',
-        },
-        'openweba11y': {
-          hostnameSelector: 'openweba11y.com',
-          buttonTextColor: '#13294B',
-          buttonBackgroundColor: '#dddddd',
-          focusBorderColor: '#C5050C',
-          menuTextColor: '#13294B',
-          menuBackgroundColor: '#dddddd',
-          menuitemFocusTextColor: '#dddddd',
-          menuitemFocusBackgroundColor: '#13294B',
-          fontSize: '90%'
-        }
-      },
+        zHighlight: ''
+      };
+    }
 
-      /*
-       * @method init
-       *
-       * @desc Initializes the skipto button and menu with default and user 
-       *       defined options
-       *
-       * @param  {object} config - Reference to configuration object
-       *                           can be undefined
-       */
-      init: function(globalConfig) {
-        let node;
+    static get observedAttributes() {
+      return ["data-skipto"];
+    }
 
-        // Check if skipto is already loaded
-        if (document.skipToHasBeenLoaded) {
-          console.warn('[skipTo.js] Skipto is already loaded!');
-          return;
-        }
-
-        document.skipToHasBeenLoaded = true;
-
-        let attachElement = document.body;
-
-        if (globalConfig) {
-          this.config = this.setupConfigFromGlobal(this.config, globalConfig);
-        }
-
-        this.config = this.setupConfigFromDataAttribute(this.config);
-
-        if (typeof this.config.attachElement === 'string') {
-          node = document.querySelector(this.config.attachElement);
-          if (node && node.nodeType === Node.ELEMENT_NODE) {
-            attachElement = node;
-          }
-        }
-        // Add skipto style sheet to document
-        renderStyleElement(this.colorThemes, this.config, this.skipToId);
-
-        new SkiptoMenuButton(attachElement, this.config, this.skipToId);
-      },
-
-      /*
-       * @method setupConfigFromGlobal
-       *
-       * @desc Get configuration information from author configuration to change
-       *       default settings 
-       *
-       * @param  {object}  config       - Javascript object with default configuration information
-       * @param  {object}  globalConfig - Javascript object with configuration information oin a global variable
-       */
-      setupConfigFromGlobal: function(config, globalConfig) {
-        let authorConfig = {};
-        // Support version 4.1 configuration object structure 
-        // If found use it
-        if ((typeof globalConfig.settings === 'object') &&
-            (typeof globalConfig.settings.skipTo === 'object')) {
-          authorConfig = globalConfig.settings.skipTo;
-        }
-        else {
-          // Version 5.0 removes the requirement for the "settings" and "skipto" properties
-          // to reduce the complexity of configuring skipto
-          if (typeof globalConfig === 'object') {
-            authorConfig = globalConfig;
-          }
-        }
-
-        for (const name in authorConfig) {
-          //overwrite values of our local config, based on the external config
-          if ((typeof config[name] !== 'undefined') &&
-             ((typeof authorConfig[name] === 'string') &&
-              (authorConfig[name].length > 0 ) ||
-             typeof authorConfig[name] === 'boolean')
-            ) {
-            config[name] = authorConfig[name];
-          } else {
-            console.warn('[SkipTo]: Unsupported or deprecated configuration option in global configuration object: ' + name);
-          }
-        }
-
-        return config;
-      },
-
-      /*
-       * @method setupConfigFromDataAttribute
-       *
-       * @desc Get configuration information from author configuration to change
-       *       default settings
-       *
-       * @param  {object}  config - Javascript object with default configuration information
-       */
-      setupConfigFromDataAttribute: function(config) {
-        let dataConfig = {};
-
-        // Check for data-skipto attribute values for configuration
-        const configElem = document.querySelector('[data-skipto]');
-        if (configElem) {
-          const dataSkiptoValue = configElem.getAttribute('data-skipto');
-          if (dataSkiptoValue) {
-            const values = dataSkiptoValue.split(';');
-            values.forEach( v => {
-              let [prop, value] = v.split(':');
-              if (prop) {
-                prop = prop.trim();
-              }
-              if (value) {
-                value = value.trim();
-              }
-              if (prop && value) {
-                dataConfig[prop] = value;
-              }
-            });
-          }
-        }
-
-        for (const name in dataConfig) {
-          //overwrite values of our local config, based on the external config
-          if ((typeof config[name] !== 'undefined') &&
-             ((typeof dataConfig[name] === 'string') &&
-              (dataConfig[name].length > 0 ) ||
-             typeof dataConfig[name] === 'boolean')
-            ) {
-            config[name] = dataConfig[name];
-          } else {
-            console.warn('[SkipTo]: Unsupported or deprecated configuration option in data-skipto attribute: ' + name);
-          }
-        }
-        return config;
-
+    attributeChangedCallback(name, oldValue, newValue) {
+      if (name === 'data-skipto') {
+        this.config = this.setupConfigFromDataAttribute(this.config, newValue);
       }
-    };
+    }
+
+    /*
+     * @method init
+     *
+     * @desc Initializes the skipto button and menu with default and user
+     *       defined options
+     *
+     * @param  {object} config - Reference to configuration object
+     *                           can be undefined
+     */
+    init(attachElement, globalConfig=null) {
+      if (globalConfig) {
+        this.config = this.setupConfigFromGlobal(this.config, globalConfig);
+      }
+
+      // Check for data-skipto attribute values for configuration
+      const configElem = document.querySelector('[data-skipto]');
+      if (configElem) {
+        const params = configElem.getAttribute('data-skipto');
+        this.config = this.setupConfigFromDataAttribute(this.config, params);
+      }
+
+      // Add skipto style sheet to document
+      renderStyleElement(attachElement, this.config, this.skipToId);
+      this.buttonSkipTo = new SkiptoMenuButton(attachElement, this.config, this.skipToId);
+    }
+
+   /*
+     * @method setupConfigFromGlobal
+     *
+     * @desc Get configuration information from author configuration to change
+     *       default settings
+     *
+     * @param  {object}  config       - Javascript object with default configuration information
+     * @param  {object}  globalConfig - Javascript object with configuration information oin a global variable
+     */
+    setupConfigFromGlobal(config, globalConfig) {
+      let authorConfig = {};
+      // Support version 4.1 configuration object structure
+      // If found use it
+      if ((typeof globalConfig.settings === 'object') &&
+          (typeof globalConfig.settings.skipTo === 'object')) {
+        authorConfig = globalConfig.settings.skipTo;
+      }
+      else {
+        // Version 5.0 removes the requirement for the "settings" and "skipto" properties
+        // to reduce the complexity of configuring skipto
+        if (typeof globalConfig === 'object') {
+          authorConfig = globalConfig;
+        }
+      }
+
+      for (const name in authorConfig) {
+        //overwrite values of our local config, based on the external config
+        if ((typeof config[name] !== 'undefined') &&
+           ((typeof authorConfig[name] === 'string') &&
+            (authorConfig[name].length > 0 ) ||
+           typeof authorConfig[name] === 'boolean')
+          ) {
+          config[name] = authorConfig[name];
+        } else {
+          console.warn('[SkipTo]: Unsupported or deprecated configuration option in global configuration object: ' + name);
+        }
+      }
+
+      return config;
+    }
+
+    /*
+     * @method setupConfigFromDataAttribute
+     *
+     * @desc Update configuration information from author configuration to change
+     *       default settings
+     *
+     * @param  {Object}  config - Object with SkipTo.js configuration information
+     * @param  {String}  params - String with configuration information
+     */
+    setupConfigFromDataAttribute(config, params) {
+      let dataConfig = {};
+
+      if (params) {
+        const values = params.split(';');
+        values.forEach( v => {
+          let [prop, value] = v.split(':');
+          if (prop) {
+            prop = prop.trim();
+          }
+          if (value) {
+            value = value.trim();
+          }
+          if (prop && value) {
+            dataConfig[prop] = value;
+          }
+        });
+      }
+
+      for (const name in dataConfig) {
+        //overwrite values of our local config, based on the external config
+        if ((typeof config[name] !== 'undefined') &&
+           ((typeof dataConfig[name] === 'string') &&
+            (dataConfig[name].length > 0 ) ||
+           typeof dataConfig[name] === 'boolean')
+          ) {
+          config[name] = dataConfig[name];
+        } else {
+          console.warn('[SkipTo]: Unsupported or deprecated configuration option in data-skipto attribute: ' + name);
+        }
+      }
+      return config;
+    }
+  }
+
+  /* skipto.js */
+
+  /* constants */
+  const debug = new DebugLogging('skipto', false);
+  debug.flag = false;
+
+  (function() {
+
+    /*
+    *  @function removeLegacySkipToJS
+    *
+    *  @desc removes legacy versions of SkipTo.js
+    */
+
+    function removeLegacySkipToJS(skipToContentElem = null) {
+      const node = document.getElementById('id-skip-to');
+      debug.flag && debug.log(`[removeLegacySkipToJS]: ${node}`);
+      if (node) {
+        // remove legacy SkipTo.js
+        node.remove();
+        const cssNode = document.getElementById('id-skip-to-css');
+        if (cssNode) {
+          cssNode.remove();
+        }
+        console.warn('[skipTo.js] legacy version removed, using SkipTo.js extension');
+      }
+      const nodes = document.querySelectorAll('skip-to-content');
+      if (nodes && nodes.length > 1) {
+        debug.fag && debug.log(`[removeLegacySkipToJS]: Removing duplicate copy of SkipTo.js`);
+        for (let i = 0; i <nodes.length; i += 1) {
+          const stcNode = nodes[i];
+          if (stcNode !== skipToContentElem) {
+            stcNode.remove();
+            console.warn('[skipTo.js] duplicate version removed');
+          }
+        }
+      }
+    }
+
+    /*
+    *. @function getSkipToContentElement
+    *
+    * @desc  Creates and add a skip-to-content element in the page
+    *
+    * @returns  Returns dom node of new element or false if the page
+    *           has a legacy SkipTo.js
+    */
+    function getSkipToContentElement() {
+
+      if (document.getElementById('id-skip-to')) {
+        removeLegacySkipToJS();
+      }
+
+      let skipToContentElem = document.querySelector(`skip-to-content`);
+
+      if (!skipToContentElem) {
+        window.customElements.define("skip-to-content", SkipToContent);
+        skipToContentElem = document.createElement('skip-to-content');
+        skipToContentElem.setAttribute('version', skipToContentElem.version);
+        // always attach SkipToContent element to body
+        if (document.body) {
+          document.body.insertBefore(skipToContentElem, document.body.firstElementChild);
+        }
+      }
+      return skipToContentElem;
+    }
 
     // Check for SkipTo.js bookmarklet script, if it is initialize it immediately
     if (document.getElementById(`id-skip-to-bookmarklet`)) {
-      SkipTo.init(window.SkipToConfig);
+      debug.flag && debug.log(`[bookmarklet]`);
+      const skipToContentElem = getSkipToContentElement();
+      // check for older version of SkipTo.js
+      if (skipToContentElem) {
+        skipToContentElem.init(skipToContentElem.shadowRoot);
+        skipToContentElem.buttonSkipTo.openPopup();
+        skipToContentElem.buttonSkipTo.setFocusToFirstMenuitem();
+      }
     }
     else {
-      // Initialize skipto menu button with onload event
-      window.addEventListener('load', function() {
-        SkipTo.init(window.SkipToConfig);
-      });
+      if (document.getElementById(`id-skip-to-extension`)) {
+        debug.flag && debug.log(`[extension]`);
+        const skipToContentElem = getSkipToContentElement();
+        // check for older version of SkipTo.js
+        if (skipToContentElem) {
+          skipToContentElem.init(skipToContentElem.shadowRoot);
+          window.addEventListener('load', function() {
+            debug.flag && debug.log(`[focus]`);
+            removeLegacySkipToJS(skipToContentElem);
+            skipToContentElem.buttonSkipTo.focus();
+          });
+        }
+      }
+      else {
+        // Initialize SkipTo.js menu button with onload event
+        window.addEventListener('load', function() {
+          debug.flag && debug.log(`[load]`);
+          const skipToContentElem = getSkipToContentElement();
+          if (skipToContentElem) {
+            debug.flag && debug.log(`[onload][skipToContent]: ${skipToContentElem}`);
+            skipToContentElem.init(skipToContentElem.shadowRoot, window.SkipToConfig);
+          }
+        });
+      }
     }
-
   })();
 
 })();
