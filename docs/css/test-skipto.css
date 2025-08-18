@@ -29,7 +29,7 @@
   border-radius: 0px 0px 6px 6px;
   border-color: light-dark(white, black);
   color: light-dark(black, white);
-  background-color: light-dark(#333, #ddd);
+  background-color: light-dark(#ddd, #333);
   z-index: 100000 !important;
   font-family: $fontFamily;
   font-size: 12pt;
