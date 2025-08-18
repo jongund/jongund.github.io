@@ -10,13 +10,30 @@
 .popup:hover {
   position: fixed;
   top: 0;
+  left: 45%;
+  font-family: sans-serif, arial, helvetica;
+  font-size: 12pt;
   display: block;
+  border: none;
+  margin-bottom: 4px;
   transition: left 1s ease;
+  z-index: 100000 !important;
 }
 
 .popup button {
   position: sticky;
-  touch-action: none;
+  margin: 0;
+  padding: 0;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-radius: 0px 0px 6px 6px;
+  border-color: light-dark(white, black);
+  color: light-dark(black, white);
+  background-color: light-dark(#333, #ddd);
+  z-index: 100000 !important;
+  font-family: $fontFamily;
+  font-size: 12pt;
+  z-index: 100001 !important;
 }
 
 .popup div.menu {
