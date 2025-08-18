@@ -13,12 +13,22 @@
     <main>
 
       <div class="popup">
-        <button>Regular Button 1</button>
-        <div class="menu">Menu 1</div>
+        <button
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-label="My Regular Button 1"
+            aria-controls="menu1">Regular Button 1</button>
+        <div id="menu1"
+             role="menu"
+             class="menu"
+             aria-label="menu 1">
+            <div role="menuitem">Menu item 1</div>
+            <div role="menuitem">Menu item 2</div>
+        </div>
       </div>
 
-        <button-test data-name="Test Button 1" data-popup>
-        <span slot="name">Test Button 1</span>
+      <button-test data-name="Test Button 1" data-popup>
+      <span slot="name">Test Button 1</span>
       </button-test>
 
       <h1>Test Page: SkipTo.js popup button</h1>
@@ -34,15 +44,7 @@
 
       <div>Some <a href="#">test 1</a> content</div>
 
-      <div>
-        <button>Regular Button 2</button>
-      </div>
-
       <div>Some <a href="#">test 2</a> content</div>
-
-      <button-test data-name="Test Button 2">
-        <span slot="name">Test Button 2</span>
-      </button-test>
 
       <div>Some <a href="#">test 3</a> content</div>
 

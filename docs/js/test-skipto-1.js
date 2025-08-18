@@ -23,14 +23,14 @@ function handleFocusout(event) {
 function logOutput(msg, elem) {
   if (elem) {
     if (elem.hasAttribute('data-name')) {
-      log.textContent =`"${elem.getAttribute('data-name')}" ${msg}\n` + log.textContent;
+      log.textContent =`"${elem.getAttribute('data-name')}" ${msg.trim()}\n` + log.textContent;
     }
     else {
-      log.textContent=`"${elem.textContent}"  ${msg}\n` + log.textContent;
+      log.textContent=`"${elem.textContent}"  ${msg.trim()}\n` + log.textContent;
     }
   }
   else {
-    log.textContent=`"${msg}\n` + log.textContent;
+    log.textContent=`"${msg.trim()}\n` + log.textContent;
   }
 }
 
@@ -48,16 +48,27 @@ function handleBlur(event) {
 function handleClick(event) {
   const tgt = event.currentTarget;
   logOutput('click', tgt);
-  const menuNode = tgt.parentNode.querySelector('div.menu');
-  const rect = tgt.getBoundingClientRect();
-    console.log(`${menuNode} ${rect.height} `);
-  if (menuNode) {
-    menuNode.style.top = (rect.height + 4) + 'px';
-    if (menuNode.style.display === 'block') {
-      menuNode.style.display = 'none';
+
+  if (tgt.hasAttribute('aria-expanded')) {
+    if (tgt.getAttribute('aria-expanded') === 'true') {
+      tgt.setAttribute('aria-expanded', 'false');
     }
     else {
-      menuNode.style.display = 'block';
+     tgt.setAttribute('aria-expanded', 'true');
+    }
+
+    const menuNode = tgt.parentNode.querySelector('div.menu');
+    const rect = tgt.getBoundingClientRect();
+      console.log(`${menuNode} ${rect.height} `);
+
+    if (menuNode) {
+      menuNode.style.top = (rect.height + 4) + 'px';
+      if (tgt.getAttribute('aria-expanded') === 'false') {
+        menuNode.style.display = 'none';
+      }
+      else {
+        menuNode.style.display = 'block';
+      }
     }
   }
 }
@@ -120,10 +131,21 @@ function handleBodyPointerdown(event) {
 const buttonTemplate = document.createElement('template');
 buttonTemplate.innerHTML = `
   <div>
-    <button>
-      <slot name="name">Test Button</slot>
+    <button
+        aria-haspopup="menu"
+        aria-expanded="false"
+        aria-label="My Custom Button 1"
+        aria-controls="menu1"
+          >
+      Custom Button 1
     </button>
-   <div class="menu">Test Menu</div>
+    <div id="menu1"
+         role="menu"
+         class="menu"
+         aria-label="menu 1">
+        <div role="menuitem">Menu item 1A</div>
+        <div role="menuitem">Menu item 2B</div>
+    </div>
   </div>
 `
 
