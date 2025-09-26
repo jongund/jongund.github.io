@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 11: macOS: Keyboard Accessibility Features and Sticky Keys</title>
+      <title>Slide 11: Prevalence of Disability Among College Students</title>
       <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="../../css/html-slides.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><style id="style"></style>
    </head>
@@ -22,9 +22,9 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide12.html" title="Slide 12">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide21.html" title="Slide 21">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide35.html" title="Slide 35">
                         Last
-                      </a></li><span class="navbar-text">Slide 11 of 21</span></ul>
+                      </a></li><span class="navbar-text">Slide 11 of 35</span></ul>
             </div>
          </div>
       </nav>
@@ -32,15 +32,108 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">macOS: Keyboard Accessibility Features and Sticky Keys</h1>
-               <figure style="text-align: center">
-        <img src="./images/macos-kb.png" aria-labelledby="macos-kb" style="width: 70%">
-        <figcaption id="macos-kb">Screen shot of macOS keyboard accessibility features.</figcaption>
-               </figure>
-               <figure style="text-align: center">
-        <img src="./images/macos-sticky-key-options.png" aria-labelledby="macos-sticky" style="width: 70%">
-        <figcaption id="macos-sticky">Screen shot of macOS Sticky Key features.</figcaption>
-               </figure>
+               <h1 id="h1_title" class="title">Prevalence of Disability Among College Students</h1>
+               <div id="container" style="min-width: 310px; height: 500px; margin: 0 auto"></div><script src="https://code.highcharts.com/highcharts.js"></script><script>
+        Highcharts.chart('container', {
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: '2024 Prevalence of Disability Among College Students'
+          },
+          xAxis: {
+            categories: [
+            'ADD or ADHD',
+            'Learning Disability',
+            'Autism Spectrum Disorder',
+            'Blind/low Vision',
+            'Deaf/Hearing loss',
+            'Mobility/Dexterity disability',
+            'Speech/Language disorder'
+            ],
+            crosshair: true
+          },
+          yAxis: {
+            min: 0,
+            max : 20,
+            tickAmount: 5,
+            title: {
+              text: 'Percentage of Students with Disability'
+            }
+          },
+          tooltip: {
+            headerFormat: "<span style='font-size:10px'>{point.key}</span><table>",
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+           useHTML: true
+          },
+          plotOptions: {
+            column: {
+              pointPadding: 0,
+              borderWidth: 0
+            }
+          },
+          series: [
+            {
+              name: 'Undergraduate',
+              data: [17.2, 5.7, 4.9, 4.7, 2.2, 1.9, 1.3]
+            },
+            {
+              name: 'Graduate',
+              data: [15.0, 2.5, 2.9, 2.0, 2.3, 1.8, 0.8]
+            }
+          ]
+        });
+      </script><h2 id="h2-prev">
+        2024 Prevalence of Disability Among College Students
+      </h2>
+               <table class="table table-striped" aria-labelled="h2-prev">
+                  <thead>
+                     <tr>
+                        <th>Disability</th>
+                        <th>Undergraduate</th>
+                        <th>Graduate</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <th>ADD or ADHD</th>
+                        <td>17.2</td>
+                        <td>15.0</td>
+                     </tr>
+                     <tr>
+                        <th>Learning Disability</th>
+                        <td>5.7</td>
+                        <td>2.5</td>
+                     </tr>
+                     <tr>
+                        <th>Autism Spectrum Disorder</th>
+                        <td>4.9</td>
+                        <td>2.9</td>
+                     </tr>
+                     <tr>
+                        <th>Blind/low Vision</th>
+                        <td>4.7</td>
+                        <td>2.0</td>
+                     </tr>
+                     <tr>
+                        <th>Deaf/Hearing loss</th>
+                        <td>2.2</td>
+                        <td>2.3</td>
+                     </tr>
+                     <tr>
+                        <th>Mobility/Dexterity disability</th>
+                        <td>1.9</td>
+                        <td>1.8</td>
+                     </tr>
+                     <tr>
+                        <th>Speech/Language disorder</th>
+                        <td>1.3</td>
+                        <td>0.8</td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
             <div class="col"></div>
          </div>

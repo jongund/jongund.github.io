@@ -43,15 +43,60 @@
   </slide>
 
   <slide>
+    <title>Who is Jon Gunderson?</title>
+    <contents>
+      <ul>
+        <li class="more">Background in engineering and human factors.</li>
+        <li class="more">Learned about accessibility through working on building devices and writing software at the Trace Center at University of Wisconsin-Madison</li>
+        <li class="more">30 Years at the University of Illinois at Urbana/Champaign in Disability Services helping the university understand the accessibility barriers and solutions of the information age.</li>
+        <li class="more">25+ years in participating in the development of accessibility standards at the W3C:
+          <ul>
+            <li><a href="https://www.w3.org/TR/UAAG10/">User Agent Accessibility Guidelines 1.0</a></li>
+            <li><a href="https://www.w3.org/TR/wai-aria/">Accessible Rich Internet Applications (WAI-ARIA)</a></li>
+            <li><a href="https://www.w3.org/WAI/ARIA/apg/">ARIA Authoring Practices</a></li>
+            <li><a href="https://www.w3.org/groups/cg/aria-at/">ARIA and Assistive Technologies Community Group</a></li>
+          </ul>
+        </li>
+        <li class="more">Developing open-source (e.g. free) tools to support accessibility:
+          <ul>
+            <li><a href="https://ainspector.disability.illinois.edu">AInspector for WCAG Evaluation</a></li>
+            <li><a href="https://opena11y.github.io/h2l-side-panel/">Headings, Landmarks and Links (H2L)</a></li>
+            <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/">SkipTo.js</a></li>
+          </ul>
+        </li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Activity: Experience and Knowledge of Accessibility</title>
+    <contents>
+
+      <h2>Step 1</h2>
+      <p>Write on a piece of paper:</p>
+          <ul>
+            <li>Your experience with how disability has affected your life personally or through family or friends.</li>
+            <li>What are the most important accessibility questions you have for your work?</li>
+          </ul>
+
+      <div class="more">
+        <h2>Step 2</h2>
+        <p>Turn to someone next to you, ideally someone you do not know, and share what you will to share of your thoughts.</p>
+      </div>
+    </contents>
+  </slide>
+
+
+  <slide>
     <title>When do you plan on retiring?</title>
     <contents>
       <ul>
-        <li>&lt;50</li>
-        <li>50-59</li>
-        <li>60-69</li>
-        <li>70-79</li>
-        <li>80-89</li>
-        <li>90+</li>
+        <li class="more">&lt;50</li>
+        <li class="more">50-59</li>
+        <li class="more">60-69</li>
+        <li class="more">70-79</li>
+        <li class="more">80-89</li>
+        <li class="more">90+</li>
       </ul>
     </contents>
   </slide>
@@ -60,13 +105,13 @@
     <title>How are you planning financially for your retirement?</title>
     <contents>
       <ul>
-        <li>None</li>
-        <li>Social Security</li>
-        <li>Pension</li>
-        <li>Retirement Investments</li>
-        <li>Trust fund</li>
-        <li>Lottery</li>
-        <li>Other</li>
+        <li class="more">None</li>
+        <li class="more">Social Security</li>
+        <li class="more">Pension</li>
+        <li class="more">Retirement Investments</li>
+        <li class="more">Trust fund</li>
+        <li class="more">Lottery</li>
+        <li class="more">Other</li>
       </ul>
     </contents>
   </slide>
@@ -75,12 +120,12 @@
     <title>What age are you planning on being severely disabled?</title>
     <contents>
       <ul>
-        <li>&lt;50</li>
-        <li>50-59</li>
-        <li>60-69</li>
-        <li>70-79</li>
-        <li>80-89</li>
-        <li>90+</li>
+        <li class="more">&lt;50</li>
+        <li class="more">50-59</li>
+        <li class="more">60-69</li>
+        <li class="more">70-79</li>
+        <li class="more">80-89</li>
+        <li class="more">90+</li>
       </ul>
     </contents>
   </slide>
@@ -89,12 +134,12 @@
     <title>What disability are you planning on getting?</title>
     <contents>
       <ul>
-        <li>Weakness/Paralysis</li>
-        <li>Fine motor skills</li>
-        <li>Visual impairment</li>
-        <li>Hearing impairment</li>
-        <li>Memory/Cognitive</li>
-        <li>More than one</li>
+        <li class="more">Weakness/Paralysis</li>
+        <li class="more">Fine motor skills</li>
+        <li class="more">Visual impairment</li>
+        <li class="more">Hearing impairment</li>
+        <li class="more">Memory/Cognitive</li>
+        <li class="more">More than one?</li>
       </ul>
     </contents>
   </slide>
@@ -233,7 +278,7 @@
   </slide>
 
   <slide>
-    <title>What's your Personal Disability Quotient (PDQ)?</title>
+    <title>Activity: What's your Personal Disability Quotient (PDQ)?</title>
     <contents>
       <p>Calculate your Personal Disability Quotient</p>
 
@@ -470,10 +515,10 @@
   </slide>
 
   <slide>
-    <title>Age Related Macular Degeneration</title>
+    <title>Disability By Age</title>
     <contents>
 
-      <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+      <div id="container" style="min-width: 310px; height: 500px; margin: 0 auto"></div>
 
       <script src="https://code.highcharts.com/highcharts.js"></script>
 
@@ -484,15 +529,15 @@
             type: 'column'
           },
           title: {
-            text: '2010 U.S. age-specific prevalence rates for AMD by age and race/ethnicity'
+            text: '2010 U.S. age-specific prevalence rates of disability'
           },
           subtitle: {
             text: 'Source: National Institutes of Health'
           },
           xAxis: {
             categories: [
-            '50-54',
-            '55-59',
+            '0 to 4',
+            '5 to 24',
             '25 to 44',
             '45 to 54',
             '55 to 64',
@@ -513,7 +558,7 @@
           },
           tooltip: {
             headerFormat: "&lt;span style='font-size:10px'>{point.key}&lt;/span>&lt;table>",
-            pointFormat: '&lt;tr>&lt;td style="color:{series.color};padding:0">{series.name}: &lt;/td>&lt;td style="padding:0">&lt;b>{point.y:.1f} mm&lt;/b>&lt;/td>&lt;/tr>',
+            pointFormat: '&lt;tr>&lt;td style="color:{series.color};padding:0">{series.name}: &lt;/td>&lt;td style="padding:0">&lt;b>{point.y:.1f} %&lt;/b>&lt;/td>&lt;/tr>',
             footerFormat: '&lt;/table>',
             shared: true,
            useHTML: true
@@ -540,89 +585,237 @@
       </script>
 
         <h2 id="h2-amd">
-          2010 U.S. age-specific prevalence rates for AMD by age and race/ethnicity
+          2010 U.S. Rates for Disability By Age
         </h2>
       <table class="table table-striped" aria-labelled="h2-amd">
         <thead>
           <tr>
-            <th>Age</th>
-            <th>White</th>
-            <th>Black</th>
-            <th>Hispanic</th>
-            <th>Other</th>
-            <th>All</th>
+            <th>Age (Years)</th>
+            <th>Any Disability</th>
+            <th>Severe Disability</th>
+            <th>Needs Assistance</th>
           </tr>
          </thead>
          <tbody>
           <tr>
-            <td>50-54</td>
-            <td>0.27%</td>
-            <td>0.56%</td>
-            <td>0.55%</td>
-            <td>0.56%</td>
-            <td>0.36%</td>
+            <th>0 to 4</th><td>8.8%</td><td>3.6%</td><td>0.4%</td>
           </tr>
           <tr>
-            <td>55-59</td>
-            <td>0.32%</td>
-            <td>0.68%</td>
-            <td>0.67%</td>
-            <td>0.68%</td>
-            <td>0.41%</td>
-          </tr>
-
-          <tr>
-            <td>60-64</td>
-            <td>0.49%</td>
-            <td>0.83%</td>
-            <td>0.82%</td>
-            <td>0.83%</td>
-            <td>0.57%</td>
-          </tr>
-
-          <tr>
-            <td>65-69</td>
-            <td>0.88%</td>
-            <td>1.02%</td>
-            <td>1.01%</td>
-            <td>1.01%</td>
-            <td>0.91%</td>
-          </tr>
-
-          <tr>
-            <td>70-74</td>
-            <td>1.74%</td>
-            <td>1.25%</td>
-            <td>1.24%</td>
-            <td>1.23%</td>
-            <td>1.63%</td>
+            <td>5 to 24</td><td>10.4%</td><td>5.0%</td><td>1.3%</td>
           </tr>
           <tr>
-            <td>75-79</td>
-            <td>3.57%</td>
-            <td>1.53%</td>
-            <td>1.51%</td>
-            <td>1.51%</td>
-            <td>3.16%</td>
+            <td>25 to 44</td><td>11.4%</td><td>7.5%</td><td>1.9%</td>
           </tr>
           <tr>
-            <td>80+</td>
-            <td>13.59%</td>
-            <td>2.22%</td>
-            <td>2.12%</td>
-            <td>2.13%</td>
-            <td>11.73%</td>
+            <td>45 to 54</td><td>19.4%</td><td>12.8%</td><td>3.4%</td>
           </tr>
           <tr>
-            <td><strong>TOTAL</strong></td>
-            <td><strong>2.46%</strong></td>
-            <td><strong>0.94%</strong></td>
-            <td><strong>0.90%</strong></td>
-            <td><strong>0.92%</strong></td>
-            <td><strong>2.09%</strong></td>
+            <td>55 to 64</td><td>30.1%</td><td>20.8%</td><td>5.7%</td>
+          </tr>
+          <tr>
+            <td>65 to 69</td><td>37.4%</td><td>26.1%</td><td>7.6%</td>
+          </tr>
+          <tr>
+            <td>70 to 74</td><td>43.8%</td><td>27.6%</td><td>9.4%</td>
+          </tr>
+          <tr>
+            <td>75 to 79</td><td>55.9%</td><td>37.8%</td><td>16.1%</td>
+          </tr>
+          <tr>
+            <td>80+</td><td>70.1%</td><td>56.2%</td><td>29.2%</td>
           </tr>
         </tbody>
       </table>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Prevalence of Disability Among College Students</title>
+    <contents>
+
+      <div id="container" style="min-width: 310px; height: 500px; margin: 0 auto"></div>
+
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+
+      <script>
+        Highcharts.chart('container', {
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: '2024 Prevalence of Disability Among College Students'
+          },
+          xAxis: {
+            categories: [
+            'ADD or ADHD',
+            'Learning Disability',
+            'Autism Spectrum Disorder',
+            'Blind/low Vision',
+            'Deaf/Hearing loss',
+            'Mobility/Dexterity disability',
+            'Speech/Language disorder'
+            ],
+            crosshair: true
+          },
+          yAxis: {
+            min: 0,
+            max : 20,
+            tickAmount: 5,
+            title: {
+              text: 'Percentage of Students with Disability'
+            }
+          },
+          tooltip: {
+            headerFormat: "&lt;span style='font-size:10px'>{point.key}&lt;/span>&lt;table>",
+            pointFormat: '&lt;tr>&lt;td style="color:{series.color};padding:0">{series.name}: &lt;/td>&lt;td style="padding:0">&lt;b>{point.y:.1f} %&lt;/b>&lt;/td>&lt;/tr>',
+            footerFormat: '&lt;/table>',
+            shared: true,
+           useHTML: true
+          },
+          plotOptions: {
+            column: {
+              pointPadding: 0,
+              borderWidth: 0
+            }
+          },
+          series: [
+            {
+              name: 'Undergraduate',
+              data: [17.2, 5.7, 4.9, 4.7, 2.2, 1.9, 1.3]
+            },
+            {
+              name: 'Graduate',
+              data: [15.0, 2.5, 2.9, 2.0, 2.3, 1.8, 0.8]
+            }
+          ]
+        });
+      </script>
+
+      <h2 id="h2-prev">
+        2024 Prevalence of Disability Among College Students
+      </h2>
+      <table class="table table-striped" aria-labelled="h2-prev">
+        <thead>
+          <tr>
+            <th>Disability</th>
+            <th>Undergraduate</th>
+            <th>Graduate</th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+            <th>ADD or ADHD</th><td>17.2</td><td>15.0</td>
+          </tr>
+          <tr>
+            <th>Learning Disability</th><td>5.7</td><td>2.5</td>
+          </tr>
+          <tr>
+            <th>Autism Spectrum Disorder</th><td>4.9</td><td>2.9</td>
+          </tr>
+          <tr>
+            <th>Blind/low Vision</th><td>4.7</td><td>2.0</td>
+          </tr>
+          <tr>
+            <th>Deaf/Hearing loss</th><td>2.2</td><td>2.3</td>
+          </tr>
+          <tr>
+            <th>Mobility/Dexterity disability</th><td>1.9</td><td>1.8</td>
+          </tr>
+          <tr>
+            <th>Speech/Language disorder</th><td>1.3</td><td>0.8</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Types of Hearing Impairments in College Students</title>
+    <contents>
+      <ul>
+        <li class="more"><b>Conductive Hearing Loss:</b> This type occurs when something blocks or prevents sound from entering the outer or middle ear, such as earwax buildup, fluid from allergies, or ear infections.</li>
+        <li class="more"><b>Sensorineural Hearing Loss:</b> This is the most common type and results from damage to the inner ear's structures or the auditory nerve. It can be caused by aging, noise exposure, certain diseases, or genetic factors.</li>
+        <li class="more"><b>Mixed Hearing Loss:</b> This is a combination of both conductive and sensorineural hearing loss.</li>
+        <li class="more"><b>Auditory Neuropathy Spectrum Disorder (ANSD):</b> This is a less common condition that affects the signals from the ear to the brain, even if the ear itself functions normally.</li>
+      </ul>
+    </contents>
+  </slide>
+  <slide>
+    <title>Common Causes of Hearing Impairments</title>
+    <contents>
+      <ul>
+        <li class="more"><b>Noise-Induced Hearing Loss:</b> Exposure to loud environments like concerts, music events, or heavy machinery can lead to hearing damage over time.</li>
+        <li class="more"><b>Medical Conditions:</b> Infections, head injuries, and the use of certain medications (ototoxicity) can also contribute to hearing loss. </li>
+        <li class="more"><b>Congenital Conditions:</b> Some students may have inherited conditions or issues with ear development from birth.</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Challenges with Hearing Impairments</title>
+    <contents>
+      <ul>
+        <li class="more">Difficulty with grammar, spelling, and vocabulary.</li>
+        <li class="more">Challenges in taking notes during lectures and understanding spoken information.</li>
+        <li class="more">Struggling to participate in class discussions and follow lectures.</li>
+        <li class="more">Problems comprehending information from educational videos and presentations.</li>
+        <li class="more">Social isolation in less interaction with peers and instructors.</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Types of Visual Impairments</title>
+    <contents>
+      <ul>
+        <li class="more"><b>Low vision:</b> A severe visual impairment that cannot be corrected by standard eyeglasses, contact lenses, medication, or surgery. Students with low vision may use a combination of sight and other senses to learn, but they often require adaptations like magnified text or enhanced lighting.</li>
+        <li class="more"><b>Legal blindness:</b> A designation defined by a visual acuity of 20/200 or less in the better eye after correction, or a visual field restricted to 20 degrees or less. While legally blind, many students still have some usable vision.</li>
+        <li class="more"><b>Total blindness:</b> A complete lack of light perception, meaning the student must use alternative methods like Braille and auditory cues to access information.</li>
+      </ul>
+    </contents>
+  </slide>
+  <slide>
+    <title>Challenges with Visual Impairments</title>
+    <contents>
+      <ul>
+        <li class="more"><b>Reading difficulties:</b> Slower reading speed and lower comprehension due to eye strain and poor visual acuity.</li>
+        <li class="more"><b>Difficulty with visuals:</b> Challenges understanding charts, diagrams, and other visual teaching aids.</li>
+        <li class="more"><b>Limited incidental learning:</b> Less able to learn from visual observation of their environment.</li>
+        <li class="more"><b>Eye fatigue:</b> Frequent headaches and fatigue that reduce stamina for studying.</li>
+        <li class="more"><b>Social isolation:</b> May feel self-conscious or be excluded from activities, affecting their confidence.</li>
+        <li class="more"><b>Increased anxiety and stress:</b> Frustration from academic challenges and a loss of independence can impact mental health.</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Learning Disabilities</title>
+    <contents>
+      <ul>
+        <li class="more"><b>Reading, Writing, and Math Difficulties:</b> Specific learning disabilities like dyslexia (reading), dysgraphia (writing), and dyscalculia (math) can make grasping concepts and completing assignments difficult.</li>
+        <li class="more"><b>Information Processing and Memory:</b> Students may struggle with processing information, recalling what has been taught, or interpreting complex charts and graphs. </li>
+        <li class="more"><b>Attention and Focus:</b> Many students face difficulties maintaining attention, are easily distracted, and find it hard to juggle multiple tasks. </li>
+        <li class="more"><b>Time Management:</b> Students often have trouble with planning, starting tasks, and meeting deadlines, leading to difficulty with time management.</li>
+        <li class="more"><b>Organization:</b> Problems with overall organization are common, affecting written work and efficient use of library resources.</li>
+     </ul>
+    </contents>
+  </slide>
+  <slide>
+    <title>Challenges of Learning Disabilities</title>
+    <contents>
+      <ul>
+        <li class="more"><b>Stigma:</b> A stigma surrounds learning disabilities, causing students to feel ashamed or isolated and reluctant to seek support. </li>
+        <li class="more"><b>Mental Health:</b> Academic struggles can lead to feelings of defeatism, stress, and other psycho-social issues, increasing the risk of dropping out. </li>
+        <li class="more"><b>Social Skills:</b> Inconsistent perceptual abilities can sometimes affect the interpretation of non-verbal cues like tone of voice, impacting social interactions. </li>
+      </ul>
+      <h2 class="more">Institutional and Access Barriers</h2>
+      <ul>
+        <li class="more"><b>Lack of Awareness/Training:</b> Many faculty members receive insufficient training on accommodating students with learning disabilities, creating barriers to access. </li>
+        <li class="more"><b>Confusing Processes:</b> Students often find the process of applying for accommodations confusing and stressful. </li>
+        <li class="more"><b>Lack of Self-Advocacy:</b> Students, particularly those newly diagnosed, may lack the skills or awareness to effectively advocate for their needs.</li>
+      </ul>
     </contents>
   </slide>
 
@@ -693,11 +886,147 @@
     </contents>
   </slide>
 
+  <slide>
+    <title>Activity: Using Only the Keyboard to Navigate the Web</title>
+    <contents>
+      <ul>
+        <li>Part 1: Turn on sticky keys</li>
+        <li>Part 2: Magnify the screen with Zoom</li>
+      </ul>
+    </contents>
+  </slide>
 
   <slide>
-    <title>Group Activity: Disability Simulation and the Web</title>
+    <title>Activity: Using Skipto.js Browser Extension to enhance keyboard navigation</title>
     <contents>
+      <p>Install <a href="https://skipto-landmarks-headings.github.io/page-script-5/extensions.html">SkipTo.js</a> into your browser</p>
 
+      <h2>SkipTo.js Keyboard Shortcuts</h2>
+
+      <h3 id="landmark-regions">Landmark Regions</h3>
+
+      <table class="table table-striped shortcuts" aria-labelledby="landmark-regions">
+         <thead>
+            <tr>
+               <th>Key</th>
+               <th>Description</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+              <th>r</th><td>Next region</td>
+            </tr>
+            <tr>
+              <th>R</th><td>Previous region</td>
+            </tr>
+            <tr>
+              <th>m</th><td>Main regions</td>
+            </tr>
+            <tr>
+              <th>n</th><td>Navigation regions</td>
+            </tr>
+            <tr>
+              <th>c</th><td>Complementary regions</td>
+            </tr>
+          </tbody>
+        </table>
+
+      <h3 id="headings">Headings</h3>
+
+      <table class="table table-striped shortcuts" aria-labelledby="headings">
+         <thead>
+            <tr>
+               <th>Key</th>
+               <th>Description</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+              <th>h</th><td>Next heading</td>
+            </tr>
+            <tr>
+              <th>H</th><td>Previous heading</td>
+            </tr>
+            <tr>
+              <th>1</th><td>Level 1 headings</td>
+            </tr>
+            <tr>
+              <th>2</th><td>Level 2 headings</td>
+            </tr>
+            <tr>
+              <th>3</th><td>Level 3 headings</td>
+            </tr>
+            <tr>
+              <th>4</th><td>Level 4 headings</td>
+            </tr>
+            <tr>
+              <th>5</th><td>Level 5 headings</td>
+            </tr>
+            <tr>
+              <th>6</th><td>Level 6 headings</td>
+            </tr>
+          </tbody>
+        </table>
+    </contents>
+  </slide>
+
+
+  <slide>
+    <title>Activity: Disability Simulation</title>
+    <contents>
+        <h2>Physical Impairments</h2>
+        <p><img src="images/head-stick.jpeg" width="60%" alt="Image showing typing with a head stick"/></p>
+        <ul>
+          <li>Splints for strokes and spinal cord injuries</li>
+          <li>Gloves to simulate arthritis</li>
+          <li>Head sticks for spinal cord injuries</li>
+        </ul>
+
+        <h2>Color Blindness</h2>
+        <p><img src="images/color-blind-examples.webp" alt="Image showing the percpetion of different types of color blindess"/></p>
+        <ul>
+          <li><b>Protanopia:</b> No red cones.</li>
+          <li><b>Deuteranopia:</b> No green cones.</li>
+          <li><b>Tritanopia:</b> No blue cones.</li>
+          <li><b>Monochromacy:</b> No color perception.</li>
+        </ul>
+
+        <h2>Common Visual Impairments</h2>
+        <p><img src="images/common-visual-impairments.jpg" alt="Image showing what people see with different types of visual impairments" /></p>
+        <ul>
+          <li><b>Glaucoma</b>: Peripheral vision loss.</li>
+          <li><b>Refractive Errors</b>: Blurry vision.</li>
+          <li><b>Cataracts:</b> Loss of contrast and visual field obstruction.</li>
+          <li><b>Diabetic Retinopathy:</b> Visual field obstruction.</li>
+          <li><b>Macula Degeneration:</b> Central vision loss, loss of color perception.</li>
+        </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Activity: Using a screen reader to navigate the web</title>
+    <contents>
+      <ul>
+        <li>macOS: Voice Over (Built-in)</li>
+        <li>Windows: Narrator (Built-in)</li>
+        <li>Windows: JAWS (Most popular in US)</li>
+        <li>Windows: NVDA (open-source)</li>
+        <li>Unix/Linux: Orca (open-source)</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Other Assistive Technologies</title>
+    <contents>
+      <ul>
+        <li>macOS: Zoom (Built-in)</li>
+        <li>Windows: Magnifier (Built-in)</li>
+        <li>Windows: ZoomText</li>
+        <li>Windows or macOS: Read and Write</li>
+        <li>Windows or macOS: Kurzweil 3000 </li>
+      </ul>
     </contents>
   </slide>
 
@@ -716,6 +1045,7 @@
       <ul>
         <li><a href="https://www.ada.gov/cguide.htm#anchor65610">Rehabitation Act of 1973</a></li>
         <li><a href="https://www.ada.gov">Americans with Disability Act of 1990</a></li>
+        <li><a href="https://www.accessibility.works/blog/colleges-universities-higher-ed-ada-compliance-requirements-help-guide/">Rule on the Web Accessibility (2024)</a></li>
         <li>Access to information is a <em>human right</em>, not just a nice thing to do.</li>
         <li>Accessible at the same time as everyone else gets the information.</li>
       </ul>

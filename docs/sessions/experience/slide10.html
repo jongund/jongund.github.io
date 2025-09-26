@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Slide 10: macOS: Accessibility Features</title>
+      <title>Slide 10: Disability By Age</title>
       <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="../../css/html-slides.css"><script src="../../js/bootstrap.bundle.min.js"></script><script src="../../js/html-slides-2.js"></script><style id="style"></style>
    </head>
@@ -22,9 +22,9 @@
                   <li class="nav-item"><a class="nav-link" id="ID_SLIDE_NEXT" href="slide11.html" title="Slide 11">
                         Next
                       </a></li>
-                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide21.html" title="Slide 21">
+                  <li class="nav-item"><a class="nav-link" id="ID_SLIDE_LAST" href="slide35.html" title="Slide 35">
                         Last
-                      </a></li><span class="navbar-text">Slide 10 of 21</span></ul>
+                      </a></li><span class="navbar-text">Slide 10 of 35</span></ul>
             </div>
          </div>
       </nav>
@@ -32,11 +32,136 @@
          <div class="row">
             <div class="col"></div>
             <div class="col-md-12">
-               <h1 id="h1_title" class="title">macOS: Accessibility Features</h1>
-               <figure style="text-align: center">
-        <img src="./images/macos-all.png" aria-labelledby="macos-all" style="width: 70%">
-        <figcaption id="macos-all">Screen shot of macOS accessibility features.</figcaption>
-               </figure>
+               <h1 id="h1_title" class="title">Disability By Age</h1>
+               <div id="container" style="min-width: 310px; height: 500px; margin: 0 auto"></div><script src="https://code.highcharts.com/highcharts.js"></script><script type="text/javascript">
+
+        Highcharts.chart('container', {
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: '2010 U.S. age-specific prevalence rates of disability'
+          },
+          subtitle: {
+            text: 'Source: National Institutes of Health'
+          },
+          xAxis: {
+            categories: [
+            '0 to 4',
+            '5 to 24',
+            '25 to 44',
+            '45 to 54',
+            '55 to 64',
+            '65 to 69',
+            '70 to 74',
+            '75 to 79',
+            '80 and over'
+            ],
+            crosshair: true
+          },
+          yAxis: {
+            min: 0,
+            max : 100,
+            tickAmount: 6,
+            title: {
+              text: 'Percent Population'
+            }
+          },
+          tooltip: {
+            headerFormat: "<span style='font-size:10px'>{point.key}</span><table>",
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+           useHTML: true
+          },
+          plotOptions: {
+            column: {
+              pointPadding: 0,
+              borderWidth: 0
+            }
+          },
+          series: [{
+            name: 'Any disability',
+            data: [8.8, 10.4, 11.4, 19.4, 30.1, 37.4, 43.8, 55.9, 71.0]
+
+            }, {
+            name: 'Severe disability',
+            data: [3.6, 5.0, 7.5, 12.8, 20.8, 26.1, 27.6, 37.8, 56.2]
+
+            }, {
+            name: 'Needs assistance',
+            data: [0.4, 1.3, 1.9, 3.4, 5.7, 7.6, 9.4, 16.1, 29.2]
+          }]
+        });
+      </script><h2 id="h2-amd">
+          2010 U.S. Rates for Disability By Age
+        </h2>
+               <table class="table table-striped" aria-labelled="h2-amd">
+                  <thead>
+                     <tr>
+                        <th>Age (Years)</th>
+                        <th>Any Disability</th>
+                        <th>Severe Disability</th>
+                        <th>Needs Assistance</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <th>0 to 4</th>
+                        <td>8.8%</td>
+                        <td>3.6%</td>
+                        <td>0.4%</td>
+                     </tr>
+                     <tr>
+                        <td>5 to 24</td>
+                        <td>10.4%</td>
+                        <td>5.0%</td>
+                        <td>1.3%</td>
+                     </tr>
+                     <tr>
+                        <td>25 to 44</td>
+                        <td>11.4%</td>
+                        <td>7.5%</td>
+                        <td>1.9%</td>
+                     </tr>
+                     <tr>
+                        <td>45 to 54</td>
+                        <td>19.4%</td>
+                        <td>12.8%</td>
+                        <td>3.4%</td>
+                     </tr>
+                     <tr>
+                        <td>55 to 64</td>
+                        <td>30.1%</td>
+                        <td>20.8%</td>
+                        <td>5.7%</td>
+                     </tr>
+                     <tr>
+                        <td>65 to 69</td>
+                        <td>37.4%</td>
+                        <td>26.1%</td>
+                        <td>7.6%</td>
+                     </tr>
+                     <tr>
+                        <td>70 to 74</td>
+                        <td>43.8%</td>
+                        <td>27.6%</td>
+                        <td>9.4%</td>
+                     </tr>
+                     <tr>
+                        <td>75 to 79</td>
+                        <td>55.9%</td>
+                        <td>37.8%</td>
+                        <td>16.1%</td>
+                     </tr>
+                     <tr>
+                        <td>80+</td>
+                        <td>70.1%</td>
+                        <td>56.2%</td>
+                        <td>29.2%</td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
             <div class="col"></div>
          </div>
