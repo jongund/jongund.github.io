@@ -94,6 +94,19 @@ nav ol.breadcrumb {
   padding-left: 0;
 }
 
+main .session ul {
+  margin: 0;
+  padding: 0;
+  margin-top: 1em;
+}
+
+main .session li {
+  margin: 0;
+  padding: 0;
+  margin-left: 1em;
+  padding-bottom: 0.25em;
+}
+
 footer {
   margin-top: 40px;
 }
