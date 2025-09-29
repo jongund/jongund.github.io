@@ -575,7 +575,7 @@
   </slide>
 
   <slide>
-    <title>H2L Side Panel Features</title>
+    <title>H2L: Side Panel Features</title>
     <contents>
       <ul>
         <li>Uses <a href="https://opena11y.github.io/evaluation-library/">OpenA11y Evaluation Library</a></li>
