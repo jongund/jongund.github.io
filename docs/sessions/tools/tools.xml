@@ -523,7 +523,7 @@
 
 
  <slide>
-    <title>Source Code and Reporting Issues</title>
+    <title>Open-Source Code and Reporting Issues</title>
     <contents>
 
       <h2>Source Code</h2>
@@ -578,7 +578,7 @@
     <title>H2L Side Panel Features</title>
     <contents>
       <ul>
-        <li>Uses <a href="https://opena11y.github.io/evaluation-library/">OpenA11y Evalaution Library</a></li>
+        <li>Uses <a href="https://opena11y.github.io/evaluation-library/">OpenA11y Evaluation Library</a></li>
         <li>Computes <a href="https://www.w3.org/TR/accname-1.2/">accessible names using W3C algorithm</a></li>
         <li>Emulates screen reader filtering of headings and landmarks:
           <ul>
@@ -597,6 +597,7 @@
       <ul>
         <li>Thank you to Heather Stout, Director of Operations and Service at DRES for supporting work on the tools.</li>
         <li>Thank you to the staff of the DRES AMS group including, Alex Cordain, Ann Fredicksen and Christy Blew for their feedback.</li>
+        <li>Thank you to the users who provide feedback and help identify bugs.</li>
       </ul>
     </contents>
   </slide>
