@@ -3,7 +3,7 @@
 <?xm-well_formed path="funct.dtd"?>
 <slides>
   <lang>en</lang>
-  <title>Tools for Evaluating and Inspecting Web Accessibility</title>
+  <title>AInspector Sidebar browser extension for WCAG evaluation</title>
   <logo>
     <a href="https://openweba11y.com" aria-label="Open Web Accessibility">
       <span class="brand"><span class="open">Open</span><span class="web">Web</span><span class="a11y">A11y</span></span>
@@ -20,6 +20,7 @@
     <desc href="mailto:jongund@openweba11y.com">jongund@openweba11y.com</desc>
   </person>
 
+
   <home href="../index.html">All Sessions</home>
 
   <stylesheet media="screen">../../css/bootstrap.min.css</stylesheet>
@@ -29,448 +30,580 @@
   <script>../../js/html-slides-2.js</script>
 
   <slide>
-    <title>Overview</title>
+    <style>
+      .name {
+        font-weight: bold;
+      }
+    </style>
+    <title>AInspector Sidebar browser extension for WCAG evaluation</title>
     <contents>
-      <ul>
-        <li>Standards for web accessibility</li>
-        <li>Open Source Tools</li>
-      </ul>
-      <div class="show-slide-url"></div>
+
+    <div class="person">
+      <div class="name">Jon Gunderson, Ph.D., CPWA</div>
+      <div>Retired Coordinator of the DRES Accessible IT Group</div>
+      <div><a href="http://accessibleit.disability.illinois.edu">DRES Accessibility IT Group</a></div>
+      <div><a href="http://illinois.edu">University of Illinois at Urbana-Champaign</a></div>
+      <div><a href="mailto:jongund@illinois.edu">jongund@illinois.edu</a></div>
+    </div>
+
+    <div class="show-slide-url"></div>
+
     </contents>
   </slide>
 
   <slide>
-    <title>Why Open Source?</title>
+
+    <title>Browser Extensions</title>
     <contents>
       <ul>
-        <li><a href="http://disability.illinois.edu/history-firsts">History of University of Illinois in Disability Services</a>.</li>
-        <li>Raise awareness of accessibility issues.</li>
-        <li>Allow anyone to use the tools.</li>
-        <li>Help people learn about accessibility.</li>
-        <li>Develop a collective understanding of accessibility.</li>
-        <li>Use scarce resources for human resource development.</li>
-      </ul>
-    </contents>
-  </slide>
-
-   <slide>
-    <title>Web Content Accessibility Guidelines 2.x</title>
-    <contents>
-      <p class="center">
-        <a href="http://www.w3.org/TR/WCAG" target="_specification">Web Content Accessibility Guidelines (WCAG)</a>
-      </p>
-      <img src="images/wcag20-title.png" width="100%" alt="Graphical browser rendering of title portion of WCAG 2.0 Guidelines"/>
-    </contents>
-  </slide>
-
-  <slide>
-    <title>Accessible Rich Internet Applications (ARIA) Specification</title>
-    <contents>
-
-      <p>
-        <a href="https://www.w3.org/TR/wai-aria" target="_specification">Accessible Rich Internet Applications Specification</a>
-      </p>
-
-      <h2>Important Features</h2>
-      <ul>
-        <li><code>role</code> semantics</li>
-        <li>Accessible name</li>
-        <li>Accessible description</li>
-        <li>States and properties</li>
-        <li><a href="https://www.w3.org/TR/accname" target="_specification">W3C Accessible Name and Description Computation Specification</a></li>
-        <li><a href="https://www.w3.org/TR/core-aam/" target="_specification">W3C Core Accessibility API Mappings</a></li>
-      </ul>
-
-      <iframe src="https://www.w3.org/tr/wai-aria" width="99%" height="600px" title="W3C ARIA Authoring Practices"></iframe>
-    </contents>
-  </slide>
-
-  <slide>
-    <title>HTML</title>
-    <contents>
-      <p>
-        <a href="https://html.spec.whatwg.org/" target="_specification">HTML Living Standard</a>
-      </p>
-
-      <h2>Important Features</h2>
-      <ul>
-        <li>Built in features to support accessibility</li>
-        <li>Default ARIA roles</li>
-        <li>ARIA Role restrictions</li>
-        <li><a href="https://www.w3.org/TR/html-aam" target="_specification">HTML Accessibility API Mappings Specification</a></li>
-      </ul>
-
-      <iframe src="https://html.spec.whatwg.org/" width="99%" height="600px" title="W3C HTML 5 Living Standard"></iframe>
-    </contents>
-  </slide>
-
-
-  <slide>
-    <title>HTML: main element</title>
-    <contents>
-      <p>
-        <a href="https://www.w3.org/TR/html5/#the-main-element" target="_specification">HTML 5: main element</a>
-      </p>
-
-      <h2>Accessibility Feature</h2>
-      <ul>
-        <li>Supports implementation of WCAG Success Criteria 2.4.1 Bypass Blocks</li>
-        <li>Identifies the main content of the page</li>
-        <li>Creates a <code>main</code> landmark on the page for screen readers</li>
-        <li>Can be use for the target of a skip to main link</li>
-      </ul>
-
-      <iframe src="https://www.w3.org/TR/html5/#the-main-element" width="99%" height="600px" title="W3C MAIN element Specification"></iframe>
-    </contents>
-  </slide>
-
-  <slide>
-    <title>ARIA in HTML</title>
-    <contents>
-      <p>
-        <a href="https://www.w3.org/TR/html-aria/" target="_specification">ARIA in HTML5</a>
-      </p>
-
-      <ul>
-        <li>Default ARIA roles</li>
-        <li>ARIA role restrictions</li>
-        <li><a href="https://www.w3.org/TR/core-aam-1.1/">Core Accessibility API Mappings Specification</a></li>
-      </ul>
-
-      <iframe src="https://www.w3.org/TR/html-aria/#h1-h6" width="99%" height="600px" title="ARIA in HTML5: H1 to H6 mappings and restrictions"></iframe>
-    </contents>
-  </slide>
-
-  <slide>
-    <title>ARIA Authoring Practices</title>
-    <contents>
-
-      <p>
-        <a href="https://www.w3.org/TR/wai-aria-practices" target="_specification">W3C ARIA Authoring Practices</a>
-      </p>
-
-      <h2>Important Features</h2>
-      <ul>
-        <li>Design patterns for using landmarks and creating accessible widgets</li>
-        <li>Working examples of design pattern features, may not be compatible with all browser and assistive technology compbinations</li>
-        <li>Overview of accessible name and description alogithms</li>
-      </ul>
-
-      <iframe src="https://www.w3.org/tr/wai-aria-practices" width="99%" height="600px" title="W3C ARIA Authoring Practices"></iframe>
-    </contents>
-  </slide>
-
-  <slide>
-    <title>OpenA11y Evaluation Library</title>
-    <contents>
-      <ul>
-        <li><a href="https://opena11y.github.io/evaluation-library/">OpenA11y Evaluation Library Documentation.</a></li>
-        <li>Support the use of HTML and ARIA techniques for implementation of WCAG 2.0 Level A and AA requirements</li>
-        <li>Raise awareness of accessibility of accessibility issues</li>
-        <li>Knowledge base on what it means to comply with WCAG 2.0 requirements for specific technologies (e.g. teaching and learning framework)</li>
-        <li>Support institutional planning and compliance</li>
-        <li>Open source to promote discussion and conversation on what it means to be "accessible" (e.g. people can define their own definition with open source)</li>
+        <li><a href="https://ainspector.disability.illinois.edu/">AInspector for WCAG Evaluation 4.0 </a></li>
+        <li><a href="https://opena11y.github.io/h2l-side-panel/">Headings, Landmarks and Links 1.1</a></li>
       </ul>
     </contents>
   </slide>
 
   <slide>
-    <title>Rules</title>
+    <title>Purpose of AInspector for WCAG Evaluation</title>
     <contents>
       <ul>
-        <li>Specific to ARIA and HTML5 best practices to meeting WCAG 2.x Level A and AA requirements.</li>
-        <li>Understanding rules provides confidence in implementing accessibility.</li>
+        <li class="more">Learn about accessibility standards.</li>
+        <li class="more">Make hidden accessibility information visible.</li>
+        <li class="more">Information on both accessibility features and issues.</li>
+        <li class="more">Provide resources for people to learn more about an accessibility requirement.</li>
+        <li class="more">Support sharing accessibility evaluation information.</li>
       </ul>
     </contents>
   </slide>
 
   <slide>
-    <title>Rulesets</title>
+    <title>AInspector for WCAG Evaluation 4.0</title>
     <contents>
-      <p class="center">
-        <a href="https://fae.disability.illinois.edu/rulesets/" target="_specification">Comparison of OpenAjax Evaluation Library Rulesets</a>
-      </p>
 
-      <h2 id="id1">Rulesets</h2>
-      <table aria-labelledby="id1" class="table table-striped">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>WCAG 2.0</td>
-            <td>WCAG 2.0 Level A and AA requirements using ARIA 1.2 and HTML accessibility features.</td>
-          </tr>
-          <tr>
-            <td>WCAG 2.1</td>
-            <td>WCAG 2.1 Level A and AA requirements using ARIA 1.2 and HTML accessibility features.</td>
-          </tr>
-          <tr>
-            <td>WCAG 2.2</td>
-            <td>WCAG 2.2 Level A and AA requirements using ARIA 1.2 and HTML accessibility features.</td>
-          </tr>
-          <tr>
-            <td>First Step</td>
-            <td>Selected rules to help people get started, mostly pass/fail rules with some manual checks.</td>
-          </tr>
-
-        </tbody>
-      </table>
-
-    </contents>
-  </slide>
-
-  <slide>
-    <title>Rule Features</title>
-    <contents>
-      <p class="center">
-
-      </p>
-
+      <h2>Version 4.0</h2>
       <ul>
-        <li>Summary</li>
-        <li>Defintion</li>
-        <li>Purpose</li>
-        <li>WCAG Success Criteria (e.g. primary and secondary)</li>
-        <li>Techniques</li>
-        <li>Scope: Website, Page or element</li>
-        <li>Links to related information</li>
-        <li><a href="https://fae.disability.illinois.edu/rulesets/CONTROL_1/" target="_specification">Example Rule: Form controls must have labels</a></li>
+        <li>New support for Chrome web browser (Note: Edge and Opera support coming soon).</li>
+        <li>Updated to use <a href="https://opena11y.github.io/evaluation-library/index.html">OpenA11y Evaluation Library 2.0.6</a></li>
+        <li>Updated JSON and CSV export formats to improve consistency.</li>
+        <li>Improved highlighting of page and element results.</li>
       </ul>
-    </contents>
-  </slide>
 
-  <slide>
-    <title>Rule Results</title>
-    <contents>
-
-      <table aria-labelledby="id1" class="table table-striped">
-        <thead>
-          <tr>
-            <th>Result</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Violation</td>
-            <td>Fails a required rule</td>
-          </tr>
-          <tr>
-            <td>Warning</td>
-            <td>Fails a reccomended rule</td>
-          </tr>
-          <tr>
-            <td>Manual Check</td>
-            <td>Human judgement is needed for verification of meeting an accessibility requirement</td>
-          </tr>
-          <tr>
-            <td>Passed</td>
-            <td>The accessibility requirement has been met</td>
-          </tr>
-          <tr>
-            <td>Not Applicable</td>
-            <td>No elements on the page applied to this rule</td>
-          </tr>
-        </tbody>
-      </table>
-    </contents>
-  </slide>
-
-
-  <slide>
-    <title> Rule Categories</title>
-    <contents>
-
-      <table class="details table table-striped table-hover" aria-labelledby="rule_categories">
-        <thead>
-          <tr>
-            <th class="text">Category</th>
-            <th class="text">Definition</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <tr>
-            <th>Landmarks</th>
-            <td>Use ARIA landmark roles to structure the content of each page and identify major sections of content, thus making them more findable and navigable. The use of landmarks will, in many cases, reflect the visual styling and page layouts that web designers utilize to set apart various sections of content.</td>
-          </tr>
-
-          <tr>
-            <th>Headings</th>
-            <td>Use heading elements (H1-H6) to provide appropriate labels for landmarks, and to identify subsections of content within landmarks.</td>
-          </tr>
-
-          <tr>
-            <th>Color/Content</th>
-            <td>Use proper HTML markup to identify the semantics and language of text content. Ensure that text is readable by adhering to color contrast guidelines, and that information is not conveyed solely by the use of color, shape, location or sound.</td>
-          </tr>
-
-          <tr>
-            <th>Images</th>
-            <td>Provide appropriate text alternatives for static images and graphics.</td>
-          </tr>
-
-          <tr>
-            <th>Links</th>
-            <td>Use link text that properly describes the target of each link. Ensure consistency and uniqueness for links that are usable, predictable and understandable.</td>
-          </tr>
-
-          <tr>
-            <th>Tables</th>
-            <td>Provide table captions or other meta-information as needed. Provide row and column header references for data cells of data tables. Ensure that tables used for layout properly linearize text content.</td>
-          </tr>
-
-          <tr>
-            <th>Forms</th>
-            <td>Provide meaningful labels for form elements and usable and understandable error feedback as needed.</td>
-          </tr>
-
-          <tr>
-            <th>Widgets/Scripts</th>
-            <td>Use appropriate event handlers on elements to support native interactivity using JavaScript. Ensure that custom widgets created using JavaScript support keyboard interaction and include ARIA markup to describe their roles, properties and states.</td>
-          </tr>
-
-          <tr>
-            <th>Audio/Video</th>
-            <td>Provide appropriate text transcripts, captions or audio descriptions for elements used in rendering audio and video content.</td>
-          </tr>
-
-          <tr>
-            <th>Keyboard</th>
-            <td>Provide logical and sequential keyboard navigation among interactive elements such as links and form controls. Use standard models of keyboard interaction for custom widgets.</td>
-          </tr>
-
-          <tr>
-            <th>Timing/Live Regions</th>
-            <td>Eliminate accessibility problems caused by time limits on input and by content that moves, scrolls, flashes or auto-updates (e.g. live).</td>
-          </tr>
-
-          <tr>
-            <th>Site Navigation</th>
-            <td>Ensure the consistent labeling and ordering of recurrent page sections across all pages within a website. Provide a meaningful title for each page within a website.</td>
-          </tr>
-
-        </tbody>
-      </table>
-    </contents>
-  </slide>
-
-  <slide>
-    <title>Ruleset and Rule Details</title>
-    <contents>
+      <h2>Installation and Documentation</h2>
       <ul>
-        <li><a href="https://opena11y.github.io/evaluation-library/rulesets.html">WCAG and First Step Rulesets</a></li>
-        <li><a href="https://opena11y.github.io/evaluation-library/rules-rc.html" target="_specification">Rules by Rule Categories</a></li>
-        <li><a href="https://opena11y.github.io/evaluation-library/rules-gl.html" target="_specification">Rules by WCAG Guidelines</a></li>
-        <li><a href="https://opena11y.github.io/evaluation-library/rules-rs.html" target="_specification">Rules by Scope</a></li>
-        <li><a href="https://opena11y.github.io/evaluation-library/rules-fs.html">FIrst Step Rules</a></li>
+        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/ainspector-wcag/">Chrome</a></li>
+        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/ainspector-wcag/">Firefox</a></li>
+        <li><a href="https://ainspector.disability.illinois.edu/">Documentation</a></li>
       </ul>
 
     </contents>
   </slide>
 
   <slide>
-    <title>AInspector for Firefox</title>
+    <title>OpenA11y Evaluation Library 2.0 and Web Standards</title>
     <contents>
+
       <ul>
-        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/ainspector-wcag/">AInspector WCAG Add-on for Firefox</a></li>
-        <li>Designed for:
+        <li>Supports the following W3C standards:
           <ul>
-            <li>Web designers</li>
-            <li>Software developers</li>
-            <li>Quality assurance testers</li>
+            <li><a href="https://www.w3.org/TR/wai-aria-1.2/">Accessible Rich Internet Application (ARIA) 1.2 Specification</a></li>
+            <li><a href="https://www.w3.org/TR/html-aria/">Accessible Name and Description Computation 1.1</a></li>
+            <li><a href="https://www.w3.org/TR/accname/">ARIA in HTML Specification</a></li>
+            <li><a href="https://www.w3.org/TR/WCAG21/">Web content Accessibility Guidelines 2.1</a></li>
+            <li><a href="https://www.w3.org/TR/WCAG22/">Web content Accessibility Guidelines 2.2</a></li>
           </ul>
         </li>
-        <li>Summary Rule Results
-          <ul>
-            <li>Rule Categories</li>
-            <li>WCAG Guideline Summary</li>
-          </ul>
-        </li>
-        <li>Analyzes the browser DOM content</li>
-        <li>Highlighting elements</li>
-        <li>DOM inspector</li>
+      </ul>
+
+      <h2>Documentation and Source Code</h2>
+      <ul>
+        <li><a href="https://opena11y.github.io/evaluation-library/rulesets.html">Ruleset Information</a></li>
+        <li><a href="https://github.com/opena11y/evaluation-library">Source Code</a></li>
       </ul>
 
     </contents>
   </slide>
 
   <slide>
-    <title>Bookmarklets for Visualizing Accessibility Features</title>
+    <title>Ruleset Options</title>
     <contents>
+      <figure>
+        <img src="images/options-ruleset.png" role="none"/>
+         <figcaption>AInspector screen shot of ruleset options</figcaption>
+      </figure>
+
+      <h2>Options</h2>
       <ul>
-        <li><a href="https://accessibility-bookmarklets.org/">Public Bookmarklets Website</a></li>
-        <li>Features:
+        <li><a href="https://www.w3.org/TR/wcag/">Web Content Accessibility Guideline</a> (WCAG) Version</li>
+        <li>Success Criterion Level</li>
+        <li>Rule scope</li>
+        <li><a href="https://www.w3.org/TR/wai-aria/">Accessible Rich Internet Application</a> (ARIA) specification</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Rule Scope</title>
+    <contents>
+
+      <figure>
+        <img src="./images/view-rule-page.png" role="none"/>
+        <figcaption>AInspector screen shot of sidebar with at least one main landmark page rule result</figcaption>
+      </figure>
+
+
+      <h2>Rule Scope Definitions</h2>
+      <ul>
+        <li><em>Element</em>: A WCAG requirement for a specific html element or an element with an ARIA role, property or state. For example, an <code>img</code> element must have an <code>alt</code> attribute.</li>
+        <li><em>Page</em>: A WCAG requirement that applies to a feature of a web page.  For example, a web page must have a <code>main</code> landmark.</li>
+        <li><em>Website</em>: A WCAG requrement that applied to pages in a website.  For example, consistent navigational links in each web page.</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>All Rules View</title>
+    <contents>
+      <figure>
+        <img src="images/view-all-rules.png" role="none"/>
+        <figcaption> AInspector screen shot of all rules view</figcaption>
+      </figure>
+
+      <h2>Features</h2>
+      <ul>
+        <li>Shows how many rules have at least one violation, warning, or manual check, or if the rule passes.</li>
+        <li>Warning rules are requirements that are important for accessibility, but not currently considered a requirement of WCAG.</li>
+        <li>Rule Groupings:
           <ul>
-            <li>Highlight Regions and Elements on page</li>
-            <li>Element information</li>
-            <li>Default or defined <code>role</code></li>
-            <li>Accessible name</li>
-            <li>Accessible description</li>
-            <li>Important prorperties (e.g the number of items in a list)</li>
+            <li>Rule Category View</li>
+            <li>WCAG Guidelines View</li>
           </ul>
         </li>
       </ul>
     </contents>
   </slide>
 
+
   <slide>
-    <title>Submit an Issue or Idea</title>
+    <title>Rule Group Result View</title>
     <contents>
+      <figure>
+        <img src="images/view-rule-group.png" role="none"/>
+        <figcaption>AInspector screen shot of image rule group view</figcaption>
+      </figure>
+
+      <h2>Features</h2>
       <ul>
-        <li><a href="https://github.com/opena11y/evaluation-library/issues">Issues or ideas on the OpenA11y Rules, Rulesets and Messaging</a></li>
-        <li><a href="https://github.com/opena11y/ainspector-for-firefox/issues">Issues or ideas on the features for AInspector for FIrefox</a></li>
+        <li>Shows the rules that are included in the group and the overall evaluation result.</li>
+        <li>Detailed information is available for the selected rule.</li>
+      </ul>
+    </contents>
+  </slide>
+
+
+  <slide>
+    <title>Page, Website and Element Result View</title>
+    <contents>
+
+      <figure>
+        <img src="images/view-rule.png" role="none"/>
+        <figcaption>"AInspector screen shot of page, webstie and element results</figcaption>
+      </figure>
+
+      <h2>Features</h2>
+      <ul>
+        <li>Shows the website, page and element results for a rule.</li>
+        <li>Detailed information for each result is available for the selected result.</li>
+        <li>The result can be highlighted on the page.</li>
+      </ul>
+
+      <h2>Detailed Result Information</h2>
+
+      <ul>
+        <li>Rule Id</li>
+        <li>Rule Definition</li>
+        <li>Action</li>
+        <li>Role</li>
+        <li>Accessible Name</li>
+        <li>Accessible Description</li>
+        <li>Tag Name</li>
+        <li>HTML Attributes</li>
+        <li>ARIA Attributes</li>
+        <li>Result Type</li>
       </ul>
 
     </contents>
   </slide>
+
+  <slide>
+    <title>Element Result Information: Color Contrast Rule</title>
+    <contents>
+
+      <figure>
+        <img src="./images/view-rule-color-contrast.png" role="none"/>
+        <figcaption>AInspector screen shot of sidebar with element result information for color contrast</figcaption>
+      </figure>
+
+      <h2>Color Contrast Information</h2>
+
+      <ul>
+        <li>color contrast ratio</li>
+        <li>color</li>
+        <li>background color</li>
+        <li>font family</li>
+        <li>font size</li>
+        <li>font weight</li>
+        <li>large font</li>
+        <li>background image</li>
+        <li>background repeat</li>
+        <li>background position</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Element Result Information: Table Information</title>
+    <contents>
+
+      <figure>
+        <img src="./images/view-rule-table-cell.png" role="none"/>
+        <figcaption>AInpsector screen shot of sidebar with element result information for table cells</figcaption>
+      </figure>
+
+      <h2>Table Cell Header Information</h2>
+
+      <ul>
+        <li>headers</li>
+        <li>headers source</li>
+        <li>rowspan</li>
+        <li>colspan</li>
+      </ul>
+
+      <figure>
+        <img src="./images/view-rule-table.png" role="none"/>
+        <figcaption>AInpsector screen shot of sidebar with element result information for tables</figcaption>
+      </figure>
+
+      <h2>Table Information</h2>
+
+      <ul>
+        <li>size</li>
+        <li>number of headers</li>
+        <li>cells with row or column spans</li>
+        <li>type</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Table Examples</title>
+    <style>
+      table.table {
+        border: #CCC solid 1px;
+      }
+      table.table caption {
+        font-size: 1em;
+      }
+    </style>
+    <contents>
+      <h2>Row/Column Headers</h2>
+      <table class="table table-striped">
+        <caption>Game Sales</caption>
+        <thead>
+          <tr>
+            <td rowspan="2"></td>
+            <th colspan="2" scope="colgroup">Mars</th>
+            <th colspan="2" scope="colgroup">Venus</th>
+          </tr>
+          <tr>
+            <th scope="col">Produced</th>
+            <th scope="col">Sold</th>
+            <th scope="col">Produced</th>
+            <th scope="col">Sold</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Teddy Bears</th>
+            <td>50,000</td>
+            <td>30,000</td>
+            <td>100,000</td>
+            <td>80,000</td>
+          </tr>
+          <tr>
+            <th scope="row">Board Games</th>
+            <td>10,000</td>
+            <td>5,000</td>
+            <td>12,000</td>
+            <td>9,000</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h2 style="margin-top: 3em">Headers Attribute</h2>
+      <table class="table table-striped">
+      <caption>
+          Availability of Holiday Accommodations
+      </caption>
+      <thead>
+          <tr>
+              <td></td>
+              <th id="stud" scope="col">
+                  Studio
+              </th>
+              <th id="apt" scope="col">
+                  <abbr title="Apartment">Apt</abbr>
+              </th>
+              <th id="chal" scope="col">
+                  Chalet
+              </th>
+              <th id="villa" scope="col">
+                  Villa
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <th id="par" class="span" colspan="5" scope="colgroup">
+                  Paris
+              </th>
+          </tr>
+          <tr>
+              <th headers="par" id="pbed1">
+                  1 bedroom
+              </th>
+              <td headers="par pbed1 stud">
+                  11
+              </td>
+              <td headers="par pbed1 apt">
+                  20
+              </td>
+              <td headers="par pbed1 chal">
+                  25
+              </td>
+              <td headers="par pbed1 villa">
+                  23
+              </td>
+          </tr>
+          <tr>
+              <th headers="par" id="pbed2">
+                  2 bedroom
+              </th>
+              <td headers="par pbed2 stud">
+                  -
+              </td>
+              <td headers="par pbed2 apt">
+                  43
+              </td>
+              <td headers="par pbed2 chal">
+                  52
+              </td>
+              <td headers="par pbed2 villa">
+                  32
+              </td>
+          </tr>
+          <tr>
+              <th headers="par" id="pbed3">
+                  3 bedroom
+              </th>
+              <td headers="par pbed3 stud">
+                  -
+              </td>
+              <td headers="par pbed3 apt">
+                  13
+              </td>
+              <td headers="par pbed3 chal">
+                  15
+              </td>
+              <td headers="par pbed3 villa">
+                  40
+              </td>
+          </tr>
+          <tr>
+              <th id="rome" class="span" colspan="5" scope="colgroup">
+                  Rome
+              </th>
+          </tr>
+          <tr>
+              <th id="rbed1" headers="rome">
+                  1 bedroom
+              </th>
+              <td headers="rome rbed1 stud">
+                  13
+              </td>
+              <td headers="rome rbed1 apt">
+                  21
+              </td>
+              <td headers="rome rbed1 chal">
+                  22
+              </td>
+              <td headers="rome rbed1 villa">
+                  3
+              </td>
+          </tr>
+          <tr>
+              <th id="rbed2" headers="rome">
+                  2 bedroom
+              </th>
+              <td headers="rome rbed2 stud">
+                  -
+              </td>
+              <td headers="rome rbed2 apt">
+                  23
+              </td>
+              <td headers="rome rbed2 chal">
+                  43
+              </td>
+              <td headers="rome rbed2 villa">
+                  30
+              </td>
+          </tr>
+          <tr>
+              <th id="rbed3" headers="rome">
+                  3 bedroom
+              </th>
+              <td headers="rome rbed3 stud">
+                  -
+              </td>
+              <td headers="rome rbed3 apt">
+                  16
+              </td>
+              <td headers="rome rbed3 chal">
+                  32
+              </td>
+              <td headers="rome rbed3 villa">
+                  40
+              </td>
+          </tr>
+      </tbody>
+      </table>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Exporting Results</title>
+    <contents>
+
+      <figure>
+        <img src="./images/export-dialog.png" role="none"/>
+        <figcaption>AInpsector screen shot of export dialog open</figcaption>
+      </figure>
+
+      <h2>Export Formats</h2>
+
+      <ul>
+        <li>CSV</li>
+        <li>JSON</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Rerun Evaluation</title>
+    <contents>
+
+      <figure>
+        <img src="./images/rerun-dialog.png" role="none"/>
+        <figcaption>AInpsector screen shot of rerun dialog open</figcaption>
+      </figure>
+
+      <h2>Rerun Options</h2>
+
+      <ul>
+        <li>Immediate</li>
+        <li>Delayed</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+
+ <slide>
+    <title>Source Code and Reporting Issues</title>
+    <contents>
+
+      <h2>Source Code</h2>
+      <p>AInspector for WCAG Evaluation is open source software. The code is available at <a href="https://github.com/opena11y/ainspector">https://github.com/opena11y/ainspector</a>.</p>
+
+      <h2>Reporting an Issue</h2>
+      <p><a target="_github" href="https://github.com/opena11y/ainspector/issues">Create a github issue</a> or send me an e-mail: <a href="mailto:jongund@illinois.edu?subject=AInspector for WCAG issue">jongund@illinois.edu</a></p>
+
+      <p>Ideally include a link to a page you found the problem and describe how I can replicate the issue.</p>
+
+      <p>NOTE: AInspector for WCAG Evaluation is an open source project and users are very important in helping make the tool better.</p>
+
+    </contents>
+  </slide>
+
+
+  <slide>
+    <title>Future Steps for AInspector</title>
+    <contents>
+
+      <ul>
+        <li>Support for Edge and Opera Web Browsers.</li>
+        <li>Support options for evaluating only <a href="https://dequeuniversity.com/rules/axe/html/4.10">Deque aXe rules</a> or <a href="https://docs.google.com/spreadsheets/d/1oSyK4QiyHf1zx-xrc4P9M7efYVv0vohNxVWjeHan8Iw/edit?usp=sharing">WebAIM WAVE rules</a></li>
+        <li>Comparing OpenA11y rules with Deque aXe and WebAIM Wave rulesets.</li>
+        <li>Update OpenA11y rules based on changes to web standard requirements and bug reports.</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Headings, Landmarks and Links (H2L) Browser Extension</title>
+    <contents>
+
+      <figure class="image">
+         <img src="./images/h2l-headings.png"
+              alt=""/>
+              <figcaption>Headings, Landmarks and Links screen shot with headings tab showing in side Panel</figcaption>
+      </figure>
+
+      <h2>Get H2L Extension</h2>
+      <ul>
+        <li><a href="https://chromewebstore.google.com/detail/toc-headings-landmarks-an/eoadlbcfkolkpigecddbdlbneekefkfa">Google Chrome</a></li>
+        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/toc-headings-landmarks-links/">Mozilla Firefox</a></li>
+        <li><a hre="https://microsoftedge.microsoft.com/addons/detail/headings-landmarks-and-l/hhkaebffaohpcamjeogijpokkilabhcl">Microsoft Edge</a></li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>H2L Side Panel Features</title>
+    <contents>
+      <ul>
+        <li>Uses <a href="https://opena11y.github.io/evaluation-library/">OpenA11y Evalaution Library</a></li>
+        <li>Computes <a href="https://www.w3.org/TR/accname-1.2/">accessible names using W3C algorithm</a></li>
+        <li>Emulates screen reader filtering of headings and landmarks:
+          <ul>
+            <li>Removes small and off-screen headings</li>
+            <li>Landmarks without accessible names</li>
+          </ul>
+        </li>
+      </ul>
+    </contents>
+  </slide>
+
 
   <slide>
     <title>Acknowledgements</title>
     <contents>
-
-      <h2>Sponsors</h2>
       <ul>
-        <li>University of Illinois</li>
-        <li>Employees of the Hollister Corporation (University of Illinois Foundation)</li>
-        <li>IBM Corporation (OAA Evaluation Library)</li>
+        <li>Thank you to Heather Stout, Director of Operations and Service at DRES for supporting work on the tools.</li>
+        <li>Thank you to the staff of the DRES AMS group including, Alex Cordain, Ann Fredicksen and Christy Blew for their feedback.</li>
       </ul>
+    </contents>
+  </slide>
 
-      <h2>Primary Developers</h2>
-      <dl>
-        <dt>Jon Gunderson, Illinois</dt>
-        <dd>Project coordinator</dd>
-        <dd>OpenA11y Evaluation Library software development</dd>
-
-        <dt>Nicholas Hoyt, Illinois (retired)</dt>
-        <dd>Conceptual model for accessibility evaluation</dd>
-        <dd>Interaction designer for AInspector and Bookmarklets</dd>
-        <dd>Software developer for AInspector for Firefox and Bookmarklets</dd>
-      </dl>
-
-      <h2>Other Contributing Developers</h2>
-
-      <dl>
-        <dt>Pramod Joshi, AITS</dt>
-        <dd>Software developer for fae-util</dd>
-
-      </dl>
-
-      <h2>Previous Contributors</h2>
-      <dl>
-        <dt>Jeff Heckel, AITS</dt>
-        <dd>Software developer for fae-util</dd>
-
-        <dt>Landi Lark, Pixo</dt>
-        <dd>Software development and design of Bookmarklets</dd>
-
-        <dt>Prasanna Bale, Illinois Technology Services</dt>
-        <dd>Software development of FAE 1.1 and AInspector for Firebug</dd>
-      </dl>
+  <slide>
+    <title>Comments and Questions</title>
+    <contents>
     </contents>
   </slide>
 

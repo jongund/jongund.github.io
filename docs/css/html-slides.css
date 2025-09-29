@@ -350,12 +350,23 @@ main .name {
 }
 
 main figure {
+    padding: 0;
     text-align: center;
+    border: 2px #ddd solid;
+    border-radius: 10px;
+    width: 90%;
+}
+
+main figure img {
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
 main figcaption {
     margin-top: 0.25em;
     font-size 110%;
+    background: #ddd;
 }
 
 #example {
@@ -522,9 +533,5 @@ form fieldset {
 
 form fieldset label[for] {
     display: block;
-}
-
-main img {
-    max-width: 80%;
 }
 
