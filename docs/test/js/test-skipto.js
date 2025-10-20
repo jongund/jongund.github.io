@@ -196,26 +196,22 @@ window.customElements.define('button-test', buttonTest);
 
 window.addEventListener("load", (event) => {
 
-  const divs = Array.from(document.querySelectorAll('div.popup'));
-  const btns = Array.from(document.querySelectorAll('button'));
+  const div = document.querySelector('div.popup');
+  const btn = document.querySelector('button');
 
-  divs.forEach( (div) => {
-    div.addEventListener('focusin', handleFocusin);
-    div.addEventListener('focusout', handleFocusout);
-    const menu = div.querySelector('div.menu');
+  div.addEventListener('focusin', handleFocusin);
+  div.addEventListener('focusout', handleFocusout);
 /*
-    if (menu) {
-      menu.addEventListener('pointerdown', (event) => {
-        handleContainerPointerdown(event, menu);
-      }, true);
-    }
+  const menu = div.querySelector('div.menu');
+  if (menu) {
+    menu.addEventListener('pointerdown', (event) => {
+      handleContainerPointerdown(event, menu);
+    }, true);
+  }
 */
-  });
 
-  btns.forEach( (btn) => {
-    btn.addEventListener('focus', handleFocus);
-    btn.addEventListener('blur', handleBlur);
-    btn.addEventListener('click', handleClick);
-  });
+  btn.addEventListener('focus', handleFocus);
+  btn.addEventListener('blur', handleBlur);
+  btn.addEventListener('click', handleClick);
 
 });
