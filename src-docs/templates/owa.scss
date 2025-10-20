@@ -1,11 +1,18 @@
 /* Define standard variables and values for website */
-$iconBlue: #13294B;
-$iconRed: #C5050C;
+$iconBlue: hsl(216, 60%, 18%);
+$iconBlueDark: hsl(216, 60%, 82%);
+$iconRed: hsl(358, 95%, 40%);
+$iconRedDark: hsl(358, 95%, 60%);
 $iconBackground: #dddddd;
+$iconBackgroundDark: #333333;
 $iconWhite: #ffffff;
-$contentBlue: #005797;
+$iconWhiteDark: #000000;
+$contentBlue: hsl(205, 100%, 30%);
+$contentBlueDark: hsl(205, 100%, 70%);
 $linkCurrent: #000000;
+$linkCurrentDark: #ffffff;
 $linkIcon: #000000;
+$linkIconDark: #ffffff;
 
 .brand {
   display: inline-block;
@@ -20,18 +27,18 @@ $linkIcon: #000000;
 }
 
 .brand .open {
-  color: $iconWhite;
+  color: light-dark($iconWhite, $iconWhiteDark);
   background: $iconRed;
 }
 
 .brand .web {
-  color: $iconWhite;
-  background: $iconBlue;
+  color: light-dark($iconWhite, $iconWhiteDark);
+  background: light-dark($iconBlue, $iconBlueDark);
 }
 
 .brand .a11y {
-  color: $iconBlue;
-  background: $iconBackground;
+  color: light-dark($iconBlue, $iconBlueDark);
+  background: light-dark($iconBackground, $iconBackgroundDark);
 }
 
 .service-icon svg {
@@ -39,7 +46,7 @@ $linkIcon: #000000;
   margin: auto;
   height: 160px;
   width: 160px;
-  fill: $iconBlue;
+  fill: light-dark($iconBlue, $iconBlueDark);
 }
 
 .service-icon {
@@ -50,7 +57,7 @@ $linkIcon: #000000;
 .service-icon a {
   text-decoration: none;
   font-size: 150%;
-  color: $iconBlue;
+  color: light-dark($iconBlue, $iconBlueDark);
 }
 
 
@@ -59,31 +66,31 @@ svg .brand text {
 }
 
 svg .brand .open rect {
-  fill: $iconRed;
+  fill: light-dark($iconRed, $iconRedDark);
 }
 
 svg .brand .open text {
-  fill: $iconWhite;
+  fill: light-dark($iconWhite, $iconWhiteDark);
 }
 
 svg .brand .web rect {
-  fill: $iconBlue;
+  fill: light-dark($iconBlue, $iconBlueDark);
 }
 
 svg .brand .web text {
-  fill: $iconWhite;
+  fill: light-dark($iconWhite, $iconWhiteDark);
 }
 
 svg .brand .a11y rect {
-  fill: $iconBackground;
+  fill: light-dark($iconBackground, $iconBackgroundDark);
 }
 
 svg .brand .a11y text {
-  fill: $iconBlue;
+  fill: light-dark($iconBlue, $iconBlueDark);
 }
 
 .bg-header {
-  background: $iconBackground;
+  background: light-dark($iconBackground, $iconBackgroundDark);
 }
 
 .lead {
@@ -97,7 +104,7 @@ blockquote {
 }
 
 .text-blue {
-  color: $contentBlue;
+  color: light-dark($iconBlue, $iconBlueDark);
 }
 
 nav ol.breadcrumb {
@@ -122,7 +129,7 @@ footer {
 }
 
 a[href] {
-  color: $contentBlue;
+  color: light-dark($iconBlue, $iconBlueDark);
 }
 
 a[href]:hover {
@@ -133,15 +140,15 @@ a[href]:hover {
 .navbar-nav .nav-link,
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
-  color: $contentBlue;
-  outline-color: $contentBlue;
+  color: light-dark($iconBlue, $iconBlueDark);;
+  outline-color: light-dark($iconBlue, $iconBlueDark);;
 }
 
 .breadcrumb a[aria-current],
 .navbar-nav .nav-link[aria-current],
 .navbar-nav .nav-link:hover[aria-current],
 .navbar-nav .nav-link:focus {
-  color: $linkCurrent;
+  color: light-dark($linkCurrent, $linkCurrentDark);
 }
 
 .tab-panel {

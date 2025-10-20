@@ -1,0 +1,52 @@
+/* test-skipto.css */
+
+.popup {
+  position: absolute;
+  top: -36px;
+  transition: top 0.35s ease;
+}
+
+.popup.focus,
+.popup:hover {
+  position: fixed;
+  top: 0;
+  left: 45%;
+  font-family: sans-serif, arial, helvetica;
+  font-size: 12pt;
+  display: block;
+  border: none;
+  margin-bottom: 4px;
+  transition: left 1s ease;
+  z-index: 100000 !important;
+}
+
+.popup button {
+  position: sticky;
+  margin: 0;
+  padding: 0;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-radius: 0px 0px 6px 6px;
+  border-color: light-dark(white, black);
+  color: light-dark(black, white);
+  background-color: light-dark(#ddd, #333);
+  z-index: 100000 !important;
+  font-family: $fontFamily;
+  font-size: 12pt;
+  z-index: 100001 !important;
+}
+
+.popup div.menu {
+  position: absolute;
+  margin: .25em;
+  padding: 0.25em;
+  border: 1px solid green;
+  touch-action: none;
+  display: none;
+  z-index: 200;
+  color: blue;
+  background: white;
+}
+
+
+

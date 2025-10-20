@@ -12,18 +12,18 @@
 }
 
 .brand .open {
-  color: #ffffff;
-  background: #C5050C;
+  color: light-dark(#ffffff, #000000);
+  background: hsl(358, 95%, 40%);
 }
 
 .brand .web {
-  color: #ffffff;
-  background: #13294B;
+  color: light-dark(#ffffff, #000000);
+  background: light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
 }
 
 .brand .a11y {
-  color: #13294B;
-  background: #dddddd;
+  color: light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
+  background: light-dark(#dddddd, #333333);
 }
 
 .service-icon svg {
@@ -31,7 +31,7 @@
   margin: auto;
   height: 160px;
   width: 160px;
-  fill: #13294B;
+  fill: light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
 }
 
 .service-icon {
@@ -41,7 +41,7 @@
 .service-icon a {
   text-decoration: none;
   font-size: 150%;
-  color: #13294B;
+  color: light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
 }
 
 svg .brand text {
@@ -49,31 +49,31 @@ svg .brand text {
 }
 
 svg .brand .open rect {
-  fill: #C5050C;
+  fill: light-dark(hsl(358, 95%, 40%), hsl(358, 95%, 60%));
 }
 
 svg .brand .open text {
-  fill: #ffffff;
+  fill: light-dark(#ffffff, #000000);
 }
 
 svg .brand .web rect {
-  fill: #13294B;
+  fill: light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
 }
 
 svg .brand .web text {
-  fill: #ffffff;
+  fill: light-dark(#ffffff, #000000);
 }
 
 svg .brand .a11y rect {
-  fill: #dddddd;
+  fill: light-dark(#dddddd, #333333);
 }
 
 svg .brand .a11y text {
-  fill: #13294B;
+  fill: light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
 }
 
 .bg-header {
-  background: #dddddd;
+  background: light-dark(#dddddd, #333333);
 }
 
 .lead {
@@ -87,7 +87,7 @@ blockquote {
 }
 
 .text-blue {
-  color: #005797;
+  color: light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
 }
 
 nav ol.breadcrumb {
@@ -112,7 +112,7 @@ footer {
 }
 
 a[href] {
-  color: #005797;
+  color: light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
 }
 
 a[href]:hover {
@@ -123,15 +123,15 @@ a[href]:hover {
 .navbar-nav .nav-link,
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
-  color: #005797;
-  outline-color: #005797;
+  color: light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
+  outline-color: light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
 }
 
 .breadcrumb a[aria-current],
 .navbar-nav .nav-link[aria-current],
 .navbar-nav .nav-link:hover[aria-current],
 .navbar-nav .nav-link:focus {
-  color: #000000;
+  color: light-dark(#000000, #ffffff);
 }
 
 .tab-panel {
