@@ -1,19 +1,18 @@
 /* contact-button.css */
-
 button#contact-button {
   display: inline-block;
   margin: auto;
-  background: #13294B;
-  color: #fff;
+  background-color: light-dark(#ffffff, #000000);
+  color: light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
   font-size: 100%;
   border-radius: 4px;
-  border-color: #13294B;
+  border-color: light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
   text-align: center;
 }
 
 button#contact-button:focus,
 button#contact-button:hover {
-  outline: 2px solid #13294B;
+  outline: 2px solid light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
 }
 
 button#contact-button.button {
@@ -27,21 +26,21 @@ button#contact-button.big {
   margin-bottom: 2em;
   font-size: 150%;
   background: transparent;
-  color: #13294B;
+  color: light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
   border: none;
 }
 
-[role="dialog"] {
+[role=dialog] {
   margin: auto;
   padding: 0;
   display: none;
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  background-color: white;
-  border: 2px solid #aaa;
+  color: light-dark(#000000, #ffffff);
+  background-color: light-dark(#ffffff, #000000);
+  border: 2px solid light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
   border-radius: 5px;
-  color: black;
   width: 50%;
   min-width: 400px;
   left: 5%;
@@ -49,91 +48,90 @@ button#contact-button.big {
   text-align: left;
 }
 
-[role="dialog"].info {
+[role=dialog].info {
   top: 95px;
 }
 
-[role="dialog"].rerun,
-[role="dialog"].export {
+[role=dialog].rerun,
+[role=dialog].export {
   bottom: 30px;
 }
 
-[role="dialog"] .header {
+[role=dialog] .header {
   margin-bottom: 0.5em;
   padding: 4px;
   padding-left: 1em;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid light-dark(hsl(216, 60%, 18%), hsl(216, 60%, 82%));
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  font-weight:  bold;
-  background-color: #eee;
+  font-weight: bold;
+  background-color: light-dark(#eee, #333);
   position: relative;
   font-size: 1em;
 }
 
-[role="dialog"] .header button {
+[role=dialog] .header button {
   position: absolute;
   top: -0.25em;
   right: 0;
   border: none;
   background: transparent;
   font-weight: bold;
-  color: black;
+  color: light-dark(#000000, #ffffff);
 }
 
-[role="dialog"] .content {
+[role=dialog] .content {
   margin: 1em;
   text-align: left;
 }
 
-[role="dialog"] .select {
+[role=dialog] .select {
   width: 15em;
 }
 
-[role="dialog"] label.input {
+[role=dialog] label.input {
   font-weight: bold;
 }
 
-[role="dialog"] label
-[role="dialog"] .desc {
+[role=dialog] label [role=dialog] .desc {
   padding: 4px;
   font-size: 90%;
 }
 
-[role="dialog"] .desc {
-  margin:  0;
+[role=dialog] .desc {
+  margin: 0;
   padding: 0;
   margin-bottom: 1em;
   font-style: italic;
 }
 
-[role="dialog"] fieldset {
+[role=dialog] fieldset {
   margin: 0;
   padding: 0;
   margin-bottom: 1em;
   border: none;
 }
 
-[role="dialog"] legend {
-  font-weight:  bold;
+[role=dialog] legend {
+  font-weight: bold;
 }
 
-[role="dialog"] div.select,
-[role="dialog"] label.checkbox,
-[role="dialog"] label.radio {
-  display:  block;
+[role=dialog] div.select,
+[role=dialog] label.checkbox,
+[role=dialog] label.radio {
+  display: block;
   padding: 4px;
 }
 
-[role="dialog"] button {
+[role=dialog] button {
   margin: 6px;
 }
 
-[role="dialog"] input[type="checkbox"] {
+[role=dialog] input[type=checkbox] {
   margin: 4px;
 }
 
-[role="dialog"] fieldset label.input {
+[role=dialog] fieldset label.input {
   display: block;
   margin: 0;
   padding: 0;
@@ -141,90 +139,89 @@ button#contact-button.big {
   margin-left: 0.75em;
 }
 
-[role="dialog"] fieldset input[type="text"],
-[role="dialog"] fieldset input[type="email"],
-[role="dialog"] fieldset input[type="tel"],
-[role="dialog"] fieldset textarea {
+[role=dialog] fieldset input[type=text],
+[role=dialog] fieldset input[type=email],
+[role=dialog] fieldset input[type=tel],
+[role=dialog] fieldset textarea {
   margin: 4px;
   margin-left: 0.75em;
 }
 
-[role="dialog"] fieldset input[type="checkbox"] {
+[role=dialog] fieldset input[type=checkbox] {
   margin-left: 0.75em;
 }
 
-
-[role="dialog"] fieldset div.note {
-  margin:  0;
+[role=dialog] fieldset div.note {
+  margin: 0;
   padding: 0;
-  margin-left:  0.75em;
+  margin-left: 0.75em;
   font-style: italic;
 }
 
-
-[role="dialog"]  {
+[role=dialog] {
   margin-left: 0;
   margin-bottom: 1em;
 }
 
-[role="dialog"] .buttons {
+[role=dialog] .buttons {
   float: right;
-  margin-right: 0.5em;
-  margin-bottom: 0.5em;
+  margin: 0.5em;
 }
 
-[role="dialog"] .buttons button {
+[role=dialog] .buttons button {
+  font-size: 110%;
+  padding: 0.25em;
   width: 8em;
 }
 
-[role="dialog"] select,
-[role="dialog"] input[type="checkbox"],
-[role="dialog"] input[type="radio"] {
+[role=dialog] select,
+[role=dialog] input[type=checkbox],
+[role=dialog] input[type=radio] {
   outline: none;
 }
 
-[role="dialog"] div.select.focus,
-[role="dialog"] label.checkbox.focus,
-[role="dialog"] label.radio.focus {
+[role=dialog] div.select.focus,
+[role=dialog] label.checkbox.focus,
+[role=dialog] label.radio.focus {
   padding: 2px;
   border: 2px solid currentColor;
-  background-color:  #eee;
+  background-color: light-dark(#eee, #333);
   border-radius: 5px;
 }
 
-[role="dialog"] div.select:hover,
-[role="dialog"] label.checkbox:hover,
-[role="dialog"] label.radio:hover {
+[role=dialog] div.select:hover,
+[role=dialog] label.checkbox:hover,
+[role=dialog] label.radio:hover {
   padding: 3px;
-  border: 1px solid #888;
-  background-color:  #eee;
+  border: 1px solid light-dark(#888, #888);
+  background-color: light-dark(#eee, #333);
 }
 
-[role="dialog"] input[type="text"]:focus,
-[role="dialog"] input[type="email"]:focus,
-[role="dialog"] input[type="tel"]:focus,
-[role="dialog"] textarea:focus,
-[role="dialog"] button:focus,
-[role="dialog"] input[type="text"]:hover,
-[role="dialog"] input[type="email"]:hover,
-[role="dialog"] input[type="tel"]:hover,
-[role="dialog"] textarea:hover,
-[role="dialog"] button:hover {
+[role=dialog] input[type=text]:focus,
+[role=dialog] input[type=email]:focus,
+[role=dialog] input[type=tel]:focus,
+[role=dialog] textarea:focus,
+[role=dialog] button:focus,
+[role=dialog] input[type=text]:hover,
+[role=dialog] input[type=email]:hover,
+[role=dialog] input[type=tel]:hover,
+[role=dialog] textarea:hover,
+[role=dialog] button:hover {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
 
-[role="dialog"] textarea {
-  width:99%;
+[role=dialog] textarea {
+  width: 99%;
 }
 
-[role="dialog"] .required {
+[role=dialog] .required {
   font-weight: normal;
   font-style: italic;
 }
 
 button#contact-button {
-  text-align:  center;
+  text-align: center;
   white-space: nowrap;
   padding: 1px 4px 2px;
 }
@@ -239,31 +236,36 @@ button:hover {
   cursor: pointer;
 }
 
-[role="dialog"] .note code {
+[role=dialog] .note code {
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   font-style: normal !important;
-  font-weight:  bold;
+  font-weight: bold;
 }
 
-[role="dialog"] .feedback {
-  color: black;
-  border: 2px solid red;
-  background:  white;
+[role=dialog] .feedback {
+  color: light-dark(#000000, #ffffff);
+  border: 2px solid light-dark(hsl(358, 95%, 40%), hsl(358, 95%, 60%));
+  background: light-dark(#ffffff, #000000);
   padding: 2px;
-  border-radius:  5px;
+  border-radius: 5px;
 }
 
-[role="dialog"] .feedback img {
+[role=dialog] .feedback img {
   height: 12px !important;
 }
 
-[role="dialog"] .feedback.prefix {
-  margin-left:  0.75em;
-  display:  none;
+[role=dialog] .feedback.prefix {
+  margin-left: 0.75em;
+  display: none;
 }
 
-[role="dialog"] .feedback.prefix.show {
-  display:  block;
+[role=dialog] .feedback.prefix.show {
+  display: block;
 }
 
-
+[role=dialog] div.phone {
+  font-size: 110%;
+  margin: 0.75em;
+  text-align: center;
+  font-style: italic;
+}

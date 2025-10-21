@@ -76,6 +76,10 @@ template.innerHTML = `
             <textarea id="additional-textarea" rows="4" maxlength="400"></textarea>
           </div>
 
+          <div class="phone">
+              You can also call: <span class="area">217</span>-<span class="number">840</span>-<span class="number">3956</span>
+          </div>
+
           <div class="buttons">
             <button id="cancel-button">Cancel</button>
             <button id="send-button" type="submit">Send E-mail</button>
