@@ -14,12 +14,22 @@ $linkCurrentDark: #ffffff;
 $linkIcon: #000000;
 $linkIconDark: #ffffff;
 
+$backgroundColor: #fff;
+$backgroundColorDark: #000;
+
+$textColor: #000;
+$textColorDark: #eee;
+
 :root {
   color-scheme: light dark;
 }
 
 body {
-  background-color: light-dark($iconWhite, $iconWhiteDark) !important;
+  background-color: light-dark($backgroundColor, $backgroundColorDark) !important;
+}
+
+h1,h2, h3, h4, h5, h6, p, ul, ol, li {
+  color: light-dark($textColor, $textColorDark) !important;
 }
 
 .brand {
@@ -60,7 +70,6 @@ body {
 .service-icon {
   text-align: center;
 }
-
 
 .service-icon a {
   text-decoration: none;

@@ -4,7 +4,11 @@
 }
 
 body {
-  background-color: light-dark(#ffffff, #000000) !important;
+  background-color: light-dark(#fff, #000) !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, li {
+  color: light-dark(#000, #eee) !important;
 }
 
 .brand {
