@@ -3,11 +3,18 @@
   color-scheme: light dark;
 }
 
-body {
+body,
+table,
+td,
+th {
   background-color: light-dark(#fff, #000) !important;
 }
 
-h1, h2, h3, h4, h5, h6, p, ul, ol, li {
+h1, h2, h3, h4, h5, h6 {
+  color: light-dark(hsl(205, 100%, 30%), hsl(205, 100%, 70%)) !important;
+}
+
+p, ul, ol, li, th, td, blockquote, div {
   color: light-dark(#000, #eee) !important;
 }
 

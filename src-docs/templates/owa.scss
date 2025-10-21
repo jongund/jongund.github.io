@@ -24,11 +24,18 @@ $textColorDark: #eee;
   color-scheme: light dark;
 }
 
-body {
+body,
+table,
+td,
+th {
   background-color: light-dark($backgroundColor, $backgroundColorDark) !important;
 }
 
-h1,h2, h3, h4, h5, h6, p, ul, ol, li {
+h1,h2, h3, h4, h5, h6 {
+  color: light-dark($contentBlue, $contentBlueDark) !important;
+}
+
+p, ul, ol, li, th, td, blockquote, div {
   color: light-dark($textColor, $textColorDark) !important;
 }
 
