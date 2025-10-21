@@ -1,4 +1,12 @@
 /* Define standard variables and values for website */
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  background-color: light-dark(#ffffff, #000000) !important;
+}
+
 .brand {
   display: inline-block;
   font-family: "Fjalla One", sans-serif;

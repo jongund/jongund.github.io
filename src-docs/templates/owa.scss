@@ -14,6 +14,14 @@ $linkCurrentDark: #ffffff;
 $linkIcon: #000000;
 $linkIconDark: #ffffff;
 
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  background-color: light-dark($iconWhite, $iconWhiteDark) !important;
+}
+
 .brand {
   display: inline-block;
   font-family: "Fjalla One", sans-serif;
