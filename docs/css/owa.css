@@ -11,7 +11,7 @@ th {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: light-dark(hsl(205, 100%, 30%), hsl(205, 100%, 70%)) !important;
+  color: light-dark(hsl(216, 60%, 36%), hsl(216, 60%, 64%)) !important;
 }
 
 p, ul, ol, li, th, td, blockquote, div {
