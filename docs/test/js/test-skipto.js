@@ -36,8 +36,6 @@ function handleFocusout(event) {
   }
 }
 
-
-
 function handleFocus(event) {
   const tgt = event.currentTarget;
   tgt.parentNode.classList.add('focus');
@@ -224,5 +222,8 @@ window.addEventListener("load", (event) => {
   btn.addEventListener('focus', handleFocus);
   btn.addEventListener('blur', handleBlur);
   btn.addEventListener('click', handleClick);
+
+  const textarea = document.querySelector('textarea');
+  textarea.textContent = '';
 
 });
