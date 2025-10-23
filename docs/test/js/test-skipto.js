@@ -18,7 +18,7 @@ function logOutput(msg, elem) {
 
 function handleFocusin(event) {
   const tgt = event.currentTarget;
-  logOutput(`${tgt.tagName}: focusin`);
+  logOutput(`[button]: focusin`);
   if (tgt.classList.contains('popup')) {
     tgt.classList.add('focus');
   }
@@ -26,7 +26,7 @@ function handleFocusin(event) {
 
 function handleFocusout(event) {
   const tgt = event.currentTarget;
-  logOutput(`${tgt.tagName}: focusout`);
+  logOutput(`[button]: focusout`);
   if (tgt.classList.contains('popup')) {
     tgt.classList.remove('focus');
     const node = document.querySelector('.popup .menu');
@@ -140,11 +140,23 @@ function handleMainLinkBlur(event) {
   logOutput(`${tgt.tagName}: lost focus`);
 }
 
+function handleMainLinkFocusin(event) {
+  const tgt = event.currentTarget;
+  logOutput(`[mainLink]: focusin`);
+  tgt.classList.add('focus');
+}
+
+function handleMainLinkFocusout(event) {
+  const tgt = event.currentTarget;
+  logOutput(`[mainLink]: focusout`);
+  tgt.classList.remove('focus');
+}
+
 
 const buttonTemplate = document.createElement('template');
 buttonTemplate.innerHTML = `
   <div class="main offscreen">
-    <a role="button" href="#main">Go To Main Content</a>
+    <a href="#main">Go To Main Content</a>
   </div>
 
   <div class="popup">
@@ -249,6 +261,10 @@ window.addEventListener("load", (event) => {
 
   const textarea = document.querySelector('textarea');
   textarea.textContent = '';
+
+  const mainDiv = document.querySelector('div.main');
+  mainDiv.addEventListener('focusin', handleMainLinkFocusin);
+  mainDiv.addEventListener('focusout', handleMainLinkFocusout);
 
   const mainLink = document.querySelector('div.main a');
   mainLink.addEventListener('focus', handleMainLinkFocus);
