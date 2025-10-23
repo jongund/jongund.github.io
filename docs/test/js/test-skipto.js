@@ -136,7 +136,7 @@ buttonTemplate.innerHTML = `
     <button
         aria-haspopup="menu"
         aria-expanded="false"
-        aria-label="My Custom Button 1"
+        aria-label="Button 1"
         aria-controls="menu1"
           >
       Button 1
@@ -145,8 +145,8 @@ buttonTemplate.innerHTML = `
          role="menu"
          class="menu"
          aria-label="menu 1">
-        <div role="menuitem">Menu item 1A</div>
-        <div role="menuitem">Menu item 2B</div>
+        <div role="menuitem" tabindex="-1">Menu item 1A</div>
+        <div role="menuitem" tabindex="-1">Menu item 2B</div>
     </div>
   </div>
 `;
@@ -155,16 +155,10 @@ const styleTemplate = document.createElement('template');
 styleTemplate.innerHTML = `
   <style>
 .popup {
-  position: absolute;
+  position: fixed;
+  left: 45%;
   top: -36px;
   transition: top 0.35s ease;
-}
-
-.popup.focus,
-.popup:hover {
-  position: fixed;
-  top: 0;
-  left: 45%;
   font-family: sans-serif, arial, helvetica;
   font-size: 12pt;
   display: block;
@@ -172,6 +166,11 @@ styleTemplate.innerHTML = `
   margin-bottom: 4px;
   transition: left 1s ease;
   z-index: 100000 !important;
+}
+
+.popup.focus,
+.popup:hover {
+  top: 0;
 }
 
 .popup button {
@@ -191,7 +190,7 @@ styleTemplate.innerHTML = `
 }
 
 .popup div.menu {
-  position: absolute;
+  position: stick;
   margin: .25em;
   padding: 0.25em;
   border: 1px solid green;
@@ -207,10 +206,10 @@ styleTemplate.innerHTML = `
 window.addEventListener("load", (event) => {
 
   const head = document.querySelector('head');
-  const header = document.querySelector('header');
+  const body = document.querySelector('body');
 
   const buttonClone = buttonTemplate.content.cloneNode(true);
-  header.appendChild(buttonClone);
+  body.prepend(buttonClone);
 
   const styleClone = styleTemplate.content.cloneNode(true);
   head.appendChild(styleClone);
