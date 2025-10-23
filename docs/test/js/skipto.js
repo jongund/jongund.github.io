@@ -572,6 +572,10 @@
   transition: top 0.35s ease;
 }
 
+.menu-button.popup.ios button {
+  display: none;
+}
+
 .menu-button button .skipto-text {
   padding: 6px 8px 6px 8px;
   display: inline-block;
@@ -822,6 +826,10 @@
   display: block;
   transition: left 1s ease;
   z-index: var(--skipto-z-index-1) !important;
+}
+
+.menu-button.popup.ios.focus button {
+  display: block;
 }
 
 .menu-button button:focus .skipto-text,
@@ -3956,7 +3964,7 @@ dialog button:hover {
         const testFlag = true;
 
         // If iOS add a link to open menu when clicked
-        if (this.config.displayOption.includes('popup') && (isIOS() || testFlag)) {
+        if ((this.config.displayOption.toLowerCase() === 'popup') && (isIOS() || testFlag)) {
           debug$2.log(`[Adding iOS link][start]`);
           const aElem = document.createElement('a');
           aElem.href = "#";
@@ -3965,6 +3973,7 @@ dialog button:hover {
           aElem.addEventListener('click', this.handleIOSClick.bind(this));
           document.body.prepend(aElem);
           debug$2.log(`[Adding iOS link][end]`);
+          this.menuButtonNode.classList.add('ios');
         }
 
         // Setup button
