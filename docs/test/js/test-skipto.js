@@ -128,9 +128,25 @@ function handleBodyPointerdown(event) {
   logOutput(`"Body pointer down`);
 }
 
+function handleMainLinkFocus(event) {
+  const tgt = event.currentTarget;
+  tgt.parentNode.classList.remove('offscreen');
+  logOutput(`${tgt.tagName}: has focus`);
+}
+
+function handleMainLinkBlur(event) {
+  const tgt = event.currentTarget;
+  tgt.parentNode.classList.add('offscreen');
+  logOutput(`${tgt.tagName}: lost focus`);
+}
+
 
 const buttonTemplate = document.createElement('template');
 buttonTemplate.innerHTML = `
+  <div class="main offscreen">
+    <a href="#main">Main Content</a>
+  </div>
+
   <div class="popup">
     <button
         aria-haspopup="menu"
@@ -203,7 +219,14 @@ styleTemplate.innerHTML = `
   color: blue;
   background: white;
 }
+
+.offscreen {
+  position: absolute;
+  top: -20px;
+  left: -400px;
+}
   </style>
+}
 `;
 
 window.addEventListener("load", (event) => {
@@ -213,9 +236,6 @@ window.addEventListener("load", (event) => {
 
   const buttonClone = buttonTemplate.content.cloneNode(true);
   body.prepend(buttonClone);
-
-  const styleClone = styleTemplate.content.cloneNode(true);
-  head.appendChild(styleClone);
 
   const div = document.querySelector('div.popup');
   const btn = document.querySelector('div.popup button');
@@ -230,4 +250,19 @@ window.addEventListener("load", (event) => {
   const textarea = document.querySelector('textarea');
   textarea.textContent = '';
 
+  const mainLink = document.querySelector('div.main a');
+  mainLink.addEventListener('focus', handleMainLinkFocus);
+  mainLink.addEventListener('blur', handleMainLinkBlur);
+
+  addStyleElement();
+
 });
+
+function addStyleElement () {
+
+  const head = document.querySelector('head');
+
+  const styleClone = styleTemplate.content.cloneNode(true);
+  head.appendChild(styleClone);
+
+}
