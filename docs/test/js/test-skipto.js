@@ -172,7 +172,7 @@ styleTemplate.innerHTML = `
 .popup {
   position: absolute;
   left: 10%;
-  top: -26px;
+  top: -28px;
   transition: top 0.35s ease;
   font-family: sans-serif, arial, helvetica;
   font-size: 12pt;
