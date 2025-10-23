@@ -4,6 +4,7 @@ const log = document.querySelector('textarea');
 
 function handleFocusin(event) {
   const tgt = event.currentTarget;
+  logOutput(`${tgt.tagName}: focusin`);
   if (tgt.classList.contains('popup')) {
     tgt.classList.add('focus');
   }
@@ -11,6 +12,7 @@ function handleFocusin(event) {
 
 function handleFocusout(event) {
   const tgt = event.currentTarget;
+  logOutput(`${tgt.tagName}: focusout`);
   if (tgt.classList.contains('popup')) {
     tgt.classList.remove('focus');
     const node = tgt.querySelector('div.menu');
@@ -37,17 +39,17 @@ function logOutput(msg, elem) {
 
 function handleFocus(event) {
   const tgt = event.currentTarget;
-  logOutput('has focus', tgt);
+  logOutput(`${tgt.tagName}: has focus`);
 }
 
 function handleBlur(event) {
   const tgt = event.currentTarget;
-  logOutput('lost focus', tgt);
+  logOutput(`${tgt.tagName}: lost focus`);
 }
 
 function handleClick(event) {
   const tgt = event.currentTarget;
-  logOutput('click', tgt);
+  logOutput(`${tgt.tagName}: click`);
 
   if (tgt.hasAttribute('aria-expanded')) {
     if (tgt.getAttribute('aria-expanded') === 'true') {
@@ -130,14 +132,14 @@ function handleBodyPointerdown(event) {
 
 const buttonTemplate = document.createElement('template');
 buttonTemplate.innerHTML = `
-  <div>
+  <div class="popup">
     <button
         aria-haspopup="menu"
         aria-expanded="false"
         aria-label="My Custom Button 1"
         aria-controls="menu1"
           >
-      Custom Button 1
+      Button 1
     </button>
     <div id="menu1"
          role="menu"
@@ -147,68 +149,77 @@ buttonTemplate.innerHTML = `
         <div role="menuitem">Menu item 2B</div>
     </div>
   </div>
-`
+`;
 
-class buttonTest extends HTMLElement {
-
-  constructor() {
-    // Always call super first in constructor
-    super();
-    this.attachShadow({ mode: 'open' });
-
-    const linkNode = document.createElement('link');
-    linkNode.rel = 'stylesheet';
-    linkNode.href = './css/test-skipto.css';
-    this.shadowRoot.appendChild(linkNode);
-
-    const buttonClone = buttonTemplate.content.cloneNode(true);
-    this.shadowRoot.appendChild(buttonClone);
-
-    this.div = this.shadowRoot.querySelector('div');
-    this.btn = this.shadowRoot.querySelector('button');
-    this.menu = this.div.querySelector('div.menu');
-
-    if (this.hasAttribute('data-popup')) {
-      this.div.classList.add('popup');
-    }
-
-    const name = this.getAttribute('data-name');
-    if (name) {
-      this.btn.setAttribute('data-name', name);
-    }
-
-    this.div.addEventListener('focusin', handleFocusin);
-    this.div.addEventListener('focusout', handleFocusout);
-/*
-    if (this.menu) {
-      this.menu.addEventListener('pointerdown', (event) => {
-        handleContainerPointerdown(event, this.menu);
-      }, true);
-    }
-*/
-    this.btn.addEventListener('focus', handleFocus);
-    this.btn.addEventListener('blur', handleBlur);
-    this.btn.addEventListener('click', handleClick);
-  }
+const styleTemplate = document.createElement('template');
+styleTemplate.innerHTML = `
+  <style>
+.popup {
+  position: absolute;
+  top: -36px;
+  transition: top 0.35s ease;
 }
 
-window.customElements.define('button-test', buttonTest);
+.popup.focus,
+.popup:hover {
+  position: fixed;
+  top: 0;
+  left: 45%;
+  font-family: sans-serif, arial, helvetica;
+  font-size: 12pt;
+  display: block;
+  border: none;
+  margin-bottom: 4px;
+  transition: left 1s ease;
+  z-index: 100000 !important;
+}
+
+.popup button {
+  position: sticky;
+  margin: 0;
+  padding: 0;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-radius: 0px 0px 6px 6px;
+  border-color: light-dark(white, black);
+  color: light-dark(black, white);
+  background-color: light-dark(#ddd, #333);
+  z-index: 100000 !important;
+  font-family: $fontFamily;
+  font-size: 12pt;
+  z-index: 100001 !important;
+}
+
+.popup div.menu {
+  position: absolute;
+  margin: .25em;
+  padding: 0.25em;
+  border: 1px solid green;
+  touch-action: none;
+  display: none;
+  z-index: 200;
+  color: blue;
+  background: white;
+}
+  </style>
+`;
 
 window.addEventListener("load", (event) => {
 
+  const head = document.querySelector('head');
+  const header = document.querySelector('header');
+
+  const buttonClone = buttonTemplate.content.cloneNode(true);
+  header.appendChild(buttonClone);
+
+  const styleClone = styleTemplate.content.cloneNode(true);
+  head.appendChild(styleClone);
+
   const div = document.querySelector('div.popup');
-  const btn = document.querySelector('button');
+  const btn = document.querySelector('div.popup button');
 
   div.addEventListener('focusin', handleFocusin);
   div.addEventListener('focusout', handleFocusout);
-/*
-  const menu = div.querySelector('div.menu');
-  if (menu) {
-    menu.addEventListener('pointerdown', (event) => {
-      handleContainerPointerdown(event, menu);
-    }, true);
-  }
-*/
 
   btn.addEventListener('focus', handleFocus);
   btn.addEventListener('blur', handleBlur);
