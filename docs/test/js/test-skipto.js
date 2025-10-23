@@ -29,7 +29,7 @@ function handleFocusout(event) {
   logOutput(`${tgt.tagName}: focusout`);
   if (tgt.classList.contains('popup')) {
     tgt.classList.remove('focus');
-    const node = tgt.querySelector('div.menu');
+    const node = document.querySelector('.popup .menu');
     if (node) {
       node.style.display = 'none';
     }
@@ -61,7 +61,7 @@ function handleClick(event) {
     }
 
     const menuNode = document.querySelector('.popup .menu');
-    console.log(`${menuNode} ${rect.height} `);
+    console.log(`${menuNode}`);
 
     if (menuNode) {
       if (tgt.getAttribute('aria-expanded') === 'false') {
@@ -154,9 +154,9 @@ const styleTemplate = document.createElement('template');
 styleTemplate.innerHTML = `
   <style>
 .popup {
-  position: fixed;
-  left: 45%;
-  top: -36px;
+  position: absolute;
+  left: 10%;
+  top: -26px;
   transition: top 0.35s ease;
   font-family: sans-serif, arial, helvetica;
   font-size: 12pt;
@@ -173,9 +173,8 @@ styleTemplate.innerHTML = `
 }
 
 .popup button {
-  position: sticky;
   margin: 0;
-  padding: 0;
+  padding: 0.25em;
   border-width: 0px 1px 1px 1px;
   border-style: solid;
   border-radius: 0px 0px 6px 6px;
@@ -188,8 +187,13 @@ styleTemplate.innerHTML = `
   z-index: 100001 !important;
 }
 
-.popup div.menu {
-  position: stick;
+.popup.focus button,
+.popup button:focus {
+  outline: none;
+  border-color: light-dark(red, red);
+}
+
+.popup .menu {
   margin: .25em;
   padding: 0.25em;
   border: 1px solid green;
