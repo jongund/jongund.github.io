@@ -3955,12 +3955,14 @@ dialog button:hover {
 
         // If iOS add a link to open menu when clicked
         if (isIOS()) {
+          debug$2.log(`[Adding iOS link][start]`);
           const aElem = document.createElement('a');
-          aElem.href = "";
-          aElem.style = "position: absolute; top:";
+          aElem.href = "#";
+          aElem.style = "position: absolute; top: -30em; left: -300em";
           aElem.textContent = "Skip To Content";
           aElem.addEvenetListener('click', this.handleIOSClick.bind(this));
-          document.documentElement.preappend(aElem);
+          document.document.body.prepend(aElem);
+          debug$2.log(`[Adding iOS link][end]`);
         }
 
         // Setup button
