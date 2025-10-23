@@ -238,7 +238,6 @@ styleTemplate.innerHTML = `
   left: -400px;
 }
   </style>
-}
 `;
 
 window.addEventListener("load", (event) => {
