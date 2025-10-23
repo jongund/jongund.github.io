@@ -2,6 +2,20 @@
 
 const log = document.querySelector('textarea');
 
+function logOutput(msg, elem) {
+  if (elem) {
+    if (elem.hasAttribute('data-name')) {
+      log.textContent =`"${elem.getAttribute('data-name')}" ${msg.trim()}\n` + log.textContent;
+    }
+    else {
+      log.textContent=`"${elem.textContent}"  ${msg.trim()}\n` + log.textContent;
+    }
+  }
+  else {
+    log.textContent=`"${msg.trim()}\n` + log.textContent;
+  }
+}
+
 function handleFocusin(event) {
   const tgt = event.currentTarget;
   logOutput(`${tgt.tagName}: focusin`);
@@ -22,28 +36,17 @@ function handleFocusout(event) {
   }
 }
 
-function logOutput(msg, elem) {
-  if (elem) {
-    if (elem.hasAttribute('data-name')) {
-      log.textContent =`"${elem.getAttribute('data-name')}" ${msg.trim()}\n` + log.textContent;
-    }
-    else {
-      log.textContent=`"${elem.textContent}"  ${msg.trim()}\n` + log.textContent;
-    }
-  }
-  else {
-    log.textContent=`"${msg.trim()}\n` + log.textContent;
-  }
-}
 
 
 function handleFocus(event) {
   const tgt = event.currentTarget;
+  tgt.parentNode.classList.add('focus');
   logOutput(`${tgt.tagName}: has focus`);
 }
 
 function handleBlur(event) {
   const tgt = event.currentTarget;
+  tgt.parentNode.classList.remove('focus');
   logOutput(`${tgt.tagName}: lost focus`);
 }
 
@@ -59,12 +62,10 @@ function handleClick(event) {
      tgt.setAttribute('aria-expanded', 'true');
     }
 
-    const menuNode = tgt.parentNode.querySelector('div.menu');
-    const rect = tgt.getBoundingClientRect();
-      console.log(`${menuNode} ${rect.height} `);
+    const menuNode = document.querySelector('.popup .menu');
+    console.log(`${menuNode} ${rect.height} `);
 
     if (menuNode) {
-      menuNode.style.top = (rect.height + 4) + 'px';
       if (tgt.getAttribute('aria-expanded') === 'false') {
         menuNode.style.display = 'none';
       }
