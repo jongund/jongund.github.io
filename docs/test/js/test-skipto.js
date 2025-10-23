@@ -155,10 +155,11 @@ function handleMainLinkFocusout(event) {
 
 const buttonTemplate = document.createElement('template');
 buttonTemplate.innerHTML = `
+<!--
   <div class="main offscreen">
     <a href="#main">Go To Main Content</a>
   </div>
-
+-->
   <div class="popup">
     <button
         aria-haspopup="menu"
@@ -251,25 +252,36 @@ window.addEventListener("load", (event) => {
   const div = document.querySelector('div.popup');
   const btn = document.querySelector('div.popup button');
 
-  div.addEventListener('focusin', handleFocusin);
-  div.addEventListener('focusout', handleFocusout);
+  if (div) {
+    div.addEventListener('focusin', handleFocusin);
+    div.addEventListener('focusout', handleFocusout);
+  }
 
-  btn.addEventListener('focus', handleFocus);
-  btn.addEventListener('blur', handleBlur);
-  btn.addEventListener('click', handleClick);
+  if (btn) {
+    btn.addEventListener('focus', handleFocus);
+    btn.addEventListener('blur', handleBlur);
+    btn.addEventListener('click', handleClick);
+  }
 
   const textarea = document.querySelector('textarea');
   textarea.textContent = '';
 
   const mainDiv = document.querySelector('div.main');
-  mainDiv.addEventListener('focusin', handleMainLinkFocusin);
-  mainDiv.addEventListener('focusout', handleMainLinkFocusout);
+  if (mainDiv) {
+    mainDiv.addEventListener('focusin', handleMainLinkFocusin);
+    mainDiv.addEventListener('focusout', handleMainLinkFocusout);
+  }
 
   const mainLink = document.querySelector('div.main a');
-  mainLink.addEventListener('focus', handleMainLinkFocus);
-  mainLink.addEventListener('blur', handleMainLinkBlur);
+  if (mainLink) {
+    mainLink.addEventListener('focus', handleMainLinkFocus);
+    mainLink.addEventListener('blur', handleMainLinkBlur);
+  }
 
-  addStyleElement();
+  setTimeout(() => {
+    console.log("Delayed for 1 second.");
+    addStyleElement();
+  }, "1000");
 
 });
 
