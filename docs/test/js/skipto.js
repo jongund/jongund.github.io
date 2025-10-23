@@ -3953,15 +3953,17 @@ dialog button:hover {
 
         this.menuButtonNode.appendChild(templateMenuButton.content.cloneNode(true));
 
+        const testFlag = true;
+
         // If iOS add a link to open menu when clicked
-        if (isIOS()) {
+        if (this.config.displayOption.includes('popup') && (isIOS() || testFlag)) {
           debug$2.log(`[Adding iOS link][start]`);
           const aElem = document.createElement('a');
           aElem.href = "#";
           aElem.style = "position: absolute; top: -30em; left: -300em";
           aElem.textContent = "Skip To Content";
-          aElem.addEvenetListener('click', this.handleIOSClick.bind(this));
-          document.document.body.prepend(aElem);
+          aElem.addEventListener('click', this.handleIOSClick.bind(this));
+          document.body.prepend(aElem);
           debug$2.log(`[Adding iOS link][end]`);
         }
 
