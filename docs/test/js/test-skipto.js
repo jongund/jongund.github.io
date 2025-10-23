@@ -177,15 +177,20 @@ buttonTemplate.innerHTML = `
         <div role="menuitem" tabindex="-1">Menu item 2B</div>
     </div>
   </div>
+
 `;
 
 const styleTemplate = document.createElement('template');
 styleTemplate.innerHTML = `
   <style>
 .popup {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
   left: 10%;
-  top: -32px;
   transition: top 0.35s ease;
   font-family: sans-serif, arial, helvetica;
   font-size: 12pt;
@@ -198,7 +203,10 @@ styleTemplate.innerHTML = `
 
 .popup.focus,
 .popup:hover {
-  top: 0;
+  clip: auto;
+  width: auto;
+  height: auto;
+  overflow: visible;
 }
 
 .popup button {
@@ -279,9 +287,9 @@ window.addEventListener("load", (event) => {
   }
 
   setTimeout(() => {
-    console.log("Delayed for 1 second.");
+    console.log("Delayed for 10 milliseconds.");
     addStyleElement();
-  }, "1000");
+  }, "10");
 
 });
 
