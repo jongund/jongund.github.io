@@ -144,7 +144,7 @@ function handleMainLinkBlur(event) {
 const buttonTemplate = document.createElement('template');
 buttonTemplate.innerHTML = `
   <div class="main offscreen">
-    <a href="#main">Main Content</a>
+    <a role="button" href="#main">Go To Main Content</a>
   </div>
 
   <div class="popup">
