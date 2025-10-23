@@ -3961,9 +3961,9 @@ dialog button:hover {
 
         this.menuButtonNode.appendChild(templateMenuButton.content.cloneNode(true));
 
-        const testFlag = true;
+        const testFlag = false;
 
-        // If iOS add a link to open menu when clicked
+        // If iOS add a link to open menu when clicked and hide button
         if ((this.config.displayOption.toLowerCase() === 'popup') && (isIOS() || testFlag)) {
           debug$2.log(`[Adding iOS link][start]`);
           const aElem = document.createElement('a');
