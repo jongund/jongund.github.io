@@ -160,7 +160,7 @@ buttonTemplate.innerHTML = `
     <a href="#main">Go To Main Content</a>
   </div>
 -->
-  <div class="popup">
+  <div id="id-skip-to" class="popup">
     <button
         aria-haspopup="menu"
         aria-expanded="false"
