@@ -57,7 +57,7 @@
     <title>Browser Extensions</title>
     <contents>
       <ul>
-        <li><a href="https://ainspector.disability.illinois.edu/">AInspector for WCAG Evaluation 4.0 </a></li>
+        <li><a href="https://opena11y.github.io/ainspector/">AInspector for WCAG Evaluation 4.1</a></li>
         <li><a href="https://opena11y.github.io/h2l-side-panel/">Headings, Landmarks and Links 1.1</a></li>
       </ul>
     </contents>
@@ -80,19 +80,34 @@
     <title>AInspector for WCAG Evaluation 4.0</title>
     <contents>
 
-      <h2>Version 4.0</h2>
+      <h2>Version 4.1</h2>
       <ul>
-        <li>New support for Chrome web browser (Note: Edge and Opera support coming soon).</li>
-        <li>Updated to use <a href="https://opena11y.github.io/evaluation-library/index.html">OpenA11y Evaluation Library 2.0.6</a></li>
+        <li>New support for Chrome, Edge and Chrome web browsers.</li>
+        <li>Updated to use <a href="https://opena11y.github.io/evaluation-library/index.html">OpenA11y Evaluation Library 2.0.7</a></li>
         <li>Updated JSON and CSV export formats to improve consistency.</li>
         <li>Improved highlighting of page and element results.</li>
       </ul>
 
       <h2>Installation and Documentation</h2>
       <ul>
-        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/ainspector-wcag/">Chrome</a></li>
-        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/ainspector-wcag/">Firefox</a></li>
-        <li><a href="https://ainspector.disability.illinois.edu/">Documentation</a></li>
+       <li>
+           <a href="https://chromewebstore.google.com/detail/ainspector-for-wcag-evalu/dhllbiaionalkdpankidadkoaaenenie">Chrome</a>
+        </li>
+
+        <li>
+           <a href="https://microsoftedge.microsoft.com/addons/detail/ainspector-for-wcag-evalu/enilnlbjbmnfleppphmbodnhkecoddhg">Edge</a>
+        </li>
+
+        <li>
+           <a href="https://addons.mozilla.org/en-US/firefox/addon/ainspector-wcag/">Firefox</a>
+        </li>
+
+        <li>
+           <a href="https://opena11y.github.io/ainspector/">Opera (self hosted)</a>
+        </li>
+        <li>
+          <a href="https://opena11y.github.io/ainspector/">Documentation</a>
+        </li>
       </ul>
 
     </contents>
