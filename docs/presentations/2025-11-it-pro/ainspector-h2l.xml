@@ -631,6 +631,35 @@
     </contents>
   </slide>
 
+  <slide>
+    <title>H2L: Options</title>
+    <contents>
+
+      <figure class="image">
+         <img src="./images/h2l-options.png"
+              alt=""/>
+              <figcaption>Screen shot of Headings, Landmarks and Links Options Page</figcaption>
+      </figure>
+
+      <h2>Options</h2>
+      <ul>
+        <li>Highlight styling</li>
+        <li>Landmarks without names (i.e. screen readers ignore them)</li>
+        <li>Link Filters:
+          <ul>
+            <li>Internal links</li>
+            <li>Same sub-domain links</li>
+            <li>Same domain links</li>
+            <li>External links</li>
+            <li>Non-HTML links (e.g. PDF, Excel, Docs)</li>
+          </ul>
+        </li>
+      </ul>
+
+    </contents>
+  </slide>
+
+
  <slide>
     <title>H2L: Open-Source Code and Reporting Issues</title>
     <contents>
