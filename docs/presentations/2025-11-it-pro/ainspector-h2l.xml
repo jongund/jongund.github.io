@@ -615,21 +615,6 @@
     </contents>
   </slide>
 
-  <slide>
-    <title>H2L: Side Panel Features</title>
-    <contents>
-      <ul>
-        <li>Uses <a href="https://opena11y.github.io/evaluation-library/">OpenA11y Evaluation Library</a></li>
-        <li>Computes <a href="https://www.w3.org/TR/accname-1.2/">accessible names using W3C algorithm</a></li>
-        <li>Emulates screen reader filtering of headings and landmarks:
-          <ul>
-            <li>Removes small and off-screen headings</li>
-            <li>Landmarks without accessible names</li>
-          </ul>
-        </li>
-      </ul>
-    </contents>
-  </slide>
 
   <slide>
     <title>H2L: Options</title>
@@ -659,6 +644,21 @@
     </contents>
   </slide>
 
+  <slide>
+    <title>H2L: Side Panel Features</title>
+    <contents>
+      <ul>
+        <li>Uses <a href="https://opena11y.github.io/evaluation-library/">OpenA11y Evaluation Library</a></li>
+        <li>Computes <a href="https://www.w3.org/TR/accname-1.2/">accessible names using W3C algorithm</a></li>
+        <li>Emulates screen reader filtering of headings and landmarks:
+          <ul>
+            <li>Removes small and off-screen headings</li>
+            <li>Landmarks without accessible names</li>
+          </ul>
+        </li>
+      </ul>
+    </contents>
+  </slide>
 
  <slide>
     <title>H2L: Open-Source Code and Reporting Issues</title>
