@@ -30,7 +30,7 @@ const files = [
     filename: 'index.html'
   },
   { template: './src-docs/templates/content-workshops.njk',
-    title: 'Workshops',
+    title: 'Presentations and Workshops',
     menuName: 'Workshops',
     filename: 'workshops.html'
   },
@@ -58,6 +58,11 @@ const files = [
     title: 'Sessions',
     menuName: '',
     filename: 'sessions/index.html'
+  },
+  { template: './src-docs/templates/content-presentations.njk',
+    title: 'Presentations',
+    menuName: '',
+    filename: 'presentations/index.html'
   },
   { template: './src-docs/templates/content-test-hc.njk',
     title: 'High Contrast Test',

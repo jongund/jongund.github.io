@@ -36,7 +36,6 @@ summary {
 }
 
 
-
 footer {
     margin: 0;
     margin-top: 3em;
@@ -45,6 +44,10 @@ footer {
     position: relative;
     height: 2.5em;
     text-align: center;
+}
+
+footer:has(a.itpro) {
+    height: 136px;
 }
 
 footer .highlight-icon {
@@ -117,6 +120,9 @@ footer .copyright {
     top: 10px;
 }
 
+footer:has(a.itpro) .copyright {
+    top: 100px;
+}
 
 nav ul {
     margin: 0;

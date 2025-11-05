@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    {% include "./head.njk" %}
+  </head>
+  <body>
+    {% include "./header.njk" %}
+
+    <!-- Main section-->
+    <div id="main-section" class="container px-4">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{path}}index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{path}}workshops.html">Workshops</a></li>
+          <li class="breadcrumb-item active">{{title | safe}}</li>
+        </ol>
+      </nav>
+      <main class="row gx-4 justify-content-center">
+        <div class="col-lg-8">
+          {% block title %}
+          <h1>{{title}}</h1>
+          {% endblock %}
+
+          <div id="presentations">
+            <dl>
+              <dt><a href="./2025-11-it-pro/">AInspector for WCAG Evaluation and Headings, Landmarks and Links Browser Extensions</a></dt>
+              <dd><a href="https://itproforum.illinois.edu/eventdesc/1-fall-2025/1-10am/web-accessibility-browser-side-panels-from-illinois/">Illinois IT Professional Forum (online)</a></dd>
+              <dd>Wednesday, November 5th</dd>
+            </dl>
+          </div>
+
+        </div>
+      </main>
+    </nav>
+    {% include "./footer.njk" %}
+    {% include "./scripts.njk" %}
+
+  </body>
+</html>
