@@ -70,7 +70,7 @@
         <li class="more">Learn about accessibility standards.</li>
         <li class="more">Make hidden accessibility information visible.</li>
         <li class="more">Information on both accessibility features and issues.</li>
-        <li class="more">Provide resources for people to learn more about an accessibility requirement.</li>
+        <li class="more">Provide resources for people to learn more about an accessibility requirements.</li>
         <li class="more">Support sharing accessibility evaluation information.</li>
       </ul>
     </contents>
@@ -160,17 +160,42 @@
     <title>Rule Scope</title>
     <contents>
 
-      <figure>
-        <img src="./images/view-rule-page.png" role="none"/>
-        <figcaption>AInspector screen shot of sidebar with at least one main landmark page rule result</figcaption>
-      </figure>
-
+      <h2 id="number">Number of Rules in Each Scope</h2>
+      <table class="table table-striped" aria-labelledby="number">
+        <thead>
+          <tr>
+            <th>Scope</th>
+            <th>Number of Rules</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Element</th>
+            <td>100</td>
+          </tr>
+          <tr>
+            <th>Page Only</th>
+            <td>37</td>
+          </tr>
+          <tr>
+            <th>Website Only</th>
+            <td>7</td>
+          </tr>
+        </tbody>
+      </table>
 
       <h2>Rule Scope Definitions</h2>
       <ul>
         <li><em>Element</em>: A WCAG requirement for a specific html element or an element with an ARIA role, property or state. For example, an <code>img</code> element must have an <code>alt</code> attribute.</li>
         <li><em>Page</em>: A WCAG requirement that applies to a feature of a web page.  For example, a web page must have a <code>main</code> landmark.</li>
         <li><em>Website</em>: A WCAG requrement that applied to pages in a website.  For example, consistent navigational links in each web page.</li>
+      </ul>
+
+      <h2>Importance</h2>
+
+      <ul>
+        <li><em>Element</em> level rules are typically more pass/fail.</li>
+        <li><em>Website</em>em> and <em>Page</em> level rules are more likely to be manual checks and are difficult to fix if not considered during the design change of a web resource.</li>
       </ul>
 
     </contents>
@@ -629,8 +654,26 @@
     <contents>
       <ul>
         <li>Heather Stout, Director of Operations and Service at DRES for supporting work on the tools.</li>
-        <li>Staff of the Division of <a href="https://dres.illinois.edu">Disability Education Resources Services</a> Alternative Media Services group including, Alex Cordain, Ann Fredicksen and Christy Blew for their feedback.</li>
-        <li>Thank you to the users who provide feedback and help identify bugs.</li>
+        <li>Staff of the Division of <a href="https://dres.illinois.edu">Disability Education Resources Services</a> Alternative Media Services group including, Alex Cordain, Ann Fredicksen and Christy Blew for their feedback.
+        <li>
+          The participants of the <a href="https://itaccessibility.illinois.edu/explore-hadi">Explore with Hadi</a> group.</li>
+        </li>
+        <li>Thank you to all the other users who provide feedback and help identify issues.</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>How you can help</title>
+    <contents>
+      <ul>
+        <li>If you have questions or find issues, please report them:
+          <ul>
+            <li><a href="https://github.com/opena11y/ainspector/issues">Issues for AInspector for WCAG Evaluation</a></li>
+            <li><a href="https://github.com/opena11y/h2l-side-panel/issues">Issues for Headings, Landmarks and Links</a></li>
+          </ul>
+        </li>
+        <li>Consider giving the tools a rating in the web stores, especially Chrome Web Store.</li>
       </ul>
     </contents>
   </slide>
