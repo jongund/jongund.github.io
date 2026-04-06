@@ -47,7 +47,7 @@ footer {
 }
 
 footer:has(a.itpro) {
-    height: 136px;
+    height: 90px;
 }
 
 footer .highlight-icon {
@@ -121,7 +121,7 @@ footer .copyright {
 }
 
 footer:has(a.itpro) .copyright {
-    top: 100px;
+    top: 28px;
 }
 
 nav ul {

@@ -413,7 +413,7 @@
                 <xsl:value-of select="/slides/copyright"/>
               </xsl:when>
               <xsl:otherwise>
-                Copyright  &#169; 2024
+                Copyright  &#169; 2026
               </xsl:otherwise>
             </xsl:choose>
           </span>
