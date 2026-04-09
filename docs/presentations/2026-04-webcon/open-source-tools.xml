@@ -538,14 +538,16 @@
   </slide>
 
   <slide>
-    <title>Headings, Landmarks and Links (H2L) Browser Extension</title>
+    <title>Headings, Landmarks and Links (H2L) 2.0 Browser Extension</title>
     <contents>
 
-      <figure class="image">
-         <img src="./images/h2l-headings.png"
-              alt=""/>
-              <figcaption>Headings, Landmarks and Links screen shot with headings tab showing in side Panel</figcaption>
-      </figure>
+      <h2>New Features in 2.0</h2>
+      <ul>
+        <li>New highlighting options.</li>
+        <li>More information on hidden content.</li>
+        <li>Options are more visible in each tap panel.</li>
+        <li>Updated to support changes to <code>aside</code> element creating <code>complementary</code> landmark.</li>
+      </ul>
 
       <h2>Get H2L Extension</h2>
       <ul>
@@ -1044,6 +1046,7 @@
     <contents>
       <ul>
         <li>Heather Stout, Director of Operations and Service at DRES for supporting work on the tools.</li>
+        <li>Dick Detzner for creating the icons used in the tools.</li>
         <li>Staff of the Division of <a href="https://dres.illinois.edu">Disability Education Resources Services</a> Alternative Media Services group including, Alex Cordain, Ann Fredicksen and Christy Blew for their feedback.
         <li>
           The participants of the <a href="https://itaccessibility.illinois.edu/explore-hadi">Explore with Hadi</a> group.</li>
