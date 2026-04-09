@@ -915,14 +915,13 @@
   </slide>
 
   <slide>
-    <title>SkipTo.js Page Script Examples and Browser Wxtensions</title>
+    <title>SkipTo.js Page Script Examples and Browser Extensions</title>
     <contents>
-
 
       <h2>Page Script Examples</h2>
       <ul>
-        <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/page-script.html" target="_website">SkipTo.js Documentation</a> (Visible on Load)</li>
-        <li><a href="https://housing.illinois.edu" target="_website">University Housing</a> (Visible on Load)</li>
+        <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/page-script.html" target="_website">SkipTo.js Documentation</a> (Button visible on load)</li>
+        <li><a href="https://housing.illinois.edu" target="_website">University Housing</a> (Button visible on load)</li>
         <li><a href="https://ahs.illinois.edu" target="_website">College of Applied Health Sciences</a></li>
         <li><a href="https://wordpress.webtheme.illinois.edu/" target="_website">Illinois Theme for WordPress</a></li>
         <li><a href="https://www.w3.org/WAI/ARIA/apg/" target="_website">W3C ARIA Authoring Practices</a></li>
@@ -963,6 +962,7 @@
             <li>macOS: <kbd>Option+0</kbd></li>
           </ul>
       </li>
+      <li>Support for Android and iOS</li>
       </ul>
     </contents>
   </slide>
