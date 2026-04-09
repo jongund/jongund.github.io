@@ -3,7 +3,7 @@
 <?xm-well_formed path="funct.dtd"?>
 <slides>
   <lang>en</lang>
-  <title>Open Source Web Accessibility Tools from the University of Illinois</title>
+  <title>Open-Source Web Accessibility Tools from the University of Illinois</title>
   <logo>
     <a href="https://webcon.illinois.edu/" class="itpro">
       <img src="images/logo.png" alt="Illinois Webcon 2026"
@@ -36,7 +36,7 @@
         font-weight: bold;
       }
     </style>
-    <title>Open Source Web Accessibility Tools from the University of Illinois</title>
+    <title>Open-Source Web Accessibility Tools from the University of Illinois</title>
     <contents>
 
     <div class="person">
@@ -55,11 +55,17 @@
 
   <slide>
 
-    <title>Browser Extensions</title>
+    <title>Open-Source Tools</title>
     <contents>
+      <h2>Browser Extensions</h2>
       <ul>
         <li><a href="https://opena11y.github.io/ainspector/">AInspector for WCAG Evaluation 4.1</a></li>
-        <li><a href="https://opena11y.github.io/h2l-side-panel/">Headings, Landmarks and Links 1.1</a></li>
+        <li><a href="https://opena11y.github.io/h2l-side-panel/">Headings, Landmarks and Links 2.0</a></li>
+        <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/extensions.html">SkipTo.js Extensions 5.1</a></li>
+      </ul>
+      <h2>Page Script</h2>
+      <ul>
+        <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/page-script.html">SkipTo.js Page Script 5.1</a></li>
       </ul>
     </contents>
   </slide>
@@ -83,9 +89,9 @@
 
       <h2>Version 4.1</h2>
       <ul>
-        <li>New support for Chrome, Edge and Chrome web browsers.</li>
-        <li>Updated to use <a href="https://opena11y.github.io/evaluation-library/index.html">OpenA11y Evaluation Library 2.0.7</a></li>
-        <li>Updated JSON and CSV export formats to improve consistency.</li>
+        <li>Updated Icon</li>
+        <li>In addition to Firefox, support for Chrome, Edge and Opera.</li>
+        <li>Updated to use <a href="https://opena11y.github.io/evaluation-library/index.html">OpenA11y Evaluation Library 2.2</a></li>
         <li>Improved highlighting of page and element results.</li>
       </ul>
 
@@ -104,7 +110,7 @@
         </li>
 
         <li>
-           Opera submitted to Opera Add-ons for review
+           Submitted to Opera Add-ons for review, but is available as a self-hosted version
         </li>
         <li>
           <a href="https://opena11y.github.io/ainspector/">Documentation</a>
@@ -115,13 +121,14 @@
   </slide>
 
   <slide>
-    <title>OpenA11y Evaluation Library 2.0 and Web Standards</title>
+    <title>OpenA11y Evaluation Library 2.2 and Web Standards</title>
     <contents>
 
       <ul>
         <li>Supports the following W3C standards:
           <ul>
-            <li><a href="https://www.w3.org/TR/wai-aria-1.2/">Accessible Rich Internet Application (ARIA) 1.2 Specification</a></li>
+            <li><a href="https://www.w3.org/TR/wai-aria-1.2/">Accessible Rich Internet Application (ARIA) 1.2 Specifications</a></li>
+            <li><a href="https://www.w3.org/TR/wai-aria-1.3/">Accessible Rich Internet Application (ARIA) 1.3 Specifications</a></li>
             <li><a href="https://www.w3.org/TR/html-aria/">Accessible Name and Description Computation 1.1</a></li>
             <li><a href="https://www.w3.org/TR/accname/">ARIA in HTML Specification</a></li>
             <li><a href="https://www.w3.org/TR/WCAG21/">Web content Accessibility Guidelines 2.1</a></li>
@@ -154,51 +161,6 @@
         <li>Rule scope</li>
         <li><a href="https://www.w3.org/TR/wai-aria/">Accessible Rich Internet Application</a> (ARIA) specification</li>
       </ul>
-    </contents>
-  </slide>
-
-  <slide>
-    <title>Rule Scope</title>
-    <contents>
-
-      <h2 id="number">Number of Rules in Each Scope</h2>
-      <table class="table table-striped" aria-labelledby="number">
-        <thead>
-          <tr>
-            <th>Scope</th>
-            <th>Number of Rules</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Element</th>
-            <td>100</td>
-          </tr>
-          <tr>
-            <th>Page Only</th>
-            <td>37</td>
-          </tr>
-          <tr>
-            <th>Website Only</th>
-            <td>7</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>Rule Scope Definitions</h2>
-      <ul>
-        <li><em>Element</em>: A WCAG requirement for a specific html element or an element with an ARIA role, property or state. For example, an <code>img</code> element must have an <code>alt</code> attribute.</li>
-        <li><em>Page</em>: A WCAG requirement that applies to a feature of a web page.  For example, a web page must have a <code>main</code> landmark.</li>
-        <li><em>Website</em>: A WCAG requrement that applied to pages in a website.  For example, consistent navigational links in each web page.</li>
-      </ul>
-
-      <h2>Importance</h2>
-
-      <ul>
-        <li><em>Element</em> level rules are typically more pass/fail.</li>
-        <li><em>Website</em>em> and <em>Page</em> level rules are more likely to be manual checks and are difficult to fix if not considered during the design change of a web resource.</li>
-      </ul>
-
     </contents>
   </slide>
 
@@ -248,7 +210,7 @@
 
       <figure>
         <img src="images/view-rule.png" role="none"/>
-        <figcaption>"AInspector screen shot of page, webstie and element results</figcaption>
+        <figcaption>"AInspector screen shot of page, website and element results</figcaption>
       </figure>
 
       <h2>Features</h2>
@@ -544,26 +506,6 @@
     </contents>
   </slide>
 
-  <slide>
-    <title>Rerun Evaluation</title>
-    <contents>
-
-      <figure>
-        <img src="./images/rerun-dialog.png" role="none"/>
-        <figcaption>AInpsector screen shot of rerun dialog open</figcaption>
-      </figure>
-
-      <h2>Rerun Options</h2>
-
-      <ul>
-        <li>Immediate</li>
-        <li>Delayed</li>
-      </ul>
-
-    </contents>
-  </slide>
-
-
  <slide>
     <title>AInspector: Open-Source Code and Reporting Issues</title>
     <contents>
@@ -587,7 +529,6 @@
     <contents>
 
       <ul>
-        <li>Support for Edge and Opera Web Browsers.</li>
         <li>Support options for evaluating only <a href="https://dequeuniversity.com/rules/axe/html/4.10">Deque aXe rules</a> or <a href="https://docs.google.com/spreadsheets/d/1oSyK4QiyHf1zx-xrc4P9M7efYVv0vohNxVWjeHan8Iw/edit?usp=sharing">WebAIM WAVE rules</a></li>
         <li>Comparing OpenA11y rules with Deque aXe and WebAIM Wave rulesets.</li>
         <li>Update OpenA11y rules based on changes to web standard requirements and bug reports.</li>
@@ -609,57 +550,119 @@
       <h2>Get H2L Extension</h2>
       <ul>
         <li><a href="https://chromewebstore.google.com/detail/toc-headings-landmarks-an/eoadlbcfkolkpigecddbdlbneekefkfa">Google Chrome</a></li>
-        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/toc-headings-landmarks-links/">Mozilla Firefox</a></li>
-        <li><a hre="https://microsoftedge.microsoft.com/addons/detail/headings-landmarks-and-l/hhkaebffaohpcamjeogijpokkilabhcl">Microsoft Edge</a></li>
+        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/headings-landmarks-links/">Mozilla Firefox</a></li>
+        <li><a href="https://microsoftedge.microsoft.com/addons/detail/headings-landmarks-and-l/hhkaebffaohpcamjeogijpokkilabhcl">Microsoft Edge</a></li>
+        <li><a href="https://addons.opera.com/en/extensions/details/headings-landmarks-and-links/">Opera</a> (<a href="https://opena11y.github.io/h2l-side-panel/">Self-hosted version of Opera version</a> is available until latest is available in store)</li>
       </ul>
 
     </contents>
   </slide>
 
-
   <slide>
-    <title>H2L: Options</title>
+    <title>H2L: Headings Tree</title>
     <contents>
 
       <figure class="image">
-         <img src="./images/h2l-options.png"
+         <img src="./images/h2l-headings.png"
               alt=""/>
-              <figcaption>Screen shot of Headings, Landmarks and Links Options Page</figcaption>
+              <figcaption>Headings tree screen shot</figcaption>
       </figure>
 
-      <h2>Options</h2>
+      <h2>Features</h2>
       <ul>
-        <li>Highlight styling</li>
-        <li>Landmarks without names (i.e. screen readers ignore them)</li>
-        <li>Link Filters:
-          <ul>
-            <li>Internal links</li>
-            <li>Same sub-domain links</li>
-            <li>Same domain links</li>
-            <li>External links</li>
-            <li>Non-HTML links (e.g. PDF, Excel, Docs)</li>
-          </ul>
-        </li>
+        <li>Number of headings on page.</li>
+        <li>Shows the <code>h1</code> and <code>h2</code> headings by default.</li>
+        <li>Option to highlight all headings.</li>
+        <li>Option to show accessible name in the highlight.</li>
+        <li>Button to show all headings in the tree view.</li>
       </ul>
 
     </contents>
   </slide>
 
   <slide>
-    <title>H2L: Side Panel Features</title>
+    <title>H2L: Landmark Regions List</title>
     <contents>
+
+      <figure class="image">
+         <img src="./images/h2l-landmarks.png"
+              alt=""/>
+              <figcaption>Landmark regions list screen shot</figcaption>
+      </figure>
+
+      <h2>Features</h2>
       <ul>
-        <li>Uses <a href="https://opena11y.github.io/evaluation-library/">OpenA11y Evaluation Library</a></li>
-        <li>Computes <a href="https://www.w3.org/TR/accname-1.2/">accessible names using W3C algorithm</a></li>
-        <li>Emulates screen reader filtering of headings and landmarks:
-          <ul>
-            <li>Removes small and off-screen headings</li>
-            <li>Landmarks without accessible names</li>
-          </ul>
-        </li>
+        <li>Number of landmark regions on page.</li>
+        <li>Option to highlight all landmark regions.</li>
+        <li>Option to emulate how screen readers filter landmarks.</li>
       </ul>
+
     </contents>
   </slide>
+
+  <slide>
+    <title>H2L: Links Grid</title>
+    <contents>
+
+      <figure class="image">
+         <img src="./images/h2l-links.png"
+              alt=""/>
+              <figcaption>Link grid screen shot</figcaption>
+      </figure>
+
+      <h2>Features</h2>
+      <ul>
+        <li>Number of links on page.</li>
+        <li>Sorting by document order, accessible name, has a description and type of link.</li>
+        <li>Option to highlight all landmark regions.</li>
+        <li>Option to include accessible name in highlight.</li>
+        <li>Filtering of links based on the type of link.</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>H2L: Link Filter Dialog</title>
+    <contents>
+
+      <figure class="image">
+         <img src="./images/h2l-link-filters.png"
+              alt=""/>
+              <figcaption>Link filter dialog box screen shot</figcaption>
+      </figure>
+
+      <h2>Filter Options</h2>
+      <ul>
+        <li>Show internal links</li>
+        <li>Show same sub-domain links</li>
+        <li>Show same domain links</li>
+        <li>Show external links</li>
+        <li>Show non-html extension links</li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>H2L: Export Dialog</title>
+    <contents>
+
+      <figure class="image">
+         <img src="./images/h2l-export.png"
+              alt=""/>
+              <figcaption>Export dialog box screen shot</figcaption>
+      </figure>
+
+      <h2>Export Options</h2>
+      <ul>
+        <li>Which content</li>
+        <li>File naming</li>
+      </ul>
+
+    </contents>
+  </slide>
+
 
  <slide>
     <title>H2L: Open-Source Code and Reporting Issues</title>
@@ -678,7 +681,364 @@
     </contents>
   </slide>
 
+   <slide>
+    <title>Overview</title>
+    <contents>
+      <ul>
+        <li>WCAG 2.4.1 "Bypass Blocks of Content"</li>
+        <li>History of bypass blocks requirement</li>
+        <li>Structural elements</li>
+        <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/page-script.html">SkipTo.js Page Script</a></li>
+        <li>Browser Extensions:
+          <ul>
+            <li>
+              <a href="https://chromewebstore.google.com/detail/skiptojs-for-chrome/mgmnhfooeifhicajoeoamlchoadbioof">SkipTo.js for Chrome</a>
+            </li>
+            <li>
+              <a href="https://microsoftedge.microsoft.com/addons/detail/skiptojs-for-microsoft-e/ljimnmfdebledgndinpmilpbmkfamicg">SkipTo.js for Edge</a>
+            </li>
+            <li><a href="https://addons.mozilla.org/en-GB/firefox/addon/skipto-js-for-firefox">SkipTo.js for Firefox</a></li>
+            <li><a href="https://addons.opera.com/en/extensions/details/skiptojs-for-opera/">SkipTo.js for Opera</a></li>
+          </ul>
+        </li>
+        <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/bookmarklets.html">SkipTo.js Bookmarklet</a></li>
+      </ul>
+    </contents>
+  </slide>
 
+  <slide>
+    <title>History of Bypass Blocks</title>
+    <contents>
+      <table class="table table-striped" aria-labelledby="h1_title">
+        <thead>
+          <th scope="col">Year</th>
+          <th scope="col" style="min-width: 8em">Standard</th>
+          <th scope="col">Requirement and Assistive Technology</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1999</td>
+            <td><a href="https://www.w3.org/TR/wai-aria-1.0/" target="_spec">WCAG 1.0</a></td>
+            <td>
+              <ul>
+                <li>Checkpoint 13.6 Group related links, identify the group (for user agents), and, until user agents do so, provide a way to bypass the group. [Priority 3].</li>
+                <li>Screen readers did not have features to navigate headers.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>2000</td>
+            <td><a href="https://www.access-board.gov/ict/#original508" target="_spec">Section 508</a></td>
+            <td>
+              <ul>
+                <li>§ 1194.22 (o) A method shall be provided that permits users to skip repetitive navigation links.</li>
+                <li>Screen readers begin to include web page navigation features like navigating headers.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>2007</td>
+            <td><a href="https://www.w3.orgTR/2007/WD-xhtml-role-20071004/" target="_spec">XHTML Role Attribute Module (Working Draft)</a>
+            </td>
+            <td>First introduction of landmark region roles:
+              <ul>
+                <li>banner</li>
+                <li>contentinfo</li>
+                <li>main</li>
+                <li>navigation</li>
+                <li>search</li>
+                <li>secondary (later changed to "complementary" in ARIA)</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>2008</td>
+            <td><a href="https://www.w3.org/TR/WCAG20/" target="_spec">WCAG 2.0</a></td>
+            <td>
+              <ul>
+                <li>Success Criteria 2.4.1 Bypass Blocks: A mechanism is available to bypass blocks of content that are repeated on multiple Web pages. (Level A)</li>
+                <li>JAWS Screen Reader + Some Specific Version of Microsoft Internet Explore is the default standard for accessibility.</li>
+                <li>VoiceOver for macOS is available.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>2014</td>
+            <td>ARIA 1.0</td>
+            <td>
+              <ul>
+                <li>ARIA is first standard to define how browsers should communicate web page information to accessibility APIs for macOS, Windows and Linux</li>
+                <li>ARIA defines landmark region roles, although implementation in browsers has been available for years.</li>
+                <li>Mozilla Firefox and Google Chrome lead browser efforts to implement ARIA standard.</li>
+                <li>JAWS and NVDA for Windows, VoiceOver for macOS and Orca for Linux/GNOME become the dominate screen readers.</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Current Bypass Blocks Techniques</title>
+    <contents>
+
+      <h2><q>Skip to Main Content</q> Link</h2>
+      <ul>
+        <li>Early implementations used 1 pixel images for the link with ALT text attribute, current implementations use visible text.</li>
+        <li>Link at beginning of page to internal anchor.</li>
+        <li>Link is hidden until it receives keyboard focus.</li>
+        <li>No significant change in technique in over 20+ years.</li>
+        <li><a href="https://webaim.org/techniques/skipnav/">WebAIM: "Skip Navigation" Links</a></li>
+      </ul>
+
+      <h2 id="id-examples">Examples</h2>
+
+      <table class="table table-striped" aria-laeblledby="id-examples">
+        <thead>
+          <th scope="col">Website</th>
+          <th scope="col">Visible when page loads</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://umich.edu/" target="_website">Michigan</a></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><a href="https://wisc.edu/" target="_website">Wisconsin</a></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.w3.org/WAI/" target="_website">W3C Web Accessibility Initiative (WAI)</a></td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>HTML Heading and Landmark Elements</title>
+    <contents>
+      <h2 id="id-Headings-label">Heading Elements</h2>
+      <table class="table table-striped" aria-labelledby="id-headings-label">
+        <thead>
+          <tr>
+            <th scope="col">Element</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>h1</code></td>
+            <td>Title of web page at the beginning of the main content.</td>
+          </tr>
+          <tr>
+            <td><code>h2</code></td>
+            <td>
+              <ul>
+                <li>Identify sub-sections of main region.</li>
+                <li>Identify title for complementary region.</li>
+                <li>Labels for top-level navigation and complementary landmark regions.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><code>h3-h6</code></td>
+            <td>Identify sub-sections of top level regions using the heading level to identify nesting level of the section.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="id-landmarks-label">Landmark Elements</h2>
+      <table class="table table-striped" aria-labelledby="id-landmarks-label">
+        <thead>
+          <tr>
+            <th scope="col">Role</th>
+            <th scope="col">Element</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>banner</code></td>
+            <td><code>header</code></td>
+            <td>Shared content at the beginning of most pages within a website.</td>
+          </tr>
+          <tr>
+            <td><code>complementary</code></td>
+            <td><code>aside</code></td>
+            <td>Content that is related to the main content of a website, that is often located in a sidebar.</td>
+          </tr>
+          <tr>
+            <td><code>contentinfo</code></td>
+            <td><code>footer</code></td>
+            <td>Shared content at the bottom of most web pages within a website.</td>
+          </tr>
+          <tr>
+            <td><code>main</code></td>
+            <td><code>main</code></td>
+            <td>Identifies the main content of a web page.</td>
+          </tr>
+          <tr>
+            <td><code>navigation</code></td>
+            <td><code>nav</code></td>
+            <td>Identifies a group links related to website navigation.</td>
+          </tr>
+          <tr>
+            <td><code>region</code></td>
+            <td><code>section</code> with accessible name</td>
+            <td>Typically identifies subsections of other landmark regions.</td>
+          </tr>
+          <tr>
+            <td><code>search</code></td>
+            <td><code>[role=<q>search</q>]</code></td>
+            <td>Identifies search forms on a web page.</td>
+          </tr>
+        </tbody>
+      </table>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Goals of SkipTo.js script and browser extensions</title>
+    <contents>
+      <ul>
+        <li>Improve keyboard accessibility to web page content by giving all users the header and landmark navigation features available in screen readers.</li>
+        <li>Allow authors to identify more than one important navigational point within web resources.</li>
+        <li>Simplify and improve the reliability of implementing the WCAG 2.4.1 Bypass Blocks of Content requirement.</li>
+        <li>Increase the awareness of header and landmark region information on web pages to promote a better understanding of functional accessibility.</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>SkipTo.js Page Script Examples and Browser Wxtensions</title>
+    <contents>
+
+
+      <h2>Page Script Examples</h2>
+      <ul>
+        <li><a href="https://skipto-landmarks-headings.github.io/page-script-5/page-script.html" target="_website">SkipTo.js Documentation</a> (Visible on Load)</li>
+        <li><a href="https://housing.illinois.edu" target="_website">University Housing</a> (Visible on Load)</li>
+        <li><a href="https://ahs.illinois.edu" target="_website">College of Applied Health Sciences</a></li>
+        <li><a href="https://wordpress.webtheme.illinois.edu/" target="_website">Illinois Theme for WordPress</a></li>
+        <li><a href="https://www.w3.org/WAI/ARIA/apg/" target="_website">W3C ARIA Authoring Practices</a></li>
+      </ul>
+
+      <h2>Browser Extensions</h2>
+      <ul>
+        <li>
+          <a href="https://chromewebstore.google.com/detail/skiptojs-for-chrome/mgmnhfooeifhicajoeoamlchoadbioof">SkipTo.js for Chrome</a>
+        </li>
+        <li>
+          <a href="https://microsoftedge.microsoft.com/addons/detail/skiptojs-for-microsoft-e/ljimnmfdebledgndinpmilpbmkfamicg">SkipTo.js for Edge</a>
+        </li>
+        <li><a href="https://addons.mozilla.org/en-GB/firefox/addon/skipto-js-for-firefox">SkipTo.js for Firefox</a></li>
+        <li><a href="https://addons.opera.com/en/extensions/details/skiptojs-for-opera/">SkipTo.js for Opera</a></li>
+      </ul>
+
+
+    </contents>
+  </slide>
+
+  <slide>
+    <title>SkipTo.js Design: Menu Button</title>
+    <contents>
+      <figure class="image">
+         <img src="./images/skipto-page-script.png"
+              alt=""/>
+              <figcaption>Screenshot of SkipTo.js menu open with highlight around the menu button</figcaption>
+      </figure>
+
+
+      <ul>
+        <li>Button visible by default.</li>
+        <li>Button placement and styling.</li>
+        <li>Keyboard shortcut information:
+          <ul>
+            <li>Windows and Linux: <kbd>Alt+0</kbd></li>
+            <li>macOS: <kbd>Option+0</kbd></li>
+          </ul>
+      </li>
+      </ul>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>SkipTo.js Browser Extensions</title>
+    <contents>
+      <ul>
+        <li>SkipTo.js becomes an assistive technology</li>
+        <li>Use on almost any website</li>
+        <li>Enables keyboard shortcuts for header and landmark navigation</li>
+      </ul>
+
+      <h2 id="landmark-regions">Landmark Regions</h2>
+      <table class="table table-striped shortcuts" aria-labelledby="landmark-regions">
+         <thead>
+            <tr>
+               <th>Key</th>
+               <th>Description</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+              <th>r</th><td>Next region</td>
+            </tr>
+            <tr>
+              <th>R</th><td>Previous region</td>
+            </tr>
+            <tr>
+              <th>m</th><td>Main regions</td>
+            </tr>
+            <tr>
+              <th>n</th><td>Navigation regions</td>
+            </tr>
+            <tr>
+              <th>c</th><td>Complementary regions</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="headings">Headings</h2>
+
+        <table class="table table-striped shortcuts" aria-labelledby="headings">
+         <thead>
+            <tr>
+               <th>Key</th>
+               <th>Description</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+              <th>h</th><td>Next heading</td>
+            </tr>
+            <tr>
+              <th>H</th><td>Previous heading</td>
+            </tr>
+            <tr>
+              <th>1</th><td>Level 1 headings</td>
+            </tr>
+            <tr>
+              <th>2</th><td>Level 2 headings</td>
+            </tr>
+            <tr>
+              <th>3</th><td>Level 3 headings</td>
+            </tr>
+            <tr>
+              <th>4</th><td>Level 4 headings</td>
+            </tr>
+            <tr>
+              <th>5</th><td>Level 5 headings</td>
+            </tr>
+            <tr>
+              <th>6</th><td>Level 6 headings</td>
+            </tr>
+          </tbody>
+        </table>
+    </contents>
+  </slide>
   <slide>
     <title>Thank You</title>
     <contents>
@@ -701,6 +1061,7 @@
           <ul>
             <li><a href="https://github.com/opena11y/ainspector/issues">Issues for AInspector for WCAG Evaluation</a></li>
             <li><a href="https://github.com/opena11y/h2l-side-panel/issues">Issues for Headings, Landmarks and Links</a></li>
+            <li><a href="https://github.com/skipto-landmarks-headings/page-script-5/issues">Issues for SkipTo.js</a></li>
             <li>or <a href="mailto:jongund@illinois.edu">E-mail Jon Gunderson</a> at: jongund@illinois.edu</li>
           </ul>
         </li>
