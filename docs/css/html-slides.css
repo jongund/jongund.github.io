@@ -46,6 +46,10 @@ footer {
     text-align: center;
 }
 
+footer:has(a.owa) {
+    height: 53px;
+}
+
 footer:has(a.itpro) {
     height: 90px;
 }
