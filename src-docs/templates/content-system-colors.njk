@@ -1,0 +1,42 @@
+
+          <div id="system-colors-theme">
+
+            <div>System Color Context:</div>
+            <ul>
+              <li>
+                <span class="context" id="useragent"></span>
+              </li>
+              <li>
+                <span class="context" id="os"></span>
+              </li>
+              <li>
+                <label for="theme">Color Theme</label>
+                <select id="theme">
+                  <option value="default" selected>default</option>
+                  <option value="firefox-contrast">Firefox Website Contrast</option>
+                  <option value="win11-aquatic">Windows 11 Aquatic Theme</option>
+                  <option value="win11-desert">Windows 11 Desert Theme</option>
+                  <option value="win11-dusk">Windows 11 Dusk Theme</option>
+                  <option value="win11-night">Windows 11 Night Theme</option>
+                </select>
+              </li>
+            </ul>
+
+            <p><a id="export" href="test.json" type="application/json">Download as JSON</a></p>
+
+            <table class="table data" aria-label="System Colors">
+              <thead>
+                <tr>
+                  <th>System Color</th>
+                  <th>Computed Color</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody id="system-colors">
+              </tbody>
+            </table>
+
+          </div>
+
+            <!-- Color Settings JS -->
+            <script src="{{path}}js/system-colors.js"></script>

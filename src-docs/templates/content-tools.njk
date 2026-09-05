@@ -1,25 +1,5 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    {% include "./head.njk" %}
-  </head>
-  <body>
-    {% include "./header.njk" %}
 
-    <!-- Main section-->
-    <div id="main-section" class="container px-4">
-      <nav aria-label="Breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">{{title | safe}}</li>
-        </ol>
-      </nav>
-      <main class="row gx-4 justify-content-center">
-        <div class="col-lg-8">
-          {% block title %}
-          <h1>Open-Source Tools</h1>
-          {% endblock %}
-          <div id="projects">
+          <div id="tools">
 
             <h2 id="h2l">Headings, Landmarks and Links (H2L)</h2>
 
@@ -110,10 +90,3 @@
               </li>
             </ul>
           </div>
-        </div>
-      </main>
-    {% include "./footer.njk" %}
-    {% include "./scripts.njk" %}
-
-  </body>
-</html>

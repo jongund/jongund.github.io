@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Workshops | Open Web Accessibility Services | Jon Gunderson, Ph.D. CWAP</title>
+    <title>System Colors | Open Web Accessibility Services | Jon Gunderson, Ph.D. CWAP</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
     <!-- Core theme CSS -->
@@ -108,15 +108,15 @@
             
 
                 
-                <nav class="second-level" aria-label="Outreach">
+                <nav class="second-level" aria-label="Tools">
                   
                     
-                    <a href="workshops.html">Workshops</a>
+                    <a href="tools.html">Open-Source Tools</a>
                     
                   
                     
                       
-                       | <a href="Presentation.html">Presentations</a>
+                       | <a href="system-colors.html">System Colors</a>
                       
                     
                   
@@ -124,26 +124,51 @@
                 
 
                 
-                  <h1>Workshops</h1>
+                  <h1>System Colors</h1>
                 
 
                 
+          <div id="system-colors-theme">
 
-          <div id="sessions">
-            <div class="session">
-              <h2>Digital Collegium Conference</h2>
-              <div class="event"><a href="https://events.digicol.org/digicol25/">2025 Conference Information</a></div>
-              <div class="venue">DeVos Convention Center</div>
-              <div class="location">Grand Rapids, Michigan</div>
-              <div class="date">September 28th - October 1st, 2025</div>
+            <div>System Color Context:</div>
+            <ul>
+              <li>
+                <span class="context" id="useragent"></span>
+              </li>
+              <li>
+                <span class="context" id="os"></span>
+              </li>
+              <li>
+                <label for="theme">Color Theme</label>
+                <select id="theme">
+                  <option value="default" selected>default</option>
+                  <option value="firefox-contrast">Firefox Website Contrast</option>
+                  <option value="win11-aquatic">Windows 11 Aquatic Theme</option>
+                  <option value="win11-desert">Windows 11 Desert Theme</option>
+                  <option value="win11-dusk">Windows 11 Dusk Theme</option>
+                  <option value="win11-night">Windows 11 Night Theme</option>
+                </select>
+              </li>
+            </ul>
 
-              <ul>
-                <li><a href="./experience/">Experience of Disability Pre-conference Workshop</a> (Sunday, September 28th)</li>
-                <li><a href="./tools/">AInspector Sidebar browser extension for WCAG evaluation</a> (Tuesday, September 30th)</li>
-              </ul>
-            </div>
+            <p><a id="export" href="test.json" type="application/json">Download as JSON</a></p>
+
+            <table class="table data" aria-label="System Colors">
+              <thead>
+                <tr>
+                  <th>System Color</th>
+                  <th>Computed Color</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody id="system-colors">
+              </tbody>
+            </table>
+
           </div>
 
+            <!-- Color Settings JS -->
+            <script src="js/system-colors.js"></script>
 
 
             
