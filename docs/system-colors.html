@@ -130,7 +130,7 @@
                 
           <div id="system-colors-theme">
 
-            <div>System Color Context:</div>
+            <h2>System Color Context</h2>
             <ul>
               <li>
                 <span class="context" id="useragent"></span>
@@ -151,9 +151,14 @@
               </li>
             </ul>
 
-            <p><a id="export" href="test.json" type="application/json">Download as JSON</a></p>
+            <h2>Export Options</h2>
+            <p>
+              <a id="export-download" href="test.json" type="application/json">Download as JSON</a> |
+              <a id="export-clipboard" href="#">Copy JSON to Clipboard</a>
+            </p>
 
-            <table class="table data" aria-label="System Colors">
+            <h2 id="computed-colors">Computed System Colors</h2>
+            <table class="table data" aria-labelledby="computed-colors">
               <thead>
                 <tr>
                   <th>System Color</th>

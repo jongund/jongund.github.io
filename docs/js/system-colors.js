@@ -960,10 +960,12 @@ function updateExportLink() {
   const themeNode = document.getElementById('theme');
   systemColorInfo.theme = themeNode.value;
 
-  const exportNode = document.getElementById('export');
   const jsonStr = JSON.stringify(systemColorInfo, null, 2);
-  exportNode.href = `data:application/json;charset=utf-8,${encodeURIComponent(jsonStr)}`;
-  exportNode.download = getFileName(systemColorInfo);
+
+  const exportDownloadNode = document.getElementById('export-download');
+  exportDownloadNode.href = `data:application/json;charset=utf-8,${encodeURIComponent(jsonStr)}`;
+  exportDownloadNode.download = getFileName(systemColorInfo);
+
 }
 
 
@@ -1076,6 +1078,24 @@ window.addEventListener('load', () => {
     themeNode.addEventListener('change', () => {
       updateExportLink();
     });
+
+    const exportClipboardNode = document.getElementById('export-clipboard');
+    exportClipboardNode.addEventListener('click', () => {
+
+      const jsonStr = JSON.stringify(systemColorInfo, null, 2);
+
+      async function setClipboard() {
+        const type = "text/plain";
+        const clipboardItemData = {
+          [type]: jsonStr,
+        };
+        const clipboardItem = new ClipboardItem(clipboardItemData);
+        await navigator.clipboard.write([clipboardItem]);
+      }
+
+      setClipboard();
+    });
+
 
     updateExportLink();
 });
