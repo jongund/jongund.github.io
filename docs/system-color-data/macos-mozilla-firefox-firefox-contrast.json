@@ -1,0 +1,26 @@
+{
+  "browser": "Mozilla Firefox",
+  "os": "MacOS",
+  "theme": "firefox-contrast",
+  "system_colors": {
+    "Accent Color": "#007aff",
+    "Accent Color Text": "#ffffff",
+    "Active text": "#ee0000",
+    "Button border": "#8f8f9d",
+    "Button face": "#ffffff",
+    "Button text": "#272727",
+    "Canvas": "#d0d0d0",
+    "Canvas text": "#3030ff",
+    "Field": "#ffffff",
+    "Field text": "#272727",
+    "Gray text": "#c0c0c0",
+    "Highlight": "#b3d8ff",
+    "Highlight text": "#3030ff",
+    "Link text": "#328030",
+    "Mark": "#ffff00",
+    "Mark text": "#000000",
+    "Selected item": "#0064e1",
+    "Selected item text": "#ffffff",
+    "Visited text": "#ff2f30"
+  }
+}

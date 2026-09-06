@@ -754,7 +754,7 @@ const systemColorValues = [
   },
   {
     value: 'ButtonBorder',
-    name: 'Button border',
+    name: 'Button Border',
     contrastTheme: 'Button Text',
     chromium: true,
     mozilla: true,
@@ -762,7 +762,7 @@ const systemColorValues = [
   },
   {
     value: 'ButtonFace',
-    name: 'Button face',
+    name: 'Button Face',
     contrastTheme: 'Button Background',
     chromium: true,
     mozilla: true,
@@ -770,7 +770,7 @@ const systemColorValues = [
   },
   {
     value: 'ButtonText',
-    name: 'Button text',
+    name: 'Button Text',
     contrastTheme: 'Button Text',
     chromium: true,
     mozilla: true,
@@ -786,7 +786,7 @@ const systemColorValues = [
   },
   {
     value: 'CanvasText',
-    name: 'Canvas text',
+    name: 'Canvas Text',
     contrastTheme: 'Text',
     chromium: true,
     mozilla: true,
@@ -802,7 +802,7 @@ const systemColorValues = [
   },
   {
     value: 'FieldText',
-    name: 'Field text',
+    name: 'Field Text',
     contrastTheme: 'Button text color',
     chromium: true,
     mozilla: true,
@@ -810,7 +810,7 @@ const systemColorValues = [
   },
   {
     value: 'GrayText',
-    name: 'Gray text',
+    name: 'Gray Text',
     contrastTheme: 'Inactive Text',
     chromium: true,
     mozilla: true,
@@ -826,7 +826,7 @@ const systemColorValues = [
   },
   {
     value: 'HighlightText',
-    name: 'Highlight text',
+    name: 'Highlight Text',
     contrastTheme: 'Selected Text',
     chromium: true,
     mozilla: true,
@@ -834,7 +834,7 @@ const systemColorValues = [
   },
   {
     value: 'LinkText',
-    name: 'Link text',
+    name: 'Link Text',
     contrastTheme: 'Hyperlink',
     chromium: true,
     mozilla: true,
@@ -850,7 +850,7 @@ const systemColorValues = [
   },
   {
     value: 'MarkText',
-    name: 'Mark text',
+    name: 'Mark Text',
     contrastTheme: '',
     chromium: false,
     mozilla: false,
@@ -858,7 +858,7 @@ const systemColorValues = [
   },
   {
     value: 'SelectedItem',
-    name: 'Selected item',
+    name: 'Selected Item',
     contrastTheme: 'Selected Background',
     chromium: false,
     mozilla: true,
@@ -866,7 +866,7 @@ const systemColorValues = [
   },
   {
     value: 'SelectedItemText',
-    name: 'Selected item text',
+    name: 'Selected Item Text',
     contrastTheme: 'Selected Text',
     chromium: false,
     mozilla: true,
@@ -874,7 +874,7 @@ const systemColorValues = [
   },
   {
     value: 'VisitedText',
-    name: 'Visited text',
+    name: 'Visited Text',
     contrastTheme: 'Hyperlink',
     chromium: true,
     mozilla: false,
@@ -1013,10 +1013,35 @@ function rgb2Hex(rgb) {
 
 // Fill in System color table
 
+function getMonth(d) {
+
+  const abbrevs = ['Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          "Aug",
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec'
+        ];
+
+  return abbrevs[d.getMonth()];
+}
+
+
+const today = new Date();
+
 const systemColorInfo = {
   "browser": getBrowserName(),
   "os": getOSName(),
   "theme": "default",
+  "year": today.getFullYear(),
+  "month": today.getMonth(),
+  "monthAbbr": getMonth(today),
   system_colors: {}
 }
 

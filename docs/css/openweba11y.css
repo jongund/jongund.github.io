@@ -36,8 +36,8 @@
   --linkColor: hsl(216, 60%, 18%);
   --linkColorDark: hsl(216, 60%, 82%);
 
-  --linkColorFocus: hsl(22, 100%, 51%, 0.75);
-  --linkColorFocusDark: hsl(22, 100%, 51%, 0.75);
+  --linkColorFocus: hsl(358, 95.1%, 40%, 0.75);
+  --linkColorFocusDark: hsl(358, 95.1%, 60%, 0.75);
 
   --linkCurrentColor: #000;
   --linkCurrentColorDark: #eee;
