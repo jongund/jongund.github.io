@@ -1,29 +1,29 @@
 {
-  "browser": "Mozilla Firefox",
+  "browser": "Microsoft Edge",
   "os": "Windows",
-  "theme": "win11-night",
+  "theme": "win11-dusk",
   "year": 2026,
   "month": 8,
   "monthAbbr": "Sep",
   "system_colors": {
-    "Accent Color": "#d6b4fd",
+    "Accent Color": "#000000",
     "Accent Color Text": "#000000",
-    "Active text": "#ee0000",
+    "Active text": "#8080ff",
     "Button Border": "#ffee32",
     "Button Face": "#000000",
     "Button Text": "#ffee32",
     "Canvas": "#000000",
     "Canvas Text": "#ffffff",
     "Field": "#000000",
-    "Field Text": "#ffee32",
+    "Field Text": "#ffffff",
     "Gray Text": "#a6a6a6",
     "Highlight": "#d6b4fd",
     "Highlight Text": "#2b2b2b",
     "Link Text": "#8080ff",
     "Mark": "#ffff00",
     "Mark Text": "#000000",
-    "Selected Item": "#d6b4fd",
-    "Selected Item Text": "#2b2b2b",
-    "Visited Text": "#80ff80"
+    "Selected Item": "#99c8ff",
+    "Selected Item Text": "#3b3b3b",
+    "Visited Text": "#8080ff"
   }
 }

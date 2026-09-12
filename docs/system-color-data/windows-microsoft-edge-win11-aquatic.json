@@ -1,0 +1,29 @@
+{
+  "browser": "Microsoft Edge",
+  "os": "Windows",
+  "theme": "win11-aquatic",
+  "year": 2026,
+  "month": 8,
+  "monthAbbr": "Sep",
+  "system_colors": {
+    "Accent Color": "#202020",
+    "Accent Color Text": "#202020",
+    "Active text": "#75e9fc",
+    "Button Border": "#ffffff",
+    "Button Face": "#202020",
+    "Button Text": "#ffffff",
+    "Canvas": "#202020",
+    "Canvas Text": "#ffffff",
+    "Field": "#202020",
+    "Field Text": "#ffffff",
+    "Gray Text": "#a6a6a6",
+    "Highlight": "#8ee3f0",
+    "Highlight Text": "#263b50",
+    "Link Text": "#75e9fc",
+    "Mark": "#ffff00",
+    "Mark Text": "#000000",
+    "Selected Item": "#99c8ff",
+    "Selected Item Text": "#3b3b3b",
+    "Visited Text": "#75e9fc"
+  }
+}

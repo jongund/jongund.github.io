@@ -1,0 +1,29 @@
+{
+  "browser": "Google Chrome",
+  "os": "Windows",
+  "theme": "win11-aquatic",
+  "year": 2026,
+  "month": 8,
+  "monthAbbr": "Sep",
+  "system_colors": {
+    "Accent Color": "#fffaef",
+    "Accent Color Text": "#fffaef",
+    "Active text": "#1c5e75",
+    "Button Border": "#202020",
+    "Button Face": "#fffaef",
+    "Button Text": "#202020",
+    "Canvas": "#fffaef",
+    "Canvas Text": "#3d3d3d",
+    "Field": "#fffaef",
+    "Field Text": "#3d3d3d",
+    "Gray Text": "#676767",
+    "Highlight": "#903909",
+    "Highlight Text": "#fff5e3",
+    "Link Text": "#1c5e75",
+    "Mark": "#ffff00",
+    "Mark Text": "#000000",
+    "Selected Item": "#1967d2",
+    "Selected Item Text": "#ffffff",
+    "Visited Text": "#1c5e75"
+  }
+}

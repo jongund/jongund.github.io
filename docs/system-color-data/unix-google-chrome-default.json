@@ -1,0 +1,29 @@
+{
+  "browser": "Google Chrome",
+  "os": "UNIX",
+  "theme": "default",
+  "year": 2026,
+  "month": 8,
+  "monthAbbr": "Sep",
+  "system_colors": {
+    "Accent Color": "#0075ff",
+    "Accent Color Text": "#ffffff",
+    "Active text": "#ff0000",
+    "Button Border": "#000000",
+    "Button Face": "#efefef",
+    "Button Text": "#000000",
+    "Canvas": "#ffffff",
+    "Canvas Text": "#000000",
+    "Field": "#ffffff",
+    "Field Text": "#000000",
+    "Gray Text": "#808080",
+    "Highlight": "#3367d1",
+    "Highlight Text": "#ffffff",
+    "Link Text": "#0000ee",
+    "Mark": "#ffff00",
+    "Mark Text": "#000000",
+    "Selected Item": "#c2daf7",
+    "Selected Item Text": "#000000",
+    "Visited Text": "#551a8b"
+  }
+}

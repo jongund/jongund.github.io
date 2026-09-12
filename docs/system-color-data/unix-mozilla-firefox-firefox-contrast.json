@@ -1,0 +1,29 @@
+{
+  "browser": "Mozilla Firefox",
+  "os": "UNIX",
+  "theme": "firefox-contrast",
+  "year": 2026,
+  "month": 8,
+  "monthAbbr": "Sep",
+  "system_colors": {
+    "Accent Color": "#3584e4",
+    "Accent Color Text": "#ffffff",
+    "Active text": "#ee0000",
+    "Button Border": "#8f8f9d",
+    "Button Face": "#e5e5e7",
+    "Button Text": "#323237",
+    "Canvas": "#c0bfbc",
+    "Canvas Text": "#1a5fb4",
+    "Field": "#ffffff",
+    "Field Text": "#323237",
+    "Gray Text": "#929595",
+    "Highlight": "#3584e4",
+    "Highlight Text": "#ffffff",
+    "Link Text": "#26a269",
+    "Mark": "#ffff00",
+    "Mark Text": "#000000",
+    "Selected Item": "#3584e4",
+    "Selected Item Text": "#ffffff",
+    "Visited Text": "#e01b24"
+  }
+}
