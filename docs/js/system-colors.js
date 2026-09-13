@@ -2,7 +2,30 @@
 
 'use strict';
 
-console.log(`color-settings.js loading...`);
+import {
+  macos_apple_safari_default,
+  macos_google_chrome_default,
+  macos_mozilla_firefox_default,
+  macos_mozilla_firefox_firefox_contrast,
+  unix_google_chrome_default,
+  unix_mozilla_firefox_default,
+  unix_mozilla_firefox_firefox_contrast,
+  windows_google_chrome_default,
+  windows_google_chrome_win11_aquatic,
+  windows_google_chrome_win11_desert,
+  windows_google_chrome_win11_dusk,
+  windows_google_chrome_win11_night,
+  windows_microsoft_edge_default,
+  windows_microsoft_edge_win11_aquatic,
+  windows_microsoft_edge_win11_dusk,
+  windows_microsoft_edge_win11_night,
+  windows_mozilla_firefox_default,
+  windows_mozilla_firefox_firefox_contrast,
+  windows_mozilla_firefox_win11_aquatic,
+  windows_mozilla_firefox_win11_desert,
+  windows_mozilla_firefox_win11_dusk,
+  windows_mozilla_firefox_win11_night,
+} from '../system-color-data/system-color-info.js';
 
 const htmlColorValues = [
   {
@@ -676,57 +699,6 @@ const contrastThemeFeatures = [
   { name: 'Button Text', id: 'buttonText' },
 ];
 
-const contrastThemeColorsWin11 = [
-  {
-    name: 'Aquatic',
-    os: 'Windows 11',
-    background: '#202020',
-    text: '#ffffff',
-    hyperlink: '#75e9fc',
-    inactiveText: '#a6a6a6',
-    selectedBackground: '#8ee3f0',
-    selectedText: '#263b50',
-    buttonBackground: '#202020',
-    buttonText: '#ffffff',
-  },
-  {
-    name: 'Desert',
-    os: 'Windows 11',
-    background: '#fffaef',
-    text: '#3d3d3d',
-    hyperlink: '#1c5e75',
-    inactiveText: '#676767',
-    selectedBackground: '#903909',
-    selectedText: '#fff5e3',
-    buttonBackground: '#fffaef',
-    buttonText: '#202020',
-  },
-  {
-    name: 'Dusk',
-    os: 'Windows 11',
-    background: '#2d3236',
-    text: '#ffffff',
-    hyperlink: '#70ebde',
-    inactiveText: '#a6a6a6',
-    selectedBackground: '#a1bfde',
-    selectedText: '#212d3b',
-    buttonBackground: '#2d3236',
-    buttonText: '#b6f6f0',
-  },
-  {
-    name: 'Night Sky',
-    os: 'Windows 11',
-    background: '#000000',
-    text: '#ffffff',
-    hyperlink: '#8080ff',
-    inactiveText: '#a6a6a6',
-    selectedBackground: '#d6b4fd',
-    selectedText: '#2b2b2b',
-    buttonBackground: '#000000',
-    buttonText: '#ffee32',
-  },
-];
-
 const systemColorValues = [
   {
     value: 'AccentColor',
@@ -746,7 +718,7 @@ const systemColorValues = [
   },
   {
     value: 'ActiveText',
-    name: 'Active text',
+    name: 'Active Text',
     contrastTheme: 'Hyperlink',
     chromium: true,
     mozilla: true,
@@ -931,12 +903,11 @@ function getOSName() {
   return "Unknown OS";
 }
 
-
-
 /*
  * @function getFileName
  *
- * @desc  Returns the file name based on systemcolor information
+ * @desc  Returns the file name based on system color,
+ *        browser and theme information
  *
  * @return {String) @desc
  */
@@ -947,27 +918,6 @@ function getFileName(info) {
   fileName += '-' + info.theme + '.json';
   return fileName.toLowerCase();
 }
-
-/*
- * @function updateExportLink
- *
- * @desc  Updates the export link with current information
- */
-
-function updateExportLink() {
-  console.log(`Updating export link`);
-
-  const themeNode = document.getElementById('theme');
-  systemColorInfo.theme = themeNode.value;
-
-  const jsonStr = JSON.stringify(systemColorInfo, null, 2);
-
-  const exportDownloadNode = document.getElementById('export-download');
-  exportDownloadNode.href = `data:application/json;charset=utf-8,${encodeURIComponent(jsonStr)}`;
-  exportDownloadNode.download = getFileName(systemColorInfo);
-
-}
-
 
 
 /*
@@ -1045,83 +995,341 @@ const systemColorInfo = {
   system_colors: {}
 }
 
-window.addEventListener('load', () => {
 
+
+/*
+ * @function headerCell
+ *
+ * @desc  Creates a TH element with a text content
+ */
+
+function headerCell(text) {
+    const th   = document.createElement('th');
+    th.textContent = text;
+    return th;
+}
+
+/*
+ * @function dataCell
+ *
+ * @desc  Creates a TD element to use as a description
+ */
+
+function dataCell(text, style, abbrev) {
+    const td   = document.createElement('td');
+    const abbr = document.createElement('abbr');
+
+    if (style) {
+      td.className = style;
+    }
+
+    if (abbr) {
+      abbr.textContent = text;
+      abbr.title = abbrev;
+      td.appendChild(abbr);
+    }
+    else {
+      td.textContent = text;
+    }
+    return td;
+}
+
+/*
+ * @function colorCell
+ *
+ * @desc  Creates a TD element to label a system color name
+ */
+
+function colorCell(name) {
+    const td   = document.createElement('td');
+    const code = document.createElement('code');
+    code.textContent = name;
+    td.appendChild(code);
+    return td;
+}
+
+/*
+ * @function colorImageCell
+ *
+ * @desc  Creates a TD element to show a color value
+ */
+
+function colorImageCell(value) {
+    const td = document.createElement('td');
+    const div = document.createElement('div');
+    div.role = 'img';
+    div.classList.add('sample');
+    div.style.backgroundColor = value;
+    td.appendChild(div);
+    const divHex = document.createElement('div');
+    divHex.className = 'color';
+    td.appendChild(divHex);
+    return td;
+}
+
+
+/*
+ * @function colorImageCellAccName
+ *
+ * @desc  Adds a text description of a color to a value cell
+ */
+
+function colorImageCellAccName(valueNode, name) {
+  const cStyle = window.getComputedStyle(valueNode.firstElementChild);
+  const colorHex = rgb2Hex(cStyle.backgroundColor);
+  valueNode.lastElementChild.textContent = colorHex;
+  valueNode.firstElementChild.ariaLabel = getHTMLColorName(name, colorHex);
+  return colorHex;
+}
+
+/*
+ * @function updateComputedSystemColors
+ *
+ * @desc  Updates the computed system color table
+ */
+
+function updateComputedSystemColors() {
   const tbodyNode = document.getElementById('system-colors');
 
   systemColorValues.forEach((v) => {
-    let tr, tdv, code, tdName, div, divHex, tdHex, tds, tdd, cStyle, colorHex;
 
-    // System Color Name
-    tr = document.createElement('tr');
-
-    tdv  = document.createElement('td');
-    code = document.createElement('code');
-    code.textContent = v.value;
-    tdv.appendChild(code);
-    tr.appendChild(tdv);
-
-    // Color Sample
-    tds = document.createElement('td');
-    div = document.createElement('div');
-    div.role = 'img';
-    div.classList.add('sample');
-    div.style.backgroundColor = v.value;
-    tds.appendChild(div);
-    divHex = document.createElement('div');
-    divHex.className = 'color';
-    tds.appendChild(divHex);
-    tr.appendChild(tds);
-
-    tdHex = document.createElement('td');
-    tdHex.className = 'font';
-    tdHex.textContent = '??';
-
-    // System Color Description
-    tdd = document.createElement('td');
-    tdd.textContent = v.desc;
-    tr.appendChild(tdd);
-
+    // Computed System System Color Table
+    const tr = document.createElement('tr');
+    tr.appendChild(colorCell(v.name));
+    const valueNode = colorImageCell(v.value);
+    tr.appendChild(valueNode);
+    tr.appendChild(dataCell(v.desc, 'desc'));
     tbodyNode.appendChild(tr);
-
-    cStyle = window.getComputedStyle(div);
-    colorHex = rgb2Hex(cStyle.backgroundColor);
-    divHex.textContent = colorHex;
-    div.ariaLabel = getHTMLColorName(v.name, colorHex);
+    // After added to table can get computed color
+    const colorHex = colorImageCellAccName(valueNode, v.name);
 
     systemColorInfo.system_colors[v.name] = colorHex;
 
   });
 
-    const userAgentNode = document.getElementById('useragent');
-    userAgentNode.textContent = getBrowserName();
+}
 
-    const osNode = document.getElementById('os');
-    osNode.textContent = getOSName();
+/*
+ * @function handleClipboardClick
+ *
+ * @desc  Copies computed system color information in JSON
+ *        format to the clipboard
+ */
 
-    const themeNode = document.getElementById('theme');
-    themeNode.addEventListener('change', () => {
-      updateExportLink();
+function handleClipboardClick() {
+  const jsonStr = JSON.stringify(systemColorInfo, null, 2);
+
+  async function setClipboard() {
+    const type = "text/plain";
+    const clipboardItemData = {
+      [type]: jsonStr,
+    };
+    const clipboardItem = new ClipboardItem(clipboardItemData);
+    await navigator.clipboard.write([clipboardItem]);
+  }
+
+  setClipboard();
+}
+
+/*
+ * @function updateExportLink
+ *
+ * @desc  Updates the export link with current information
+ */
+
+function updateExportLink() {
+  const themeNode = document.getElementById('theme');
+  systemColorInfo.theme = themeNode.value;
+
+  const jsonStr = JSON.stringify(systemColorInfo, null, 2);
+
+  const exportDownloadNode = document.getElementById('export-download');
+  exportDownloadNode.href = `data:application/json;charset=utf-8,${encodeURIComponent(jsonStr)}`;
+  exportDownloadNode.download = getFileName(systemColorInfo);
+}
+
+
+/*
+ * @function updateExportContent
+ *
+ * @desc  Updates the export data information
+ */
+
+function updateExportContent () {
+  const userAgentNode = document.getElementById('useragent');
+  userAgentNode.textContent = getBrowserName();
+
+  const osNode = document.getElementById('os');
+  osNode.textContent = getOSName();
+
+  const themeNode = document.getElementById('theme');
+  themeNode.addEventListener('change', () => {
+    updateExportLink();
+  });
+
+  const exportClipboardNode = document.getElementById('export-clipboard');
+  exportClipboardNode.addEventListener('click', handleClipboardClick);
+
+  updateExportLink();
+}
+
+const colorComparisons = [
+  {
+    id: 'win11-default',
+    title: 'Windows 11 Default',
+    desc: 'Consistency of default system colors between browsers on Windows 11.',
+    colors: [
+      windows_microsoft_edge_default,
+      windows_google_chrome_default,
+      windows_mozilla_firefox_default
+    ]
+  },
+  {
+    id: 'macos-default',
+    title: 'macOS Default',
+    desc: 'Consistency of default system colors between browsers on macOS.',
+    colors: [
+      macos_apple_safari_default,
+      macos_google_chrome_default,
+      macos_mozilla_firefox_default
+    ]
+  },
+  {
+    id: 'unix-default',
+    title: 'Unix Default',
+    desc: 'Consistency of default system colors between browsers on Unix/Linux.',
+    colors: [
+      unix_google_chrome_default,
+      unix_mozilla_firefox_default
+    ]
+  },
+  {
+    id: 'win11-firefox-contrast',
+    title: 'Windows 11 Firefox Contrast',
+    desc: 'Comparing Windows 11 firefox default system colors to firefox contrast theme color settings',
+    colors: [
+      windows_mozilla_firefox_default,
+      windows_mozilla_firefox_firefox_contrast
+    ]
+  },
+  {
+    id: 'macos-firefox-contrast',
+    title: 'macOS Firefox Contrast',
+    desc: 'Comparing macOS firefox default system colors to firefox contrast theme color settings',
+    colors: [
+      windows_mozilla_firefox_default,
+      windows_mozilla_firefox_firefox_contrast
+    ]
+  },
+  {
+    id: 'unix-firefox-contrast',
+    title: 'Unix Firefox Contrast',
+    desc: 'Comparing Unix/Linux firefox default system colors to firefox contrast theme color settings',
+    colors: [
+      windows_mozilla_firefox_default,
+      windows_mozilla_firefox_firefox_contrast
+    ]
+  },
+  {
+    id: 'win11-night-contrast-theme-edge',
+    title: 'Windows 11 Night Contrast Theme Microsoft Edge',
+    desc: 'Comparing Windows 11 night contrast theme for Microsoft Edge',
+    colors: [
+      windows_microsoft_edge_default,
+      windows_microsoft_edge_win11_night
+    ]
+  },
+  {
+    id: 'win11-night-contrast-theme-chrome',
+    title: 'Windows 11 Night Contrast Theme Google Chrome',
+    desc: 'Comparing Windows 11 night contrast theme for Google Chrome',
+    colors: [
+      windows_google_chrome_default,
+      windows_google_chrome_win11_night
+    ]
+  },
+  {
+    id: 'win11-night-contrast-theme-firefox',
+    title: 'Windows 11 Night Contrast Theme Mozilla Froefox',
+    desc: 'Comparing Windows 11 night contrast theme for Mozilla Froefox',
+    colors: [
+      windows_mozilla_firefox_default,
+      windows_mozilla_firefox_win11_night
+    ]
+  }
+];
+
+function createColorComparisons () {
+  const sectionNode = document.getElementById('color-comparisons');
+
+  colorComparisons.forEach( (cc) => {
+    const h3 = document.createElement('h3');
+    h3.id = cc.id;
+    h3.textContent = cc.title;
+    sectionNode.appendChild(h3);
+
+    const p = document.createElement('p');
+    p.desc = cc.desc;
+    p.textContent = cc.desc;
+    sectionNode.appendChild(p);
+
+    const table = document.createElement('table');
+    table.ariaLabelledBy = cc.id;
+    table.className = 'table data';
+    sectionNode.appendChild(table);
+
+    const thead = document.createElement('thead');
+    table.appendChild(thead);
+
+    const tr = document.createElement('tr');
+    thead.appendChild(tr);
+
+    tr.appendChild(headerCell('Color'));
+    tr.appendChild(headerCell('Differences'));
+    cc.colors.forEach( (c) => {
+      tr.appendChild(headerCell(c.browser));
     });
 
-    const exportClipboardNode = document.getElementById('export-clipboard');
-    exportClipboardNode.addEventListener('click', () => {
+    const tbody = document.createElement('tbody');
+    table.appendChild(tbody);
 
-      const jsonStr = JSON.stringify(systemColorInfo, null, 2);
+    systemColorValues.forEach( (sc) => {
+      const tr = document.createElement('tr');
+      tbody.appendChild(tr);
 
-      async function setClipboard() {
-        const type = "text/plain";
-        const clipboardItemData = {
-          [type]: jsonStr,
-        };
-        const clipboardItem = new ClipboardItem(clipboardItemData);
-        await navigator.clipboard.write([clipboardItem]);
+      tr.appendChild(colorCell(sc.name));
+
+      const diffCell = dataCell('-', '', 'none');
+      tr.appendChild(diffCell);
+
+      const colors = [];
+
+      cc.colors.forEach( (color) => {
+        colors.push(color.system_colors[sc.name]);
+        const cell = colorImageCell(color.system_colors[sc.name]);
+        tr.appendChild(cell);
+        colorImageCellAccName(cell, sc.name);
+      });
+
+      const uniqueCount = new Set(colors).size;
+
+      if (uniqueCount === cc.colors.length) {
+        diffCell.textContent = 'All';
+      }
+      else {
+        if (uniqueCount > 1) {
+          diffCell.textContent = 'Some';
+        }
       }
 
-      setClipboard();
     });
 
+  });
+}
 
-    updateExportLink();
+window.addEventListener('load', () => {
+    updateComputedSystemColors();
+    updateExportContent();
+    createColorComparisons();
 });
 

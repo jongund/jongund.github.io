@@ -1,7 +1,9 @@
 
           <div id="system-colors-theme">
 
-            <h2>System Color Context</h2>
+            <h2>Current System Color</h2>
+
+            <h3>Color Context</h3>
             <ul>
               <li>
                 <span class="context" id="useragent"></span>
@@ -22,13 +24,13 @@
               </li>
             </ul>
 
-            <h2>Export Options</h2>
+            <h3>Export Options</h3>
             <p>
               <a id="export-download" href="test.json" type="application/json">Download as JSON</a> |
               <a id="export-clipboard" href="#">Copy JSON to Clipboard</a>
             </p>
 
-            <h2 id="computed-colors">Computed System Colors</h2>
+            <h3 id="computed-colors">Computed System Colors</h3>
             <table class="table data" aria-labelledby="computed-colors">
               <thead>
                 <tr>
@@ -43,5 +45,24 @@
 
           </div>
 
+          <h2>System Color Comparisons</h2>
+          <section>
+            <h3>Summary</h3>
+
+            <p>System colors that can are changed for both Firefox Contrast themes and Windows 11 Contrast Themes:</p>
+            <ul>
+              <li><code>Accent Color</code></li>
+              <li><code>Button Face</code></li>
+              <li><code>Button Text</code></li>
+              <li><code>Canvas</code></li>
+              <li><code>Canvas Text</code></li>
+              <li><code>Link Text</code></li>
+              <li><code>Visited Text</code></li>
+            </ul>
+          </section>
+          <section id="color-comparisons">
+          </secton>
+
+
             <!-- Color Settings JS -->
-            <script src="{{path}}js/system-colors.js"></script>
+            <script src="{{path}}js/system-colors.js" type="module"></script>
