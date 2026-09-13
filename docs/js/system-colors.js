@@ -1250,8 +1250,8 @@ const colorComparisons = [
   },
   {
     id: 'win11-night-contrast-theme-firefox',
-    title: 'Windows 11 Night Contrast Theme Mozilla Froefox',
-    desc: 'Comparing Windows 11 night contrast theme for Mozilla Froefox',
+    title: 'Windows 11 Night Contrast Theme Mozilla Firefox',
+    desc: 'Comparing Windows 11 night contrast theme for Mozilla Firefox',
     colors: [
       windows_mozilla_firefox_default,
       windows_mozilla_firefox_win11_night
