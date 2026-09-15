@@ -68,6 +68,9 @@
   --faqBackground:  hsl(195, 100%, 92%);
   --faqBackgroundDark: hsl(195, 100%, 15%);
 
+  --dataBackground:  hsl(0, 0%, 96%);
+  --dataBackgroundDark: hsl(0, 0%, 4%);
+
 }
 
 
@@ -682,6 +685,11 @@ main details.screenshot[open] .show {
 
 main details.screenshot[open] .hide {
   display: inline;
+}
+
+main details section.data {
+  padding: 0.25em;
+  background: light-dark(var(--dataBackground), var(--dataBackgroundDark));;
 }
 
 main .faq details summary {
