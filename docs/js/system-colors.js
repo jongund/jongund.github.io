@@ -1287,7 +1287,7 @@ function createColorComparisons () {
       sectionNode.appendChild(p);
 
       const table = document.createElement('table');
-      table.ariaLabelledBy = d.id;
+      table.ariaLabelledByElements = [h4];
       table.className = 'table data';
       sectionNode.appendChild(table);
 
