@@ -1173,7 +1173,7 @@ function updateExportContent () {
   updateExportLink();
 }
 
-const colorComparisons = [
+const defaultComparisons = [
   {
     id: 'win11-default',
     title: 'Windows 11 Default',
@@ -1202,7 +1202,10 @@ const colorComparisons = [
       unix_google_chrome_default,
       unix_mozilla_firefox_default
     ]
-  },
+  }
+];
+
+const firefoxComparisons = [
   {
     id: 'win11-firefox-contrast',
     title: 'Windows 11 Firefox Contrast',
@@ -1229,7 +1232,10 @@ const colorComparisons = [
       windows_mozilla_firefox_default,
       windows_mozilla_firefox_firefox_contrast
     ]
-  },
+  }
+];
+
+const win11ThemeComparisons = [
   {
     id: 'win11-night-contrast-theme-edge',
     title: 'Windows 11 Night Contrast Theme Microsoft Edge',
@@ -1259,71 +1265,79 @@ const colorComparisons = [
   }
 ];
 
+const colorComparisons = [
+  { id: 'default-comparisons', data: defaultComparisons, prop: 'browser'},
+  { id: 'firefox-comparisons', data: firefoxComparisons, prop: 'theme' },
+  { id: 'win11-theme-comparisons', data: win11ThemeComparisons, prop: 'theme'}
+]
+
 function createColorComparisons () {
-  const sectionNode = document.getElementById('color-comparisons');
 
   colorComparisons.forEach( (cc) => {
-    const h3 = document.createElement('h3');
-    h3.id = cc.id;
-    h3.textContent = cc.title;
-    sectionNode.appendChild(h3);
+    const sectionNode = document.getElementById(cc.id);
+    cc.data.forEach( (d) => {
+      const h4 = document.createElement('h4');
+      h4.id = d.id;
+      h4.textContent = d.title;
+      sectionNode.appendChild(h4);
 
-    const p = document.createElement('p');
-    p.desc = cc.desc;
-    p.textContent = cc.desc;
-    sectionNode.appendChild(p);
+      const p = document.createElement('p');
+      p.desc = d.desc;
+      p.textContent = d.desc;
+      sectionNode.appendChild(p);
 
-    const table = document.createElement('table');
-    table.ariaLabelledBy = cc.id;
-    table.className = 'table data';
-    sectionNode.appendChild(table);
+      const table = document.createElement('table');
+      table.ariaLabelledBy = d.id;
+      table.className = 'table data';
+      sectionNode.appendChild(table);
 
-    const thead = document.createElement('thead');
-    table.appendChild(thead);
+      const thead = document.createElement('thead');
+      table.appendChild(thead);
 
-    const tr = document.createElement('tr');
-    thead.appendChild(tr);
-
-    tr.appendChild(headerCell('Color'));
-    tr.appendChild(headerCell('Differences'));
-    cc.colors.forEach( (c) => {
-      tr.appendChild(headerCell(c.browser));
-    });
-
-    const tbody = document.createElement('tbody');
-    table.appendChild(tbody);
-
-    systemColorValues.forEach( (sc) => {
       const tr = document.createElement('tr');
-      tbody.appendChild(tr);
+      thead.appendChild(tr);
 
-      tr.appendChild(colorCell(sc.name));
-
-      const diffCell = dataCell('-', '', 'none');
-      tr.appendChild(diffCell);
-
-      const colors = [];
-
-      cc.colors.forEach( (color) => {
-        colors.push(color.system_colors[sc.name]);
-        const cell = colorImageCell(color.system_colors[sc.name]);
-        tr.appendChild(cell);
-        colorImageCellAccName(cell, sc.name);
+      tr.appendChild(headerCell('Color'));
+      tr.appendChild(headerCell('Differences'));
+      d.colors.forEach( (c) => {
+        tr.appendChild(headerCell(c[cc.prop]));
       });
 
-      const uniqueCount = new Set(colors).size;
+      const tbody = document.createElement('tbody');
+      table.appendChild(tbody);
 
-      if (uniqueCount === cc.colors.length) {
-        diffCell.textContent = 'All';
-      }
-      else {
-        if (uniqueCount > 1) {
-          diffCell.textContent = 'Some';
+      systemColorValues.forEach( (sc) => {
+        const tr = document.createElement('tr');
+        tbody.appendChild(tr);
+
+        tr.appendChild(colorCell(sc.name));
+
+        const diffCell = dataCell('-', '', 'none');
+        tr.appendChild(diffCell);
+
+        const colors = [];
+
+        d.colors.forEach( (color) => {
+          colors.push(color.system_colors[sc.name]);
+          const cell = colorImageCell(color.system_colors[sc.name]);
+          tr.appendChild(cell);
+          colorImageCellAccName(cell, sc.name);
+        });
+
+        const uniqueCount = new Set(colors).size;
+
+        if (uniqueCount === d.colors.length) {
+          d.colors.length === 2 ?
+          diffCell.textContent = 'Yes' :
+          diffCell.textContent = 'All';
         }
-      }
-
+        else {
+          if (uniqueCount > 1) {
+            diffCell.textContent = 'Some';
+          }
+        }
+      });
     });
-
   });
 }
 
