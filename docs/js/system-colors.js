@@ -1023,7 +1023,7 @@ function dataCell(text, style, abbrev) {
       td.className = style;
     }
 
-    if (abbr) {
+    if (abbrev) {
       abbr.textContent = text;
       abbr.title = abbrev;
       td.appendChild(abbr);
