@@ -203,6 +203,11 @@ footer a:visited {
   margin: 0.25em;
 }
 
+.title {
+  font-style: italic;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
 
 .icon img {
   padding: 4px;
