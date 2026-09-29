@@ -693,6 +693,7 @@ main details.screenshot[open] .hide {
 }
 
 main details section.data {
+  width: auto;
   padding: 0.25em;
   background: light-dark(var(--dataBackground), var(--dataBackgroundDark));;
 }
