@@ -38,15 +38,16 @@ const firefoxWebsiteContrast = [
   {name: 'Visited Links', color: '#cc3030'}
 ];
 
-const contrastThemeFeatures = [
-  { name: 'Background', id: 'background' },
-  { name: 'Text', id: 'text' },
-  { name: 'Hyperlink', id: 'hyperlink' },
-  { name: 'Inactive Text', id: 'inactiveText' },
-  { name: 'Selected Background', id: 'selectedBackground' },
-  { name: 'Selected Text', id: 'selectedText' },
-  { name: 'Button Background', id: 'buttonBackground' },
-  { name: 'Button Text', id: 'buttonText' },
+
+const win11NightContrast = [
+  { name: 'Background',          color: '#000000' },
+  { name: 'Text',                color: '#ffffff' },
+  { name: 'Hyperlink',           color: '#8080ff' },
+  { name: 'Inactive Text',       color: '#a6a6a6' },
+  { name: 'Selected Background', color: '#d6b4fd' },
+  { name: 'Selected Text',       color: '#2b2b2b' },
+  { name: 'Button Background',   color: '#000000' },
+  { name: 'Button Text',         color: '#ffee32' },
 ];
 
 const systemColorValues = [
@@ -456,6 +457,31 @@ function updateFirefoxWebsiteContrast() {
 }
 
 /*
+ * @function updateWin11NightContrast
+ *
+ * @desc  Updates the colors used in Windows 11 Night Contrast theme tests
+ */
+
+function updateWin11NightContrast() {
+  const tbodyNode = document.getElementById('win11-night-contrast');
+
+  win11NightContrast.forEach((v) => {
+
+    // Computed System System Color Table
+    const tr = document.createElement('tr');
+    tr.appendChild(colorCell(v.name));
+    const valueNode = colorImageCell(v.color);
+    tr.appendChild(valueNode);
+    tbodyNode.appendChild(tr);
+    // After added to table can get computed color
+    const colorHex = colorImageCellAccName(valueNode, v.name);
+
+  });
+
+}
+
+
+/*
  * @function updateComputedSystemColors
  *
  * @desc  Updates the computed system color table
@@ -641,7 +667,7 @@ const win11ThemeComparisons = [
 const colorComparisons = [
   { id: 'default-comparisons', data: defaultComparisons, prop: 'browser'},
   { id: 'firefox-comparisons', data: firefoxComparisons, prop: 'theme', namedColors : firefoxWebsiteContrast},
-  { id: 'win11-theme-comparisons', data: win11ThemeComparisons, prop: 'theme'}
+  { id: 'win11-theme-comparisons', data: win11ThemeComparisons, prop: 'theme', namedColors: win11NightContrast}
 ]
 
 function createColorComparisons () {
@@ -681,14 +707,14 @@ function createColorComparisons () {
       const tr = document.createElement('tr');
       thead.appendChild(tr);
 
-      tr.appendChild(headerCell('Color'));
+      tr.appendChild(headerCell('System Color'));
       tr.appendChild(headerCell('Differences'));
       d.colors.forEach( (c) => {
         tr.appendChild(headerCell(c[cc.prop]));
       });
 
       if (namedColors) {
-        tr.appendChild(headerCell('Named Color'));
+        tr.appendChild(headerCell('Contrast Color'));
       }
 
       const tbody = document.createElement('tbody');
@@ -743,6 +769,7 @@ function createColorComparisons () {
 window.addEventListener('load', () => {
     updateFirefoxWebsiteContrast();
     updateComputedSystemColors();
+    updateWin11NightContrast();
     createColorComparisons();
     updateExportContent();
 });
