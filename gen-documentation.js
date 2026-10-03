@@ -24,7 +24,7 @@ const mainPages = [
     dropdown: 'Outreach',
     id: 'id-outreach',
     pages: [
-      { content:  'content-sessions.njk',
+      { content:  'content-workshops.njk',
         title:    'Workshops',
         link:     'Workshops',
         filename: 'workshops.html'
@@ -32,7 +32,7 @@ const mainPages = [
       { content:  'content-presentations.njk',
         title:    'Presentations',
         link:     'Presentations',
-        filename: 'Presentation.html'
+        filename: 'presentations.html'
       }
     ]
   },

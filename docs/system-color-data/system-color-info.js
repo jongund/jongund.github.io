@@ -1,4 +1,4 @@
-export const macos_apple_safari_default = {
+    export const macos_apple_safari_default = {
   "browser": "Apple Safari",
   "os": "MacOS",
   "theme": "default",
