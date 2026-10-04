@@ -11,7 +11,7 @@
   </logo>
 
   <copyright>
-     Copyright &#169; 2025 Jon Gunderson
+     Copyright &#169; 2026 Jon Gunderson
   </copyright>
 
   <person>
@@ -726,16 +726,16 @@
           </tr>
         </tbody>
       </table>
-
-
     </contents>
   </slide>
 
+  <!-- Hearing Impairments -->
+
   <slide>
-    <title>Types of Hearing Impairments in College Students</title>
+    <title>Hearing Impairments: Types</title>
     <contents>
       <ul>
-        <li class="more"><b>Conductive Hearing Loss:</b> This type occurs when something blocks or prevents sound from entering the outer or middle ear, such as earwax buildup, fluid from allergies, or ear infections.</li>
+        <li><b>Conductive Hearing Loss:</b> This type occurs when something blocks or prevents sound from entering the outer or middle ear, such as earwax buildup, fluid from allergies, or ear infections.</li>
         <li class="more"><b>Sensorineural Hearing Loss:</b> This is the most common type and results from damage to the inner ear's structures or the auditory nerve. It can be caused by aging, noise exposure, certain diseases, or genetic factors.</li>
         <li class="more"><b>Mixed Hearing Loss:</b> This is a combination of both conductive and sensorineural hearing loss.</li>
         <li class="more"><b>Auditory Neuropathy Spectrum Disorder (ANSD):</b> This is a less common condition that affects the signals from the ear to the brain, even if the ear itself functions normally.</li>
@@ -743,10 +743,10 @@
     </contents>
   </slide>
   <slide>
-    <title>Common Causes of Hearing Impairments</title>
+    <title>Hearing Impairments: Causes</title>
     <contents>
       <ul>
-        <li class="more"><b>Noise-Induced Hearing Loss:</b> Exposure to loud environments like concerts, music events, or heavy machinery can lead to hearing damage over time.</li>
+        <li><b>Noise-Induced Hearing Loss:</b> Exposure to loud environments like concerts, music events, or heavy machinery can lead to hearing damage over time.</li>
         <li class="more"><b>Medical Conditions:</b> Infections, head injuries, and the use of certain medications (ototoxicity) can also contribute to hearing loss. </li>
         <li class="more"><b>Congenital Conditions:</b> Some students may have inherited conditions or issues with ear development from birth.</li>
       </ul>
@@ -754,33 +754,61 @@
   </slide>
 
   <slide>
-    <title>Challenges with Hearing Impairments</title>
+    <title>Hearing Impairments: Challenges</title>
     <contents>
       <ul>
-        <li class="more">Difficulty with grammar, spelling, and vocabulary.</li>
+        <li>Difficulty with grammar, spelling, and vocabulary.</li>
         <li class="more">Challenges in taking notes during lectures and understanding spoken information.</li>
-        <li class="more">Struggling to participate in class discussions and follow lectures.</li>
-        <li class="more">Problems comprehending information from educational videos and presentations.</li>
-        <li class="more">Social isolation in less interaction with peers and instructors.</li>
+        <li class="more">Struggling to participate in discussions and following lectures.</li>
+        <li class="more">Problems comprehending information from videos and presentations.</li>
+        <li class="more">Social isolation in less interaction with people with hearing.</li>
       </ul>
     </contents>
   </slide>
 
   <slide>
-    <title>Types of Visual Impairments</title>
+    <title>Hearing Impairments: Story</title>
+    <contents>
+      <p class="center">
+        <a href="https://www.w3.org/WAI/people-use-web/user-stories/story-six/#accessible-video">
+          Lakshmi, senior accountant who is blindVideo: Dhruv, older adult student who is deaf
+        </a>
+      </p>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Hearing Impairments: Solution Strategies</title>
     <contents>
       <ul>
-        <li class="more"><b>Low vision:</b> A severe visual impairment that cannot be corrected by standard eyeglasses, contact lenses, medication, or surgery. Students with low vision may use a combination of sight and other senses to learn, but they often require adaptations like magnified text or enhanced lighting.</li>
+        <li class="more">Captions</li>
+        <li class="more">Styling and positioning of captions</li>
+        <li class="more">Transcripts</li>
+        <li class="more">Volume controls</li>
+        <li class="more">Play back controls to pause, start, and change the play back speed</li>
+        <li class="more">Provide text chat features for group interaction</li>
+        <li class="more">Be more intentional about engagement and inclusion</li>
+      </ul>
+    </contents>
+  </slide>
+
+  <!-- Visual Impairments -->
+
+  <slide>
+    <title>Visual Impairments: Types</title>
+    <contents>
+      <ul>
+        <li><b>Low vision:</b> A severe visual impairment that cannot be corrected by standard eyeglasses, contact lenses, medication, or surgery. Students with low vision may use a combination of sight and other senses to learn, but they often require adaptations like magnified text or enhanced lighting.</li>
         <li class="more"><b>Legal blindness:</b> A designation defined by a visual acuity of 20/200 or less in the better eye after correction, or a visual field restricted to 20 degrees or less. While legally blind, many students still have some usable vision.</li>
         <li class="more"><b>Total blindness:</b> A complete lack of light perception, meaning the student must use alternative methods like Braille and auditory cues to access information.</li>
       </ul>
     </contents>
   </slide>
   <slide>
-    <title>Challenges with Visual Impairments</title>
+    <title>Visual Impairments: Challenges</title>
     <contents>
       <ul>
-        <li class="more"><b>Reading difficulties:</b> Slower reading speed and lower comprehension due to eye strain and poor visual acuity.</li>
+        <li><b>Reading difficulties:</b> Slower reading speed and lower comprehension due to eye strain and poor visual acuity.</li>
         <li class="more"><b>Difficulty with visuals:</b> Challenges understanding charts, diagrams, and other visual teaching aids.</li>
         <li class="more"><b>Limited incidental learning:</b> Less able to learn from visual observation of their environment.</li>
         <li class="more"><b>Eye fatigue:</b> Frequent headaches and fatigue that reduce stamina for studying.</li>
@@ -790,8 +818,10 @@
     </contents>
   </slide>
 
+  <!-- Learning Disabilities -->
+
   <slide>
-    <title>Learning Disabilities</title>
+    <title>Learning Disabilities: Types</title>
     <contents>
       <ul>
         <li class="more"><b>Reading, Writing, and Math Difficulties:</b> Specific learning disabilities like dyslexia (reading), dysgraphia (writing), and dyscalculia (math) can make grasping concepts and completing assignments difficult.</li>
@@ -802,8 +832,9 @@
      </ul>
     </contents>
   </slide>
+
   <slide>
-    <title>Challenges of Learning Disabilities</title>
+    <title>Learning Disabilities: Challenges</title>
     <contents>
       <ul>
         <li class="more"><b>Stigma:</b> A stigma surrounds learning disabilities, causing students to feel ashamed or isolated and reluctant to seek support. </li>
@@ -818,6 +849,8 @@
       </ul>
     </contents>
   </slide>
+
+  <!-- Operating Accessibility Features -->
 
   <slide>
     <title>Operating System Accessibility Features</title>
@@ -1353,11 +1386,10 @@
     <contents>
       <ul>
         <li>On an index card write down how the workshop has changed how you think about accessibility.</li>
-        <li>What are some thoughts on how it will change your approach to accessibility.</li>
+        <li>What are some thoughts on how it will change your approach and next steps to improve thge accessibility of your ogranization.</li>
         <li>Meet one-on-one with another participant and if you are willing share some of what you learned.</li>
       </ul>
-      <p style="text-align: center; font-size: 125%"><a href="https://www.surveymonkey.com/r/BRJBN7W">Anonymous Workshop Survey for Jon Gunderson</a></p>
-      <p style="text-align: center; font-size: 125%">Presentation: <a href="https://events.digicol.org/digicol25/session/3090269/ainspector-sidebar-browser-extension-for-wcag-evaluation"> AInspector for WCAG Evaluation</a> (Tuesday at 8:00am)</p>
+      <p style="text-align: center; font-size: 125%"><a href="https://forms.gle/sK2FyWv6hm8mXTuN9">Anonymous Workshop Survey</a></p>
     </contents>
   </slide>
 
