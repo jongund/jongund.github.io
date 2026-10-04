@@ -622,6 +622,7 @@ table.table tbody td li {
 main dt {
   font-size: 120%;
   margin: 0;
+  margin-bottom: .125em;
   padding: 0;
   margin-top: 1em;
   line-height: 1.2em;
@@ -630,7 +631,7 @@ main dt {
 main dd {
   font-size: 110%;
   margin: 0;
-  margin-bottom: 1em;
+  margin-bottom: .125em;
   padding: 0;
   margin-left: 0.5em;
   line-height: 1.2em;
