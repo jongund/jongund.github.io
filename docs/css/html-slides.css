@@ -283,6 +283,11 @@ main li {
   padding-bottom: 0.25em;
 }
 
+main ul.info li {
+  margin: 0;
+  padding: 0;
+}
+
 main .index li.index {
   padding: 0;
 }
