@@ -809,12 +809,18 @@
   </slide>
 
   <slide>
-    <title>Hearing Impairments: Story</title>
+    <title>Hearing Impairments: Deaf Awareness Video</title>
     <contents>
       <p class="center">
-        <a href="https://www.w3.org/WAI/people-use-web/user-stories/story-six/#accessible-video">
-          Lakshmi, senior accountant who is blindVideo: Dhruv, older adult student who is deaf
-        </a>
+        <iframe width="800"
+                height="600"
+                src="https://www.youtube.com/embed/iJ0ruV07HwI?si=1Xn-q9gZosNH2v9x"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen="">
+        </iframe>
       </p>
     </contents>
   </slide>
@@ -840,13 +846,82 @@
   <slide>
     <title>Visual Impairments: Types</title>
     <contents>
+            <table class="table table-striped" aria-labelledby="h1_title">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Prevalence</th>
+            <th>Description</th>
+            <th>Causes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/color-blindness">Color Blindness</a></td>
+            <td>
+              <ul>
+                <li>1 in 12 men</li>
+                <li>1 in 200 women</li>
+              </ul>
+            </td>
+            <td>Inability or trouble telling the difference between colors.</td>
+            <td>Genetic</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/low-vision">Low Vision</a></td>
+            <td>~7 million people in U.S.</td>
+            <td>Worse than 20/70 visual acuity, but better than 20/200 visual acuity and cannot be corrected by standard eyeglasses, contact lenses, medication, or surgery.</td>
+            <td>
+              <ul>
+                <li>Aging</li>
+                <li>Diseases</li>
+                <li>Genetics</li>
+                <li>Injury</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.aoa.org/news/clinical-eye-care/diseases-and-conditions/legal-blindness-in-america">Legal Blindness</a></td>
+            <td>~1 million in U.S.</td>
+            <td>Visual acuity of 20/200 or less in the better eye after correction, or a visual field restricted to 20 degrees or less.</td>
+            <td>
+              <ul>
+                <li>Aging</li>
+                <li>Diseases</li>
+                <li>Genetics</li>
+                <li>Injury</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://afb.org/blindness-and-low-vision">Total Blindness</a></td>
+            <td>~125,000 in U.S.</td>
+            <td> A complete lack of light perception, must use alternative methods like Braille and auditory cues to access information.</td>
+            <td>
+              <ul>
+                <li>Aging</li>
+                <li>Diseases</li>
+                <li>Genetics</li>
+                <li>Injury</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </contents>
+  </slide>
+
+  <slide>
+    <title>Visual Impairments: Simulators for Chrome</title>
+    <contents>
       <ul>
-        <li><b>Low vision:</b> A severe visual impairment that cannot be corrected by standard eyeglasses, contact lenses, medication, or surgery. Students with low vision may use a combination of sight and other senses to learn, but they often require adaptations like magnified text or enhanced lighting.</li>
-        <li class="more"><b>Legal blindness:</b> A designation defined by a visual acuity of 20/200 or less in the better eye after correction, or a visual field restricted to 20 degrees or less. While legally blind, many students still have some usable vision.</li>
-        <li class="more"><b>Total blindness:</b> A complete lack of light perception, meaning the student must use alternative methods like Braille and auditory cues to access information.</li>
+        <li><a href="https://chromewebstore.google.com/detail/colorblindly/floniaahmccleoclneebhhmnjgdfijgg?hl=en">Colorblindly</a></li>
+        <li><a href="https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla?hl=en">Web Disability Simulator</a></li>
+        <li><a href="https://chromewebstore.google.com/detail/lets-get-color-blind/bkdgdianpkfahpkmphgehigalpighjck?hl=en">Let's get color blind</a></li>
       </ul>
     </contents>
   </slide>
+
   <slide>
     <title>Visual Impairments: Challenges</title>
     <contents>
@@ -861,18 +936,152 @@
     </contents>
   </slide>
 
+  <!-- Physical Impairments -->
+
+  <slide>
+    <title>Physical Impairments: Types</title>
+    <contents>
+            <table class="table table-striped" aria-labelledby="h1_title">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Prevalence</th>
+            <th>Description</th>
+            <th>Causes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Arthritis</td>
+            <td>19%-27% of U.S. Adults</td>
+            <td>Joint inflammation that causes pain, swelling, and stiffness in the joints</td>
+            <td>
+              <ul>
+                <li>Aging</li>
+                <li>Diseases</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Amputation</td>
+            <td>~200,000 people in U.S.</td>
+            <td>Removal of part of all of a body part that is enclosed by skin.</td>
+            <td>
+              <ul>
+                <li>Accidents</li>
+                <li>Diseases</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Spinal Cord</td>
+            <td>~300,000 people in U.S.</td>
+            <td>Permanent loss of strength, sensation, and function (mobility and feeling).</td>
+            <td>
+              <ul>
+                <li>Accidents</li>
+                <li>Diseases</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Parkinson's Disease</td>
+            <td>~1 million people in the U.S.</td>
+            <td>Progressive diseases causing tremor, slow movements, rigidity and unstable balance.</td>
+            <td>
+              <ul>
+                <li>Genetic</li>
+                <li>Environmental</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Musculoskeletal</td>
+            <td>About 1/2 of people in U.S.</td>
+            <td>Damage of muscular or skeletal systems.</td>
+            <td>
+              <ul>
+                <li>Strenuous activities</li>
+                <li>Often work related</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Spina Bifida</td>
+            <td>~90,000 in U.S.</td>
+            <td>Tissues and nerves usually are exposed, though sometimes skin covers the spinal cord.</td>
+            <td>
+              <ul>
+                <li>Family history</li>
+                <li>Medications during pregnancy</li>
+                <li>Mother's pre-existing health conditions</li>
+                <li>Illness during pregnancy</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Cerebral Palsy</td>
+            <td>~1 Million people in U.S.</td>
+            <td>Muscle control and involuntary movement.</td>
+            <td>
+              <ul>
+                <li>Birth trauma</li>
+                <li>Premature births</li>
+                <li>Birth defects</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </contents>
+  </slide>
+  <slide>
+    <title>Physical Impairments: Challenges</title>
+    <contents>
+      <ul>
+        <li><b>Moving a mouse:</b> Lack of physical movement or strength, unable to control muscle movements and tremors in the arms and hands.</li>
+        <li class="more"><b>Touching/Tapping a screen:</b> Lack of physical movement or strength, unable to control muscle movements and tremors in the arms and hands.</li>
+        <li class="more"><b>Typing on a regular keyboard:</b> Lack of physical movement or strength, unable to control muscle movements and tremors in the arms and hands.</li>
+      </ul>
+    </contents>
+  </slide>
+
   <!-- Learning Disabilities -->
 
   <slide>
     <title>Learning Disabilities: Types</title>
     <contents>
-      <ul>
-        <li class="more"><b>Reading, Writing, and Math Difficulties:</b> Specific learning disabilities like dyslexia (reading), dysgraphia (writing), and dyscalculia (math) can make grasping concepts and completing assignments difficult.</li>
-        <li class="more"><b>Information Processing and Memory:</b> Students may struggle with processing information, recalling what has been taught, or interpreting complex charts and graphs. </li>
-        <li class="more"><b>Attention and Focus:</b> Many students face difficulties maintaining attention, are easily distracted, and find it hard to juggle multiple tasks. </li>
-        <li class="more"><b>Time Management:</b> Students often have trouble with planning, starting tasks, and meeting deadlines, leading to difficulty with time management.</li>
-        <li class="more"><b>Organization:</b> Problems with overall organization are common, affecting written work and efficient use of library resources.</li>
-     </ul>
+      <p>About 10% of the population in the U.S has some type of learning disability.</p>
+      <table class="table table-striped" aria-labelledby="h1_title">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Reading, Writing, and Math Difficulties</td>
+            <td>Dyslexia (reading), dysgraphia (writing), and dyscalculia (math).</td>
+          </tr>
+          <tr>
+            <td>Information Processing and Memory</td>
+            <td>Processing information and interpreting complex charts and graphs.</td>
+          </tr>
+          <tr>
+            <td>Attention and Focus (ADHD)</td>
+            <td>Difficulties maintaining attention, are easily distracted, and find it hard to juggle multiple tasks.</td>
+          </tr>
+          <tr>
+            <td>Time Management</td>
+            <td>Trouble with planning, starting tasks, and meeting deadlines, leading to difficulty with time management.</td>
+          </tr>
+          <tr>
+            <td>Organization</td>
+            <td>Problems with overall organization are common, affecting written work and efficient use of research services.</td>
+          </tr>
+        </tbody>
+      </table>
     </contents>
   </slide>
 
@@ -880,15 +1089,15 @@
     <title>Learning Disabilities: Challenges</title>
     <contents>
       <ul>
-        <li class="more"><b>Stigma:</b> A stigma surrounds learning disabilities, causing students to feel ashamed or isolated and reluctant to seek support. </li>
-        <li class="more"><b>Mental Health:</b> Academic struggles can lead to feelings of defeatism, stress, and other psycho-social issues, increasing the risk of dropping out. </li>
+        <li class="more"><b>Stigma:</b> A stigma surrounds learning disabilities, causing people to feel ashamed or isolated and reluctant to seek support. </li>
+        <li class="more"><b>Mental Health:</b> Work and academic struggles can lead to feelings of defeatism, stress, and other psycho-social issues, increasing the risk of dropping out and isolation. </li>
         <li class="more"><b>Social Skills:</b> Inconsistent perceptual abilities can sometimes affect the interpretation of non-verbal cues like tone of voice, impacting social interactions. </li>
       </ul>
       <h2 class="more">Institutional and Access Barriers</h2>
       <ul>
-        <li class="more"><b>Lack of Awareness/Training:</b> Many faculty members receive insufficient training on accommodating students with learning disabilities, creating barriers to access. </li>
-        <li class="more"><b>Confusing Processes:</b> Students often find the process of applying for accommodations confusing and stressful. </li>
-        <li class="more"><b>Lack of Self-Advocacy:</b> Students, particularly those newly diagnosed, may lack the skills or awareness to effectively advocate for their needs.</li>
+        <li class="more"><b>Lack of Awareness/Training:</b> Many organizations receive insufficient training on accommodating students, workers and clients with learning disabilities, creating barriers to access. </li>
+        <li class="more"><b>Confusing Processes:</b> People often find the process of applying for accommodations confusing and stressful.</li>
+        <li class="more"><b>Lack of Self-Advocacy:</b> People, particularly those newly diagnosed, may lack the skills or awareness to effectively advocate for their needs.</li>
       </ul>
     </contents>
   </slide>
@@ -901,16 +1110,16 @@
 
       <h2>Laptops and Desktops</h2>
       <ul>
-        <li><a href="https://www.microsoft.com/en-us/windows/accessibility-features">Accessibility features in Windows</a></li>
-        <li><a href="https://support.apple.com/guide/mac-help/get-started-with-accessibility-features-mh35884/mac">Get started with accessibility features on Mac</a></li>
-        <p><a href="https://help.gnome.org/users/gnome-help/stable/a11y.html">GNOME Desktop Accessibility</a></p>
+        <li><a href="https://www.microsoft.com/en-us/windows/accessibility-features">Microsoft Windows 11</a></li>
+        <li><a href="https://support.apple.com/guide/mac-help/get-started-with-accessibility-features-mh35884/mac">Apple macOS</a></li>
+        <li><a href="https://help.gnome.org/users/gnome-help/stable/a11y.html">Unix/Linux</a></li>
       </ul>
 
       <h2>Tablets and Phones</h2>
       <ul>
-        <li><a href="https://support.apple.com/guide/iphone/get-started-with-accessibility-features-iph3e2e4367/ios">Get started with accessibility features on iPhone</a></li>
-        <li><a href="https://support.apple.com/guide/ipad/get-started-with-accessibility-features-ipad9a2465f9/ipados">Get started with accessibility features on iPad</a></li>
-        <li><a href="https://support.google.com/accessibility/android/answer/6006564?hl=en">Android accessibility overview</a></li>
+        <li><a href="https://support.apple.com/guide/iphone/get-started-with-accessibility-features-iph3e2e4367/ios">Apple iPhone</a></li>
+        <li><a href="https://support.apple.com/guide/ipad/get-started-with-accessibility-features-ipad9a2465f9/ipados">Apple iPad</a></li>
+        <li><a href="https://support.google.com/accessibility/android/answer/6006564?hl=en">Google Android</a></li>
       </ul>
     </contents>
   </slide>
@@ -1087,7 +1296,7 @@
       <ul>
         <li>macOS: <a href="https://support.apple.com/guide/voiceover/welcome/mac">Voice Over</a> (Built-in)</li>
         <li>Windows: <a href="https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1">Narrator</a> (Built-in)</li>
-        <li>Windows: <a href="https://www.freedomscientific.com/products/software/jaws/">JAWS</a> (Most popular in US)</li>
+        <li>Windows: <a href="https://www.freedomscientific.com/products/software/jaws/">JAWS</a> (Most popular in U.S.)</li>
         <li>Windows: <a href="https://www.nvaccess.org">NVDA</a> (open-source)</li>
         <li>Unix/Linux: <a href="https://orca.gnome.org">Orca</a> (open-source)</li>
       </ul>
@@ -1623,7 +1832,10 @@
   <slide>
     <title>Workshop Survey</title>
     <contents>
-      <p style="text-align: center; font-size: 125%"><a href="https://forms.gle/sK2FyWv6hm8mXTuN9">Anonymous Workshop Survey</a></p>
+      <p style="text-align: center; font-size: 200%; margin-top: 1em; margin-bottom: 2em"><a href="https://forms.gle/sK2FyWv6hm8mXTuN9">Anonymous Workshop Survey</a></p>
+      <p style="text-align: center">
+        <a href="ttps://www.tfaconsulting.com/"><img style="width: 40%" src="images/tech-for-all-graphic.png" alt="Tech For All"/></a>
+      </p>
     </contents>
   </slide>
 
