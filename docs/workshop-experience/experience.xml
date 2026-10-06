@@ -1830,6 +1830,19 @@
   </slide>
 
   <slide>
+    <title>Open Source Tools (e.g. Free)</title>
+    <contents>
+
+      <ul>
+        <li><img src="images/icon-ainspector.png" alt=""/><a href="https://opena11y.github.io/ainspector/">AInspector for WCAG Evaluation</a></li>
+        <li><img src="images/icon-h2l.png" alt=""/><a href="https://opena11y.github.io/h2l-side-panel/">Headings, Landmarks and Links (H2L)</a></li>
+        <li><img src="images/icon-skipto.png" alt=""/><a href="https://skipto-landmarks-headings.github.io/page-script-5/page-script.html">SkipTo.js for WCAG 2.4.1 Bypass Blocks</a></li>
+      </ul>
+
+    </contents>
+  </slide>
+
+  <slide>
     <title>Workshop Survey</title>
     <contents>
       <p style="text-align: center; font-size: 200%; margin-top: 1em; margin-bottom: 2em"><a href="https://forms.gle/sK2FyWv6hm8mXTuN9">Anonymous Workshop Survey</a></p>
