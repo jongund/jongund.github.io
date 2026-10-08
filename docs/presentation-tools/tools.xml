@@ -505,10 +505,11 @@
     <contents>
 
       <h2>Source Code</h2>
-      <p>AInspector for WCAG Evaluation is open source software. The code is available at <a href="https://github.com/opena11y/ainspector">https://github.com/opena11y/ainspector</a>.</p>
+      <p>AInspector for WCAG Evaluation is open source software.</p>
+      <p>The code is available on Github at <a href="https://github.com/opena11y/ainspector">https://github.com/opena11y/ainspector</a>.</p>
 
       <h2>Reporting an Issue</h2>
-      <p><a target="_github" href="https://github.com/opena11y/ainspector/issues">Create a github issue</a> or send me an e-mail: <a href="mailto:jongund@illinois.edu?subject=AInspector for WCAG issue">jongund@illinois.edu</a></p>
+      <p><a target="_github" href="https://github.com/opena11y/ainspector/issues">Create a github issue</a> or send me an e-mail: <a href="mailto:jongund@openweba11y.edu?subject=AInspector for WCAG issue">jongund@openweba11y.edu</a></p>
 
       <p>Ideally include a link to a page you found the problem and describe how I can replicate the issue.</p>
 
@@ -532,7 +533,7 @@
   </slide>
 
   <slide>
-    <title>Headings, Landmarks and Links (H2L) 2.0 Browser Extension</title>
+    <title>Headings, Landmarks and Links (H2L) 2.0</title>
     <contents>
 
       <h2>New Features in 2.0</h2>
@@ -545,10 +546,10 @@
 
       <h2>Get H2L Extension</h2>
       <ul>
-        <li><a href="https://chromewebstore.google.com/detail/toc-headings-landmarks-an/eoadlbcfkolkpigecddbdlbneekefkfa">Google Chrome</a></li>
-        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/headings-landmarks-links/">Mozilla Firefox</a></li>
-        <li><a href="https://microsoftedge.microsoft.com/addons/detail/headings-landmarks-and-l/hhkaebffaohpcamjeogijpokkilabhcl">Microsoft Edge</a></li>
-        <li><a href="https://addons.opera.com/en/extensions/details/headings-landmarks-and-links/">Opera</a> (<a href="https://opena11y.github.io/h2l-side-panel/">Self-hosted version of Opera version</a> is available until latest is available in store)</li>
+        <li><a href="https://chromewebstore.google.com/detail/toc-headings-landmarks-an/eoadlbcfkolkpigecddbdlbneekefkfa">H2L for Chrome</a></li>
+        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/headings-landmarks-links/">H2L for Firefox</a></li>
+        <li><a href="https://microsoftedge.microsoft.com/addons/detail/headings-landmarks-and-l/hhkaebffaohpcamjeogijpokkilabhcl">H2L for Edge</a></li>
+        <li><a href="https://addons.opera.com/en/extensions/details/headings-landmarks-and-links/">H2L for Opera</a> (<a href="https://opena11y.github.io/h2l-side-panel/">Self-hosted version of Opera version</a> is available until latest is available in store)</li>
       </ul>
 
     </contents>
@@ -665,10 +666,11 @@
     <contents>
 
       <h2>Source Code</h2>
-      <p>Headings, Landmarks and links is open source software. The code is available at <a href="https://github.com/opena11y/h2l-side-panel/">https://github.com/opena11y/h2l-side-panel/</a>.</p>
+      <p>Headings, Landmarks and links is open source software.</p>
+      <p>The code is available on Github at <a href="https://github.com/opena11y/h2l-side-panel/">https://github.com/opena11y/h2l-side-panel/</a>.</p>
 
       <h2>Reporting an Issue</h2>
-      <p><a target="_github" href="https://github.com/opena11y/h2l-side-panel/issues/">Create a github issue</a> or send me an e-mail: <a href="mailto:jongund@illinois.edu?subject=AInspector for WCAG issue">jongund@illinois.edu</a></p>
+      <p><a target="_github" href="https://github.com/opena11y/h2l-side-panel/issues/">Create a github issue</a> or send me an e-mail: <a href="mailto:jongund@openweba11y.edu?subject=AInspector for WCAG issue">jongund@openweba11y.edu</a></p>
 
       <p>Ideally include a link to a page you found the problem and describe how I can replicate the issue.</p>
 
@@ -900,10 +902,10 @@
     <title>Goals of SkipTo.js script and browser extensions</title>
     <contents>
       <ul>
-        <li>Improve keyboard accessibility to web page content by giving all users the header and landmark navigation features available in screen readers.</li>
-        <li>Allow authors to identify more than one important navigational point within web resources.</li>
-        <li>Simplify and improve the reliability of implementing the WCAG 2.4.1 Bypass Blocks of Content requirement.</li>
-        <li>Increase the awareness of header and landmark region information on web pages to promote a better understanding of functional accessibility.</li>
+        <li><em><strong>Improve keyboard accessibility</strong></em> to web page content by giving all users the header and landmark navigation features available in screen readers.</li>
+        <li>Allow authors to <em><strong>identify more than one</strong></em> important navigational point within web resources.</li>
+        <li>Simplify and improve the <em><strong>reliability</strong></em> of implementing the WCAG 2.4.1 Bypass Blocks of Content requirement.</li>
+        <li><em><strong>Increase the awareness</strong></em> of header and landmark region information on web pages to promote a better understanding of functional accessibility.</li>
       </ul>
     </contents>
   </slide>
@@ -1059,7 +1061,7 @@
             <li><a href="https://github.com/opena11y/ainspector/issues">Issues for AInspector for WCAG Evaluation</a></li>
             <li><a href="https://github.com/opena11y/h2l-side-panel/issues">Issues for Headings, Landmarks and Links</a></li>
             <li><a href="https://github.com/skipto-landmarks-headings/page-script-5/issues">Issues for SkipTo.js</a></li>
-            <li>or <a href="mailto:jongund@illinois.edu">E-mail Jon Gunderson</a> at: jongund@illinois.edu</li>
+            <li>or <a href="mailto:jongund@openweba11y.com">E-mail Jon Gunderson</a> at: jongund@openweba11y.com</li>
           </ul>
         </li>
         <li>Consider giving the tools a rating in the web stores, especially Chrome Web Store.</li>

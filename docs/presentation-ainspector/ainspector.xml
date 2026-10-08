@@ -3,7 +3,7 @@
 <?xm-well_formed path="funct.dtd"?>
 <slides>
   <lang>en</lang>
-  <title>AInspector Sidebar browser extension for WCAG evaluation</title>
+  <title>AInspector for WCAG Evaluation</title>
   <logo>
     <a href="https://openweba11y.com" aria-label="Open Web Accessibility">
       <span class="brand"><span class="open">Open</span><span class="web">Web</span><span class="a11y">A11y</span></span>
@@ -36,7 +36,7 @@
         font-weight: bold;
       }
     </style>
-    <title>AInspector Sidebar browser extension for WCAG evaluation</title>
+    <title>AInspector Sidebar WCAG Evaluation</title>
     <contents>
 
     <div class="person">
@@ -57,8 +57,21 @@
     <title>Browser Extensions</title>
     <contents>
       <ul>
-        <li><a href="https://ainspector.disability.illinois.edu/">AInspector for WCAG Evaluation 4.0 </a></li>
-        <li><a href="https://opena11y.github.io/h2l-side-panel/">Headings, Landmarks and Links 1.1</a></li>
+       <li>
+           <a href="https://chromewebstore.google.com/detail/ainspector-for-wcag-evalu/dhllbiaionalkdpankidadkoaaenenie">AInspector WCAG for Chrome</a>
+        </li>
+
+        <li>
+           <a href="https://microsoftedge.microsoft.com/addons/detail/ainspector-for-wcag-evalu/enilnlbjbmnfleppphmbodnhkecoddhg">AInspector WCAG for Edge</a>
+        </li>
+
+        <li>
+           <a href="https://addons.mozilla.org/en-US/firefox/addon/ainspector-wcag/">AInspector WCAG for Firefox</a>
+        </li>
+
+        <li>
+           Submitted to Opera Add-ons for review, but is available as a self-hosted version on <a href="https://opena11y.github.io/ainspector/">documentation website</a>.
+        </li>
       </ul>
     </contents>
   </slide>
@@ -77,13 +90,13 @@
   </slide>
 
   <slide>
-    <title>AInspector for WCAG Evaluation 4.0</title>
+    <title>AInspector for WCAG Evaluation 4.1</title>
     <contents>
 
-      <h2>Version 4.0</h2>
+      <h2>Version 4.1</h2>
       <ul>
         <li>New support for Chrome web browser (Note: Edge and Opera support coming soon).</li>
-        <li>Updated to use <a href="https://opena11y.github.io/evaluation-library/index.html">OpenA11y Evaluation Library 2.0.6</a></li>
+        <li>Updated to use <a href="https://opena11y.github.io/evaluation-library/index.html">OpenA11y Evaluation Library 2.2.2</a></li>
         <li>Updated JSON and CSV export formats to improve consistency.</li>
         <li>Improved highlighting of page and element results.</li>
       </ul>
@@ -99,7 +112,7 @@
   </slide>
 
   <slide>
-    <title>OpenA11y Evaluation Library 2.0 and Web Standards</title>
+    <title>OpenA11y Evaluation Library 2.2 and Web Standards</title>
     <contents>
 
       <ul>
