@@ -206,7 +206,10 @@ footer a:visited {
 .title {
   font-style: italic;
   font-size: 1.2em;
-  margin-bottom: 1em;
+}
+
+.linkedin {
+  font-size: 1.2em;
 }
 
 .icon img {
