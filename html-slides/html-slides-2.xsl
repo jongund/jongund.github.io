@@ -506,6 +506,32 @@
           <xsl:value-of select="./name"/>
         </xsl:element>
       </xsl:if>
+      <xsl:if test="./title">
+        <xsl:element name="div">
+          <xsl:attribute name="class">title</xsl:attribute>
+          <xsl:value-of select="./title"/>
+        </xsl:element>
+      </xsl:if>
+      <xsl:if test="./email">
+        <xsl:element name="div">
+          <xsl:attribute name="class">email</xsl:attribute>
+          E-mail:
+          <xsl:element name="a">
+            <xsl:attribute name="href"><xsl:value-of select="./email"/></xsl:attribute>
+            <xsl:value-of select="./email"/>
+          </xsl:element>
+        </xsl:element>
+      </xsl:if>
+      <xsl:if test="./www">
+        <xsl:element name="div">
+          <xsl:attribute name="class">email</xsl:attribute>
+          WWW:
+          <xsl:element name="a">
+            <xsl:attribute name="href"><xsl:value-of select="./www/@href"/></xsl:attribute>
+            <xsl:value-of select="./www"/>
+          </xsl:element>
+        </xsl:element>
+      </xsl:if>
       <xsl:for-each select="./desc">
         <xsl:call-template name="desc">
         </xsl:call-template>
