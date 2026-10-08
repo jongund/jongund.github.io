@@ -42,7 +42,28 @@
     <title>Open-Source Web Accessibility Tools</title>
     <contents>
 
-    <div class="show-slide-url"></div>
+      <div class="contact">
+        <div class="name">Jon Gunderson, Ph.D., CPWA</div>
+        <div class="title">Accessibility Advocate and Educator</div>
+        <div>WWW:
+          <a href="http://openweba11y.com">
+            Open Web Accessibility Services
+          </a>
+        </div>
+        <div>E-mail:
+          <a href="mailto:jongund@openweba11y.com">
+            jongund@openweba11y.com
+          </a>
+        </div>
+        <div>
+          <a href="https://www.linkedin.com/in/jon-gunderson-4b0b441/">
+            Linkedin Profile
+          </a>
+        </div>
+      </div>
+
+
+      <div class="show-slide-url"></div>
 
     </contents>
   </slide>
