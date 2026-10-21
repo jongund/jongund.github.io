@@ -1,4 +1,4 @@
-    export const macos_apple_safari_default = {
+export const macos_apple_safari_default = {
   "browser": "Apple Safari",
   "os": "MacOS",
   "theme": "default",
@@ -274,6 +274,37 @@ export const windows_google_chrome_win11_aquatic = {
 }
 
 
+export const windows_google_chrome_win11_custom = {
+  "browser": "Google Chrome",
+  "os": "Windows",
+  "theme": "win11-custom",
+  "year": 2026,
+  "month": 9,
+  "monthAbbr": "Oct",
+  "system_colors": {
+    "Accent Color": "#000000",
+    "Accent Color Text": "#000000",
+    "Active Text": "#8080ff",
+    "Button Border": "#ffee32",
+    "Button Face": "#000000",
+    "Button Text": "#ffee32",
+    "Canvas": "#000000",
+    "Canvas Text": "#ffffff",
+    "Field": "#000000",
+    "Field Text": "#ffffff",
+    "Gray Text": "#a6a6a6",
+    "Highlight": "#d6b4fd",
+    "Highlight Text": "#2b2b2b",
+    "Link Text": "#8080ff",
+    "Mark": "#ffff00",
+    "Mark Text": "#000000",
+    "Selected Item": "#99c8ff",
+    "Selected Item Text": "#3b3b3b",
+    "Visited Text": "#8080ff"
+  }
+}
+
+
 export const windows_google_chrome_win11_desert = {
   "browser": "Google Chrome",
   "os": "Windows",
@@ -422,6 +453,37 @@ export const windows_microsoft_edge_win11_aquatic = {
     "Selected Item": "#99c8ff",
     "Selected Item Text": "#3b3b3b",
     "Visited Text": "#75e9fc"
+  }
+}
+
+
+export const windows_microsoft_edge_win11_custom = {
+  "browser": "Microsoft Edge",
+  "os": "Windows",
+  "theme": "win11-custom",
+  "year": 2026,
+  "month": 9,
+  "monthAbbr": "Oct",
+  "system_colors": {
+    "Accent Color": "#000000",
+    "Accent Color Text": "#000000",
+    "Active Text": "#8080ff",
+    "Button Border": "#ffee32",
+    "Button Face": "#000000",
+    "Button Text": "#ffee32",
+    "Canvas": "#000000",
+    "Canvas Text": "#ffffff",
+    "Field": "#000000",
+    "Field Text": "#ffffff",
+    "Gray Text": "#a6a6a6",
+    "Highlight": "#d6b4fd",
+    "Highlight Text": "#2b2b2b",
+    "Link Text": "#8080ff",
+    "Mark": "#ffff00",
+    "Mark Text": "#000000",
+    "Selected Item": "#99c8ff",
+    "Selected Item Text": "#3b3b3b",
+    "Visited Text": "#8080ff"
   }
 }
 
@@ -577,6 +639,37 @@ export const windows_mozilla_firefox_win11_aquatic = {
     "Selected Item": "#8ee3f0",
     "Selected Item Text": "#263b50",
     "Visited Text": "#90ff90"
+  }
+}
+
+
+export const windows_mozilla_firefox_win11_custom = {
+  "browser": "Mozilla Firefox",
+  "os": "Windows",
+  "theme": "win11-custom",
+  "year": 2026,
+  "month": 9,
+  "monthAbbr": "Oct",
+  "system_colors": {
+    "Accent Color": "#0060df",
+    "Accent Color Text": "#ffffff",
+    "Active Text": "#ff6666",
+    "Button Border": "#8f8f9d",
+    "Button Face": "#2b2a33",
+    "Button Text": "#fbfbfe",
+    "Canvas": "#1c1b22",
+    "Canvas Text": "#fbfbfe",
+    "Field": "#2b2a33",
+    "Field Text": "#fbfbfe",
+    "Gray Text": "#75747a",
+    "Highlight": "#b1f5ff",
+    "Highlight Text": "#ededed",
+    "Link Text": "#00cadb",
+    "Mark": "#ffff00",
+    "Mark Text": "#000000",
+    "Selected Item": "#00ddff",
+    "Selected Item Text": "#2b2a33",
+    "Visited Text": "#ffadff"
   }
 }
 

@@ -212,10 +212,37 @@
           </ul>
 
           <details style="margin-bottom: 2em;">
-            <summary>Windows 11 Contrast Theme Data</summary>
+            <summary>Windows 11 Custom Contrast Theme Data</summary>
 
-            <h3 id="win11-night-colors">Windoww 11 Night Contrast Colors</h3>
-            <table class="table data" aria-labelledby="id="win11-night-colors" style="width: 22em">
+            <h3 id="win11-custom-colors">Window 11 Custom Contrast Colors</h3>
+
+            <table class="table data"
+                   aria-labelledby="id="win11-custom-colors"
+                   style="width: 22em">
+              <thead>
+                <tr>
+                  <th style="width: 8em">Name</th>
+                  <th>Color</th>
+                </tr>
+              </thead>
+              <tbody id="win11-custom-contrast">
+              </tbody>
+            </table>
+
+            <section id="win11-custom-theme-comparisons" class="data">
+            </section>
+
+          </details>
+
+
+          <details style="margin-bottom: 2em;">
+            <summary>Windows 11 Night Contrast Theme Data</summary>
+
+            <h3 id="win11-night-colors">Window 11 Night Contrast Colors</h3>
+
+            <table class="table data"
+                   aria-labelledby="id="win11-night-colors"
+                   style="width: 22em">
               <thead>
                 <tr>
                   <th style="width: 8em">Name</th>
@@ -226,13 +253,11 @@
               </tbody>
             </table>
 
-            <section id="firefox-comparisons" class="data">
+            <section id="win11-night-theme-comparisons" class="data">
             </section>
+
           </details>
 
-            <section id="win11-theme-comparisons" class="data">
-            </section>
-          </details>
 
             <hr/>
             <h2 style="margin-top: 2em">Current Computed System Colors</h2>
@@ -256,6 +281,7 @@
                   <option value="win11-desert">Windows 11 Desert Theme</option>
                   <option value="win11-dusk">Windows 11 Dusk Theme</option>
                   <option value="win11-night">Windows 11 Night Theme</option>
+                  <option value="win11-custom">Windows 11 Custom Theme</option>
                 </select>
               </li>
             </ul>

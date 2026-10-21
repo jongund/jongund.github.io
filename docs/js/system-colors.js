@@ -15,16 +15,19 @@ import {
   windows_google_chrome_win11_desert,
   windows_google_chrome_win11_dusk,
   windows_google_chrome_win11_night,
+  windows_google_chrome_win11_custom,
   windows_microsoft_edge_default,
   windows_microsoft_edge_win11_aquatic,
   windows_microsoft_edge_win11_dusk,
   windows_microsoft_edge_win11_night,
+  windows_microsoft_edge_win11_custom,
   windows_mozilla_firefox_default,
   windows_mozilla_firefox_firefox_contrast,
   windows_mozilla_firefox_win11_aquatic,
   windows_mozilla_firefox_win11_desert,
   windows_mozilla_firefox_win11_dusk,
   windows_mozilla_firefox_win11_night,
+  windows_mozilla_firefox_win11_custom,
 } from '../system-color-data/system-color-info.js';
 
 import {
@@ -47,6 +50,17 @@ const win11NightContrast = [
   { name: 'Selected Background', color: '#d6b4fd' },
   { name: 'Selected Text',       color: '#2b2b2b' },
   { name: 'Button Background',   color: '#000000' },
+  { name: 'Button Text',         color: '#ffee32' },
+];
+
+const win11CustomContrast = [
+  { name: 'Background',          color: '#222222' },
+  { name: 'Text',                color: '#dddddd' },
+  { name: 'Hyperlink',           color: '#8080ff' },
+  { name: 'Inactive Text',       color: '#a6a6a6' },
+  { name: 'Selected Background', color: '#d6b4fd' },
+  { name: 'Selected Text',       color: '#333333' },
+  { name: 'Button Background',   color: '#111111' },
   { name: 'Button Text',         color: '#ffee32' },
 ];
 
@@ -457,15 +471,17 @@ function updateFirefoxWebsiteContrast() {
 }
 
 /*
- * @function updateWin11NightContrast
+ * @function updateWin11Contrast
  *
  * @desc  Updates the colors used in Windows 11 Night Contrast theme tests
  */
 
-function updateWin11NightContrast() {
-  const tbodyNode = document.getElementById('win11-night-contrast');
+function updateWin11Contrast(id, win11Contrast) {
+  const tbodyNode = document.getElementById(id);
 
-  win11NightContrast.forEach((v) => {
+  console.log(`[tbodyNode]: ${tbodyNode}  [id]: ${id}  [win11Contrast]: ${win11Contrast}`)
+
+  win11Contrast.forEach((v) => {
 
     // Computed System System Color Table
     const tr = document.createElement('tr');
@@ -634,7 +650,37 @@ const firefoxComparisons = [
   }
 ];
 
-const win11ThemeComparisons = [
+const win11CustomThemeComparisons = [
+  {
+    id: 'win11-custom-contrast-theme-edge',
+    title: 'Windows 11 Custom Contrast Theme Microsoft Edge',
+    desc: 'Comparing Windows 11 custom contrast theme for Microsoft Edge',
+    colors: [
+      windows_microsoft_edge_default,
+      windows_microsoft_edge_win11_custom
+    ]
+  },
+  {
+    id: 'win11-custom-contrast-theme-chrome',
+    title: 'Windows 11 Custom Contrast Theme Google Chrome',
+    desc: 'Comparing Windows 11 custom contrast theme for Google Chrome',
+    colors: [
+      windows_google_chrome_default,
+      windows_google_chrome_win11_custom
+    ]
+  },
+  {
+    id: 'win11-custom-contrast-theme-firefox',
+    title: 'Windows 11 Custom Contrast Theme Mozilla Firefox',
+    desc: 'Comparing Windows 11 custom contrast theme for Mozilla Firefox',
+    colors: [
+      windows_mozilla_firefox_default,
+      windows_mozilla_firefox_win11_custom
+    ]
+  }
+];
+
+const win11NightThemeComparisons = [
   {
     id: 'win11-night-contrast-theme-edge',
     title: 'Windows 11 Night Contrast Theme Microsoft Edge',
@@ -664,10 +710,15 @@ const win11ThemeComparisons = [
   }
 ];
 
+const win11ContrastThemes = [
+
+]
+
 const colorComparisons = [
   { id: 'default-comparisons', data: defaultComparisons, prop: 'browser'},
   { id: 'firefox-comparisons', data: firefoxComparisons, prop: 'theme', namedColors : firefoxWebsiteContrast},
-  { id: 'win11-theme-comparisons', data: win11ThemeComparisons, prop: 'theme', namedColors: win11NightContrast}
+  { id: 'win11-custom-theme-comparisons', data: win11CustomThemeComparisons, prop: 'theme', namedColors: win11CustomContrast},
+  { id: 'win11-night-theme-comparisons',  data: win11NightThemeComparisons,  prop: 'theme', namedColors: win11NightContrast}
 ]
 
 function createColorComparisons () {
@@ -769,7 +820,8 @@ function createColorComparisons () {
 window.addEventListener('load', () => {
     updateFirefoxWebsiteContrast();
     updateComputedSystemColors();
-    updateWin11NightContrast();
+    updateWin11Contrast('win11-custom-contrast', win11CustomContrast);
+    updateWin11Contrast('win11-night-contrast', win11NightContrast);
     createColorComparisons();
     updateExportContent();
 });
