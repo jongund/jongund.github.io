@@ -452,10 +452,10 @@ function colorImageCellAccName(valueNode, name) {
  * @desc  Updates the colors used in Firefox Website Contrast tests
  */
 
-function updateFirefoxWebsiteContrast() {
+function updateFirefoxWebsiteContrast(ffContrast) {
   const tbodyNode = document.getElementById('firefox-website-contrast');
 
-  firefoxWebsiteContrast.forEach((v) => {
+  ffContrast.forEach((v) => {
 
     // Computed System System Color Table
     const tr = document.createElement('tr');
@@ -503,10 +503,10 @@ function updateWin11Contrast(id, win11Contrast) {
  * @desc  Updates the computed system color table
  */
 
-function updateComputedSystemColors() {
+function updateComputedSystemColors(colorValues) {
   const tbodyNode = document.getElementById('system-colors');
 
-  systemColorValues.forEach((v) => {
+  colorValues.forEach((v) => {
 
     // Computed System System Color Table
     const tr = document.createElement('tr');
@@ -710,10 +710,6 @@ const win11NightThemeComparisons = [
   }
 ];
 
-const win11ContrastThemes = [
-
-]
-
 const colorComparisons = [
   { id: 'default-comparisons', data: defaultComparisons, prop: 'browser'},
   { id: 'firefox-comparisons', data: firefoxComparisons, prop: 'theme', namedColors : firefoxWebsiteContrast},
@@ -721,9 +717,9 @@ const colorComparisons = [
   { id: 'win11-night-theme-comparisons',  data: win11NightThemeComparisons,  prop: 'theme', namedColors: win11NightContrast}
 ]
 
-function createColorComparisons () {
+function createColorComparisons (colorComps) {
 
-  colorComparisons.forEach( (cc) => {
+  colorComps.forEach( (cc) => {
     const sectionNode = document.getElementById(cc.id);
     const namedColors = cc.namedColors;
 
@@ -818,11 +814,11 @@ function createColorComparisons () {
 }
 
 window.addEventListener('load', () => {
-    updateFirefoxWebsiteContrast();
-    updateComputedSystemColors();
+    updateFirefoxWebsiteContrast(firefoxWebsiteContrast);
+    updateComputedSystemColors(systemColorValues);
     updateWin11Contrast('win11-custom-contrast', win11CustomContrast);
     updateWin11Contrast('win11-night-contrast', win11NightContrast);
-    createColorComparisons();
+    createColorComparisons(colorComparisons);
     updateExportContent();
 });
 

@@ -1,5 +1,11 @@
 /* system-colors.css */
 
+table.data {
+  margin: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 table.data caption {
   margin: 0;
   padding: 0;
@@ -11,6 +17,10 @@ table.data caption {
 
 table.data thead th.exampleLink {
   vertical-align: bottom;
+}
+
+table.data tr:nth-child(even) {
+  background: light-dark(var(--dataBackground), var(--dataBackgroundDark));
 }
 
 table.data img {
