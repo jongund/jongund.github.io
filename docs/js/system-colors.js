@@ -399,6 +399,7 @@ function dataCell(text, style, abbrev) {
     return td;
 }
 
+
 /*
  * @function colorCell
  *
@@ -729,7 +730,7 @@ function createColorComparisons (colorComps) {
           return namedColors[i].name;
         }
       }
-      return 'Computed';
+      return '';
     }
 
     cc.data.forEach( (d) => {
@@ -801,9 +802,12 @@ function createColorComparisons (colorComps) {
         }
 
         if (namedColors) {
+          const namedColor = getNamedColor(lastColor);
           const namedColorCell = uniqueCount > 1 ?
-                                 dataCell(getNamedColor(lastColor), '') :
-                                 dataCell('-', '', 'none');
+                                   namedColor ?
+                                     dataCell(namedColor, 'matched') :
+                                     dataCell('Computed', 'computed') :
+                                   dataCell('-', '', 'none');
           tr.appendChild(namedColorCell);
         }
 
